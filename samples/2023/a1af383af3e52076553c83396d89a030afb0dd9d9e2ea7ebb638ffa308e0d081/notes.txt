@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Spy.Win32.Xegumumune.lgj-a1af383af3e52076553c83396d89a030afb0dd9d9e2ea7ebb638ffa308e0d081
+MD5: 33191b20c39f2784e8cf4fbd5b8b659b
+Year: 2023
+Family name: xegumumune
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ 21F9
+* [API ] LoadResource    @ 2204
+* [API ] CreateFileW     @ 2239
+* [API ] WriteFile       @ 225B
+* [API ] ShellExecuteExW @ B70F
+* [API ] ShellExecuteW   @ B7E8
+* [API ] FindResourceA   @ 25AC
+* [API ] LoadResource    @ 25B7
+* [API ] CreateFileW     @ 25E8
+* [API ] WriteFile       @ 2605
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID              @ 88F8    Retarget    Missing
+* [API ] CreateFileW        @ 2239    Retarget    Detect It Easy.lnk
+* [API ] CreateFileW        @ 25E8    Retarget    ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ B418    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 2149    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 250D    Nothing
+* [API ] GetModuleFileNameW @ 9BFD    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ B5D3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ B8A2    Nothing
+* [API ] GetModuleFileNameW @ B973    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ BA9E    Nothing
+* [API ] Process32Next      @ BAC7    Retarget
+* [API ] RegOpenKeyExA      @ 01A8    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 01DA    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ B719    Nothing
+
+[Manual annotations]
+====================

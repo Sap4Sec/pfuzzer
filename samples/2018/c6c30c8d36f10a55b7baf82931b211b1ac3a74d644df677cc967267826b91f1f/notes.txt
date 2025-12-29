@@ -1,0 +1,76 @@
+[Basic information]
+=========================================================================
+SHA-256: c6c30c8d36f10a55b7baf82931b211b1ac3a74d644df677cc967267826b91f1f
+MD5: 69f83c51d73b3a16fe69a1ef60dc8ea2
+Year: 2018
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ 693A
+* [API ] CreateFileW      @ 1401
+* [API ] NtCreateFile     @ 605F
+* [API ] FindResourceExW  @ C195
+* [API ] LoadResource     @ C1AF
+* [API ] FindResourceExW  @ C1EA
+* [API ] LoadResource     @ C20F
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile     @ 622E
+* [API ] FindResourceExW  @ 93B1
+* [API ] LoadResource     @ 93CB
+* [API ] FindResourceExW  @ 9406
+* [API ] LoadResource     @ 942B
+* [API ] NtCreateFile     @ 3763
+* [API ] FindResourceExW  @ C8A8
+* [API ] LoadResource     @ C8C2
+* [API ] FindResourceExW  @ C8FD
+* [API ] LoadResource     @ C922
+* [API ] NtCreateFile     @ 2FCB
+* [API ] FindResourceExW  @ 00B2
+* [API ] LoadResource     @ 00CC
+* [API ] FindResourceExW  @ 0107
+* [API ] LoadResource     @ 012C
+* [API ] InternetOpenA    @ 3014
+* [API ] InternetConnectA @ 31E0
+* [API ] HttpOpenRequestA @ 3405
+* [API ] HttpSendRequestA @ 3871
+* [API ] InternetReadFile @ 3A06
+* [API ] NtCreateFile     @ BE5D
+* [API ] FindResourceExW  @ CF54
+* [API ] LoadResource     @ CF6E
+* [API ] FindResourceExW  @ CFA9
+* [API ] LoadResource     @ CFCE
+* [API ] NtCreateFile     @ 22F1
+* [API ] FindResourceExW  @ 83D9
+* [API ] LoadResource     @ 83F3
+* [API ] FindResourceExW  @ 842E
+* [API ] LoadResource     @ 8453
+* [API ] NtCreateFile     @ E6F9
+* [API ] FindResourceExW  @ F84E
+* [API ] LoadResource     @ F868
+* [API ] FindResourceExW  @ F8A3
+* [API ] LoadResource     @ F8C8
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ 6131    Nothing
+* [API ] CreateFileW        @ 1401    Succeed     Not modified
+* [API ] CreateFileW        @ 693A    Retarget    C:\Windows\system32\
+* [API ] FindWindowExA      @ 2777    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] FindWindowExA      @ 2859    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetModuleFileNameW @ 68CD    Nothing
+* [API ] GetWindowTextA     @ 2533    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] NtCreateFile       @ 2B11    Fail        Not modified
+* [API ] NtCreateFile       @ 605F    Succeed     Not modified
+* [API ] NtOpenKey          @ 8944    Retarget    \REGISTRY\MACHINE\HARDWARE\KEY\PFUZZER
+* [API ] TimeQueryAPIs      @ F32D    Retarget
+
+[Manual annotations]
+====================

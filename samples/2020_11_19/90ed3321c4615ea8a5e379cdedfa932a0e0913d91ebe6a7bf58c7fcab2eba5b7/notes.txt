@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: 90ed3321c4615ea8a5e379cdedfa932a0e0913d91ebe6a7bf58c7fcab2eba5b7
+MD5: b0d6e09d04af4a0deac4acd91272550e
+Year: 2020_11_19
+Family name: conjar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 5BD5
+* [API ] WriteFile       @ 5C6A
+* [API ] SetFileTime     @ 18C1
+* [API ] ShellExecuteExA @ 5707
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 5BD5    Succeed
+* [API ] FindFirstFileA     @ 5887    Fail
+* [API ] FindFirstFileA     @ 6324    Fail
+* [API ] FindNextFileA      @ 5934    Retarget
+* [API ] GetFileAttributesA @ 1613    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesA @ 5AFF    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesA @ 5B8F    Succeed
+* [API ] GetFileAttributesA @ 5BB3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 2DF7    Nothing
+* [API ] TimeQueryAPIs      @ 5BF2    Retarget
+
+[Manual annotations]
+====================

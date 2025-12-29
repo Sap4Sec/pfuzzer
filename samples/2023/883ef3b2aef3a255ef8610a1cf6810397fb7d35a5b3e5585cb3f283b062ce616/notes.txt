@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Lumma.h-883ef3b2aef3a255ef8610a1cf6810397fb7d35a5b3e5585cb3f283b062ce616
+MD5: d3dd38f9bf213dea97f89e287d59fe3b
+Year: 2023
+Family name: lumma
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 3F32
+* [API ] FindResourceW  @ FDC7
+* [API ] LoadResource   @ FDEC
+* [API ] WriteFile      @ 4058
+* [API ] CreateProcessW @ FB65
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ 5AE7    Nothing
+* [API ] CreateFileW        @ 3F32    Succeed     Not modified
+* [API ] FindFirstFileW     @ AF2C    Nothing
+* [API ] GetFileAttributesW @ 2A72    Succeed
+* [API ] GetLocalTime       @ C3AD    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameW @ 2CDA    Nothing
+* [API ] GetModuleFileNameW @ 9FCB    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ AB56    Nothing
+* [API ] GetModuleFileNameW @ B275    Nothing
+* [API ] GetSystemInfo      @ CAAD    Nothing
+* [API ] GetSystemInfo      @ FCFC    Retarget    Missing
+* [API ] RegOpenKeyExW      @ AB9F    Succeed
+* [API ] RegOpenKeyExW      @ ABC1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ ABDF    Fail        Not modified
+* [API ] RegOpenKeyExW      @ ABFD    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ AC1B    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ AC39    Fail        Not modified
+* [API ] TimeQueryAPIs      @ 56D9    Nothing
+
+[Manual annotations]
+====================

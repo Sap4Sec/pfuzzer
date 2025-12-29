@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 08b7115f532d71c4900cd480db17d88f5aa0affa375426488ecf1325694543fd
+MD5: cf3d5af58122c627d96631dc296c1034
+Year: 2019_05_11
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ CF66
+* [API ] WriteFile      @ 2F3E
+* [API ] CreateProcessA @ 6BBD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (132)]
+=======================================
+
+* [API ] CPUID              @ 1AB7    Nothing
+* [API ] CreateFileW        @ CF66    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateMutexA       @ 7076    Retarget    VBoxTray
+* [API ] CreateMutexA       @ 70A6    Fail
+* [API ] GetModuleFileNameA @ 4724    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 6B25    Nothing
+* [API ] Process32First     @ 8280    Nothing
+* [API ] Process32First     @ 83B3    Nothing
+* [API ] Process32Next      @ 829F    Retarget
+* [API ] Process32Next      @ 8319    Retarget
+* [API ] Process32Next      @ 83CA    Retarget
+* [API ] Process32Next      @ 849E    Retarget
+* [API ] TimeDelayAPIs      @ 6363    Retarget
+* [API ] TimeQueryAPIs      @ 885D    Retarget
+
+[Manual annotations]
+====================

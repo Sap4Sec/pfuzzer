@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 2e59b2c583685ea874b84874b1f6515d73d7c5f0766b4aa0693187d5c2d244ad
+MD5: 1804f16563130338c2a6e326435ebf3b
+Year: 2019_05_11
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

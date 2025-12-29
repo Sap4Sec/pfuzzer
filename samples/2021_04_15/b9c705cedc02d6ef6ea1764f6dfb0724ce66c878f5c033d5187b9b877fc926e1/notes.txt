@@ -1,0 +1,73 @@
+[Basic information]
+=========================================================================
+SHA-256: b9c705cedc02d6ef6ea1764f6dfb0724ce66c878f5c033d5187b9b877fc926e1
+MD5: 7ac92fbde4e92a6bbc937802c77e33c5
+Year: 2021_04_15
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 5A10
+* [API ] LoadResource       @ 5A2C
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 7FBB
+* [API ] CreateFileA        @ 7FF7
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 861A
+* [API ] RegCreateKeyA      @ 645B
+* [API ] RegSetValueExA     @ 6483
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 8192
+* [API ] RegSetValueExA     @ 81E6
+* [API ] CreateFileA        @ 657F
+* [API ] WriteFile          @ 65AD
+* [API ] CreateFileA        @ 6A19
+* [API ] CreateProcessA     @ 9245
+* [API ] VirtualAllocEx     @ 5723
+* [API ] VirtualAllocEx     @ 4DC5
+* [API ] WriteProcessMemory @ 4DE7
+* [API ] VirtualAllocEx     @ 4E2F
+* [API ] WriteProcessMemory @ 4E3B
+* [API ] CreateRemoteThread @ 4E87
+* [API ] WriteProcessMemory @ 5765
+* [API ] CreateProcessA     @ 9330
+* [API ] CopyFileA          @ 866F
+
+[Mutations applied in the best run (76)]
+=======================================
+
+* [API ] CreateFileA        @ 657F    Fail
+* [API ] CreateFileA        @ 6A19    Retarget    Backup.txt
+* [API ] CreateFileA        @ 7FBB    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileA        @ 7FF7    Fail        Not modified
+* [API ] CreateMutexA       @ 4B9B    Fail
+* [API ] FindFirstFileA     @ 6502    Retarget    C:\Users\Student\*
+* [API ] FindWindowA        @ 92CD    Fail
+* [API ] GetFileAttributesA @ 61DC    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesA @ 6CE0    Succeed
+* [API ] GetModuleFileNameA @ 2B0C    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetUserNameA       @ 700E    Retarget    Office
+* [API ] GetUserNameA       @ 70B2    Retarget    Office
+* [API ] GetUserNameA       @ 7D30    Nothing
+* [API ] Process32Next      @ 5FF7    Retarget
+* [API ] RegOpenKeyExA      @ 68A6    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 7AD9    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 7B91    Fail
+* [API ] RegOpenKeyExA      @ 7C49    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 827F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 68CA    Nothing
+* [API ] RegQueryValueExA   @ 68F4    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 7B02    Nothing
+* [API ] RegQueryValueExA   @ 7BBA    Nothing
+* [API ] RegQueryValueExA   @ 7C72    Nothing
+* [API ] TimeDelayAPIs      @ 5086    Retarget
+* [API ] TimeQueryAPIs      @ 6E85    Retarget
+
+[Manual annotations]
+====================

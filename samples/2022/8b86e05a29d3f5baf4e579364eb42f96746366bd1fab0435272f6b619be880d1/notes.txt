@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Worm.Win32.Pluto.gen-8b86e05a29d3f5baf4e579364eb42f96746366bd1fab0435272f6b619be880d1
+MD5: 2498f9b4cd0f0a5335f88fe6b5620671
+Year: 2022
+Family name: pluto
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ F049
+* [API ] FindResourceA   @ 17B4
+* [API ] LoadResource    @ 17CE
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 2379
+* [API ] CreateFileA     @ 5A10
+* [API ] WriteFile       @ 5669
+* [API ] RegCreateKeyExA @ 10E1
+* [API ] RegSetValueExA  @ 1429
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateMutexA       @ 5E17    Succeed
+* [API ] GetKeyboardLayout  @ D13F    Nothing
+* [API ] GetModuleFileNameA @ 28AE    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 4EF1    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 63E8    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ DC75    Retarget    C:\Windows\explorer.exe
+* [API ] GetSystemTime      @ 28F7    Nothing
+* [API ] Process32First     @ 04FB    Nothing
+* [API ] Process32Next      @ 051B    Retarget
+* [API ] RegEnumKeyExA      @ 1231    Retarget    Office
+* [API ] RegOpenKeyExA      @ 10AC    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 15B5    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 4F0F    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 4F2D    Fail        Not modified
+* [API ] TimeDelayAPIs      @ 5E21    Retarget
+* [API ] TimeQueryAPIs      @ FD58    Retarget
+
+[Manual annotations]
+====================

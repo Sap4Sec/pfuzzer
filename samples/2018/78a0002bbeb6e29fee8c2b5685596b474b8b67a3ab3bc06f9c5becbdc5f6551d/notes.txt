@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: 78a0002bbeb6e29fee8c2b5685596b474b8b67a3ab3bc06f9c5becbdc5f6551d
+MD5: ce25c2b061589798905541fafd9e9e69
+Year: 2018
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 92C3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 92C3    Succeed
+* [API ] CreateMutexA       @ 077A    Retarget    vscode
+* [API ] GetModuleFileNameA @ 41E7    Retarget    C:\ProgramData\VMWareUser.exe
+
+[Manual annotations]
+====================
+Other dependencies: Hardcoded data

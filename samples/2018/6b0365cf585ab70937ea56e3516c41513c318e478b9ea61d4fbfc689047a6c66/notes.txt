@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: 6b0365cf585ab70937ea56e3516c41513c318e478b9ea61d4fbfc689047a6c66
+MD5: 9e691dcdb3afadbac1b6b0713244730a
+Year: 2018
+Family name: SINGLETON:9e691dcdb3afadbac1b6b0713244730a
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ DC3F
+* [API ] CreateFileW          @ A865
+* [API ] NtCreateFile         @ 8B45
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile         @ D020
+* [API ] FindResourceExW      @ 7676
+* [API ] LoadResource         @ 7690
+* [API ] FindResourceExW      @ 76CB
+* [API ] LoadResource         @ 76F0
+* [API ] FindResourceExW      @ 771C
+* [API ] NtCreateFile         @ 690A
+* [API ] NtCreateFile         @ 0CC8
+* [API ] FindResourceExW      @ 934D
+* [API ] LoadResource         @ 9367
+* [API ] FindResourceExW      @ 93A2
+* [API ] LoadResource         @ 93C7
+* [API ] FindResourceExW      @ 93F3
+* [API ] CryptAcquireContextA @ 0E39
+* [API ] NtCreateFile         @ B746
+* [API ] NtCreateFile         @ 6CEF
+* [API ] NtCreateFile         @ 1852
+* [API ] NtCreateFile         @ 36AC
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID         @ D8C5    Retarget    Missing
+* [API ] CreateFileW   @ A865    Succeed     Not modified
+* [API ] CreateFileW   @ DC3F    Fail
+* [API ] NtCreateFile  @ 8B45    Succeed     Not modified
+* [API ] TimeQueryAPIs @ D7B6    Nothing
+
+[Manual annotations]
+====================

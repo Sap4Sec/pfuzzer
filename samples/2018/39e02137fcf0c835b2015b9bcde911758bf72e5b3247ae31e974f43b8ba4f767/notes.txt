@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: 39e02137fcf0c835b2015b9bcde911758bf72e5b3247ae31e974f43b8ba4f767
+MD5: 95e7495d126d25e7a4cb37d97ee99b3a
+Year: 2018
+Family name: detrahere
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW  @ 3E16
+* [API ] LoadResource   @ 3E2E
+* [API ] CreateFileW    @ 5D9D
+* [API ] WriteFile      @ 5DEB
+* [API ] CreateProcessW @ 714B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID                @ 8030    Nothing
+* [API ] CreateFileW          @ 5D9D    Fail
+* [API ] GetFileAttributesExW @ 57FC    Succeed
+* [API ] GetModuleFileNameW   @ C10F    Nothing
+* [API ] TimeQueryAPIs        @ 3A10    Retarget
+
+[Manual annotations]
+====================

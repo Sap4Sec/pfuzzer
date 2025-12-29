@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 5eff64c87d6dec16721c3e3f0cf86bcb79f548f915234dbdc7eadc7e0e740a25
+MD5: d5953eb7b8f56068cb748ee0dfdd052d
+Year: 2019_05_11
+Family name: SINGLETON:d5953eb7b8f56068cb748ee0dfdd052d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Protectors: ENIGMA(2.0 build 2011.12.6 11:1:32)

@@ -1,0 +1,88 @@
+[Basic information]
+=========================================================================
+SHA-256: 242715b0c8f64ccfd89fdc4ae4cb9780c6d514546949d80caa1e2bff7d041bcc
+MD5: 4a4eb323cbcaf9bd60266986739782dc
+Year: 2018
+Family name: installmonster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ 15F2
+* [API ] CreateFileMappingA @ 165D
+* [API ] MapViewOfFile      @ 169B
+* [API ] GetKeyboardState   @ 6DA7
+* [API ] CreateFileA        @ C0FC
+* [API ] CreateFileA        @ C12E
+* [API ] FindResourceA      @ EEC7
+* [API ] FindResourceA      @ 2A38
+* [API ] LoadResource       @ 2A52
+* [API ] CreateFileA        @ A9F3
+* [API ] CreateFileW        @ 5D58
+* [API ] WriteFile          @ 32C8
+* [API ] ShellExecuteW      @ 503F
+
+Fuzzing Findings
+----------------
+* [API ] socket             @ 6876
+* [API ] CreateThread       @ 4F2B
+* [API ] ResumeThread       @ 6345
+* [API ] connect            @ 62FE
+* [API ] send               @ 673E
+* [API ] socket             @ BF2E
+* [API ] connect            @ D5EF
+* [API ] send               @ BCD4
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID                @ 60F9    Retarget    Missing
+* [API ] CreateFileA          @ A9F3    Succeed
+* [API ] CreateFileA          @ C0FC    Succeed
+* [API ] CreateFileA          @ C12E    Succeed     Not modified
+* [API ] CreateFileW          @ 5D58    Fail        Not modified
+* [API ] CreateMutexA         @ 128A    Fail
+* [API ] DeviceIoControl      @ 5D8F    Nothing
+* [API ] FindWindowW          @ 725B    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] GetAdaptersAddresses @ 4F0B    Nothing
+* [API ] GetAdaptersInfo      @ 567E    Retarget    testuser
+* [API ] GetAdaptersInfo      @ 56A5    Nothing
+* [API ] GetDiskFreeSpaceExW  @ 5C04    Nothing
+* [API ] GetKeyboardLayout    @ CE96    Nothing
+* [API ] GetLocalTime         @ 69BD    Retarget    2015:12:6:15
+* [API ] GetLocalTime         @ D141    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameA   @ 30BC    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 6AE3    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 6D74    Nothing
+* [API ] GetModuleFileNameA   @ ADDD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA   @ E07C    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA   @ F673    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW   @ 81B1    Nothing
+* [API ] GetSystemInfo        @ 47D2    Retarget    Missing
+* [API ] GetSystemInfo        @ 5506    Nothing
+* [API ] GetSystemInfo        @ CBB3    Nothing
+* [API ] GlobalMemoryStatusEx @ 53FA    Nothing
+* [API ] Process32First       @ C597    Nothing
+* [API ] Process32FirstW      @ DE93    Nothing
+* [API ] Process32Next        @ C5B7    Retarget
+* [API ] Process32NextW       @ DF5A    Retarget
+* [API ] RegEnumKeyExA        @ 00C1    Retarget    testuser
+* [API ] RegEnumKeyExW        @ F534    Nothing
+* [API ] RegOpenKeyExA        @ 6D92    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 6DB0    Fail        Not modified
+* [API ] RegOpenKeyExA        @ 6DCE    Fail        Not modified
+* [API ] RegOpenKeyExA        @ FE99    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 05F6    Fail
+* [API ] RegOpenKeyExW        @ 655F    Fail
+* [API ] RegQueryValueExA     @ 020F    Nothing
+* [API ] RegQueryValueExA     @ 03E0    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW     @ 06F8    Nothing
+* [API ] RegQueryValueExW     @ 6603    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 11C8    Retarget
+* [API ] TimeQueryAPIs        @ 3101    Retarget
+
+[Manual annotations]
+====================

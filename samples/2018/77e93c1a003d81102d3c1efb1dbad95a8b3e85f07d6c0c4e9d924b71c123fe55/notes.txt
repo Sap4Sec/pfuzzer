@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 77e93c1a003d81102d3c1efb1dbad95a8b3e85f07d6c0c4e9d924b71c123fe55
+MD5: 7ddca85580e31ca07df0d36f260ab919
+Year: 2018
+Family name: turkojan
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExW @ DB12
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] FindFirstFileA     @ 30EB    Succeed
+* [API ] FindFirstFileA     @ CA7F    Succeed
+* [API ] FindFirstFileW     @ 754E    Succeed
+* [API ] GetKeyboardLayout  @ 8106    Nothing
+* [API ] GetModuleFileNameA @ 2F7B    Nothing
+* [API ] GetModuleFileNameA @ 31B5    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 934C    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ C90F    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ CB49    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 79BE    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExA      @ 31D3    Succeed
+* [API ] RegOpenKeyExA      @ 31F1    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 320F    Fail        Not modified
+* [API ] RegOpenKeyExA      @ CB67    Fail        Not modified
+* [API ] RegOpenKeyExA      @ CB85    Fail        Not modified
+* [API ] RegOpenKeyExA      @ CBA3    Succeed
+* [API ] RegQueryValueExA   @ 3258    Nothing
+* [API ] RegQueryValueExA   @ 3276    Retarget    ProductID
+* [API ] RegQueryValueExA   @ CBEC    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ CC0A    Nothing
+* [API ] TimeDelayAPIs      @ 32DD    Retarget
+* [API ] TimeQueryAPIs      @ 9959    Retarget
+
+[Manual annotations]
+====================
+Protectors: ENIGMA(2.60 build 2011.5.26 15:11:23)

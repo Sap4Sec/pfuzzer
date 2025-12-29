@@ -1,0 +1,88 @@
+[Basic information]
+=========================================================================
+SHA-256: 3c4926dadc29e97b2f65005849ebe07028b57cafc1c424c815c20246d52d300f
+MD5: 02e4f477cfc39332ce0cfc893f8909d5
+Year: 2021_04_15
+Family name: dlhelper
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ F93C
+* [API ] CreateFileW     @ 05E5
+* [API ] FindResourceW   @ C91F
+* [API ] FindResourceW   @ 5D94
+* [API ] LoadResource    @ 5DAE
+* [API ] WSAStartup      @ C496
+* [API ] RegCreateKeyExW @ 4B29
+* [API ] RegSetValueExW  @ 58E7
+* [API ] socket          @ DEED
+* [API ] bind            @ C7DD
+* [API ] CreateThread    @ 9E33
+* [API ] ResumeThread    @ 2A5E
+* [API ] connect         @ CA09
+* [API ] send            @ DA75
+* [API ] send            @ 943B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID                @ BD3F    Nothing
+* [API ] CreateFileW          @ 05E5    Succeed
+* [API ] CreateFileW          @ F93C    Succeed
+* [API ] CreateMutexW         @ 0A29    Succeed
+* [API ] FindFirstFileW       @ D6C4    Nothing
+* [API ] FindWindowW          @ 16A9    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowW          @ 16BB    Retarget    Window - Window
+* [API ] FindWindowW          @ 16E9    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] FindWindowW          @ 16FB    Fail
+* [API ] FindWindowW          @ 1729    Succeed
+* [API ] FindWindowW          @ 173B    Succeed
+* [API ] GetFileAttributesExW @ 0D7B    Fail
+* [API ] GetFileAttributesW   @ 3093    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetKeyboardLayout    @ 8212    Retarget    Portuguese-brazilian
+* [API ] GetLocalTime         @ 5C31    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameW   @ 6FA5    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW   @ 76DD    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW   @ 9719    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ 9BB1    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ C75F    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW   @ D2EE    Nothing
+* [API ] GetModuleFileNameW   @ D9F5    Nothing
+* [API ] GetSystemInfo        @ 3011    Retarget    Missing
+* [API ] GetSystemInfo        @ 6485    Nothing
+* [API ] GetSystemInfo        @ E2B9    Nothing
+* [API ] GetUserNameW         @ 7730    Nothing
+* [API ] GetWindowTextW       @ B2B0    Retarget    SecHealthHost - SecHealth Win
+* [API ] Process32FirstW      @ F68F    Nothing
+* [API ] Process32NextW       @ F6AF    Retarget
+* [API ] RegEnumKeyExW        @ 5061    Nothing
+* [API ] RegEnumKeyExW        @ 6A3A    Retarget    Office
+* [API ] RegEnumKeyExW        @ 87B3    Nothing
+* [API ] RegOpenKeyExW        @ 4AEF    Fail        Not modified
+* [API ] RegOpenKeyExW        @ 4C22    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ D337    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ D359    Fail        Not modified
+* [API ] RegOpenKeyExW        @ D377    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ D395    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ D3B3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ D3D1    Succeed     Not modified
+* [API ] RegOpenKeyW          @ 6A56    Fail        Not modified
+* [API ] RegOpenKeyW          @ 864E    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyW          @ 87D2    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW     @ 535A    Nothing
+* [API ] RegQueryValueExW     @ 5954    Nothing
+* [API ] RegQueryValueExW     @ D411    Nothing
+* [API ] RegQueryValueExW     @ D460    Nothing
+* [API ] TimeDelayAPIs        @ 8464    Retarget
+* [API ] TimeQueryAPIs        @ 84DE    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

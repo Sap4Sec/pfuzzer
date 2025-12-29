@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 0186816c48f06a87b15ab657303f03128f21ecbcd424dc3e4fdebd8298e3be99
+MD5: 0e0fe53bfa36edc1972fcf8374ccdcd6
+Year: 2019_11_29
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ A83F
+* [API ] CreateThread       @ A86A
+* [API ] CreateThread       @ A884
+* [API ] CreateThread       @ A89B
+* [API ] CreateProcessA     @ 9DB8
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA     @ 97BD
+* [API ] CopyFileA          @ 9D48
+* [API ] CopyFileA          @ 9D74
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA      @ 9F9D
+* [API ] InternetOpenUrlA   @ 9FC3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] GetModuleFileNameA @ 9C78    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] RegOpenKeyA        @ 979A    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs      @ A8AD    Retarget
+* [API ] TimeQueryAPIs      @ A6E6    Retarget
+
+[Manual annotations]
+====================

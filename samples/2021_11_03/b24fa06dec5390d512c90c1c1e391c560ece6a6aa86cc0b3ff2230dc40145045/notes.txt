@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: b24fa06dec5390d512c90c1c1e391c560ece6a6aa86cc0b3ff2230dc40145045
+MD5: c8f3f01de51c03639ea0605cd33b6be0
+Year: 2021_11_03
+Family name: berbew
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA          @ 7AFC
+* [API ] CreateFileA        @ 38DF
+* [API ] CreateFileA        @ 4243
+* [API ] WriteFile          @ 4258
+* [API ] CreateFileA        @ 4368
+* [API ] WriteFile          @ 43A0
+* [API ] RegCreateKeyExA    @ 446F
+* [API ] RegSetValueExA     @ 4497
+* [API ] WinExec            @ 7B2B
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 7C22
+* [API ] WriteFile          @ 7C74
+* [API ] WriteFile          @ 7C89
+* [API ] WriteFile          @ 7CC6
+* [API ] WriteFile          @ 7CDB
+* [API ] NtMapViewOfSection @ 2CA3
+* [API ] CreateThread       @ 2610
+* [API ] CreateThread       @ 7E6F
+* [API ] CreateThread       @ 7E8E
+* [API ] CreateThread       @ 5932
+* [API ] CreateFileA        @ 7121
+* [API ] CreateThread       @ 635F
+* [API ] RegCreateKeyExA    @ 4534
+* [API ] RegSetValueExA     @ 4552
+* [PERS] .DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BrowseNewProcess
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateFileA        @ 38DF    Fail        Not modified
+* [API ] CreateFileA        @ 4243    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileA        @ 4368    Fail        Not modified
+* [API ] GetModuleFileNameA @ 79F0    Retarget    C:\Windows\system32\
+* [API ] TimeQueryAPIs      @ 79D0    Retarget
+
+[Manual annotations]
+====================

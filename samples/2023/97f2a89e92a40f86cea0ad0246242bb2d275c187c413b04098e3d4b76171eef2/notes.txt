@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Penguish.gen-97f2a89e92a40f86cea0ad0246242bb2d275c187c413b04098e3d4b76171eef2
+MD5: a463d21ad724edb2113e773e524dd764
+Year: 2023
+Family name: rugmi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 22E8
+* [API ] FindResourceW     @ 1ECD
+* [API ] SetWindowsHookExW @ 215B
+* [API ] CreateFileW       @ 02DA
+* [API ] FindResourceW     @ FC46
+* [API ] LoadResource      @ FC4E
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ 2D05    Retarget    Missing
+* [API ] CreateFileA        @ 22E8    Fail        Not modified
+* [API ] CreateFileW        @ 02DA    Retarget    C:\Windows\system32\
+* [API ] GetCursorPos       @ 1BB1    Retarget    Missing
+* [API ] GetFileAttributesA @ 6E4A    Succeed
+* [API ] GetModuleFileNameW @ 1E6E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 2D0E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 93F1    Nothing
+* [API ] GetModuleFileNameW @ 94EB    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 9A4F    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 9B2E    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ CD33    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ CE7D    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegOpenKeyExW      @ 8C94    Succeed
+
+[Manual annotations]
+====================
+Other dependencies: checks command line

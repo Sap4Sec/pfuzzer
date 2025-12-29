@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 85a6d607299659a07ce9e1f3f56ceec858898ec9670e620eba7b7968ba443fd7
+MD5: 7c4a26a15af72fdb97d7d1928fb3d711
+Year: 2019_05_11
+Family name: megasearch
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ A6E5
+* [API ] CreateFileMappingA @ A70B
+* [API ] MapViewOfFile      @ A72F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User
+* [API ] CreateFileA        @ AB49
+* [API ] WriteFile          @ AC59
+* [API ] CreateProcessW     @ 49E3
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA        @ 4162
+* [API ] MoveFileExA        @ 41C3
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ ACEC    Retarget    Missing
+* [API ] CreateFileA        @ A6E5    Succeed     Not modified
+* [API ] CreateFileA        @ AB49    Succeed
+* [API ] FindFirstFileA     @ D10E    Retarget    C:\*
+* [API ] GetAdaptersInfo    @ E229    Nothing
+* [API ] GetFileAttributesA @ C914    Fail
+* [API ] GetLocalTime       @ 3F7B    Nothing
+* [API ] GetModuleFileNameA @ A66A    Nothing
+* [API ] GetModuleFileNameA @ E32E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA      @ DDF2    Succeed     Not modified
+* [API ] RegQueryValueExA   @ DE46    Nothing
+* [API ] TimeDelayAPIs      @ 4417    Retarget
+
+[Manual annotations]
+====================

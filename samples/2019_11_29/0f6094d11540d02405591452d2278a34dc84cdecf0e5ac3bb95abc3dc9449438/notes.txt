@@ -1,0 +1,59 @@
+[Basic information]
+=========================================================================
+SHA-256: 0f6094d11540d02405591452d2278a34dc84cdecf0e5ac3bb95abc3dc9449438
+MD5: a50da4d86b5e90f55b6ab6d717b5d9b5
+Year: 2019_11_29
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA     @ 22F9
+* [API ] CreateFileA     @ 23DC
+* [API ] MoveFileA       @ 2515
+* [API ] CreateFileA     @ 25A6
+* [API ] CopyFileA       @ 2A6E
+* [API ] RegCreateKeyExA @ 11B6
+* [PERS] software\microsoft\windows
+* [API ] RegSetValueExA  @ 127B
+* [API ] CreateFileA     @ 13ED
+* [API ] CreateFileA     @ 131D
+* [API ] WriteFile       @ 1353
+* [API ] CreateFileA     @ 1EC7
+* [API ] CreateFileA     @ 1F24
+* [API ] SetFileTime     @ 1F3E
+* [API ] MoveFileExA     @ 2AFC
+* [API ] CreateProcessA  @ 1A2F
+* [API ] MoveFileExA     @ 15BF
+* [API ] MoveFileExA     @ 15EF
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CreateFileA        @ 22F9    Succeed
+* [API ] CreateFileA        @ 23DC    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 25A6    Succeed
+* [API ] FindWindowA        @ 1030    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] FindWindowA        @ 2BC8    Succeed
+* [API ] GetModuleFileNameA @ 156B    Nothing
+* [API ] GetModuleFileNameA @ 2909    Nothing
+* [API ] GetModuleFileNameA @ 2BA0    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 3955    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 3A88    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 26B3    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetUserNameA       @ 3992    Nothing
+* [API ] Process32First     @ 1077    Nothing
+* [API ] Process32First     @ 1AFB    Nothing
+* [API ] Process32Next      @ 109F    Retarget
+* [API ] Process32Next      @ 1B1E    Retarget
+* [API ] RegOpenKeyExA      @ 38A2    Fail
+* [API ] RegQueryValueExA   @ 38C7    Retarget    SystemBiosDate
+
+[Manual annotations]
+====================

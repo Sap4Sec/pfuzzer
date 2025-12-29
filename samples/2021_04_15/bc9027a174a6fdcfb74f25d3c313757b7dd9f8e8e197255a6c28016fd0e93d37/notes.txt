@@ -1,0 +1,72 @@
+[Basic information]
+=========================================================================
+SHA-256: bc9027a174a6fdcfb74f25d3c313757b7dd9f8e8e197255a6c28016fd0e93d37
+MD5: 3d27a24194511171f7d408ec76016025
+Year: 2021_04_15
+Family name: vkontaktedj
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ B98B
+* [API ] CreateThread       @ DF67
+* [API ] CreateFileMappingA @ BDC5
+* [API ] MapViewOfFile      @ C51E
+* [API ] RegCreateKeyExW    @ 3DF1
+* [API ] FindResourceW      @ 282B
+* [API ] FindResourceW      @ 7B68
+* [API ] LoadResource       @ 7B82
+* [API ] CreateFileA        @ 415B
+* [API ] WriteFile          @ 4591
+* [API ] CreateFileW        @ 2487
+* [API ] CreateThread       @ D4E7
+* [API ] ResumeThread       @ E75A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 415B    Succeed
+* [API ] CreateFileW        @ 2487    Fail        Not modified
+* [API ] FindFirstFileA     @ 1054    Nothing
+* [API ] FindFirstFileA     @ 372C    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ F988    Retarget    C:\*
+* [API ] FindFirstFileW     @ 04C0    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 0B79    Retarget
+* [API ] FindNextFileA      @ 2245    Retarget
+* [API ] GetCursorPos       @ 2C74    Nothing
+* [API ] GetFileAttributesW @ 267B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetKeyboardLayout  @ EDAE    Nothing
+* [API ] GetLocalTime       @ 42E9    Nothing
+* [API ] GetLocalTime       @ 4315    Nothing
+* [API ] GetLocalTime       @ E6FB    Nothing
+* [API ] GetModuleFileNameW @ 009A    Nothing
+* [API ] GetModuleFileNameW @ 0518    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 07EC    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ D029    Nothing
+* [API ] GetModuleFileNameW @ F52B    Nothing
+* [API ] GetSystemInfo      @ 0F99    Retarget    Missing
+* [API ] GetSystemInfo      @ F358    Nothing
+* [API ] GetSystemInfo      @ F9BC    Nothing
+* [API ] RegOpenKeyExW      @ 00E3    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 0105    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ 0123    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 0141    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 015F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 017D    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 3DB7    Fail
+* [API ] RegOpenKeyExW      @ 3EEA    Fail
+* [API ] RegOpenKeyExW      @ F3E3    Succeed
+* [API ] RegQueryValueExW   @ 45DE    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 4BC8    Nothing
+* [API ] TimeDelayAPIs      @ 4220    Retarget
+* [API ] TimeQueryAPIs      @ B459    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasion --- Same as the samples in the same category in 2020_11_19, same malware family

@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 143ffc6704749744d270f094118a5e361d9f1660d283dd08bb28a121df2d54e7
+MD5: 091b8ab24485f9d148e5ba966aa16735
+Year: 2018
+Family name: SINGLETON:091b8ab24485f9d148e5ba966aa16735
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 1DF3
+* [API ] OpenServiceW         @ 170B
+* [API ] CryptAcquireContextW @ 4ED1
+* [API ] CryptGenRandom       @ 6495
+* [API ] CryptReleaseContext  @ 4996
+* [API ] CreateFileW          @ 902D
+* [API ] CreateFileW          @ 85B1
+* [API ] WriteFile            @ 8CBF
+* [API ] CreateProcessW       @ E8E1
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CPUID              @ A21F    Nothing
+* [API ] CreateFileW        @ 85B1    Succeed     Not modified
+* [API ] CreateFileW        @ 902D    Succeed     Not modified
+* [API ] GetComputerNameA   @ 0774    Nothing
+* [API ] GetModuleFileNameW @ 1FE4    Nothing
+* [API ] GetModuleFileNameW @ 983A    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ 043B    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 5175d9a05ecfd968018c603298a22cc4197f640ba49f6a0ee41db129d3cc24c7
+MD5: ac8294b807006728cf68fefed39f9eb2
+Year: 2019_05_11
+Family name: accphish
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ DA57
+* [API ] FindResourceA @ 1A84
+* [API ] LoadResource  @ 1A9E
+* [API ] CreateFileA   @ A25F
+* [API ] CreateFileA   @ 13D5
+* [API ] WriteFile     @ A2A9
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 13D5    Succeed     Not modified
+* [API ] CreateFileA        @ A25F    Succeed     Not modified
+* [API ] GetCursorPos       @ 945D    Retarget    Missing
+* [API ] GetFileAttributesA @ A31C    Fail
+* [API ] GetFileAttributesA @ A340    Fail
+* [API ] GetKeyboardLayout  @ FB9A    Nothing
+* [API ] GetModuleFileNameA @ 109A    Nothing
+* [API ] GetModuleFileNameA @ 3379    Nothing
+* [API ] GetModuleFileNameA @ 6577    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 67D9    Nothing
+* [API ] RegOpenKeyExA      @ 67F7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 6815    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 6833    Fail        Not modified
+* [API ] RegOpenKeyExA      @ E39A    Succeed     Not modified
+* [API ] RegQueryValueExA   @ E723    Nothing
+* [API ] RegQueryValueExA   @ E9E4    Nothing
+* [API ] TimeDelayAPIs      @ 3FA8    Nothing
+* [API ] TimeQueryAPIs      @ AACA    Nothing
+
+[Manual annotations]
+====================
+Other dependencies: missing some php modules (php_bcompiler.dll, etc)

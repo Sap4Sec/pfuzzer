@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 401f1311820e9643f55a2a0de84bd122c7180575b8fde9a32a1977da8922816e
+MD5: 0f61cd05e097a91137bb602a6e31bbb3
+Year: 2018
+Family name: pluto
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ F049
+* [API ] FindResourceA   @ 17B4
+* [API ] LoadResource    @ 17CE
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 2379
+* [API ] CreateFileA     @ 5A10
+* [API ] WriteFile       @ 5669
+* [API ] RegCreateKeyExA @ 10E1
+* [API ] RegSetValueExA  @ 1429
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CreateMutexA       @ 5E17    Succeed
+* [API ] GetKeyboardLayout  @ D13F    Retarget    UK
+* [API ] GetModuleFileNameA @ 28AE    Nothing
+* [API ] GetModuleFileNameA @ 4EF1    Nothing
+* [API ] GetModuleFileNameA @ 63E8    Nothing
+* [API ] GetModuleFileNameA @ DC75    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemTime      @ 28F7    Nothing
+* [API ] Process32First     @ 04FB    Nothing
+* [API ] Process32Next      @ 051B    Retarget
+* [API ] RegEnumKeyExA      @ 1231    Nothing
+* [API ] RegOpenKeyExA      @ 10AC    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 15B5    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 4F0F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 4F2D    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 5E21    Retarget
+* [API ] TimeQueryAPIs      @ FD58    Retarget
+
+[Manual annotations]
+====================

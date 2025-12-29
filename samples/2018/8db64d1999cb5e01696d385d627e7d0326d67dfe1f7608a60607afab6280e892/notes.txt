@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 8db64d1999cb5e01696d385d627e7d0326d67dfe1f7608a60607afab6280e892
+MD5: 44842e61b17c73f44f01893deca8328b
+Year: 2018
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ 2FEA
+* [API ] LoadResource         @ 30C2
+* [API ] CreateFileW          @ 386A
+* [API ] WriteFile            @ 99B8
+* [API ] CreateProcessA       @ 3362
+* [API ] ReadProcessMemory    @ 3B61
+* [API ] NtUnmapViewOfSection @ 3BCE
+* [API ] VirtualAllocEx       @ 416D
+* [API ] WriteProcessMemory   @ 3CD7
+* [API ] SetThreadContext     @ 3F63
+* [API ] ResumeThread         @ 43EF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (30)]
+=======================================
+
+* [API ] CPUID              @ 7E49    Nothing
+* [API ] CreateFileW        @ 386A    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 3046    Nothing
+* [API ] GetModuleFileNameA @ 3423    Nothing
+* [API ] GetModuleFileNameW @ 13B3    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 13C7    Nothing
+* [API ] GetModuleFileNameW @ 76E4    Nothing
+* [API ] RegOpenKeyExW      @ 4CF3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 4E21    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 4E51    Retarget    ProductID
+
+[Manual annotations]
+====================

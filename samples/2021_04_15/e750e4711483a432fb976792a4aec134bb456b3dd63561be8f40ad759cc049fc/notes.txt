@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: e750e4711483a432fb976792a4aec134bb456b3dd63561be8f40ad759cc049fc
+MD5: 5530c8adcb2dff8c5e5cb871d189e1de
+Year: 2021_04_15
+Family name: SINGLETON:5530c8adcb2dff8c5e5cb871d189e1de
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 02CA
+* [API ] CreateFileW  @ B863
+* [API ] NtCreateFile @ DA28
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 4D67
+* [API ] NtCreateFile @ E845
+* [API ] NtCreateFile @ ACE0
+* [API ] NtCreateFile @ 8F61
+* [API ] NtCreateFile @ EB4A
+* [API ] NtCreateFile @ BAD4
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID         @ E958    Retarget    Missing
+* [API ] CreateFileW   @ 02CA    Succeed     Not modified
+* [API ] CreateFileW   @ B863    Succeed     Not modified
+* [API ] NtCreateFile  @ B73A    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] NtCreateFile  @ DA28    Succeed     Not modified
+* [API ] TimeQueryAPIs @ CD26    Retarget
+
+[Manual annotations]
+====================
+Detects the VM but unable to identify the environmental information item

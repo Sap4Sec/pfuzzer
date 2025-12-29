@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: VHO-Backdoor.Win32.Farfli.gen-ac64e343753c2912dedf804bcb0202cf2aee410b77e52dfb6fae9c0ea610ccbc
+MD5: 3a0e88b8460abe668ad29c2ca29bfedc
+Year: 2022
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 2C8A
+* [API ] CreateFileW  @ 25B9
+* [API ] NtCreateFile @ 25BB
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+User interaction

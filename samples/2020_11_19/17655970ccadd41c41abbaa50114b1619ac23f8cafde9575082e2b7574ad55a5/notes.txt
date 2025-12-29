@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 17655970ccadd41c41abbaa50114b1619ac23f8cafde9575082e2b7574ad55a5
+MD5: 7f8dad41d2ae6bc7792a8ae65c83475a
+Year: 2020_11_19
+Family name: SINGLETON:7f8dad41d2ae6bc7792a8ae65c83475a
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Unable to run in Win32 mode, even by changing compability in the properties

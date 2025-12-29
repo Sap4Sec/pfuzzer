@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: 4c34d7c443e192a3a7bcba1081d62674164939d62346d32f2c37a244cbe76ed4
+MD5: e46881b0d018586fb24e12b52f389bec
+Year: 2019_05_11
+Family name: SINGLETON:e46881b0d018586fb24e12b52f389bec
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] HttpSendRequestA @ 2A0E
+* [API ] VirtualAllocEx   @ 644B
+* [API ] FindResourceA    @ 08C2
+* [API ] send             @ 0C21
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Spy.Win32.Stealer.evvi-e5bb90639329e6ea1595260e72a4ffd479e0c2957086bcdb180efb1617adcdde
+MD5: e957a49e7bb8b969e493007c05b78118
+Year: 2023
+Family name: lazy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID         @ 7969    Retarget    Missing
+* [API ] CreateFileA   @ 9D45    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo @ 9D45    Nothing
+* [API ] TimeDelayAPIs @ 9F22    Retarget
+
+[Manual annotations]
+====================
+Cannot get rid of access_vilation but it stops where BluePill also terminates

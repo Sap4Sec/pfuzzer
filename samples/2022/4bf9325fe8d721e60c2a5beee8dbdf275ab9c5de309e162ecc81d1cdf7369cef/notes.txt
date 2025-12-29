@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.Crypminal.gen-4bf9325fe8d721e60c2a5beee8dbdf275ab9c5de309e162ecc81d1cdf7369cef
+MD5: cb30e5ba39200df4ed1934b0a29c9c44
+Year: 2022
+Family name: crypminal
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 0716
+* [API ] LoadResource       @ 0724
+* [API ] CreateThread       @ 3AB5
+* [API ] FindResourceA      @ D287
+* [API ] LoadResource       @ D2D4
+* [API ] CreateThread       @ D3E1
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA     @ D942
+* [API ] RegSetValueExA     @ D739
+* [API ] ReadProcessMemory  @ D9E8
+* [API ] VirtualAllocEx     @ DA6A
+* [API ] WriteProcessMemory @ DB67
+* [API ] WriteProcessMemory @ DB85
+* [API ] SetThreadContext   @ DBA5
+* [API ] ResumeThread       @ DBAF
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] GetKeyboardLayout  @ 2C26    Nothing
+* [API ] GetModuleFileNameA @ 3F8A    Nothing
+* [API ] GetModuleFileNameA @ 6E67    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 70C9    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExA      @ 70E7    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 7105    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 7123    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ FAD6    Fail
+* [API ] RegQueryValueExA   @ FC5F    Retarget    ProductID
+* [API ] RegQueryValueExA   @ FD48    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ C23B    Retarget
+* [API ] TimeQueryAPIs      @ D0A9    Retarget
+
+[Manual annotations]
+====================

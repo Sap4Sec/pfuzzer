@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 8c8eb6d29ee2fbd45c8ec3c0a76f0e71dcb71e39df7c0d0256618f2999ef39dc
+MD5: 5f2d03d308d5f584b06ab6714d514985
+Year: 2018
+Family name: tiggre
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] socket            @ 6F73
+* [API ] inet_addr         @ 6F9D
+* [API ] FindResourceA     @ 9B73
+* [API ] FindResourceA     @ D524
+* [API ] LoadResource      @ D53E
+* [API ] SetWindowsHookExA @ 07D3
+* [API ] RegSetValueExA    @ AFB6
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ D2E5    Retarget    Missing
+* [API ] CreateMutexA       @ 6BFF    Retarget    vscode
+* [API ] FindFirstFileA     @ 938C    Fail
+* [API ] FindFirstFileA     @ 9468    Nothing
+* [API ] FindNextFileA      @ 94A8    Retarget
+* [API ] GetCursorPos       @ 20E5    Retarget    Missing
+* [API ] GetCursorPos       @ CA0A    Nothing
+* [API ] GetKeyboardLayout  @ 9C0E    Retarget    Chinese-simplified
+* [API ] GetLocalTime       @ AA15    Nothing
+* [API ] GetModuleFileNameA @ 2B0D    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 5BDF    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 5E19    Nothing
+* [API ] GetModuleFileNameA @ ADC4    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo      @ 80F5    Retarget    Missing
+* [API ] GetWindowTextA     @ BE64    Nothing
+* [API ] GetWindowTextW     @ 3B88    Nothing
+* [API ] RegOpenKeyExA      @ 5E37    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5E55    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5E73    Fail        Not modified
+* [API ] RegOpenKeyExA      @ AD9F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ AE9B    Nothing
+* [API ] RegQueryValueExA   @ B018    Nothing
+* [API ] TimeDelayAPIs      @ 4634    Retarget
+* [API ] TimeQueryAPIs      @ CF44    Retarget
+
+[Manual annotations]
+====================

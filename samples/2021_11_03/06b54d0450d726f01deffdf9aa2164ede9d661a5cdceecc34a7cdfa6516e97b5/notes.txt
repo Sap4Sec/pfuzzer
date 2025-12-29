@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 06b54d0450d726f01deffdf9aa2164ede9d661a5cdceecc34a7cdfa6516e97b5
+MD5: 32201436f1c2dfb00dcc31ddff2e2d45
+Year: 2021_11_03
+Family name: xolxo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Succeed
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Fail
+* [API ] CreateFileA        @ 33ED    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateMutexA       @ 2A13    Fail
+* [API ] FindFirstFileA     @ 30A1    Retarget    C:\*
+* [API ] FindFirstFileA     @ 369C    Succeed
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExA      @ 2D07    Succeed
+* [API ] RegQueryValueExA   @ 2DE3    Retarget    SystemBiosDate
+
+[Manual annotations]
+====================

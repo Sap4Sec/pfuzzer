@@ -1,0 +1,61 @@
+[Basic information]
+=========================================================================
+SHA-256: acdc6dad202fd2c425f52c74fb3d03d6454351150cdffea1f7adea20b111c156
+MD5: c2071a7d12e8e63361e909808d830627
+Year: 2020_05_06
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA    @ 1BEA
+* [API ] MoveFileA      @ 25ED
+* [API ] MoveFileA      @ 261D
+* [API ] CreateFileA    @ 239A
+* [API ] MoveFileA      @ 2F6D
+
+[Mutations applied in the best run (45)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Fail
+* [API ] CreateFileA          @ 1BEA    Succeed     Not modified
+* [API ] CreateFileA          @ 1C1B    Retarget    attrib.exe
+* [API ] CreateFileA          @ 239A    Succeed
+* [API ] CreateMutexA         @ 105A    Fail
+* [API ] CreateMutexA         @ 1101    Fail
+* [API ] FindFirstFileA       @ 3004    Succeed
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesExA @ 1B43    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 11A7    Nothing
+* [API ] GetModuleFileNameA   @ 1E4D    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Fail
+* [API ] RegOpenKeyExA        @ 2A94    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2AE1    Fail
+* [API ] RegOpenKeyExA        @ 2D0B    Fail
+* [API ] RegQueryValueExA     @ 2B12    Nothing
+* [API ] TimeDelayAPIs        @ 10C1    Retarget
+* [API ] TimeQueryAPIs        @ 1100    Retarget
+
+[Manual annotations]
+====================

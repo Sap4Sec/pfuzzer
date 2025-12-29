@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Injuke.pef-b3dcb9d04c53f00a1f5f67d035b32fb0a86b4e76a5525d7cfbd68caee7ad8ba0
+MD5: 3a77e2d202348943fe3fd95536e6dc10
+Year: 2022
+Family name: dinwod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 262B
+* [API ] CreateFileA    @ 291E
+* [API ] WriteFile      @ 2959
+* [API ] CreateProcessA @ 2A37
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 262B    Succeed     Not modified
+* [API ] CreateFileA        @ 291E    Fail        Not modified
+* [API ] GetModuleFileNameA @ 24EA    Nothing
+* [API ] GetModuleFileNameA @ 258E    Nothing
+* [API ] TimeQueryAPIs      @ 2165    Retarget
+
+[Manual annotations]
+====================

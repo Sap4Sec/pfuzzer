@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 221e8ab912722c010870ab4dbaaf2f9f472f3c30ba4280a45c9b15dbf0ec984a
+MD5: bb236c779ea1e3a8d887df32ff987d98
+Year: 2018
+Family name: webalta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ D8CB
+* [API ] CreateFileW  @ 00D8
+* [API ] NtCreateFile @ DAF9
+* [API ] WSAStartup   @ C102
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 78A9
+* [API ] NtCreateFile @ 5186
+* [API ] NtCreateFile @ 8342
+* [API ] NtCreateFile @ 242D
+* [API ] NtCreateFile @ FE7E
+* [API ] NtCreateFile @ B227
+* [API ] NtCreateFile @ 70F6
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID         @ 203E    Nothing
+* [API ] CreateFileW   @ 00D8    Succeed     Not modified
+* [API ] CreateFileW   @ D8CB    Fail
+* [API ] NtCreateFile  @ DAF9    Retarget    \??\Analysis
+* [API ] TimeQueryAPIs @ 2019    Nothing
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

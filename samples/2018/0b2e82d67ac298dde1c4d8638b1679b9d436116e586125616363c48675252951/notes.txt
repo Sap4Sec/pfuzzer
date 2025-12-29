@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 0b2e82d67ac298dde1c4d8638b1679b9d436116e586125616363c48675252951
+MD5: 63fc06f400cb547b7d2b0443d87c31c3
+Year: 2018
+Family name: SINGLETON:63fc06f400cb547b7d2b0443d87c31c3
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext  @ 8A4B
+* [API ] CreateFileW       @ AB8C
+* [API ] CreateFileW       @ A2C8
+* [API ] CreateThread      @ 6108
+* [API ] CreateFileW       @ 3E4A
+* [API ] SuspendThread     @ 25A3
+* [API ] CreateFileW       @ 4453
+* [API ] ResumeThread      @ 0DA5
+* [API ] ResumeThread      @ 9821
+* [API ] SetWindowsHookExA @ EE62
+* [API ] SetWindowsHookExA @ BFC6
+* [API ] WSAStartup        @ 0973
+* [API ] WSAStartup        @ B5CA
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ A2E6    Nothing
+* [API ] CreateFileA        @ 3EB5    Fail        Not modified
+* [API ] CreateFileW        @ 3E4A    Fail        Not modified
+* [API ] CreateFileW        @ 4453    Fail        Not modified
+* [API ] CreateFileW        @ A2C8    Succeed     Not modified
+* [API ] CreateFileW        @ AB8C    Fail
+* [API ] GetCursorPos       @ 443F    Nothing
+* [API ] GetModuleFileNameA @ 21E3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 46B4    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 4F4B    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ CF39    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ DB1D    Nothing
+* [API ] GetModuleFileNameW @ AE0E    Nothing
+* [API ] TimeDelayAPIs      @ C614    Retarget
+* [API ] TimeQueryAPIs      @ A2B1    Retarget
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI requiring text input

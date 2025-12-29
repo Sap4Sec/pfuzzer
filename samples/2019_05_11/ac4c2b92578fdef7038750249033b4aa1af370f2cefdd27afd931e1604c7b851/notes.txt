@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: ac4c2b92578fdef7038750249033b4aa1af370f2cefdd27afd931e1604c7b851
+MD5: bc66230a44749a8c5f4a94d704c13ff0
+Year: 2019_05_11
+Family name: SINGLETON:bc66230a44749a8c5f4a94d704c13ff0
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Too many exceptions, probably caused by DynamoRIO itself

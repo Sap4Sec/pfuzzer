@@ -1,0 +1,24 @@
+[Basic information]
+=========================================================================
+SHA-256: 2ad2625a77bce80b44a7a85fb71a6afb674baa54841a9f94266745ef65345d92
+MD5: 7b4c32d9885a1f5cde827879a193c558
+Year: 2020_05_06
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Message appears: "Unable to run on this PC"
+DynamoRIO error: failed to create process

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Ransom.Win32.Generic-f569484d61c302401d2368222ab9bc61e80acaf023b0820f24c787dd5f507c00
+MD5: fdd350ad598545e4a93118784f331943
+Year: 2022
+Family name: surtr
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+DR bug: The application was unable to start correctly, a lot of exceptions happens

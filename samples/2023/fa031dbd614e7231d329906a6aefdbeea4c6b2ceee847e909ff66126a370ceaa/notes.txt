@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agent.gen-fa031dbd614e7231d329906a6aefdbeea4c6b2ceee847e909ff66126a370ceaa
+MD5: 9d62eda2d552cb2f7e1564209de10310
+Year: 2023
+Family name: jaik
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread @ DAC7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] GetKeyboardLayout  @ 831A    Retarget    German
+* [API ] GetModuleFileNameA @ 653B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 679D    Nothing
+* [API ] GetModuleFileNameA @ 967E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ CF2E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExA      @ 2652    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 67BB    Succeed
+* [API ] RegOpenKeyExA      @ 67D9    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 67F7    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 27DB    Nothing
+* [API ] RegQueryValueExA   @ 28C4    Nothing
+* [API ] TimeDelayAPIs      @ 29CB    Nothing
+* [API ] TimeQueryAPIs      @ C012    Nothing
+
+[Manual annotations]
+====================
+Undetermined evasions

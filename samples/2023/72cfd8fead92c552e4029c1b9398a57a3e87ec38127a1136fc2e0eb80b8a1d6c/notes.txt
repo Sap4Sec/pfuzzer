@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Ransom.Win32.Wanna.m-72cfd8fead92c552e4029c1b9398a57a3e87ec38127a1136fc2e0eb80b8a1d6c
+MD5: d964e763e648baf747cde10575d4d3b3
+Year: 2023
+Family name: wannacry
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] InternetOpenA    @ 8181
+* [API ] InternetOpenUrlA @ 819A
+* [API ] OpenSCManagerA   @ 7C6E
+* [API ] CreateServiceA   @ 7CA1
+* [API ] StartServiceA    @ 7CB8
+* [API ] FindResourceA    @ 7D7A
+* [API ] LoadResource     @ 7D8C
+* [API ] MoveFileExA      @ 7E32
+* [API ] CreateFileA      @ 7E49
+* [API ] WriteFile        @ 7E67
+* [API ] CreateProcessA   @ 7EEE
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 7E49    Fail        Not modified
+* [API ] GetModuleFileNameA @ 80A5    Retarget    C:\Windows\explorer.exe
+
+[Manual annotations]
+====================

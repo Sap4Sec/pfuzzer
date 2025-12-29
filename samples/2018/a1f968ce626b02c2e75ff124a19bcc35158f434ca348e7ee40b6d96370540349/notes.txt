@@ -1,0 +1,76 @@
+[Basic information]
+=========================================================================
+SHA-256: a1f968ce626b02c2e75ff124a19bcc35158f434ca348e7ee40b6d96370540349
+MD5: 387a957770da43d8c0c043d58826a9eb
+Year: 2018
+Family name: SINGLETON:387a957770da43d8c0c043d58826a9eb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ C215
+* [API ] CreateFileW     @ 8563
+* [API ] NtCreateFile    @ F828
+* [API ] FindResourceExW @ C835
+* [API ] LoadResource    @ C84F
+* [API ] FindResourceExW @ C88A
+* [API ] LoadResource    @ C8AF
+* [API ] socket          @ 2660
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ 28AA
+* [API ] FindResourceExW @ 0EA2
+* [API ] LoadResource    @ 0EBC
+* [API ] FindResourceExW @ 0EF7
+* [API ] LoadResource    @ 0F1C
+* [API ] NtCreateFile    @ FDDF
+* [API ] FindResourceExW @ A3D7
+* [API ] LoadResource    @ A3F1
+* [API ] FindResourceExW @ A42C
+* [API ] LoadResource    @ A451
+* [API ] NtCreateFile    @ 612B
+* [API ] FindResourceExW @ F704
+* [API ] LoadResource    @ F71E
+* [API ] FindResourceExW @ F759
+* [API ] LoadResource    @ F77E
+* [API ] NtCreateFile    @ 1EAF
+* [API ] FindResourceExW @ 9498
+* [API ] LoadResource    @ 94B2
+* [API ] FindResourceExW @ 94ED
+* [API ] LoadResource    @ 9512
+* [API ] NtCreateFile    @ B4FD
+* [API ] FindResourceExW @ 4AF5
+* [API ] LoadResource    @ 4B0F
+* [API ] FindResourceExW @ 4B4A
+* [API ] LoadResource    @ 4B6F
+* [API ] NtCreateFile    @ C8A7
+* [API ] FindResourceExW @ 1EAF
+* [API ] LoadResource    @ 1EC9
+* [API ] FindResourceExW @ 1F04
+* [API ] LoadResource    @ 1F29
+* [API ] NtCreateFile    @ E884
+* [API ] FindResourceExW @ 2E6C
+* [API ] LoadResource    @ 2E86
+* [API ] FindResourceExW @ 2EC1
+* [API ] LoadResource    @ 2EE6
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ BDD8    Nothing
+* [API ] CreateFileW        @ 8563    Succeed     Not modified
+* [API ] CreateFileW        @ C215    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateMutexA       @ 5CD8    Retarget    ZonesCacheCounterMutex
+* [API ] GetModuleFileNameW @ C30F    Nothing
+* [API ] GetWindowTextW     @ A3DA    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] NtCreateFile       @ E4AB    Fail        Not modified
+* [API ] NtCreateFile       @ F828    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 5D02    Retarget
+* [API ] TimeQueryAPIs      @ 94F6    Retarget
+
+[Manual annotations]
+====================

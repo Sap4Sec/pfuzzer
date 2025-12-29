@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 16aa3c68e1257e3fa19f8df0e4e8adefa082132026bbdbb80765b8dd981f533d
+MD5: 00bd12010b2f05a72d6c2cac68acab07
+Year: 2020_11_19
+Family name: wacatac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 0DE1
+* [API ] OpenServiceW         @ 0DAB
+* [API ] CryptAcquireContextW @ B02C
+* [API ] CryptGenRandom       @ A826
+* [API ] CryptReleaseContext  @ AF1E
+* [API ] CreateFileW          @ 0B7A
+* [API ] CreateFileW          @ 0E6E
+* [API ] WriteFile            @ 0E91
+* [API ] CreateProcessW       @ 5078
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileW        @ 0B7A    Succeed     Not modified
+* [API ] CreateFileW        @ 0E6E    Succeed     Not modified
+* [API ] GetComputerNameA   @ 1C1F    Nothing
+* [API ] GetModuleFileNameW @ 1DF3    Nothing
+* [API ] GetModuleFileNameW @ 4799    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetUserNameA       @ 7251    Retarget    John
+
+[Manual annotations]
+====================

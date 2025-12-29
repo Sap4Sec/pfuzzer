@@ -1,0 +1,75 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Padodor.gen-231db4d941dfeeeb66fc47886dd427da56323c3005eaec4b7ee86365a69010b0
+MD5: b7e540fcc268ca49ca3b819a09b431e0
+Year: 2022
+Family name: berbew
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA          @ D2E3
+* [API ] CreateFileA        @ 4E0B
+* [API ] CreateFileA        @ A4E8
+* [API ] WriteFile          @ A503
+* [API ] CreateFileA        @ 5317
+* [API ] WriteFile          @ 534F
+* [API ] RegCreateKeyExA    @ 540E
+* [API ] RegSetValueExA     @ 543F
+* [API ] WinExec            @ D312
+
+Fuzzing Findings
+----------------
+* [API ] NtMapViewOfSection @ 4152
+* [API ] CreateThread       @ 2AD4
+* [API ] RegCreateKeyExA    @ 7548
+* [API ] RegSetValueExA     @ 7566
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete
+* [API ] RegSetValueExA     @ 4AC3
+* [API ] CreateThread       @ 9F28
+* [API ] socket             @ 9D55
+* [API ] CreateThread       @ 7B99
+* [API ] socket             @ 7CE4
+* [API ] CreateThread       @ CB97
+* [API ] CreateFileA        @ C8B1
+* [API ] CreateThread       @ 54AA
+* [API ] CreateThread       @ 72F9
+* [API ] socket             @ 5737
+* [API ] socket             @ 71CB
+* [API ] CreateThread       @ C282
+* [PERS] .DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BrowseNewProcess
+* [API ] CreateThread       @ CC0C
+* [API ] CreateFileA        @ 4EB1
+* [API ] WriteFile          @ 4EF5
+* [API ] WriteFile          @ 4F08
+* [API ] CreateThread       @ B843
+* [API ] CreateThread       @ C840
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CreateFileA         @ 4E0B    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileA         @ 4EB1    Fail        Not modified
+* [API ] CreateFileA         @ 5317    Fail        Not modified
+* [API ] CreateFileA         @ A4E8    Succeed     Not modified
+* [API ] CreateFileA         @ C8B1    Succeed     Not modified
+* [API ] CreateMutexA        @ D3F3    Fail
+* [API ] GetForegroundWindow @ 2263    Retarget    Missing
+* [API ] GetForegroundWindow @ 76C7    Retarget    Missing
+* [API ] GetLocalTime        @ C8F0    Retarget    2015:12:6:15
+* [API ] GetLocalTime        @ CFDC    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameA  @ C890    Nothing
+* [API ] GetModuleFileNameA  @ CC5F    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ D1FA    Retarget    C:\Windows\system32\
+* [API ] GetWindowTextA      @ 2039    Retarget    SecHealthHost - SecHealth Win
+* [API ] RegOpenKeyExA       @ 4AAC    Fail
+* [API ] RegOpenKeyExA       @ 75C4    Fail
+* [API ] RegQueryValueExA    @ 75E0    Retarget    ProductID
+* [API ] TimeDelayAPIs       @ 7A55    Retarget
+* [API ] TimeQueryAPIs       @ D166    Retarget
+
+[Manual annotations]
+====================

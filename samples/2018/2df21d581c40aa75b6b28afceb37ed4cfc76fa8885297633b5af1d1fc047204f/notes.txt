@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: 2df21d581c40aa75b6b28afceb37ed4cfc76fa8885297633b5af1d1fc047204f
+MD5: 62ca778d6b59b682f26f6c834418861b
+Year: 2018
+Family name: SINGLETON:62ca778d6b59b682f26f6c834418861b
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] NtCreateSection      @ EAFE
+* [API ] NtMapViewOfSection   @ 1BD2
+* [API ] NtUnmapViewOfSection @ 0DA0
+* [API ] SuspendThread        @ B6F8
+* [API ] WriteProcessMemory   @ 637F
+* [API ] WriteProcessMemory   @ 63C7
+* [API ] ResumeThread         @ 47C3
+* [API ] SetWindowsHookExA    @ A859
+* [API ] SetWindowsHookExA    @ 79BA
+* [API ] WSAStartup           @ 1069
+* [API ] CreateFileA          @ 3EB5
+* [API ] SetWindowsHookExA    @ 94B3
+* [API ] WSAStartup           @ 30E3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID                    @ 861E    Retarget    Missing
+* [API ] CreateFileA              @ 3EB5    Succeed     Not modified
+* [API ] GetCursorPos             @ FC6A    Retarget    Missing
+* [API ] GetModuleFileNameA       @ 4F4B    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA       @ 5659    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA       @ 695B    Nothing
+* [API ] GetModuleFileNameA       @ 9353    Nothing
+* [API ] GetModuleFileNameA       @ 96FC    Nothing
+* [API ] GetModuleFileNameA       @ FEBE    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW       @ AD2B    Nothing
+* [API ] GetSystemInfo            @ FC56    Nothing
+* [API ] GetWindowTextA           @ 331F    Retarget    Window - Window
+* [API ] GetWindowTextA           @ 37E3    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] NtQuerySystemInformation @ 68C8    Retarget    testuser
+* [API ] NtQuerySystemInformation @ 6C01    Nothing
+* [API ] NtQuerySystemInformation @ E120    Retarget    Office
+* [API ] TimeDelayAPIs            @ D2A0    Retarget
+* [API ] TimeQueryAPIs            @ 6C60    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: requires internet connection

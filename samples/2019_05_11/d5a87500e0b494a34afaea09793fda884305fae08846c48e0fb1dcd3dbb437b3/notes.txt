@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: d5a87500e0b494a34afaea09793fda884305fae08846c48e0fb1dcd3dbb437b3
+MD5: 19f5e01d9348d9cd7c7d4ee91e7cf411
+Year: 2019_05_11
+Family name: sefnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (103)]
+=======================================
+
+* [API ] CPUID                @ 8FBF    Nothing
+* [API ] GetFileAttributesExW @ 40EB    Fail
+* [API ] GetModuleFileNameW   @ 0E87    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW   @ C2A6    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemInfo        @ 2AFD    Retarget    Missing
+* [API ] Process32FirstW      @ 7C04    Nothing
+* [API ] Process32NextW       @ 7C55    Retarget
+* [API ] RegOpenKeyExW        @ DDF7    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs        @ 8099    Retarget
+
+[Manual annotations]
+====================

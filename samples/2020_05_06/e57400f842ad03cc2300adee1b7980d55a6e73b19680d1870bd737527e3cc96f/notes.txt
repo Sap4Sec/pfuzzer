@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: e57400f842ad03cc2300adee1b7980d55a6e73b19680d1870bd737527e3cc96f
+MD5: e91915ed858e91acd5b2df07ee7f6900
+Year: 2020_05_06
+Family name: purityscan
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExA    @ 82DD
+* [API ] RegSetValueExA     @ 8317
+* [API ] OpenFileMappingA   @ 2980
+* [API ] CreateFileMappingA @ 1690
+* [API ] MapViewOfFile      @ 16AF
+* [API ] OpenFileMappingA   @ 71E1
+* [API ] MapViewOfFile      @ 71F3
+* [API ] CreateFileA        @ 6328
+* [API ] WriteFile          @ 3D59
+* [API ] CreateFileA        @ 8651
+* [API ] WriteFile          @ 866C
+* [API ] CreateProcessA     @ 8096
+
+Fuzzing Findings
+----------------
+* [API ] MapViewOfFile      @ 2997
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CreateFileA           @ 6328    Succeed     Not modified
+* [API ] CreateFileA           @ 8651    Fail        Not modified
+* [API ] FindFirstFileA        @ 8158    Succeed
+* [API ] FindFirstFileA        @ 8D81    Succeed
+* [API ] FindFirstFileW        @ 8DBF    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA         @ 81E9    Retarget
+* [API ] GetFileAttributesA    @ 1E7F    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesA    @ 7265    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetLocalTime          @ C34D    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA    @ 2849    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA    @ 2C32    Nothing
+* [API ] GetModuleFileNameA    @ 4064    Nothing
+* [API ] GetModuleFileNameA    @ 84A9    Retarget    C:\Windows\explorer.exe
+* [API ] GetSystemTime         @ C357    Retarget    2000:6:4:30
+* [API ] K32GetModuleBaseNameW @ 9934    Nothing
+* [API ] RegOpenKeyExA         @ 83AF    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA         @ 8C4A    Succeed     Not modified
+* [API ] RegQueryValueExA      @ 83CF    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA      @ 8C89    Retarget    ProductID
+* [API ] TimeDelayAPIs         @ 2497    Nothing
+
+[Manual annotations]
+====================

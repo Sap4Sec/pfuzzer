@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 0a28e0be1cc26adb3cf3bada9b07f942cd8d56ab66af4f4f32c6f9c7e632e9a6
+MD5: c764e73432e7ae000c5fb782c5ddecbc
+Year: 2020_05_06
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ B383
+* [API ] WriteFile      @ 135E
+* [API ] CreateProcessA @ 4C4C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (123)]
+=======================================
+
+* [API ] CPUID              @ FED7    Retarget    Missing
+* [API ] CreateFileW        @ B383    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 57E9    Succeed
+* [API ] CreateMutexA       @ 5819    Retarget    VBoxTray
+* [API ] GetModuleFileNameA @ 2B54    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 4BAF    Retarget    C:\Windows\system32\
+* [API ] Process32First     @ 6760    Nothing
+* [API ] Process32First     @ 6893    Nothing
+* [API ] Process32Next      @ 677F    Retarget
+* [API ] Process32Next      @ 67F9    Retarget
+* [API ] Process32Next      @ 68AA    Retarget
+* [API ] Process32Next      @ 697E    Retarget
+* [API ] TimeDelayAPIs      @ 4623    Retarget
+* [API ] TimeQueryAPIs      @ 6B5D    Retarget
+
+[Manual annotations]
+====================

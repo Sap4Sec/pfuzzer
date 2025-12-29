@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: 068e7f0bf9ba89cf4e3df6d817ff8b9233432ea05f9b9cef5cbcaef17f3defe0
+MD5: a3e985042c9e400cde676927c997f727
+Year: 2019_05_11
+Family name: SINGLETON:a3e985042c9e400cde676927c997f727
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ 3044
+* [API ] CreateFileW      @ B5EC
+
+Fuzzing Findings
+----------------
+* [API ] InternetOpenA    @ 4499
+* [API ] InternetConnectA @ 45F3
+* [API ] HttpOpenRequestA @ 474F
+* [API ] HttpSendRequestA @ 4C22
+* [API ] InternetReadFile @ 4CB4
+* [API ] ShellExecuteA    @ 58DA
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CPUID              @ CDC8    Nothing
+* [API ] CreateFileW        @ 3044    Retarget    Backup.txt
+* [API ] CreateFileW        @ B5EC    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 3255    Nothing
+* [API ] TimeQueryAPIs      @ 478B    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 14e0d168933003afcc6bf03884354d1b81c16f0504dbd8488f56b78e5069f993
+MD5: 677205c004263d13d445f6b132a3b9a0
+Year: 2021_11_03
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 83B5
+* [API ] OpenServiceW         @ 89B1
+* [API ] CryptAcquireContextW @ 0F65
+* [API ] CryptGenRandom       @ 0A25
+* [API ] CryptReleaseContext  @ 0BA1
+* [API ] CreateFileW          @ 2B6C
+* [API ] CreateFileW          @ 2E60
+* [API ] WriteFile            @ 2E83
+* [API ] CreateProcessW       @ CFDE
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileW        @ 2B6C    Succeed     Not modified
+* [API ] CreateFileW        @ 2E60    Succeed     Not modified
+* [API ] GetComputerNameA   @ 3BFE    Nothing
+* [API ] GetModuleFileNameW @ 3DBF    Nothing
+* [API ] GetModuleFileNameW @ 6638    Nothing
+* [API ] GetUserNameA       @ 3C6F    Retarget    John
+
+[Manual annotations]
+====================

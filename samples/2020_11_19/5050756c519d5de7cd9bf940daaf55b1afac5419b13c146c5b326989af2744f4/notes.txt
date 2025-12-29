@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: 5050756c519d5de7cd9bf940daaf55b1afac5419b13c146c5b326989af2744f4
+MD5: 4a2d7dcc65d991512fb807b97827bcce
+Year: 2020_11_19
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 4478
+* [API ] LoadResource  @ 4494
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (36)]
+=======================================
+
+* [API ] CreateMutexA     @ 3583    Succeed
+* [API ] RegOpenKeyExA    @ 60E2    Succeed
+* [API ] RegQueryValueExA @ 6106    Nothing
+* [API ] RegQueryValueExA @ 6130    Nothing
+* [API ] TimeDelayAPIs    @ BF31    Retarget
+
+[Manual annotations]
+====================
+Other dependencies

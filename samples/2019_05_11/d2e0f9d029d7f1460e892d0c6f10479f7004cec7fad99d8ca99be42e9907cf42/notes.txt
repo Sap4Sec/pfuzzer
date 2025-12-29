@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: d2e0f9d029d7f1460e892d0c6f10479f7004cec7fad99d8ca99be42e9907cf42
+MD5: b6d1d44fc0e6d19e9c22937d47ecbcca
+Year: 2019_05_11
+Family name: SINGLETON:b6d1d44fc0e6d19e9c22937d47ecbcca
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+wefault.exe process triggers instantly, dies because when calling GetProcAddress("FindResourceA") it returns 0 and tries to call it with address 0

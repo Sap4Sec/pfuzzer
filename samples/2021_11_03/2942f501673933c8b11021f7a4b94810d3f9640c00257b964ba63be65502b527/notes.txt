@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 2942f501673933c8b11021f7a4b94810d3f9640c00257b964ba63be65502b527
+MD5: e266cd5ce6bcebc50ecae33ae8ad919c
+Year: 2021_11_03
+Family name: xolxo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Succeed     Not modified
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Succeed     Not modified
+* [API ] CreateFileA        @ 33ED    Succeed     Not modified
+* [API ] CreateMutexA       @ 2A13    Retarget    vscode
+* [API ] FindFirstFileA     @ 30A1    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ 369C    Succeed
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Nothing
+* [API ] RegOpenKeyExA      @ 2D07    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 2DE3    Nothing
+
+[Manual annotations]
+====================

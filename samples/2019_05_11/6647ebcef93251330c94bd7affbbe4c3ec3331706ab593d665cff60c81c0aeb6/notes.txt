@@ -1,0 +1,100 @@
+[Basic information]
+=========================================================================
+SHA-256: 6647ebcef93251330c94bd7affbbe4c3ec3331706ab593d665cff60c81c0aeb6
+MD5: 9f4bee88a88b7604a112a7364f0c9f5e
+Year: 2019_05_11
+Family name: sbinstaller
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ CC3F
+* [API ] InternetOpenW    @ 8688
+* [API ] CreateThread     @ F3E2
+* [API ] InternetConnectW @ 889F
+* [API ] HttpOpenRequestW @ 9080
+* [API ] CreateFileW      @ 7E23
+* [API ] HttpSendRequestW @ 9177
+* [API ] CopyFileW        @ 26AD
+* [API ] WriteFile        @ AC01
+* [API ] CreateFileW      @ CC0D
+* [API ] CreateFileW      @ 7D36
+* [API ] InternetReadFile @ 992A
+* [API ] WriteFile        @ AED7
+* [API ] FindResourceW    @ 6771
+* [API ] LoadResource     @ 678E
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (13)]
+=======================================
+
+* [API ] CPUID                @ 0EB7    Nothing
+* [API ] CreateFileW          @ 7D36    Succeed
+* [API ] CreateFileW          @ 7E23    Succeed     Not modified
+* [API ] CreateFileW          @ CC0D    Fail        Not modified
+* [API ] DeviceIoControl      @ CC2D    Nothing
+* [API ] FindWindowExW        @ 3BF7    Succeed
+* [API ] FindWindowExW        @ 3DC3    Retarget    SecHealthHost - SecHealth Win
+* [API ] FindWindowExW        @ 48D7    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowW          @ 3D4E    Succeed
+* [API ] GetComputerNameW     @ CB56    Retarget    John
+* [API ] GetFileAttributesW   @ D8E1    Fail
+* [API ] GetLocalTime         @ 1F2A    Nothing
+* [API ] GetModuleFileNameExW @ 13A4    Nothing
+* [API ] GetModuleFileNameExW @ C63C    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW   @ 2C5B    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ 30AF    Nothing
+* [API ] GetModuleFileNameW   @ 8822    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW   @ CFD9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW   @ DA26    Nothing
+* [API ] GetUserNameW         @ 0782    Retarget    John
+* [API ] GetWindowTextW       @ 3BE5    Retarget    SecHealthHost - SecHealth Win
+* [API ] GlobalMemoryStatusEx @ 23AF    Nothing
+* [API ] GlobalMemoryStatusEx @ 4861    Nothing
+* [API ] Process32FirstW      @ 05F8    Nothing
+* [API ] Process32FirstW      @ 091D    Nothing
+* [API ] Process32FirstW      @ 1227    Nothing
+* [API ] Process32FirstW      @ 1348    Nothing
+* [API ] Process32FirstW      @ 1E10    Nothing
+* [API ] Process32FirstW      @ 1FB2    Nothing
+* [API ] Process32FirstW      @ 474D    Nothing
+* [API ] Process32FirstW      @ C5ED    Nothing
+* [API ] Process32NextW       @ 0677    Retarget
+* [API ] Process32NextW       @ 0937    Retarget
+* [API ] Process32NextW       @ 1261    Retarget
+* [API ] Process32NextW       @ 1369    Retarget
+* [API ] Process32NextW       @ 1F13    Retarget
+* [API ] Process32NextW       @ 1FF4    Retarget
+* [API ] Process32NextW       @ 4829    Retarget
+* [API ] Process32NextW       @ C605    Retarget
+* [API ] RegEnumKeyW          @ 0483    Retarget    testuser
+* [API ] RegEnumKeyW          @ 0565    Nothing
+* [API ] RegEnumKeyW          @ 0A60    Nothing
+* [API ] RegEnumKeyW          @ CC70    Retarget    testuser
+* [API ] RegOpenKeyExW        @ 0447    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ 04E1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 0A3A    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ 0AF7    Succeed
+* [API ] RegOpenKeyExW        @ 249F    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ 45E3    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ CB95    Fail        Not modified
+* [API ] RegOpenKeyExW        @ CBE6    Fail        Not modified
+* [API ] RegOpenKeyExW        @ CC4A    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ CF47    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExW     @ 0512    Retarget    ProductID
+* [API ] RegQueryValueExW     @ 4636    Retarget    ProductID
+* [API ] RegQueryValueExW     @ CAAE    Retarget    ProductID
+* [API ] RegQueryValueExW     @ CAE9    Nothing
+* [API ] RegQueryValueExW     @ CB5B    Nothing
+* [API ] TimeDelayAPIs        @ E781    Retarget
+* [API ] TimeQueryAPIs        @ 96EF    Retarget
+
+[Manual annotations]
+====================
+Queries WMI classes AntiVirusProduct, AntiSpywareProduct, and FirewallProduct for displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe, productState, and timestamp
+Also queries Win32_Process for Name, ProcessId, and CSName

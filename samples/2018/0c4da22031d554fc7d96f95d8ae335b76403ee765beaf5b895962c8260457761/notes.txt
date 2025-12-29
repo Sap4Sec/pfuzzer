@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: 0c4da22031d554fc7d96f95d8ae335b76403ee765beaf5b895962c8260457761
+MD5: e6e1aedd41193717f7945326243fe594
+Year: 2018
+Family name: diplugem
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 4F1D
+* [API ] CreateFileMappingA @ 4F41
+* [API ] MapViewOfFile      @ 4F64
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User
+* [API ] CreateFileA        @ 51E8
+* [API ] WriteFile          @ 533B
+* [API ] CreateProcessW     @ 68A7
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA        @ 6111
+* [API ] MoveFileExA        @ 618F
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID                    @ 142B    Nothing
+* [API ] CreateFileA              @ 4F1D    Succeed     Not modified
+* [API ] CreateFileA              @ 51E8    Retarget    Backup.txt
+* [API ] CreateMutexA             @ 2990    Succeed
+* [API ] CreateMutexA             @ 5D8A    Retarget    ZonesCacheCounterMutex
+* [API ] FindFirstFileA           @ 9F90    Retarget    C:\*
+* [API ] GetAdaptersInfo          @ AB3E    Nothing
+* [API ] GetFileAttributesA       @ 9A72    Succeed
+* [API ] GetLocalTime             @ 569A    Nothing
+* [API ] GetModuleFileNameA       @ 4E92    Nothing
+* [API ] GetModuleFileNameA       @ 5093    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] NtQuerySystemInformation @ 5ABB    Retarget    testuser
+* [API ] NtQuerySystemInformation @ 5ADF    Nothing
+* [API ] RegOpenKeyExA            @ A76C    Succeed     Not modified
+* [API ] RegQueryValueExA         @ A7B9    Retarget    ProductID
+* [API ] TimeDelayAPIs            @ 634C    Retarget
+* [API ] TimeQueryAPIs            @ 7465    Retarget
+
+[Manual annotations]
+====================

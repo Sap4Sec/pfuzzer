@@ -1,0 +1,61 @@
+[Basic information]
+=========================================================================
+SHA-256: 59733101ba85d2904a35a467ed29205b61bedb1efc4c95ede070a8e50a9610a7
+MD5: 1164a2f1cdd85cfd91193aa12ed68034
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup           @ 49CE
+* [API ] SetWindowsHookExA    @ EAA9
+* [API ] SetWindowsHookExA    @ BC3E
+* [API ] CryptAcquireContextA @ A15B
+* [API ] CryptCreateHash      @ A24C
+* [API ] CryptHashData        @ A3A0
+* [API ] CryptGetHashParam    @ A502
+* [API ] CryptDestroyHash     @ A96C
+* [API ] CryptReleaseContext  @ A9A9
+* [API ] CreateThread         @ 9AD7
+* [API ] CreateThread         @ 7EE2
+* [API ] InternetOpenA        @ 4636
+* [API ] InternetConnectA     @ 4882
+* [API ] HttpOpenRequestA     @ 4933
+* [API ] HttpSendRequestA     @ 49A7
+* [API ] InternetReadFile     @ 4ACC
+* [API ] socket               @ 5204
+* [API ] inet_addr            @ 5279
+* [API ] connect              @ 52E2
+* [API ] send                 @ 5304
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (37)]
+=======================================
+
+* [API ] FindFirstFileA     @ F193    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ F178    Retarget
+* [API ] GetCursorPos       @ 4060    Retarget    Missing
+* [API ] GetLocalTime       @ C06D    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameA @ 1909    Nothing
+* [API ] GetModuleFileNameA @ 37B3    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 4314    Nothing
+* [API ] GetModuleFileNameA @ DDEB    Nothing
+* [API ] GetSystemTime      @ C077    Retarget    2017:8:5:19
+* [API ] Process32First     @ 1AF7    Nothing
+* [API ] Process32Next      @ 1E0A    Retarget
+* [API ] RegOpenKeyExA      @ 04E0    Succeed
+* [API ] RegQueryValueExA   @ 0510    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 0CB7    Nothing
+* [API ] TimeQueryAPIs      @ 3BF4    Nothing
+
+[Manual annotations]
+====================
+Interesting case: fuzzing triggers various commands sent via the send API at 0x455304.
+With fuzzing, the sample sends a QUIT command; otherwise, it attempts an initial connection to what appears to be an SMTP server (sending an EHLO command).
+There may be additional commands involved.

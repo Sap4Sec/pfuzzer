@@ -1,0 +1,61 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Padodor.gen-409e0130211b0b0eccf32859b4678295f3b658ce5b34efac06b42a2cd1da5687
+MD5: ab2038e886c61de608a48f6f61d434a0
+Year: 2022
+Family name: berbew
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA          @ BD3D
+* [API ] CreateFileA        @ 6D97
+* [API ] CreateFileA        @ 7731
+* [API ] WriteFile          @ 774C
+* [API ] CreateFileA        @ 6B49
+* [API ] WriteFile          @ 6B81
+* [API ] RegCreateKeyExA    @ 6C52
+* [API ] RegSetValueExA     @ 6C7A
+* [API ] WinExec            @ BD72
+
+Fuzzing Findings
+----------------
+* [API ] NtMapViewOfSection @ 48F6
+* [API ] CreateThread       @ 21EF
+* [API ] RegCreateKeyExA    @ 9842
+* [API ] RegSetValueExA     @ 9860
+* [API ] CreateThread       @ 5403
+* [API ] socket             @ 5561
+* [API ] CreateThread       @ 4216
+* [API ] socket             @ 4038
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete
+* [API ] RegSetValueExA     @ 2F49
+* [API ] CreateThread       @ B766
+* [API ] CreateFileA        @ B2CC
+* [API ] CreateThread       @ 77BF
+* [API ] CreateThread       @ 95FB
+* [API ] socket             @ 7A3C
+* [API ] socket             @ 94C7
+* [API ] CreateThread       @ AB31
+* [PERS] .DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BrowseNewProcess
+* [API ] CreateThread       @ B7E4
+* [API ] CreateFileA        @ 6E53
+* [API ] WriteFile          @ 6E91
+* [API ] WriteFile          @ 6EA4
+* [API ] CreateThread       @ A522
+* [API ] CreateThread       @ B266
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateFileA        @ 6B49    Retarget    Detect It Easy.lnk
+* [API ] CreateFileA        @ 6D97    Retarget    iexplorer.exe
+* [API ] CreateFileA        @ 7731    Fail        Not modified
+* [API ] GetModuleFileNameA @ BC25    Retarget    C:\Windows\system32\
+* [API ] TimeQueryAPIs      @ BB8F    Retarget
+
+[Manual annotations]
+====================

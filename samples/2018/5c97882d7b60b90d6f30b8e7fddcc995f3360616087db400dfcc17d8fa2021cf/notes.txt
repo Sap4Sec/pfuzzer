@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: 5c97882d7b60b90d6f30b8e7fddcc995f3360616087db400dfcc17d8fa2021cf
+MD5: 012218d161137d97bf621813e9bf229e
+Year: 2018
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA     @ 2319
+* [API ] CreateFileA     @ 23FC
+* [API ] MoveFileA       @ 2535
+* [API ] CreateFileA     @ 25C6
+* [API ] CopyFileA       @ 2C2E
+* [API ] RegCreateKeyExA @ 296D
+* [PERS] software\microsoft\windows
+* [API ] RegSetValueExA  @ 2A44
+* [API ] CreateFileA     @ 117D
+* [API ] CreateFileA     @ 103F
+* [API ] WriteFile       @ 10DF
+* [API ] CreateFileA     @ 1C07
+* [API ] CreateFileA     @ 1C64
+* [API ] SetFileTime     @ 1C7E
+* [API ] MoveFileExA     @ 2CBC
+* [API ] CreateProcessA  @ 152F
+* [API ] MoveFileExA     @ 134F
+* [API ] MoveFileExA     @ 137F
+
+[Mutations applied in the best run (39)]
+=======================================
+
+* [API ] CreateFileA        @ 2319    Succeed
+* [API ] CreateFileA        @ 23FC    Succeed
+* [API ] CreateFileA        @ 25C6    Succeed
+* [API ] FindWindowA        @ 2D83    Fail
+* [API ] GetModuleFileNameA @ 12FB    Nothing
+* [API ] GetModuleFileNameA @ 2AC9    Nothing
+* [API ] GetModuleFileNameA @ 2D5B    Nothing
+* [API ] GetModuleFileNameA @ 3BAD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 26D3    Nothing
+* [API ] GetUserNameA       @ 3ADF    Nothing
+* [API ] RegOpenKeyExA      @ 3A66    Fail
+* [API ] RegQueryValueExA   @ 3A8B    Retarget    ProductID
+
+[Manual annotations]
+====================

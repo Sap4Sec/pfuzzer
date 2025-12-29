@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 159dde40f6b239233e3e1ce65d1dec43d046f435cf097666496d0e4703a48dbf
+MD5: d04526d349877483bf069c7dd75306dd
+Year: 2020_05_06
+Family name: agentb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 1FEC
+* [API ] WriteFile      @ 649E
+* [API ] CreateProcessA @ 8EED
+
+Fuzzing Findings
+----------------
+* [API ] socket         @ A52C
+* [API ] connect        @ A59A
+* [API ] send           @ A5EA
+* [API ] CreateFileA    @ AEE1
+* [API ] WriteFile      @ AF88
+* [API ] CreateProcessA @ 911E
+* [API ] WriteFile      @ 61E9
+
+[Mutations applied in the best run (149)]
+=======================================
+
+* [API ] CPUID              @ 5017    Retarget    Missing
+* [API ] CreateFileW        @ 1FEC    Retarget    attrib.exe
+* [API ] CreateMutexA       @ 98F6    Succeed
+* [API ] CreateMutexA       @ 9926    Retarget    vscode
+* [API ] GetModuleFileNameA @ 8DFE    Nothing
+* [API ] GetModuleFileNameA @ 8E55    Nothing
+* [API ] Process32First     @ B4A0    Nothing
+* [API ] Process32First     @ B5D3    Nothing
+* [API ] Process32Next      @ B4BF    Retarget
+* [API ] Process32Next      @ B539    Retarget
+* [API ] Process32Next      @ B5EA    Retarget
+* [API ] Process32Next      @ B6BE    Retarget
+* [API ] TimeDelayAPIs      @ 6C53    Retarget
+* [API ] TimeQueryAPIs      @ BA7D    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,87 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Injuke.pef-060bb0c4c5958b9852f13d9901c148adff477c02cf2a62a4678fa722840c1d63
+MD5: bfe9d96c5063a3f6bb6b45b3bf25f318
+Year: 2023
+Family name: zard
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 27EA
+* [API ] WriteFile            @ 4ACB
+* [API ] WriteProcessMemory   @ 5C78
+* [API ] CryptHashData        @ 6A0B
+* [API ] CryptGetHashParam    @ 6A31
+* [API ] CryptGetHashParam    @ 6A72
+* [API ] CryptDestroyHash     @ 6AB2
+* [API ] CryptReleaseContext  @ 6AD2
+* [API ] CreateThread         @ 9E67
+* [API ] ResumeThread         @ 2B78
+* [API ] CryptAcquireContextA @ 847C
+* [API ] CryptCreateHash      @ 84B3
+* [API ] CryptHashData        @ 84FE
+* [API ] CryptDeriveKey       @ 8520
+* [API ] CryptDecrypt         @ 857A
+* [API ] CryptDestroyKey      @ 87EF
+* [API ] CryptDestroyHash     @ 880D
+* [API ] CryptReleaseContext  @ 882D
+* [API ] CreateProcessW       @ 9215
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ C31E    Retarget    Missing
+* [API ] CreateFileW        @ 27EA    Succeed     Not modified
+* [API ] FindFirstFileW     @ 17A8    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileW     @ D750    Succeed
+* [API ] FindNextFileW      @ 092D    Retarget
+* [API ] GetFileAttributesW @ 3152    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesW @ 527A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetFileAttributesW @ 6FDE    Succeed
+* [API ] GetKeyboardLayout  @ 3C72    Nothing
+* [API ] GetLocalTime       @ 6031    Nothing
+* [API ] GetLocalTime       @ 8426    Nothing
+* [API ] GetModuleFileNameW @ 5675    Nothing
+* [API ] GetModuleFileNameW @ 7219    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ A145    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ C7EF    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ D307    Nothing
+* [API ] GetModuleFileNameW @ D37A    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ DA81    Nothing
+* [API ] GetModuleFileNameW @ DE92    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ E599    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ FDD8    Nothing
+* [API ] GetSystemInfo      @ 01ED    Nothing
+* [API ] GetSystemInfo      @ 23A1    Retarget    Missing
+* [API ] GetSystemInfo      @ 82AB    Nothing
+* [API ] GetSystemInfo      @ F471    Nothing
+* [API ] RegOpenKeyExW      @ 590E    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ B50C    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D3C3    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D3E5    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D403    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D421    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D43F    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D45D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ DEDB    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ DEFD    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DF1B    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ DF39    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DF57    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ DF75    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 6046    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 6640    Retarget    ProductID
+* [API ] RegQueryValueExW   @ D25D    Nothing
+* [API ] TimeDelayAPIs      @ 863E    Retarget
+* [API ] TimeQueryAPIs      @ AAA4    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

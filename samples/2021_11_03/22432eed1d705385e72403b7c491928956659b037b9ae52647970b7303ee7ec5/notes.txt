@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: 22432eed1d705385e72403b7c491928956659b037b9ae52647970b7303ee7ec5
+MD5: 71a3bc47f9812aa760fdbf4911a27d3c
+Year: 2021_11_03
+Family name: viking
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 4957
+* [API ] CreateFileA    @ 497E
+* [API ] WriteFile      @ 4999
+* [API ] SetFileTime    @ 6F22
+* [API ] CreateProcessA @ 70DE
+* [API ] CreateProcessA @ 539B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+[Manual annotations]
+====================

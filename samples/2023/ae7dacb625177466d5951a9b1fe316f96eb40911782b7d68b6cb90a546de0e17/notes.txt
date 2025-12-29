@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Stealerc.duz-ae7dacb625177466d5951a9b1fe316f96eb40911782b7d68b6cb90a546de0e17
+MD5: 04677d8c8e3f0c1f1ddf63cc386ae33c
+Year: 2023
+Family name: stealerc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID         @ 3D29    Nothing
+* [API ] CreateFileA   @ 60E5    Retarget    C:\Windows\system32\
+* [API ] GetSystemInfo @ 60E5    Retarget    Missing
+* [API ] TimeDelayAPIs @ 62C2    Retarget
+
+[Manual annotations]
+====================
+Cannot get rid of access_vilation but it stops where BluePill also terminates

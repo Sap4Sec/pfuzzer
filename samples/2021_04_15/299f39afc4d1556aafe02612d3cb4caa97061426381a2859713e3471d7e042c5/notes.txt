@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: 299f39afc4d1556aafe02612d3cb4caa97061426381a2859713e3471d7e042c5
+MD5: bc78c09c7747e72196dab8a7fdb8e5e6
+Year: 2021_04_15
+Family name: fsysna
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ C9D0
+* [API ] SetWindowsHookExA @ 5C1E
+* [API ] CopyFileA         @ 27A2
+* [API ] CreateFileA       @ 27CC
+* [API ] CreateFileA       @ 281B
+* [API ] CreateFileA       @ 28BE
+* [API ] WriteFile         @ 28F9
+* [API ] ShellExecuteA     @ 3DD8
+* [API ] InternetOpenA     @ 7876
+* [API ] InternetConnectA  @ 7AC2
+* [API ] HttpOpenRequestA  @ 7B73
+* [API ] HttpSendRequestA  @ 7BE7
+* [API ] InternetReadFile  @ 7D0C
+* [API ] CreateFileA       @ 2ECA
+* [API ] WriteFile         @ 2F7C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA        @ 27CC    Succeed     Not modified
+* [API ] CreateFileA        @ 281B    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileA        @ 28BE    Succeed     Not modified
+* [API ] CreateFileA        @ 2ECA    Retarget    attrib.exe
+* [API ] FindFirstFileA     @ 2C11    Fail
+* [API ] FindNextFileA      @ 2C75    Retarget
+* [API ] FindNextFileA      @ 2CA0    Retarget
+* [API ] FindNextFileA      @ 2CB9    Retarget
+* [API ] FindWindowExA      @ 3DC1    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetCursorPos       @ B356    Nothing
+* [API ] GetModuleFileNameA @ 266A    Nothing
+* [API ] GetModuleFileNameA @ 270E    Nothing
+* [API ] GetModuleFileNameA @ C6CD    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ E57D    Nothing
+
+[Manual annotations]
+====================

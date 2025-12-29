@@ -1,0 +1,27 @@
+[Basic information]
+=========================================================================
+SHA-256: 481ddb0630850075d126a45a656133862d8765b685c8d33addd9e3414467fc2c
+MD5: cd4d5971c2a4bb5a6eb1bc07443b036a
+Year: 2021_04_15
+Family name: SINGLETON:cd4d5971c2a4bb5a6eb1bc07443b036a
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID         @ E7C7    Retarget    Missing
+* [API ] CreateMutexW  @ 59D2    Succeed
+* [API ] TimeQueryAPIs @ 5251    Retarget
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 350275f80a4a3407ad23ee712c4d901a6a12bdb3ba801bdc7efdb63545094025
+MD5: 81836cbc3cb08d6e7d29b2630ad0ee2b
+Year: 2019_05_11
+Family name: bifrose
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+wefault.exe triggers immediately. Dies because when calling GetProcAddress("FindResourceA") it returns 0 and it tries to call it with address 0

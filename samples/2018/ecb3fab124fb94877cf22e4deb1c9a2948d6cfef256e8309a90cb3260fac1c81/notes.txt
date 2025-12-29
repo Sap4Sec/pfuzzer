@@ -1,0 +1,64 @@
+[Basic information]
+=========================================================================
+SHA-256: ecb3fab124fb94877cf22e4deb1c9a2948d6cfef256e8309a90cb3260fac1c81
+MD5: 14b95f27ed9f413c12a45cc767e1e349
+Year: 2018
+Family name: expiro
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread      @ D241
+* [API ] SetWindowsHookExW @ 6AF8
+* [API ] SetWindowsHookExW @ 3A3E
+* [API ] FindResourceW     @ F0BE
+* [API ] LoadResource      @ F0D0
+* [API ] CreateFileW       @ 466E
+* [API ] WriteFile         @ 578C
+* [API ] MoveFileExW       @ 7998
+* [API ] GetKeyState       @ B72B
+* [API ] GetKeyState       @ B734
+* [API ] GetKeyState       @ B73D
+* [API ] CreateFileA       @ C8D0
+* [API ] OpenSCManagerA    @ 4CE5
+* [API ] OpenServiceA      @ EEDF
+* [API ] CreateFileA       @ 2568
+* [API ] CreateFileA       @ 4425
+* [API ] WriteFile         @ 444E
+* [API ] CopyFileA         @ 4485
+* [API ] StartServiceA     @ F2CA
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileW         @ 168D
+* [API ] CreateFileA       @ 6C3F
+* [API ] CreateThread      @ 8B66
+* [API ] CreateThread      @ DB1C
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID                @ 3444    Nothing
+* [API ] CreateFileA          @ 2568    Fail
+* [API ] CreateFileA          @ 4425    Succeed     Not modified
+* [API ] CreateFileA          @ C8D0    Fail        Not modified
+* [API ] CreateFileW          @ 466E    Succeed
+* [API ] CreateMutexA         @ CA04    Succeed
+* [API ] FindFirstFileW       @ F788    Succeed
+* [API ] FindNextFileW        @ F1F2    Retarget
+* [API ] GetComputerNameA     @ 552C    Nothing
+* [API ] GetFileAttributesExW @ DF86    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesW   @ B0EA    Succeed
+* [API ] GetModuleFileNameA   @ 67AC    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW   @ D77A    Nothing
+* [API ] GetUserDefaultLCID   @ 3608    Retarget    Japanese
+* [API ] GetUserNameA         @ 546C    Retarget    John
+* [API ] GetWindowTextW       @ 057A    Retarget    Window - Window
+* [API ] TimeDelayAPIs        @ 84DF    Retarget
+* [API ] TimeQueryAPIs        @ 495C    Retarget
+
+[Manual annotations]
+====================

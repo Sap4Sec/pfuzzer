@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 1b227d1d30483e766616968a2b38e8d76cb3faeba60505a0c9adb86610a79520
+MD5: 5c641f49e741ade353f266630d7f3216
+Year: 2019_11_29
+Family name: sivis
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 23A9
+* [API ] CreateFileA     @ 23EF
+* [API ] CreateFileA     @ 2408
+* [API ] WriteFile       @ 22CB
+* [API ] WriteFile       @ 2991
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA  @ 2CE6
+* [API ] ShellExecuteExA @ 2E3D
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 23A9    Succeed
+* [API ] CreateFileA        @ 23EF    Fail        Not modified
+* [API ] CreateFileA        @ 2408    Fail        Not modified
+* [API ] FindFirstFileA     @ 30C1    Succeed
+* [API ] FindFirstFileA     @ 3302    Succeed
+* [API ] FindNextFileA      @ 3371    Retarget
+* [API ] GetModuleFileNameA @ 2A3B    Nothing
+* [API ] TimeQueryAPIs      @ 20E8    Retarget
+
+[Manual annotations]
+====================

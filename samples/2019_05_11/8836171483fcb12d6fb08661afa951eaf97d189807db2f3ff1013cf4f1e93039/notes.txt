@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 8836171483fcb12d6fb08661afa951eaf97d189807db2f3ff1013cf4f1e93039
+MD5: 3c2397913390c64fc631009fed7cb760
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ A964
+* [API ] SetWindowsHookExA @ 7AC7
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] OpenFileMappingA  @ C572
+* [API ] CreateFileA       @ 63C6
+
+Fuzzing Findings
+----------------
+* [API ] GetKeyState       @ F463
+* [API ] GetKeyState       @ F48D
+* [API ] GetKeyState       @ F478
+* [API ] GetKeyState       @ E2B2
+* [API ] GetKeyState       @ E2C5
+* [API ] GetKeyState       @ E2D8
+* [API ] WriteFile         @ 645D
+* [API ] socket            @ 6F9D
+* [API ] inet_addr         @ 7513
+* [API ] connect           @ 75B7
+* [API ] GetKeyState       @ E35E
+* [API ] GetKeyState       @ E371
+* [API ] GetKeyState       @ E37E
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 3EB5    Fail        Not modified
+* [API ] CreateFileA        @ 63C6    Succeed     Not modified
+* [API ] FindFirstFileA     @ F296    Retarget    C:\*
+* [API ] GetCursorPos       @ FE29    Nothing
+* [API ] GetModuleFileNameA @ 00DD    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 0993    Nothing
+* [API ] GetModuleFileNameA @ 4F4B    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 9503    Nothing
+* [API ] GetModuleFileNameA @ D119    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetWindowTextA     @ 8378    Nothing
+* [API ] RegOpenKeyExA      @ 3AC0    Fail        Not modified
+* [API ] TimeQueryAPIs      @ 1646    Nothing
+
+[Manual annotations]
+====================

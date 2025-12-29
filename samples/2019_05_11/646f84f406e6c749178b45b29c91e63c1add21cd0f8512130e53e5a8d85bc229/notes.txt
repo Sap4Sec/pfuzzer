@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 646f84f406e6c749178b45b29c91e63c1add21cd0f8512130e53e5a8d85bc229
+MD5: 7554c257b209735f618cad78933cd323
+Year: 2019_05_11
+Family name: SINGLETON:7554c257b209735f618cad78933cd323
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 6A2B
+* [API ] CreateFileW  @ 202B
+* [API ] NtCreateFile @ BA09
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID         @ 86AB    Nothing
+* [API ] CreateFileW   @ 202B    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileW   @ 6A2B    Succeed     Not modified
+* [API ] NtCreateFile  @ BA09    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 866E    Retarget
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input

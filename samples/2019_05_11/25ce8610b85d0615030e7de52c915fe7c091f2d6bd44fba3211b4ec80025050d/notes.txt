@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 25ce8610b85d0615030e7de52c915fe7c091f2d6bd44fba3211b4ec80025050d
+MD5: ba970816d2e5d7f760d5aee0869c8820
+Year: 2019_05_11
+Family name: lethic
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ D43B
+* [API ] OpenServiceW         @ D454
+* [API ] CryptAcquireContextW @ 7BAE
+* [API ] CryptGenRandom       @ 7BC2
+* [API ] CryptReleaseContext  @ 7BD7
+* [API ] CreateFileW          @ F08B
+* [API ] CreateFileW          @ F323
+* [API ] WriteFile            @ F342
+* [API ] CreateProcessW       @ FB8F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CPUID              @ E20B    Retarget    Missing
+* [API ] CreateFileW        @ F08B    Succeed     Not modified
+* [API ] CreateFileW        @ F323    Succeed     Not modified
+* [API ] GetComputerNameA   @ F888    Nothing
+* [API ] GetModuleFileNameW @ BA49    Nothing
+* [API ] GetModuleFileNameW @ FA57    Nothing
+* [API ] GetUserNameA       @ 6307    Nothing
+
+[Manual annotations]
+====================

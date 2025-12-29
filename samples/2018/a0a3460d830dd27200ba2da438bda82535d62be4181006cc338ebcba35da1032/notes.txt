@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: a0a3460d830dd27200ba2da438bda82535d62be4181006cc338ebcba35da1032
+MD5: 85af7205beff6f2268c0bfd757d86166
+Year: 2018
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 34CF
+* [API ] LoadResource         @ 34E1
+* [API ] FindResourceA        @ 34F6
+* [API ] LoadResource         @ 34FE
+* [API ] FindResourceA        @ 31E5
+* [API ] LoadResource         @ 31F7
+* [API ] FindResourceA        @ 320C
+* [API ] LoadResource         @ 3214
+* [API ] FindResourceA        @ 3232
+* [API ] LoadResource         @ 3242
+* [API ] CreateProcessA       @ 32E8
+* [API ] ReadProcessMemory    @ 3320
+* [API ] NtUnmapViewOfSection @ 3342
+* [API ] VirtualAllocEx       @ 3366
+* [API ] WriteProcessMemory   @ 3383
+* [API ] WriteProcessMemory   @ 33B4
+* [API ] WriteProcessMemory   @ 3411
+* [API ] SetThreadContext     @ 3432
+* [API ] ResumeThread         @ 3440
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 68C3    Retarget    Missing
+* [API ] GetModuleFileNameA @ 31D2    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ F27D    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: ace360cee6166fe6ebe4fce3665bd53bbd0fc7b1908a85ee1dd8980eb19647cc
+MD5: e2dfd81fc5c6e8d6d5323c3cc8df8024
+Year: 2018
+Family name: ramnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 96CF
+* [API ] WriteFile      @ 96ED
+* [API ] CreateProcessA @ 9747
+* [API ] CreateFileA    @ 2D25
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW    @ 29B4
+* [API ] WriteFile      @ 18C1
+* [API ] CopyFileW      @ 3202
+* [API ] CreateThread   @ 6FF6
+* [API ] CreateThread   @ 28BA
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 2D25    Fail        Not modified
+* [API ] CreateFileA        @ 96CF    Retarget    C:\Windows\explorer.exe
+* [API ] CreateMutexA       @ 86E5    Fail
+* [API ] FindFirstFileA     @ 01BF    Fail
+* [API ] FindFirstFileA     @ 02D9    Succeed
+* [API ] FindFirstFileA     @ C1F6    Succeed
+* [API ] FindFirstFileA     @ C2C1    Retarget    C:\*
+* [API ] GetFileAttributesA @ 48D4    Succeed
+* [API ] GetFileAttributesA @ 883E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesA @ 8898    Fail
+* [API ] GetFileAttributesA @ 890B    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesA @ 8E9F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesA @ C6B1    Succeed
+* [API ] GetFileAttributesA @ F532    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 1B20    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 6BC2    Nothing
+* [API ] GetModuleFileNameA @ 8775    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 9188    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ BCA0    Nothing
+* [API ] GetModuleFileNameA @ C113    Nothing
+* [API ] GetModuleFileNameA @ CD14    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ F4E3    Nothing
+* [API ] RegOpenKeyA        @ 3D5F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyA        @ D493    Fail        Not modified
+* [API ] TimeDelayAPIs      @ 86F8    Nothing
+* [API ] TimeQueryAPIs      @ 3543    Nothing
+
+[Manual annotations]
+====================

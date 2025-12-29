@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: c228aa584dca67d9fd3dc2dfc17d181639cfcadb2692a31119f31fe3b7b0000c
+MD5: 66ce63dc497f5f0f80ca146fc107e066
+Year: 2021_04_15
+Family name: vkontaktedj
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ 2D0F
+* [API ] CreateThread       @ 8947
+* [API ] CreateFileMappingA @ 3149
+* [API ] MapViewOfFile      @ 38A2
+* [API ] RegCreateKeyExW    @ E7D1
+* [API ] FindResourceW      @ D20B
+* [API ] FindResourceW      @ 2548
+* [API ] LoadResource       @ 2562
+* [API ] CreateFileA        @ EB3B
+* [API ] WriteFile          @ EF71
+* [API ] CreateFileW        @ CE67
+* [API ] CreateThread       @ 7EC7
+* [API ] ResumeThread       @ 913A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateFileA        @ EB3B    Fail
+* [API ] CreateFileW        @ CE67    Fail        Not modified
+* [API ] FindFirstFileA     @ 0814    Nothing
+* [API ] FindFirstFileA     @ 1D08    Retarget    C:\*
+* [API ] FindFirstFileW     @ AEA0    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 1A05    Retarget
+* [API ] GetCursorPos       @ D654    Retarget    Missing
+* [API ] GetFileAttributesW @ D05B    Succeed
+* [API ] GetKeyboardLayout  @ 978E    Nothing
+* [API ] GetLocalTime       @ 90DB    Nothing
+* [API ] GetLocalTime       @ ECC9    Nothing
+* [API ] GetLocalTime       @ ECF5    Nothing
+* [API ] GetModuleFileNameW @ 7A09    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 9F0B    Nothing
+* [API ] GetModuleFileNameW @ AA7A    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ AEF8    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ B1CC    Nothing
+* [API ] GetSystemInfo      @ 9F98    Retarget    Missing
+* [API ] GetSystemInfo      @ A5FC    Retarget    Missing
+* [API ] GetSystemInfo      @ B979    Retarget    Missing
+* [API ] RegOpenKeyExW      @ 9DC3    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ AAC3    Fail        Not modified
+* [API ] RegOpenKeyExW      @ AAE5    Succeed
+* [API ] RegOpenKeyExW      @ AB03    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ AB21    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ AB3F    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ AB5D    Fail        Not modified
+* [API ] RegOpenKeyExW      @ E797    Succeed
+* [API ] RegOpenKeyExW      @ E8CA    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ EFBE    Retarget    ProductID
+* [API ] RegQueryValueExW   @ F5A8    Nothing
+* [API ] TimeDelayAPIs      @ F9E8    Retarget
+* [API ] TimeQueryAPIs      @ 5E39    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: Safengine

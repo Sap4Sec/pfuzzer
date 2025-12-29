@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Lotok.lml-c5bbffaaa02f6289977ee6ba6f2684953114cebc79f3e3e6aca7ca301a87a117
+MD5: 212c5beb7e726a395316402bc999a534
+Year: 2023
+Family name: lotok
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 6E7B
+* [API ] CreateFileW    @ 78A9
+* [API ] NtCreateFile   @ 1F18
+* [API ] socket         @ 19C6
+* [API ] connect        @ 1A09
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile   @ 7F2D
+* [API ] NtCreateFile   @ 9209
+* [API ] NtCreateFile   @ 655E
+* [API ] NtCreateFile   @ F5AD
+* [API ] NtCreateFile   @ E530
+* [API ] NtCreateFile   @ 3E75
+* [API ] NtCreateFile   @ E9B5
+* [API ] RegSetValueExA @ 78E3
+* [API ] NtCreateFile   @ 740C
+* [API ] NtCreateFile   @ E0D0
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ A3E9    Retarget    Missing
+* [API ] CreateFileW        @ 6E7B    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileW        @ 78A9    Succeed     Not modified
+* [API ] CreateMutexA       @ 377E    Retarget    ZonesCacheCounterMutex
+* [API ] GetLocalTime       @ 3A5E    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameW @ 8003    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] NtCreateFile       @ 1F18    Fail        Not modified
+* [API ] NtCreateFile       @ 7521    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] RegOpenKeyExA      @ 78B0    Succeed
+* [API ] TimeDelayAPIs      @ 7003    Retarget
+* [API ] TimeQueryAPIs      @ A2D8    Retarget
+
+[Manual annotations]
+====================

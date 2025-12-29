@@ -1,0 +1,89 @@
+[Basic information]
+=========================================================================
+SHA-256: 132945a03da21e74fa1d45ecc5b24b342d5d29fa6f7f697153c696fedbb74f14
+MD5: dde28521117eadb46defea68ee689c38
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA      @ 36E8
+* [API ] CreateFileA      @ 3015
+* [API ] WriteFile        @ 2F40
+* [API ] WinExec          @ EF03
+* [API ] WinExec          @ FEBC
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA        @ FB50
+* [API ] WinExec          @ FBCF
+* [API ] CreateThread     @ 93C0
+* [API ] WinExec          @ 905B
+* [API ] FindResourceA    @ 79DC
+* [API ] LoadResource     @ 79F2
+* [API ] CreateFileA      @ 7A2D
+* [API ] WriteFile        @ 7A64
+* [API ] RegCreateKeyExA  @ 69D2
+* [API ] RegSetValueExA   @ 6A37
+* [API ] WinExec          @ 9094
+* [API ] RegCreateKeyExA  @ 74D1
+* [API ] RegSetValueExA   @ 74E9
+* [API ] CreateThread     @ 93FF
+* [API ] CreateThread     @ 7604
+* [API ] CreateThread     @ 6D5E
+* [API ] CreateThread     @ 6D75
+* [API ] CreateThread     @ 4A1F
+* [API ] CreateFileA      @ 7CF6
+* [API ] socket           @ 89DA
+* [API ] CreateThread     @ 6681
+* [API ] InternetOpenA    @ 61F6
+* [API ] inet_addr        @ 8A01
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL
+* [API ] connect          @ 8A10
+* [API ] InternetOpenUrlA @ 6223
+* [API ] CreateFileA      @ 9B46
+* [API ] CreateThread     @ 754C
+* [API ] ShellExecuteExA  @ 678A
+* [API ] WinExec          @ 70B8
+* [API ] WinExec          @ 70C9
+* [API ] InternetReadFile @ 626D
+* [API ] WinExec          @ 60B3
+* [API ] socket           @ 8A72
+* [API ] inet_addr        @ 8A99
+* [API ] connect          @ 8AA8
+
+[Mutations applied in the best run (26)]
+=======================================
+
+* [API ] CreateFileA               @ 3015    Retarget    iexplorer.exe
+* [API ] CreateFileA               @ 36E8    Succeed
+* [API ] CreateFileA               @ 7A2D    Fail        Not modified
+* [API ] CreateFileA               @ 7CF6    Succeed     Not modified
+* [API ] FindFirstFileA            @ 7C18    Nothing
+* [API ] FindFirstFileA            @ 9C08    Succeed
+* [API ] FindFirstFileA            @ E658    Succeed
+* [API ] FindNextFileA             @ E698    Retarget
+* [API ] GetLocalTime              @ 1F9D    Retarget    2017:8:5:19
+* [API ] GetLocalTime              @ 31F0    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameA        @ 2DC8    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA        @ 5D07    Nothing
+* [API ] GetModuleFileNameA        @ 5F98    Nothing
+* [API ] GetModuleFileNameA        @ EC56    Nothing
+* [API ] InternetGetConnectedState @ 89C3    Succeed
+* [API ] Process32First            @ 72FF    Nothing
+* [API ] Process32Next             @ 731F    Retarget
+* [API ] RegOpenKeyExA             @ 5FB6    Fail        Not modified
+* [API ] RegOpenKeyExA             @ 5FD4    Succeed
+* [API ] RegOpenKeyExA             @ 5FF2    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA          @ 603B    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA          @ 6059    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs             @ E83A    Nothing
+* [API ] TimeQueryAPIs             @ 2E0D    Nothing
+
+[Manual annotations]
+====================

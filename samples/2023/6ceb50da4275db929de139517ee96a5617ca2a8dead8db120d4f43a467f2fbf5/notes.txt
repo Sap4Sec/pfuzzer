@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Lotok.lna-6ceb50da4275db929de139517ee96a5617ca2a8dead8db120d4f43a467f2fbf5
+MD5: 34517f9ebbfdc93ea5590bdff48b8c0b
+Year: 2023
+Family name: lotok
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ F7FB
+* [API ] CreateFileW  @ B5D3
+* [API ] NtCreateFile @ EE93
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 2235
+* [API ] socket       @ 19C6
+* [API ] connect      @ 1A09
+* [API ] NtCreateFile @ 5DB8
+* [API ] NtCreateFile @ 5749
+* [API ] NtCreateFile @ 6B74
+* [API ] NtCreateFile @ C049
+* [API ] NtCreateFile @ 50F5
+* [API ] NtCreateFile @ 55A0
+* [API ] NtCreateFile @ C664
+* [API ] NtCreateFile @ 4BF9
+* [API ] NtCreateFile @ F070
+* [API ] NtCreateFile @ 03EF
+* [API ] NtCreateFile @ E6F2
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ FE8B    Nothing
+* [API ] CreateFileW        @ B5D3    Succeed     Not modified
+* [API ] CreateFileW        @ F7FB    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexA       @ 377E    Succeed
+* [API ] GetModuleFileNameW @ F8E0    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] NtCreateFile       @ B66B    Fail        Not modified
+* [API ] NtCreateFile       @ EE93    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeDelayAPIs      @ 7003    Nothing
+* [API ] TimeQueryAPIs      @ FEEE    Retarget
+
+[Manual annotations]
+====================

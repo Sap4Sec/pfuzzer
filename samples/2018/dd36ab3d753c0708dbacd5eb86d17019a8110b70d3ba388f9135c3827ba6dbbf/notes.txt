@@ -1,0 +1,27 @@
+[Basic information]
+=========================================================================
+SHA-256: dd36ab3d753c0708dbacd5eb86d17019a8110b70d3ba388f9135c3827ba6dbbf
+MD5: 48416cf2a47438eb27a82b522ac0c69e
+Year: 2018
+Family name: opensupdater
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID              @ F03B    Nothing
+* [API ] GetModuleFileNameA @ 90CD    Nothing
+* [API ] GetModuleFileNameA @ B124    Nothing
+
+[Manual annotations]
+====================
+Requires command line arguments to proceed (-service)

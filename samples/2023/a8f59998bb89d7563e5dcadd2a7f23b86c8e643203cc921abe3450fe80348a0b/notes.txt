@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Cyclun.arc-a8f59998bb89d7563e5dcadd2a7f23b86c8e643203cc921abe3450fe80348a0b
+MD5: 7defee0256b1e42f479f14484af82daa
+Year: 2023
+Family name: cyclun
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 0802
+* [API ] CreateFileW  @ AE2E
+* [API ] NtCreateFile @ 57B8
+* [API ] socket       @ 1448
+* [API ] connect      @ 14C5
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 5D77
+* [API ] NtCreateFile @ 072C
+* [API ] NtCreateFile @ DB53
+* [API ] NtCreateFile @ B76B
+* [API ] NtCreateFile @ B91C
+* [API ] NtCreateFile @ 2581
+* [API ] NtCreateFile @ 3737
+* [API ] NtCreateFile @ A442
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ E042    Nothing
+* [API ] CreateFileW        @ 0802    Retarget    attrib.exe
+* [API ] CreateFileW        @ AE2E    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 099B    Nothing
+* [API ] NtCreateFile       @ 57B8    Fail        Not modified
+* [API ] NtCreateFile       @ 710C    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs      @ F91A    Nothing
+
+[Manual annotations]
+====================

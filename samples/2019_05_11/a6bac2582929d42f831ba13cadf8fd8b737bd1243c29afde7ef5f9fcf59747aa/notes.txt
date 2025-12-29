@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: a6bac2582929d42f831ba13cadf8fd8b737bd1243c29afde7ef5f9fcf59747aa
+MD5: b2fc958111263b1138d4189d52e2a231
+Year: 2019_05_11
+Family name: sefnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (42)]
+=======================================
+
+* [API ] CPUID                @ EFFF    Nothing
+* [API ] GetFileAttributesExW @ 235B    Fail
+* [API ] GetModuleFileNameW   @ 2162    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW   @ 2621    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo        @ 57DD    Nothing
+* [API ] Process32FirstW      @ 096F    Nothing
+* [API ] Process32NextW       @ 09C0    Retarget
+* [API ] RegOpenKeyExW        @ 31F2    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeQueryAPIs        @ A2F4    Retarget
+
+[Manual annotations]
+====================

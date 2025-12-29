@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: b3a53eeee3ccdfdb2b926b4b845f60a18881d3fb91afb4df59fbcf6d41256da5
+MD5: 9f0c211d2ea5598903771d8af151db71
+Year: 2018
+Family name: SINGLETON:9f0c211d2ea5598903771d8af151db71
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 4050
+* [API ] SetWindowsHookExA @ DA53
+* [API ] SetWindowsHookExA @ AA49
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] SetWindowsHookExA @ 2DCD
+* [API ] CreateThread      @ 88A2
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 3EB5    Succeed     Not modified
+* [API ] GetCursorPos       @ 22EC    Retarget    Missing
+* [API ] GetCursorPos       @ 25E8    Nothing
+* [API ] GetCursorPos       @ 3720    Nothing
+* [API ] GetLocalTime       @ 95E3    Nothing
+* [API ] GetModuleFileNameA @ 1F09    Nothing
+* [API ] GetModuleFileNameA @ 3A29    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 4F4B    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 7F33    Nothing
+* [API ] GetModuleFileNameA @ BDA0    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemTime      @ 95ED    Nothing
+* [API ] GetWindowTextA     @ AF39    Retarget    Window - Window
+* [API ] TimeDelayAPIs      @ 65A3    Retarget
+* [API ] TimeQueryAPIs      @ 1646    Retarget
+
+[Manual annotations]
+====================
+User interactiom: GUI with different tools. In the meanwhile it performs keylogging operations

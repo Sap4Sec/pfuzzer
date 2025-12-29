@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Chapak.gen-289bef598dc18a0b69f10f7df9c71ea3078c7edb71ad0855a6827423e84fc3f9
+MD5: 16eaae5b30fb85508a6c588da3c55b36
+Year: 2022
+Family name: zbot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] VirtualAllocExNuma @ 11BD
+* [API ] InternetOpenA      @ 14B9
+* [API ] InternetConnectA   @ 14F8
+* [API ] HttpOpenRequestA   @ 1533
+* [API ] HttpSendRequestA   @ 154C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] GetModuleFileNameA @ C493    Nothing
+* [API ] GetUserNameA       @ 2FEC    Nothing
+* [API ] TimeDelayAPIs      @ 3EBB    Retarget
+
+[Manual annotations]
+====================

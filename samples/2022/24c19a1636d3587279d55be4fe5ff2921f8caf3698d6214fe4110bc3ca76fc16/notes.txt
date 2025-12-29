@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.Bandra.gen-24c19a1636d3587279d55be4fe5ff2921f8caf3698d6214fe4110bc3ca76fc16
+MD5: b2cde2b7f52a07cab9eafb342c356ca0
+Year: 2022
+Family name: bandra
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] VirtualAllocExNuma @ 1177
+* [API ] InternetOpenA      @ 9F1B
+* [API ] InternetConnectA   @ 9F4F
+* [API ] HttpOpenRequestA   @ 9F81
+* [API ] HttpSendRequestA   @ 9F92
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ 11AC    Nothing
+* [API ] CreateMutexA       @ ACBA    Succeed
+* [API ] GetComputerNameA   @ 5EBD    Nothing
+* [API ] GetModuleFileNameA @ B848    Nothing
+* [API ] GetSystemInfo      @ 59A8    Nothing
+* [API ] GetSystemTime      @ C4BB    Nothing
+* [API ] GetSystemTime      @ C53B    Nothing
+* [API ] GetSystemTime      @ C616    Nothing
+* [API ] GetUserNameA       @ 603B    Retarget    Office
+* [API ] RegOpenKeyExA      @ 611F    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 613E    Nothing
+* [API ] TimeDelayAPIs      @ C46A    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.ue-fbf66aa4641ee40b89b7adeb3479c0e3366991ebbd22c513e25223ac62116141
+MD5: e33d877aeec8818d72035377f935768d
+Year: 2022
+Family name: SINGLETON:e33d877aeec8818d72035377f935768d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW          @ E74D
+* [API ] RegCreateKeyW      @ E2E7
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExW     @ F202
+* [API ] WSAStartup         @ 1180
+* [API ] WinHttpOpen        @ 3401
+* [API ] WinHttpConnect     @ CDF7
+* [API ] WinHttpOpenRequest @ EA9C
+* [API ] WinHttpSendRequest @ 00B8
+* [API ] WinHttpReadData    @ 03EB
+* [API ] CreateFileW        @ 2EF3
+* [API ] CopyFileW          @ CC78
+* [API ] CreateFileW        @ B1C0
+* [API ] CreateThread       @ 0C84
+* [API ] CreateFileMappingW @ B5F2
+* [API ] MapViewOfFile      @ B61D
+* [API ] CreateFileW        @ B644
+* [API ] WriteFile          @ B672
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 1CFC
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID                    @ 3D3B    Retarget    Missing
+* [API ] CreateFileW              @ 2EF3    Fail        Not modified
+* [API ] CreateFileW              @ B1C0    Succeed
+* [API ] CreateFileW              @ B644    Fail        Not modified
+* [API ] CreateMutexW             @ AA87    Succeed
+* [API ] GetAdaptersInfo          @ D798    Retarget    Office
+* [API ] GetCursorPos             @ 97D0    Retarget    Missing
+* [API ] GetModuleFileNameA       @ CFDC    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW       @ 12E2    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW       @ 4EA7    Nothing
+* [API ] GetModuleFileNameW       @ BA06    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW       @ E3E9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] NtQuerySystemInformation @ B103    Nothing
+* [API ] NtQuerySystemInformation @ B174    Retarget    John
+* [API ] RegOpenKeyExA            @ F1D6    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW            @ BB5C    Succeed
+* [API ] TimeDelayAPIs            @ B30A    Retarget
+* [API ] TimeQueryAPIs            @ 4AEA    Retarget
+
+[Manual annotations]
+====================

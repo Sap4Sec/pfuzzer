@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 19dac8cac8d6811fdfcb5eff0c3aa8765916ea80d076610b05c9adec0da3605c
+MD5: d0d4818be7ea8edec362bf548417fc23
+Year: 2019_05_11
+Family name: seimon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ B3CA
+* [API ] LoadResource     @ B3DC
+* [API ] FindResourceA    @ B447
+* [API ] LoadResource     @ B459
+* [API ] CreateThread     @ D3FD
+* [API ] InternetOpenA    @ 0AB1
+* [API ] InternetOpenUrlA @ 3521
+* [API ] RegCreateKeyExA  @ 7F11
+* [API ] WSAStartup       @ 1CFC
+* [API ] InternetOpenA    @ 2D23
+* [API ] InternetOpenUrlA @ 356B
+* [API ] InternetReadFile @ 8787
+* [API ] InternetReadFile @ 9081
+* [API ] InternetReadFile @ B0DF
+* [API ] RegCreateKeyExA  @ 8056
+* [API ] RegSetValueExA   @ 80AF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] GetComputerNameA          @ 32D2    Nothing
+* [API ] GetLocalTime              @ 806B    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameA        @ 453B    Nothing
+* [API ] InternetGetConnectedState @ 83BB    Succeed
+* [API ] RegOpenKeyExA             @ 1C45    Succeed     Not modified
+* [API ] RegQueryValueExA          @ 1C69    Nothing
+* [API ] RegQueryValueExA          @ 7F3A    Retarget    ProductID
+* [API ] TimeDelayAPIs             @ 4888    Nothing
+* [API ] TimeQueryAPIs             @ 3086    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: 49f6fd26d05c86899af9699cce017629c72ccf6341d0d12ee0f38515af7ea148
+MD5: 7f4d0a004e023c55e5bf9197ef8328f1
+Year: 2019_11_29
+Family name: qqpass
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA   @ ED2E
+* [API ] WriteFile     @ ED69
+* [API ] CreateFileA   @ D88B
+* [API ] ShellExecuteA @ 3155
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

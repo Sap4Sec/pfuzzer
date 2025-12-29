@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 7ab7c5859be3464bfdfd33c446008c422b545106eda256d679bcfde1d523f22f
+MD5: 3af18b08ac8abb9639f394bae7ed1d85
+Year: 2019_05_11
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW @ E71D
+* [API ] CreateFileW @ 7AAB
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+SAFENGINE-protected; detects virtualized environment and exits.

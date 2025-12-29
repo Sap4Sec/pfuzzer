@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: b9469ef7a22d7d91d6d99280b5d339145abd644e13354f7340f7edf0f20b30e8
+MD5: 24138adb3c67e2d61e6ff4955a2c06a2
+Year: 2018
+Family name: SINGLETON:24138adb3c67e2d61e6ff4955a2c06a2
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] MapVirtualKeyW  @ 2B77
+* [API ] MapVirtualKeyW  @ 2B7F
+* [API ] MapVirtualKeyW  @ 2B8A
+* [API ] MapVirtualKeyW  @ 2B95
+* [API ] MapVirtualKeyW  @ 2B9D
+* [API ] MapVirtualKeyW  @ 2BA5
+* [API ] CreateThread    @ ADAE
+* [API ] CreateFileW     @ 73AE
+* [API ] FindResourceExW @ 54BA
+* [API ] CreateFileW     @ 3E2F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ 7CD4    Nothing
+* [API ] CreateFileW        @ 3E2F    Succeed
+* [API ] CreateFileW        @ 73AE    Succeed     Not modified
+* [API ] FindFirstFileW     @ 793B    Nothing
+* [API ] GetFileAttributesW @ 86A1    Succeed
+* [API ] GetModuleFileNameW @ 3540    Nothing
+* [API ] GetModuleFileNameW @ 429F    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ CD47    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ F764    Nothing
+* [API ] RegOpenKeyExW      @ D903    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ F852    Fail        Not modified
+* [API ] RegQueryValueExW   @ D924    Nothing
+* [API ] TimeDelayAPIs      @ 2D48    Nothing
+* [API ] TimeQueryAPIs      @ 4B39    Nothing
+
+[Manual annotations]
+====================
+Requires command line arguments to proceed

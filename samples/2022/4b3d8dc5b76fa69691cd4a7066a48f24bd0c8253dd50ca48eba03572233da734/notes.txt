@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Stealer.aeih-4b3d8dc5b76fa69691cd4a7066a48f24bd0c8253dd50ca48eba03572233da734
+MD5: 411f9446b442f1562501e75f2e6705a0
+Year: 2022
+Family name: SINGLETON:411f9446b442f1562501e75f2e6705a0
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW   @ 9E34
+* [API ] LoadResource    @ 9E5F
+* [API ] CreateFileW     @ 9A52
+* [API ] FindResourceW   @ DA67
+* [API ] CreateFileW     @ 97AC
+* [API ] WriteFile       @ 9FBE
+* [API ] SetFileTime     @ 9E32
+* [API ] ShellExecuteExW @ CF5A
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW     @ 9A94
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID              @ ED9C    Nothing
+* [API ] CreateFileW        @ 97AC    Fail        Not modified
+* [API ] CreateFileW        @ 9A52    Succeed     Not modified
+* [API ] FindFirstFileW     @ A62E    Retarget    C:\*
+* [API ] FindFirstFileW     @ A664    Fail
+* [API ] FindWindowExW      @ A30B    Succeed
+* [API ] GetFileAttributesW @ 0516    Fail
+* [API ] GetFileAttributesW @ A1AB    Succeed
+* [API ] GetFileAttributesW @ A1D7    Succeed
+* [API ] GetLocalTime       @ D6CF    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameA @ 7703    Nothing
+* [API ] GetModuleFileNameW @ 0495    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ D6B8    Nothing
+* [API ] GetSystemTime      @ 0C39    Retarget    2010:1:1:2
+* [API ] TimeQueryAPIs      @ 57A0    Retarget
+
+[Manual annotations]
+====================

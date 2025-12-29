@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: 4bb109e5215a2bab1339888ba21156e4ec877d59c38e59e7f32e7a83701b1b59
+MD5: 6d40503d995cc8b9059718f2ff2d596e
+Year: 2021_11_03
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+[Mutations applied in the best run (46)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Fail
+* [API ] CreateFileA          @ 1BEA    Succeed     Not modified
+* [API ] CreateFileA          @ 1C1B    Succeed
+* [API ] CreateFileA          @ 239A    Fail        Not modified
+* [API ] CreateMutexA         @ 105A    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA         @ 1101    Fail
+* [API ] FindFirstFileA       @ 3004    Fail
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesExA @ 1B43    Fail
+* [API ] GetModuleFileNameA   @ 11A7    Nothing
+* [API ] GetModuleFileNameA   @ 1E4D    Nothing
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2A94    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2AE1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 2D0B    Succeed     Not modified
+* [API ] RegQueryValueExA     @ 2B12    Nothing
+* [API ] TimeDelayAPIs        @ 10C1    Retarget
+* [API ] TimeQueryAPIs        @ 1100    Retarget
+
+[Manual annotations]
+====================

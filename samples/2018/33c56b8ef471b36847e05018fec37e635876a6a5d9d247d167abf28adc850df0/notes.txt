@@ -1,0 +1,73 @@
+[Basic information]
+=========================================================================
+SHA-256: 33c56b8ef471b36847e05018fec37e635876a6a5d9d247d167abf28adc850df0
+MD5: f0a0d002e6e7f476981861394893619d
+Year: 2018
+Family name: yiwanzhushou
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup    @ 4005
+* [API ] WSAStartup    @ 4060
+* [API ] WSAStartup    @ 419E
+* [API ] WSAStartup    @ 6D98
+* [API ] FindResourceA @ E80B
+* [API ] LoadResource  @ E81A
+* [API ] CreateFileA   @ 1484
+* [API ] CreateFileA   @ 1B14
+* [API ] CreateThread  @ D34B
+* [API ] ResumeThread  @ 748B
+* [API ] WSAStartup    @ 4A64
+* [API ] getaddrinfo   @ 493B
+* [API ] WSASocketW    @ 4CC4
+* [API ] WSAConnect    @ 4E56
+* [API ] WSASend       @ 4FBF
+* [API ] WSARecv       @ 5195
+* [API ] FindResourceW @ 44CD
+* [API ] LoadResource  @ 4531
+* [API ] CreateFileW   @ 70D9
+* [API ] WriteFile     @ D7D9
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExW   @ EC3A
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 6600    Nothing
+* [API ] CreateFileA        @ 1484    Fail        Not modified
+* [API ] CreateFileA        @ 1B14    Succeed     Not modified
+* [API ] CreateFileW        @ 70D9    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateMutexA       @ 58D4    Fail
+* [API ] DeviceIoControl    @ 14CE    Nothing
+* [API ] DeviceIoControl    @ 1B63    Nothing
+* [API ] DeviceIoControl    @ 30BD    Retarget    Missing
+* [API ] GetFileAttributesW @ 2817    Fail
+* [API ] GetModuleFileNameA @ 29D6    Nothing
+* [API ] GetModuleFileNameW @ 2697    Nothing
+* [API ] GetModuleFileNameW @ 2ACD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 2B8D    Nothing
+* [API ] GetModuleFileNameW @ F8C5    Nothing
+* [API ] RegEnumKeyExA      @ 1C62    Nothing
+* [API ] RegEnumKeyExA      @ 1D7F    Nothing
+* [API ] RegOpenKeyExA      @ 1C30    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 1C8C    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 2921    Fail
+* [API ] RegOpenKeyExA      @ 29D1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 2A81    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 1CC4    Nothing
+* [API ] RegQueryValueExA   @ 2947    Nothing
+* [API ] RegQueryValueExA   @ 2975    Nothing
+* [API ] RegQueryValueExA   @ 29F7    Nothing
+* [API ] RegQueryValueExA   @ 2A25    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 2AA7    Nothing
+* [API ] TimeDelayAPIs      @ B5B9    Nothing
+* [API ] TimeQueryAPIs      @ F0D6    Nothing
+
+[Manual annotations]
+====================

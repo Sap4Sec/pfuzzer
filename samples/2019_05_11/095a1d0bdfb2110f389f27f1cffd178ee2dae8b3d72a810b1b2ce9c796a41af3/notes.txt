@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: 095a1d0bdfb2110f389f27f1cffd178ee2dae8b3d72a810b1b2ce9c796a41af3
+MD5: bb59268da8c9095e62d4e4dd62f0cd9c
+Year: 2019_05_11
+Family name: SINGLETON:bb59268da8c9095e62d4e4dd62f0cd9c
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ BB8D
+* [API ] WSAStartup        @ DB86
+* [API ] SetWindowsHookExA @ 5CB9
+* [API ] SetWindowsHookExA @ 2D3F
+* [API ] CopyFileA         @ 5B67
+* [API ] CreateFileA       @ 5BB7
+* [API ] SetWindowsHookExA @ 29D6
+* [API ] InternetOpenA     @ C996
+* [API ] InternetConnectA  @ CBE2
+* [API ] HttpOpenRequestA  @ CC93
+* [API ] HttpSendRequestA  @ CD07
+* [API ] InternetReadFile  @ CE2C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID              @ 32E1    Nothing
+* [API ] CreateFileA        @ 5BB7    Succeed     Not modified
+* [API ] CreateFileW        @ BB8D    Succeed
+* [API ] DeviceIoControl    @ BBFC    Retarget    Missing
+* [API ] FindFirstFileA     @ E466    Fail
+* [API ] GetAdaptersInfo    @ 8B87    Nothing
+* [API ] GetCursorPos       @ B541    Retarget    Missing
+* [API ] GetModuleFileNameA @ 44A1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ A3C9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ B834    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ C93F    Nothing
+* [API ] GetModuleFileNameA @ FA53    Nothing
+* [API ] GetWindowTextA     @ 962A    Nothing
+* [API ] RegOpenKeyExA      @ 8D24    Fail
+* [API ] RegOpenKeyExA      @ BFE0    Succeed
+* [API ] RegQueryValueExA   @ 8D46    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ B793    Nothing
+* [API ] TimeQueryAPIs      @ 9A01    Nothing
+
+[Manual annotations]
+====================

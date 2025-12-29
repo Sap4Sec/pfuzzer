@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 3b425f447bc4ce9747e3ed0d0727920e4a02a998bc2f92b19f27c3e2e6d46dad
+MD5: 550098574d7e30f4752adbb27d98f248
+Year: 2019_05_11
+Family name: occamy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 2F41
+* [API ] CreateFileW  @ 1C99
+* [API ] NtCreateFile @ B734
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 568B
+* [API ] NtCreateFile @ 466C
+* [API ] NtCreateFile @ D0BB
+* [API ] NtCreateFile @ FA31
+* [API ] NtCreateFile @ 5405
+* [API ] NtCreateFile @ BA10
+* [API ] NtCreateFile @ 4D0E
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ AFD6    Retarget    Missing
+* [API ] CreateFileW        @ 1C99    Succeed     Not modified
+* [API ] CreateFileW        @ 2F41    Fail
+* [API ] GetModuleFileNameW @ 304A    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] NtCreateFile       @ 1703    Retarget    \??\Analysis
+* [API ] NtCreateFile       @ B734    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 1609    Retarget
+
+[Manual annotations]
+====================
+Damaged file, cannot be executed; Safengine Shielden(v2.3.0.0)

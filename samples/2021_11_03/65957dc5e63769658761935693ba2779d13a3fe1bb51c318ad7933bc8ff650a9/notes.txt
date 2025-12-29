@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 65957dc5e63769658761935693ba2779d13a3fe1bb51c318ad7933bc8ff650a9
+MD5: 57df55c6c6b485834d5e5028fd87a8f8
+Year: 2021_11_03
+Family name: viking
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+PFuzzer breaks it, BluePill is able to observe relevant behavior, but we were unable to identify the environmental information item required to proceed

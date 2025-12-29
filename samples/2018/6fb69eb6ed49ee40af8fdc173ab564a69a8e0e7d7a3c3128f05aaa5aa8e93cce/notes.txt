@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 6fb69eb6ed49ee40af8fdc173ab564a69a8e0e7d7a3c3128f05aaa5aa8e93cce
+MD5: fccf82d9daec31a44525ea52afea615c
+Year: 2018
+Family name: bissldr
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] NtAllocateVirtualMemory @ 8A1B
+* [API ] WriteProcessMemory      @ 81BC
+* [API ] WriteProcessMemory      @ 822F
+* [API ] WriteProcessMemory      @ 83A9
+* [API ] WriteProcessMemory      @ 83D9
+* [API ] WriteProcessMemory      @ 83F6
+* [API ] WriteProcessMemory      @ 8412
+* [API ] WriteProcessMemory      @ 6425
+* [API ] WriteProcessMemory      @ 646D
+* [API ] WriteProcessMemory      @ 8EBF
+* [API ] WriteProcessMemory      @ 9251
+* [API ] FindResourceExW         @ 00D7
+* [API ] LoadResource            @ 00D7
+* [API ] WriteProcessMemory      @ 9B94
+* [API ] CreateProcessW          @ 0169
+* [API ] NtUnmapViewOfSection    @ 0194
+* [API ] VirtualAllocEx          @ 01CB
+* [API ] WriteProcessMemory      @ 0219
+* [API ] WriteProcessMemory      @ 02FF
+* [API ] WriteProcessMemory      @ 03A3
+* [API ] SetThreadContext        @ 03EE
+* [API ] ResumeThread            @ 040E
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

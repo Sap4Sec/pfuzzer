@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: 303ea68828e74d69f38af796e7f66a3fa35e85582d283f3104b8497654650ac6
+MD5: 544297523704be7fb77840f9a8d98e0d
+Year: 2019_05_11
+Family name: SINGLETON:544297523704be7fb77840f9a8d98e0d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ BA22
+* [API ] SetWindowsHookExA    @ 2167
+* [API ] SetWindowsHookExA    @ F1EE
+* [API ] CryptAcquireContextA @ 4625
+* [API ] CryptCreateHash      @ 46B8
+* [API ] CryptHashData        @ 4794
+* [API ] CryptGetHashParam    @ 487D
+* [API ] CryptDestroyHash     @ 4BCA
+* [API ] CryptReleaseContext  @ 4BF9
+* [API ] CreateFileA          @ 3EB5
+* [API ] SetWindowsHookExA    @ 94B3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ 22D2    Nothing
+* [API ] CreateFileA        @ 3EB5    Succeed     Not modified
+* [API ] CreateFileW        @ BA22    Fail        Not modified
+* [API ] DeviceIoControl    @ BA6B    Nothing
+* [API ] FindWindowExA      @ C20A    Retarget    SecHealthHost - SecHealth Win
+* [API ] FindWindowExA      @ C286    Fail
+* [API ] GetAdaptersInfo    @ 5339    Nothing
+* [API ] GetAdaptersInfo    @ 536E    Retarget    Office
+* [API ] GetCursorPos       @ 76CB    Nothing
+* [API ] GetModuleFileNameA @ 0B8A    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 3643    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 4F4B    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 7958    Nothing
+* [API ] GetModuleFileNameA @ B9D5    Nothing
+* [API ] GetModuleFileNameA @ DEF9    Nothing
+* [API ] GetWindowTextA     @ 331F    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetWindowTextA     @ 37E3    Nothing
+* [API ] GetWindowTextA     @ D4FB    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetWindowTextA     @ F6DD    Nothing
+* [API ] RegOpenKeyExA      @ 554C    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 556E    Nothing
+* [API ] TimeQueryAPIs      @ 1646    Nothing
+
+[Manual annotations]
+====================

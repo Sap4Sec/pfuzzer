@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: 377b23171bd816b413581395bbb69f97728e8eccfb56502a22eba0e1c283c2c5
+MD5: 62bb40e8c6cece19fddd38d03bcced1a
+Year: 2019_05_11
+Family name: daws
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinExec            @ 2B7A
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 163C
+* [API ] WriteFile          @ 166B
+* [API ] CreateFileMappingW @ 169F
+* [API ] MapViewOfFile      @ 16C1
+* [API ] CreateFileW        @ 274F
+* [API ] CreateFileW        @ 288B
+* [API ] WriteFile          @ 28F8
+* [API ] CreateProcessW     @ 298E
+* [API ] WinExec            @ 2A54
+* [API ] CreateFileW        @ 14DC
+* [API ] WriteFile          @ 150B
+* [API ] CreateFileMappingW @ 153F
+* [API ] MapViewOfFile      @ 1561
+* [API ] OpenSCManagerW     @ 1783
+* [API ] CreateServiceW     @ 17B3
+* [API ] StartServiceW      @ 17E5
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CPUID              @ 8422    Retarget    Missing
+* [API ] CreateFileW        @ 14DC    Succeed     Not modified
+* [API ] CreateFileW        @ 163C    Retarget    Backup.txt
+* [API ] CreateFileW        @ 274F    Succeed     Not modified
+* [API ] CreateFileW        @ 288B    Succeed     Not modified
+* [API ] GetFileAttributesA @ 9017    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 272F    Nothing
+* [API ] GetModuleFileNameW @ 5E28    Retarget    C:\Windows\explorer.exe
+* [API ] Process32FirstW    @ 18A7    Nothing
+* [API ] Process32NextW     @ 18D2    Retarget
+* [API ] Process32NextW     @ 191A    Retarget
+* [API ] TimeDelayAPIs      @ 1619    Retarget
+* [API ] TimeQueryAPIs      @ 15F8    Retarget
+
+[Manual annotations]
+====================

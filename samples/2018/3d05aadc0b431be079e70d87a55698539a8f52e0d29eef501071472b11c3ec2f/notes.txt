@@ -1,0 +1,85 @@
+[Basic information]
+=========================================================================
+SHA-256: 3d05aadc0b431be079e70d87a55698539a8f52e0d29eef501071472b11c3ec2f
+MD5: d346800d280f6b9b40f4ee3ccd96493a
+Year: 2018
+Family name: installmonster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ C7D6
+* [API ] CreateFileMappingA @ C841
+* [API ] MapViewOfFile      @ C87F
+* [API ] GetKeyboardState   @ 140B
+* [API ] CreateFileW        @ 19F3
+* [API ] CreateFileA        @ A55B
+* [API ] NtCreateFile       @ 1471
+* [API ] CreateThread       @ 16AC
+* [API ] RegCreateKeyExA    @ 0B5A
+* [API ] socket             @ 884E
+* [API ] connect            @ 82D6
+* [API ] send               @ 8716
+* [API ] send               @ DCAC
+* [API ] socket             @ DF06
+* [API ] connect            @ F5C7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID                @ 7559    Retarget    Missing
+* [API ] CreateFileA          @ A55B    Succeed
+* [API ] CreateFileW          @ 19F3    Fail        Not modified
+* [API ] CreateMutexA         @ C46E    Retarget    vscode
+* [API ] DeviceIoControl      @ 7D7A    Retarget    Missing
+* [API ] GetAdaptersAddresses @ FA2B    Nothing
+* [API ] GetAdaptersInfo      @ 768E    Retarget    Office
+* [API ] GetAdaptersInfo      @ 76B5    Retarget    John
+* [API ] GetDiskFreeSpaceExA  @ 72CF    Retarget    Missing
+* [API ] GetDiskFreeSpaceExW  @ 7BFB    Retarget    Missing
+* [API ] GetKeyboardLayout    @ 8B4A    Nothing
+* [API ] GetLocalTime         @ 8494    Retarget    2015:12:6:15
+* [API ] GetLocalTime         @ D119    Retarget    2015:12:6:15
+* [API ] GetLocalTime         @ D14D    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameA   @ 3028    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA   @ 6477    Nothing
+* [API ] GetModuleFileNameA   @ 6708    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA   @ 9D30    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA   @ A9EB    Nothing
+* [API ] GetModuleFileNameW   @ 1681    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW   @ 2495    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemInfo        @ 6831    Retarget    Missing
+* [API ] GetSystemInfo        @ 7F2B    Nothing
+* [API ] GetSystemInfo        @ 84E6    Nothing
+* [API ] GetSystemInfo        @ FE6E    Retarget    Missing
+* [API ] GetWindowTextA       @ 57DB    Nothing
+* [API ] GlobalMemoryStatusEx @ 7436    Nothing
+* [API ] NtCreateFile         @ 1471    Retarget    \??\Analysis
+* [API ] Process32First       @ 792F    Nothing
+* [API ] Process32FirstW      @ B2D9    Nothing
+* [API ] Process32Next        @ 794F    Retarget
+* [API ] Process32NextW       @ B32A    Retarget
+* [API ] RegEnumKeyExA        @ 1121    Nothing
+* [API ] RegEnumKeyExW        @ C528    Retarget    testuser
+* [API ] RegOpenKeyExA        @ 0C53    Fail        Not modified
+* [API ] RegOpenKeyExA        @ 6726    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 6744    Fail        Not modified
+* [API ] RegOpenKeyExA        @ 6762    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 0BC7    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ B87E    Succeed     Not modified
+* [API ] RegQueryValueExA     @ 12AA    Retarget    ProductID
+* [API ] RegQueryValueExA     @ 16F7    Nothing
+* [API ] RegQueryValueExW     @ 0C6B    Retarget    ProductID
+* [API ] RegQueryValueExW     @ B928    Retarget    ProductID
+* [API ] TimeDelayAPIs        @ C3AC    Retarget
+* [API ] TimeQueryAPIs        @ 838B    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agent.gen-f079cb2f1e6ff79d3a755069ac42e6a6f6c86d4729110dc7b27610d135d9d5a3
+MD5: 4e44af86fc6780ccc409ed9210d098ab
+Year: 2023
+Family name: lazy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] ReadProcessMemory  @ 7359
+* [API ] WriteProcessMemory @ 6CE7
+* [API ] CreateFileA        @ 57B3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID                 @ E6CF    Retarget    Missing
+* [API ] CreateFileA           @ 57B3    Fail
+* [API ] CreateMutexA          @ 784F    Retarget    ZonesCacheCounterMutex
+* [API ] GetModuleFileNameA    @ 578E    Nothing
+* [API ] GetModuleFileNameA    @ 6EC7    Nothing
+* [API ] GetModuleFileNameA    @ 6F47    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemTime         @ 75DA    Nothing
+* [API ] GetSystemTime         @ 75EF    Nothing
+* [API ] GetUserNameA          @ 6E65    Nothing
+* [API ] K32GetModuleBaseNameA @ 6DF6    Nothing
+* [API ] TimeDelayAPIs         @ 75E5    Retarget
+* [API ] TimeQueryAPIs         @ 738C    Retarget
+
+[Manual annotations]
+====================
+Exhibits evasion for VBox Process32Next but does not reach main functionality, breaking beforehand. Considered a broken sample

@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 9ae26aa69f12107450ff875f32bab7c9eaee830c5381193fb99e8c7a7b81a475
+MD5: bc0a9a614af54dff1a01577f33d2a367
+Year: 2018
+Family name: SINGLETON:bc0a9a614af54dff1a01577f33d2a367
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 1331
+* [API ] CreateFileMappingA @ 13E1
+* [API ] MapViewOfFile      @ 1543
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User
+* [API ] CreateFileA        @ 18D4
+* [API ] WriteFile          @ 1A42
+* [API ] CreateProcessW     @ 2D0E
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA        @ 219B
+* [API ] MoveFileExA        @ 2224
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID              @ 334A    Nothing
+* [API ] CreateFileA        @ 1331    Succeed     Not modified
+* [API ] CreateFileA        @ 18D4    Retarget    Backup.txt
+* [API ] FindFirstFileA     @ 6DD0    Retarget    C:\Users\Student\*
+* [API ] GetAdaptersInfo    @ 7F25    Retarget    Office
+* [API ] GetFileAttributesA @ 6658    Succeed
+* [API ] GetLocalTime       @ 1E91    Nothing
+* [API ] GetModuleFileNameA @ 1260    Nothing
+* [API ] RegOpenKeyExA      @ 7A8F    Fail
+* [API ] RegQueryValueExA   @ 7B23    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 24EC    Nothing
+* [API ] TimeQueryAPIs      @ 2B39    Nothing
+
+[Manual annotations]
+====================

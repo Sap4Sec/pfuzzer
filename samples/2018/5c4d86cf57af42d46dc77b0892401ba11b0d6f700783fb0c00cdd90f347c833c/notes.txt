@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 5c4d86cf57af42d46dc77b0892401ba11b0d6f700783fb0c00cdd90f347c833c
+MD5: 21fcf2d95fc8c0128961e8140d8a86e2
+Year: 2018
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

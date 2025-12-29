@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 0c1e9f3a80421c1346cf958beaea63a0f4fe3961a53c77cd511768dd4c67fc7c
+MD5: 796e38507b5852ace0a5610898da54c4
+Year: 2021_11_03
+Family name: SINGLETON:796e38507b5852ace0a5610898da54c4
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Empty messagebox appears, a lot of exceptions occurs

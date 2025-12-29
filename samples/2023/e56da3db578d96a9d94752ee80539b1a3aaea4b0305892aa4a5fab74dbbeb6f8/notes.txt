@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.Agent.gen-e56da3db578d96a9d94752ee80539b1a3aaea4b0305892aa4a5fab74dbbeb6f8
+MD5: 0ed92b3833c659a68be6a3a2f03ddcd1
+Year: 2023
+Family name: tedy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread @ 5FB5
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] GetKeyboardLayout  @ C7BA    Nothing
+* [API ] GetModuleFileNameA @ 665B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 68BD    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ DBAE    Nothing
+* [API ] GetModuleFileNameA @ E0AE    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] RegOpenKeyExA      @ 68DB    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 68F9    Succeed
+* [API ] RegOpenKeyExA      @ 6917    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ D3D2    Fail
+* [API ] RegQueryValueExA   @ D55B    Nothing
+* [API ] RegQueryValueExA   @ D644    Nothing
+* [API ] TimeDelayAPIs      @ 2D5B    Retarget
+* [API ] TimeQueryAPIs      @ 338D    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasions

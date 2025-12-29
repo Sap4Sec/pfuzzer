@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: af251831ea2b9acdc7e1a7ce5f1abe1341332fa01b0d75516f39dfae62172ef0
+MD5: cfb1750aa56598c54f4389fcfd1565e5
+Year: 2019_05_11
+Family name: SINGLETON:cfb1750aa56598c54f4389fcfd1565e5
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 8EC3
+* [API ] CreateFileW  @ 2E0A
+* [API ] NtCreateFile @ 9360
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 56CA
+* [API ] NtCreateFile @ 5503
+* [API ] NtCreateFile @ E5B6
+* [API ] NtCreateFile @ 7866
+* [API ] NtCreateFile @ 5B35
+* [API ] NtCreateFile @ 8EFE
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID         @ B37C    Retarget    Missing
+* [API ] CreateFileW   @ 2E0A    Succeed     Not modified
+* [API ] CreateFileW   @ 8EC3    Succeed     Not modified
+* [API ] NtCreateFile  @ 9360    Succeed     Not modified
+* [API ] NtCreateFile  @ E0D4    Succeed     Not modified
+* [API ] TimeQueryAPIs @ B377    Retarget
+
+[Manual annotations]
+====================
+Safengine Shielden(v2.4.0.0) - Error messagebox saying: not found the kernel library or the kernel library is not found

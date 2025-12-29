@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Injuke.gjeo-6c8946a725a87111450b4e48b20c5e8652f586d5ab4df3adfacb27e56c9959ad
+MD5: d13fc2285ea370eac7abf3869b66fd7e
+Year: 2023
+Family name: injuke
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] VirtualAllocExNuma @ 8946
+* [API ] CreateThread       @ 8842
+* [API ] CreateFileW        @ 16A8
+* [API ] WriteFile          @ 16D3
+* [API ] ShellExecuteW      @ 17A5
+
+Fuzzing Findings
+----------------
+* [API ] OpenSCManagerW     @ 5B2B
+* [API ] OpenServiceW       @ 5B3F
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Sharing
+* [API ] FindResourceExW    @ 599B
+* [API ] LoadResource       @ 59A7
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CreateFileW        @ 16A8    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] GetComputerNameA   @ 8999    Retarget    John
+* [API ] GetModuleFileNameA @ 8D19    Nothing
+* [API ] TimeDelayAPIs      @ 8867    Retarget
+
+[Manual annotations]
+====================

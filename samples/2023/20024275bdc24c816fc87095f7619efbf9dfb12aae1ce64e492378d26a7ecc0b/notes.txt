@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: HackTool.Win32.GameHack.cjob-20024275bdc24c816fc87095f7619efbf9dfb12aae1ce64e492378d26a7ecc0b
+MD5: 0936982741c352bb418d017c4bb42d3f
+Year: 2023
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Unreadable characters error message and subsequent termination --- BluePill reaches relevant stuff

@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: 3f9fa81a421324836fb501e8b43dce8ca7c66bc0727b20c6c2b32840f5ea0905
+MD5: fd128c3351822df7b35c72346b4a815e
+Year: 2021_04_15
+Family name: daws
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinExec            @ 2B7A
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 163C
+* [API ] WriteFile          @ 166B
+* [API ] CreateFileMappingW @ 169F
+* [API ] MapViewOfFile      @ 16C1
+* [API ] CreateFileW        @ 274F
+* [API ] CreateFileW        @ 288B
+* [API ] WriteFile          @ 28F8
+* [API ] CreateProcessW     @ 298E
+* [API ] WinExec            @ 2A54
+* [API ] CreateFileW        @ 14DC
+* [API ] OpenSCManagerW     @ 1783
+* [API ] CreateServiceW     @ 17B3
+* [API ] StartServiceW      @ 17E5
+* [API ] WriteFile          @ 150B
+* [API ] CreateFileMappingW @ 153F
+* [API ] MapViewOfFile      @ 1561
+
+[Mutations applied in the best run (101)]
+=======================================
+
+* [API ] CPUID              @ 8422    Retarget    Missing
+* [API ] CreateFileW        @ 14DC    Succeed     Not modified
+* [API ] CreateFileW        @ 163C    Retarget    Backup.txt
+* [API ] CreateFileW        @ 274F    Succeed     Not modified
+* [API ] CreateFileW        @ 288B    Fail        Not modified
+* [API ] GetFileAttributesA @ 9017    Fail
+* [API ] GetModuleFileNameW @ 272F    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 5E28    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] Process32FirstW    @ 18A7    Nothing
+* [API ] Process32NextW     @ 18D2    Retarget
+* [API ] Process32NextW     @ 191A    Retarget
+* [API ] TimeDelayAPIs      @ 1619    Retarget
+* [API ] TimeQueryAPIs      @ 15F8    Retarget
+
+[Manual annotations]
+====================

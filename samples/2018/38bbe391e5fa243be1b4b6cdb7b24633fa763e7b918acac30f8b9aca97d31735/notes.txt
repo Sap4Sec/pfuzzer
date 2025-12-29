@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 38bbe391e5fa243be1b4b6cdb7b24633fa763e7b918acac30f8b9aca97d31735
+MD5: ba17c4c9cfffb491ef7656153ced2c88
+Year: 2018
+Family name: palevo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 284E
+* [API ] FindResourceA        @ 29CB
+* [API ] LoadResource         @ 29FD
+* [API ] CreateProcessA       @ 2B9C
+* [API ] NtUnmapViewOfSection @ 2C03
+* [API ] VirtualAllocEx       @ 2C1F
+* [API ] NtWriteVirtualMemory @ 2C90
+* [API ] NtWriteVirtualMemory @ 2D2E
+* [API ] NtWriteVirtualMemory @ 2DD8
+* [API ] NtSetContextThread   @ 2E29
+* [API ] NtResumeThread       @ 2E6D
+* [API ] ReadProcessMemory    @ 2F79
+* [API ] ReadProcessMemory    @ 2FD7
+* [API ] ReadProcessMemory    @ 3085
+* [API ] VirtualAllocEx       @ 30FF
+* [API ] WriteProcessMemory   @ 3142
+* [API ] WriteProcessMemory   @ 3192
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ 719F    Nothing
+* [API ] CreateMutexA       @ 2042    Retarget    VBoxTray
+* [API ] GetModuleFileNameA @ 185B    Nothing
+* [API ] GetModuleFileNameA @ 7F6B    Nothing
+* [API ] GetModuleFileNameW @ 30CC    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA      @ 32FD    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 38A4    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 3322    Nothing
+* [API ] RegQueryValueExA   @ 3936    Retarget    ProductID
+* [API ] TimeQueryAPIs      @ 4232    Retarget
+
+[Manual annotations]
+====================

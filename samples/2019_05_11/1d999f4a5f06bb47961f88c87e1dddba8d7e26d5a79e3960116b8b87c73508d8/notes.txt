@@ -1,0 +1,71 @@
+[Basic information]
+=========================================================================
+SHA-256: 1d999f4a5f06bb47961f88c87e1dddba8d7e26d5a79e3960116b8b87c73508d8
+MD5: 9e58c1a313a0bcfc030afb3d7c6ba7d9
+Year: 2019_05_11
+Family name: fuerboos
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] MapVirtualKeyW       @ 03D5
+* [API ] MapVirtualKeyW       @ 03DD
+* [API ] MapVirtualKeyW       @ 03E8
+* [API ] MapVirtualKeyW       @ 03F3
+* [API ] MapVirtualKeyW       @ 03FB
+* [API ] MapVirtualKeyW       @ 0403
+* [API ] CreateThread         @ 74CA
+* [API ] CreateFileW          @ 7FD1
+* [API ] FindResourceExW      @ 5016
+* [API ] LoadResource         @ DD66
+* [API ] FindResourceW        @ 0EF9
+* [API ] LoadResource         @ 0EF9
+* [API ] CryptAcquireContextA @ 0EF9
+* [API ] CryptCreateHash      @ 0EF9
+* [API ] CryptHashData        @ 0EF9
+* [API ] CryptDeriveKey       @ 0EF9
+* [API ] CryptDestroyHash     @ 0EF9
+* [API ] CryptDecrypt         @ 0EF9
+* [API ] CryptDestroyKey      @ 0EF9
+* [API ] CryptReleaseContext  @ 0EF9
+* [API ] CreateProcessW       @ 02EA
+* [API ] ReadProcessMemory    @ 031F
+* [API ] VirtualAllocEx       @ 036A
+* [API ] WriteProcessMemory   @ 049E
+* [API ] WriteProcessMemory   @ 0560
+* [API ] SetThreadContext     @ 0581
+* [API ] ResumeThread         @ 058F
+* [API ] CreateFileW          @ 5E2D
+* [API ] WriteFile            @ 36B6
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ 889B    Retarget    Missing
+* [API ] CreateFileW        @ 5E2D    Fail
+* [API ] CreateFileW        @ 7FD1    Succeed     Not modified
+* [API ] CreateMutexW       @ 0EF9    Succeed
+* [API ] FindFirstFileW     @ 3DCB    Fail
+* [API ] FindFirstFileW     @ F223    Nothing
+* [API ] FindNextFileW      @ F297    Retarget
+* [API ] GetFileAttributesW @ 3CA6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesW @ 4CDA    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesW @ DCEC    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesW @ F265    Fail
+* [API ] GetModuleFileNameW @ 4888    Nothing
+* [API ] GetModuleFileNameW @ 4D8F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetWindowTextW     @ B41A    Retarget    SecHealthHost - SecHealth Win
+* [API ] RegOpenKeyExW      @ 35DA    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 730E    Fail        Not modified
+* [API ] RegQueryValueExW   @ 35FB    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 3725    Retarget
+* [API ] TimeQueryAPIs      @ 5449    Retarget
+
+[Manual annotations]
+====================

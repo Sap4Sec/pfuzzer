@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: 21690c2539425f6d6e222e298893584268e6cead2518a3f9f912be8aec9d7e50
+MD5: 48d7c3221048759c23cec6110142a6c1
+Year: 2021_11_03
+Family name: antavmu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 9890
+* [API ] SetWindowsHookExA @ 69F3
+* [API ] CopyFileA         @ 3F93
+* [PERS] software\microsoft\windows\CurrentVersion\Run
+* [API ] RegSetValueExA    @ 43BB
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA       @ 52F5
+* [API ] RegSetValueExA    @ 349A
+* [API ] RegSetValueExA    @ 34D7
+* [API ] RegSetValueExA    @ 34F4
+* [API ] WriteFile         @ 538C
+* [API ] RegCreateKeyA     @ 433A
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] FindFirstFileA     @ 65F3    Nothing
+* [API ] FindNextFileA      @ 65D8    Retarget
+* [API ] FindWindowA        @ 3303    Fail
+* [API ] GetCursorPos       @ ED93    Retarget    Missing
+* [API ] GetFileAttributesA @ 3FAD    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 8C4C    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ AC79    Nothing
+* [API ] GetModuleFileNameA @ EFE7    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ FE83    Nothing
+* [API ] Process32First     @ 3333    Nothing
+* [API ] Process32Next      @ 3358    Retarget
+* [API ] RegOpenKeyExA      @ 4321    Fail
+
+[Manual annotations]
+====================

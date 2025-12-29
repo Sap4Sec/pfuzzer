@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.ty-2461acfa271f7d477ca53abe428d6adde1f285e115f188b2c82e321a94271a93
+MD5: 47a77e0680b5e159c610392034a8b905
+Year: 2022
+Family name: variadic
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW          @ FC49
+* [API ] RegCreateKeyW      @ F95C
+* [API ] ShellExecuteExW    @ FF1E
+
+Fuzzing Findings
+----------------
+* [API ] WinHttpOpen        @ 806C
+* [API ] WinHttpConnect     @ 80A9
+* [API ] WinHttpOpenRequest @ 135F
+* [API ] WinHttpSendRequest @ 10D0
+* [API ] WinHttpReadData    @ 227E
+* [API ] CreateFileW        @ 6521
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ DAB6    Retarget    Missing
+* [API ] CreateMutexW       @ FDF4    Retarget    VBoxTray
+* [API ] GetCursorPos       @ 6F62    Retarget    Missing
+* [API ] GetModuleFileNameW @ 7878    Nothing
+* [API ] GetModuleFileNameW @ FA30    Retarget    C:\Windows\system32\
+* [API ] TimeDelayAPIs      @ FE29    Nothing
+* [API ] TimeQueryAPIs      @ 65FB    Nothing
+
+[Manual annotations]
+====================

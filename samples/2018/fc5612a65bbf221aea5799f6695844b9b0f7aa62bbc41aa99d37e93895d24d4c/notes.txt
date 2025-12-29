@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: fc5612a65bbf221aea5799f6695844b9b0f7aa62bbc41aa99d37e93895d24d4c
+MD5: 0fab5aea631e64b741e40f15c86eff89
+Year: 2018
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA        @ F471
+* [API ] CreateThread     @ FBF4
+* [API ] CreateThread     @ FC0E
+* [API ] CopyFileA        @ EC69
+* [API ] CopyFileA        @ EC95
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExA   @ E57D
+* [API ] InternetOpenA    @ EECC
+* [API ] CreateProcessA   @ ECF3
+* [API ] InternetOpenUrlA @ EEF2
+* [API ] InternetReadFile @ EF20
+* [API ] socket           @ EFF5
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread     @ FBA0
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateMutexA       @ FB68    Fail
+* [API ] GetModuleFileNameA @ EB99    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ F3ED    Nothing
+* [API ] Process32First     @ F15E    Nothing
+* [API ] Process32Next      @ F237    Retarget
+* [API ] RegOpenKeyA        @ E55A    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ E5AD    Fail
+* [API ] RegQueryValueExA   @ E5E2    Nothing
+* [API ] TimeDelayAPIs      @ FAFC    Retarget
+* [API ] TimeQueryAPIs      @ FADA    Retarget
+
+[Manual annotations]
+====================
+The sample performs evasion in sub_43C195 and sub_43C110 using vpcxt and other evasion techniques (see https://elearning.di.unipi.it/pluginfile.php/25436/mod_resource/content/1/5-0%20Vulnerabilities%20and%20Attacks.pdf and https://unprotect.it/technique/vpcext/) which are not supported in our environment.
+I patched these out to continue the analysis.

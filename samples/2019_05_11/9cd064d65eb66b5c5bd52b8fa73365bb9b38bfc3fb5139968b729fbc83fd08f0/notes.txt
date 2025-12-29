@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: 9cd064d65eb66b5c5bd52b8fa73365bb9b38bfc3fb5139968b729fbc83fd08f0
+MD5: 317dc1f4f2a318f4147bff925a437032
+Year: 2019_05_11
+Family name: hupigon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup      @ FDD7
+* [API ] CreateThread    @ D8FB
+* [API ] FindResourceA   @ CAC3
+* [API ] LoadResource    @ CACD
+* [API ] RegCreateKeyExA @ 12AF
+* [API ] CreateThread    @ B80F
+* [API ] CreateThread    @ B867
+* [API ] WSAStartup      @ F411
+* [API ] socket          @ F424
+* [API ] WSAStartup      @ 6384
+* [API ] inet_addr       @ F469
+* [API ] connect         @ F483
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CreateMutexA       @ 79DB    Retarget    VBoxTray
+* [API ] FindFirstFileA     @ 6C16    Succeed
+* [API ] GetComputerNameA   @ 42E3    Retarget    Office
+* [API ] GetFileAttributesA @ A72C    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetKeyboardLayout  @ 2932    Retarget    Italian
+* [API ] GetModuleFileNameA @ 3C1E    Nothing
+* [API ] GetModuleFileNameA @ 6A83    Nothing
+* [API ] GetModuleFileNameA @ 6CE5    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ F6FC    Nothing
+* [API ] GetUserNameA       @ 42A7    Retarget    John
+* [API ] RegOpenKeyExA      @ 127B    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 139E    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 1BFC    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 6D03    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 6D21    Succeed
+* [API ] RegOpenKeyExA      @ 6D3F    Fail        Not modified
+* [API ] RegQueryValueExA   @ 18B7    Nothing
+* [API ] RegQueryValueExA   @ 1B38    Nothing
+* [API ] RegQueryValueExA   @ 6D88    Nothing
+* [API ] RegQueryValueExA   @ 6DA6    Nothing
+* [API ] TimeDelayAPIs      @ E5A3    Retarget
+* [API ] TimeQueryAPIs      @ 33B5    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

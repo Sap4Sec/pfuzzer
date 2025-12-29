@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Stealerc.ie-a99d2aa4e7ee4cd0126e92c3d55a4b1e59321c9e421b0cb87294bc1fc6c78604
+MD5: e2f39784711ffb87807a4b2e98620445
+Year: 2023
+Family name: stealerc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

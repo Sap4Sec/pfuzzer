@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agent.gen-af942d89cfb53fee65fb90776f4ff5d35aef06e1ce7595b74d17500102201722
+MD5: aa4963a84a64c472e1404a7c99d720d9
+Year: 2023
+Family name: vidar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] ShellExecuteW      @ E76E
+
+Fuzzing Findings
+----------------
+* [API ] VirtualAllocExNuma @ 107D
+* [API ] InternetOpenA      @ 2169
+* [API ] InternetConnectA   @ 2246
+* [API ] HttpOpenRequestA   @ 2284
+* [API ] HttpSendRequestA   @ 22A3
+* [API ] InternetOpenA      @ 21B6
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CPUID                @ 4208    Retarget    Missing
+* [API ] GetComputerNameA     @ 3A05    Retarget    testuser
+* [API ] GetModuleFileNameA   @ 99F9    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW   @ 7D22    Nothing
+* [API ] GetSystemInfo        @ 356B    Retarget    Missing
+* [API ] GetUserNameW         @ FB1B    Nothing
+* [API ] GlobalMemoryStatusEx @ 1157    Retarget    Missing
+* [API ] RegOpenKeyExA        @ 3BD2    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ E69F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA     @ 3BFA    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 4526    Nothing
+* [API ] TimeQueryAPIs        @ 105C    Retarget
+
+[Manual annotations]
+====================

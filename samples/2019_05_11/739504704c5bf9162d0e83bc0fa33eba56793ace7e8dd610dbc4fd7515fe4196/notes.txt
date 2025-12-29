@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 739504704c5bf9162d0e83bc0fa33eba56793ace7e8dd610dbc4fd7515fe4196
+MD5: f81f3fbfd6ebfaececd51c3c3144c3b8
+Year: 2019_05_11
+Family name: SINGLETON:f81f3fbfd6ebfaececd51c3c3144c3b8
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+User interaction: login form, correct credentials are already provided --- Start chrome plus another window, seems like a game

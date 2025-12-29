@@ -1,0 +1,99 @@
+[Basic information]
+=========================================================================
+SHA-256: f2979faa9e6f3029c57abad73794a0331315fbd7157401335450787b3f3ec5d2
+MD5: fae59d00431afe2ae0a2eca43cf8d65b
+Year: 2018
+Family name: typic
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread       @ C246
+* [API ] CreateFileW        @ 1264
+* [API ] CreateFileA        @ 7B05
+* [API ] CreateFileA        @ 7F60
+* [API ] RegCreateKeyExA    @ A3F9
+* [API ] RegSetValueExA     @ DAE8
+* [API ] CreateFileMappingA @ E2DF
+* [API ] MapViewOfFile      @ E41B
+* [API ] CreateThread       @ 7165
+* [API ] RegCreateKeyExW    @ A629
+* [API ] RegSetValueExA     @ AD92
+* [API ] RegSetValueExA     @ A6D2
+* [API ] RegCreateKeyExA    @ A77E
+* [API ] RegSetValueExA     @ A80B
+* [API ] CreateFileA        @ B853
+* [API ] CreateFileA        @ 2AF6
+* [API ] CreateFileA        @ CFDB
+* [API ] CreateThread       @ 1D1C
+* [API ] CreateThread       @ 2BFF
+* [API ] RegCreateKeyW      @ EF78
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 623D
+* [API ] CopyFileW          @ 3252
+* [API ] CreateFileA        @ CEEE
+* [API ] WriteFile          @ DB02
+* [API ] ShellExecuteW      @ 3211
+* [API ] CopyFileW          @ 86B2
+* [API ] ShellExecuteW      @ 8A31
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID              @ 773A    Retarget    Missing
+* [API ] CreateFileA        @ 2AF6    Fail        Not modified
+* [API ] CreateFileA        @ 7B05    Succeed
+* [API ] CreateFileA        @ 7F60    Retarget    attrib.exe
+* [API ] CreateFileA        @ B853    Succeed     Not modified
+* [API ] CreateFileA        @ CFDB    Fail        Not modified
+* [API ] CreateFileW        @ 1264    Succeed     Not modified
+* [API ] CreateMutexA       @ 94A2    Fail
+* [API ] CreateMutexA       @ 9C1E    Fail
+* [API ] CreateMutexA       @ AF59    Retarget    VBoxTray
+* [API ] CreateMutexA       @ C1C1    Retarget    VBoxTray
+* [API ] DeviceIoControl    @ 7B2D    Retarget    Missing
+* [API ] DeviceIoControl    @ 8027    Nothing
+* [API ] FindFirstFileA     @ B64B    Succeed
+* [API ] FindFirstFileA     @ BCF8    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ B757    Retarget
+* [API ] FindNextFileA      @ BDFA    Retarget
+* [API ] FindWindowA        @ BC80    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowA        @ BC9C    Retarget    Window - Window
+* [API ] FindWindowA        @ BCB8    Succeed
+* [API ] GetComputerNameExA @ 7959    Nothing
+* [API ] GetFileAttributesW @ A6B5    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetLocalTime       @ 2D70    Retarget    2015:12:6:15
+* [API ] GetLocalTime       @ 2F00    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameW @ 22B7    Nothing
+* [API ] GetModuleFileNameW @ 6513    Nothing
+* [API ] GetModuleFileNameW @ 65B6    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemInfo      @ 8E93    Nothing
+* [API ] GetSystemTime      @ 0CC6    Retarget    2015:12:6:15
+* [API ] GetWindowTextA     @ EBEA    Nothing
+* [API ] RegEnumKeyA        @ A590    Nothing
+* [API ] RegEnumKeyA        @ A707    Retarget    testuser
+* [API ] RegEnumKeyA        @ A840    Retarget    testuser
+* [API ] RegOpenKeyExA      @ 7750    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ A3CC    Fail
+* [API ] RegOpenKeyExA      @ A513    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ A5E0    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ A74D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ ACB5    Succeed
+* [API ] RegOpenKeyExA      @ C021    Fail        Not modified
+* [API ] RegOpenKeyExA      @ DB53    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 777D    Nothing
+* [API ] RegQueryValueExA   @ 77C6    Retarget    ProductID
+* [API ] RegQueryValueExA   @ ACD8    Retarget    ProductID
+* [API ] RegQueryValueExA   @ C071    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ A4CD    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ C25E    Retarget
+* [API ] TimeQueryAPIs      @ 5910    Retarget
+
+[Manual annotations]
+====================
+Queries WMI Win32_OperatingSystem for DataExecutionPrevention_SupportPolicy and SMBIOSData

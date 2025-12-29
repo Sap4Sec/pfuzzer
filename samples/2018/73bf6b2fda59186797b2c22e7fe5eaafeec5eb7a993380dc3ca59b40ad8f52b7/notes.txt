@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 73bf6b2fda59186797b2c22e7fe5eaafeec5eb7a993380dc3ca59b40ad8f52b7
+MD5: 0fc05c9829e4d02f95b013a76859bd8e
+Year: 2018
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: pthreadVC2.dll

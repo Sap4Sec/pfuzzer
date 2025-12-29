@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.Lotok.gen-061a74c4aa4ff7f9d34872f6d704587d3714c7cd9acc77a86f489c39324141fc
+MD5: 639793bc890de66cfeac99258df66f59
+Year: 2022
+Family name: lotok
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW @ 15AE
+* [API ] FindResourceA @ 1215
+* [API ] LoadResource  @ 12B5
+* [API ] CreateFileW   @ A9B0
+* [API ] WriteFile     @ 4480
+* [API ] ShellExecuteA @ 14D1
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ 6863    Retarget    Missing
+* [API ] CreateFileW        @ A9B0    Succeed     Not modified
+* [API ] GetCursorPos       @ C89B    Nothing
+* [API ] GetModuleFileNameA @ 4A8A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 1EBE    Nothing
+
+[Manual annotations]
+====================

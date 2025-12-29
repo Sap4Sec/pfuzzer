@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-49cab75a183d22f43a4785468b1ca8323ea958141e03461934e08b81939113e5
+MD5: acb3fd7d7ad27e24003760496c8ee066
+Year: 2023
+Family name: lazy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

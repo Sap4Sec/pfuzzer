@@ -1,0 +1,27 @@
+[Basic information]
+=========================================================================
+SHA-256: e5ca003c03fb2b57bc9456d39607626d0fb397859b258bf8584b5e4c347d2ad4
+MD5: c41251f97af9064733025124159d7564
+Year: 2019_05_11
+Family name: poison
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Detect the VM as it shows in a messagebox the following info about it:
+VM Additions S3 Trio32/64
+S3 Trio32/64
+VirtualBox Graphics Adapter
+VMware SVTGA II Detected!

@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: 352824089171d6ba917e755d2714cb282b04fd7977d5a07718117b425fecb27e
+MD5: bb3f85d2a4a0defe13a2ebcd65094fb1
+Year: 2018
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] CreateProcessA     @ B665
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B6CB
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (32)]
+=======================================
+
+* [API ] CreateFileA        @ 5DBB    Succeed
+* [API ] CreateMutexA       @ 3583    Retarget    vscode
+* [API ] FindFirstFileA     @ 5D3E    Retarget    C:\*
+* [API ] GetFileAttributesA @ 5A78    Succeed
+* [API ] GetFileAttributesA @ 6670    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69FF    Fail
+* [API ] RegQueryValueExA   @ 6106    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6130    Nothing
+* [API ] TimeDelayAPIs      @ BF31    Nothing
+
+[Manual annotations]
+====================

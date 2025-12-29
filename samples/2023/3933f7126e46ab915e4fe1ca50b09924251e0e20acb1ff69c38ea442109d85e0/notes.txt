@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-3933f7126e46ab915e4fe1ca50b09924251e0e20acb1ff69c38ea442109d85e0
+MD5: 425d6b5bfce61f00cacf34a1796ab791
+Year: 2023
+Family name: bayrob
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 33D5
+* [API ] WriteFile      @ 3539
+* [API ] CreateFileA    @ 6ECC
+* [API ] CreateFileA    @ 7103
+* [API ] WriteFile      @ 717C
+* [API ] CreateProcessA @ CB59
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 33D5    Fail
+* [API ] CreateFileA        @ 6ECC    Succeed     Not modified
+* [API ] CreateFileA        @ 7103    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ FCC5    Retarget    vscode
+* [API ] CreateMutexA       @ FD1E    Fail
+* [API ] CreateMutexA       @ FD41    Fail
+* [API ] FindFirstFileA     @ 5230    Retarget    C:\*
+* [API ] FindNextFileA      @ 52FA    Retarget
+* [API ] GetModuleFileNameA @ 0A51    Nothing
+* [API ] GetSystemTime      @ 5F4C    Nothing
+* [API ] TimeDelayAPIs      @ EE46    Nothing
+* [API ] TimeQueryAPIs      @ 2FA8    Nothing
+
+[Manual annotations]
+====================

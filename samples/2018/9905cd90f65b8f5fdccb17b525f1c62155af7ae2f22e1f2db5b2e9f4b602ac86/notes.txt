@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 9905cd90f65b8f5fdccb17b525f1c62155af7ae2f22e1f2db5b2e9f4b602ac86
+MD5: b869c24b0387e1fc237c49a208867cab
+Year: 2018
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ E204
+* [API ] LoadResource         @ E2BE
+* [API ] CreateFileW          @ 0455
+* [API ] CreateProcessA       @ CAB2
+* [API ] ReadProcessMemory    @ E47F
+* [API ] NtUnmapViewOfSection @ E4D7
+* [API ] VirtualAllocEx       @ C8B6
+* [API ] WriteProcessMemory   @ E954
+* [API ] SetThreadContext     @ E7E1
+* [API ] ResumeThread         @ E641
+
+Fuzzing Findings
+----------------
+* [API ] WriteFile            @ 6F36
+
+[Mutations applied in the best run (35)]
+=======================================
+
+* [API ] CPUID              @ 451C    Retarget    Missing
+* [API ] CreateFileW        @ 0455    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] GetFileAttributesA @ 988B    Succeed
+* [API ] GetFileAttributesA @ 98A3    Fail
+* [API ] GetFileAttributesA @ 98DE    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 94C7    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ CB87    Nothing
+* [API ] GetModuleFileNameA @ E260    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 3F94    Nothing
+* [API ] GetModuleFileNameW @ 77CD    Nothing
+* [API ] GetModuleFileNameW @ 77E1    Nothing
+* [API ] GetUserNameA       @ 95AB    Nothing
+* [API ] RegOpenKeyExW      @ 3703    Succeed
+* [API ] RegOpenKeyExW      @ 79EC    Succeed     Not modified
+* [API ] RegQueryValueExW   @ 2AF1    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 2B21    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 7A22    Nothing
+* [API ] TimeQueryAPIs      @ 9788    Retarget
+
+[Manual annotations]
+====================
+The sample queries WMI class WIN32_BIOS for Manufacturer and SMBIOSBIOSVersion values, checking for virtualization artifacts such as XEN, VBOX, BOCH, QEMU, and VIRTUALBOX.
+Further investigation into this anti-VM technique is recommended.

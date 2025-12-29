@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.tq-d77bea86bd4c36acae410d6dec8e012439e36d6226d99f1fd7de29827fca3835
+MD5: dfb6e366186969c7265e5602a4b85335
+Year: 2022
+Family name: SINGLETON:dfb6e366186969c7265e5602a4b85335
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW          @ 0BD3
+* [API ] RegCreateKeyW      @ 0907
+* [API ] WinHttpOpen        @ A022
+* [API ] WinHttpConnect     @ 28D8
+* [API ] WinHttpOpenRequest @ 2917
+* [API ] WinHttpSendRequest @ 2A03
+* [API ] WinHttpReadData    @ 29BE
+* [API ] CreateFileW        @ 5A21
+* [API ] CopyFileW          @ FA90
+* [API ] CreateFileW        @ EA9B
+* [API ] CreateThread       @ C48D
+* [API ] CreateFileMappingW @ ED5E
+* [API ] MapViewOfFile      @ ED7F
+* [API ] CreateFileW        @ EDA3
+* [API ] WriteFile          @ EDC8
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ BFA7
+* [API ] InternetOpenW      @ E012
+* [API ] InternetOpenUrlW   @ DE65
+* [API ] CreateFileW        @ DE8A
+* [API ] InternetReadFile   @ DEDC
+* [API ] WriteFile          @ DEC6
+* [API ] CreateFileW        @ 0C1A
+* [API ] ShellExecuteExW    @ 1291
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID                    @ AD81    Retarget    Missing
+* [API ] CreateFileW              @ 5A21    Succeed
+* [API ] CreateFileW              @ EA9B    Retarget    Backup.txt
+* [API ] CreateFileW              @ EDA3    Succeed     Not modified
+* [API ] CreateMutexW             @ 0D5C    Retarget    vscode
+* [API ] GetAdaptersInfo          @ 0342    Nothing
+* [API ] GetCursorPos             @ 6A36    Nothing
+* [API ] GetModuleFileNameA       @ FC5F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW       @ 09D5    Nothing
+* [API ] GetModuleFileNameW       @ 15D5    Nothing
+* [API ] GetModuleFileNameW       @ 1806    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW       @ 6E98    Retarget    C:\Windows\explorer.exe
+* [API ] NtQuerySystemInformation @ EA56    Nothing
+* [API ] RegOpenKeyExW            @ 1695    Fail        Not modified
+* [API ] TimeDelayAPIs            @ 07CD    Nothing
+* [API ] TimeQueryAPIs            @ ACD9    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,72 @@
+[Basic information]
+=========================================================================
+SHA-256: de4ff8901766e8fc89e8443f8732394618bf925ce29b6a8aafe1d60f496e7f0e
+MD5: 1971ee25847d246116835c7157cf7f89
+Year: 2018
+Family name: tapaoux
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\windows\currentVersion\run
+* [API ] FindResourceA      @ 180F
+* [API ] LoadResource       @ 181D
+* [API ] CreateFileA        @ 18B0
+* [API ] WriteFile          @ 18E9
+* [API ] CreateFileA        @ 9363
+* [API ] WriteFile          @ 562D
+* [API ] CreateFileA        @ D5BA
+* [API ] SetFileTime        @ D5DC
+* [API ] CreateFileA        @ B86A
+* [API ] OpenSCManagerA     @ B276
+* [API ] CreateServiceA     @ B2AD
+* [API ] StartServiceA      @ B316
+* [API ] OpenSCManagerA     @ B424
+* [API ] OpenServiceA       @ B441
+* [API ] ControlService     @ B464
+* [API ] DeleteService      @ B46B
+* [API ] VirtualAllocEx     @ AA63
+* [API ] WriteProcessMemory @ AAD2
+* [API ] CreateRemoteThread @ AAF9
+* [API ] CreateFileA        @ 1AAB
+* [API ] WriteFile          @ 1B01
+* [API ] CreateProcessA     @ 1B4D
+* [API ] ResumeThread       @ 1B89
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ A5DB
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA         @ 18B0    Fail        Not modified
+* [API ] CreateFileA         @ 1AAB    Fail        Not modified
+* [API ] CreateFileA         @ 9363    Succeed     Not modified
+* [API ] CreateFileA         @ B86A    Succeed     Not modified
+* [API ] CreateFileA         @ D5BA    Retarget    Backup.txt
+* [API ] FindFirstFileA      @ D3CC    Fail
+* [API ] GetFileAttributesA  @ A59B    Fail
+* [API ] GetFileAttributesA  @ D518    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetForegroundWindow @ 110E    Nothing
+* [API ] GetLocalTime        @ 24F2    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA  @ 1A35    Nothing
+* [API ] GetModuleFileNameA  @ 7575    Nothing
+* [API ] GetSystemTime       @ 24FC    Retarget    2000:6:4:30
+* [API ] RegOpenKeyExA       @ A68D    Succeed
+* [API ] RegOpenKeyExA       @ AFD7    Fail        Not modified
+* [API ] RegOpenKeyExA       @ B01C    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ B061    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ B0A6    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ B0EB    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ B154    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ B1B4    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ B214    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA    @ A6C7    Nothing
+* [API ] TimeDelayAPIs       @ 1B12    Nothing
+
+[Manual annotations]
+====================

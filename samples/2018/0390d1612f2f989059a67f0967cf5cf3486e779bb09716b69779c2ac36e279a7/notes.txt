@@ -1,0 +1,85 @@
+[Basic information]
+=========================================================================
+SHA-256: 0390d1612f2f989059a67f0967cf5cf3486e779bb09716b69779c2ac36e279a7
+MD5: 394d354aac3fe68ef53739f863472c3b
+Year: 2018
+Family name: auslogics
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread      @ 20CF
+* [API ] ResumeThread      @ 239B
+* [API ] CreateFileW       @ 0577
+* [API ] RegCreateKeyExW   @ 37BB
+* [API ] RegSetValueExW    @ 37FB
+* [API ] socket            @ 5BEF
+* [API ] connect           @ 5E3C
+* [API ] send              @ 5E5C
+* [API ] recv              @ 5E8B
+* [API ] InternetOpenW     @ 49F3
+* [API ] InternetConnectW  @ 4A2C
+* [API ] HttpOpenRequestW  @ 4A87
+* [API ] HttpSendRequestW  @ 4AE4
+* [API ] InternetReadFile  @ 4B89
+* [API ] FindResourceW     @ F8A0
+* [API ] FindResourceW     @ F8D9
+* [API ] LoadResource      @ 1697
+* [API ] RegCreateKeyExW   @ 7703
+* [API ] RegSetValueExW    @ 785A
+* [API ] CreateThread      @ 6A2F
+* [API ] InternetOpenW     @ 7F7E
+* [API ] InternetConnectW  @ 7FB7
+* [API ] HttpOpenRequestW  @ 7FFC
+* [API ] HttpSendRequestW  @ 8103
+* [API ] LoadResource      @ FB13
+* [API ] CreateThread      @ F44D
+* [API ] FindResourceW     @ FA92
+* [API ] InternetReadFile  @ 814B
+* [API ] AttachThreadInput @ 2CA3
+* [API ] AttachThreadInput @ 2CE3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID               @ 54A3    Retarget    Missing
+* [API ] CreateFileW         @ 0577    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateMutexW        @ ABC3    Fail
+* [API ] FindFirstFileW      @ 0090    Fail
+* [API ] FindFirstFileW      @ 902D    Fail
+* [API ] FindFirstFileW      @ 94FC    Retarget    C:\*
+* [API ] GetFileAttributesW  @ 00C9    Fail
+* [API ] GetForegroundWindow @ 2C66    Nothing
+* [API ] GetForegroundWindow @ 2C7D    Retarget    Missing
+* [API ] GetForegroundWindow @ 2CE8    Retarget    Missing
+* [API ] GetForegroundWindow @ 2D45    Retarget    Missing
+* [API ] GetLocalTime        @ 132B    Nothing
+* [API ] GetModuleFileNameW  @ 4755    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW  @ 85C3    Nothing
+* [API ] GetModuleFileNameW  @ 9132    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW  @ 9825    Nothing
+* [API ] GetSystemInfo       @ 9F31    Retarget    Missing
+* [API ] GetUserDefaultLCID  @ 61B8    Retarget    German
+* [API ] RegOpenKeyExW       @ 34F2    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ 38C9    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 917B    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 919D    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 91BB    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 91D9    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 91F7    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 9215    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW    @ 3531    Nothing
+* [API ] RegQueryValueExW    @ 7733    Nothing
+* [API ] RegQueryValueExW    @ 7793    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW    @ 9255    Nothing
+* [API ] RegQueryValueExW    @ 92A4    Nothing
+* [API ] TimeDelayAPIs       @ 79EB    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 17171c51ebf56ab9e8ead1e508423fa89770b6549dc7070b8cd9606588ccb4f7
+MD5: abd0bc1868196098d5785279aaf4ca95
+Year: 2018
+Family name: lydra
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] StartServiceCtrlDispatcherA @ 7F63
+* [API ] RegCreateKeyExA             @ 5F69
+* [API ] RegSetValueExA              @ 5FAB
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA                 @ F761
+* [API ] CreateFileA                 @ 4BB2
+* [API ] CopyFileA                   @ 4D78
+* [API ] CreateFileA                 @ 52B7
+* [API ] SetFileTime                 @ 53CD
+* [API ] WriteFile                   @ 5450
+* [API ] RegCreateKeyExA             @ 6051
+* [API ] RegSetValueExA              @ 6074
+* [API ] WriteFile                   @ F9DB
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\RunServices
+* [API ] CreateThread                @ 31FF
+* [API ] RegCreateKeyExA             @ 60FB
+* [API ] RegSetValueExA              @ 622E
+* [API ] RegSetValueExA              @ 61A9
+* [API ] CreateFileA                 @ 79DC
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] FindWindowA        @ CCB3    Succeed
+* [API ] GetModuleFileNameA @ 26E9    Nothing
+* [API ] TimeDelayAPIs      @ 5CB0    Retarget
+
+[Manual annotations]
+====================

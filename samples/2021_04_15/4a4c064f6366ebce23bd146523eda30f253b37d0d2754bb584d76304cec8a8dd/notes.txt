@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 4a4c064f6366ebce23bd146523eda30f253b37d0d2754bb584d76304cec8a8dd
+MD5: ee7152b659f01ec91e732ad2e19d0677
+Year: 2021_04_15
+Family name: gator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ CDD8
+* [API ] RegCreateKeyExA @ B2AF
+* [API ] RegSetValueExA  @ B2C8
+* [API ] CopyFileA       @ 9B9B
+* [API ] WriteFile       @ 1115
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA @ B1B2
+* [API ] RegSetValueExA  @ B1D3
+* [API ] CreateProcessA  @ D7CD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (188)]
+=======================================
+
+* [API ] CreateFileA        @ CDD8    Fail        Not modified
+* [API ] FindFirstFileA     @ D445    Retarget    C:\*
+* [API ] GetFileAttributesA @ 1619    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetFileAttributesA @ C9BF    Retarget    C:\Windows\explorer.exe
+* [API ] GetLocalTime       @ B813    Nothing
+* [API ] GetModuleFileNameA @ A4BB    Nothing
+* [API ] GetModuleFileNameA @ F6A1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemTime      @ B81D    Nothing
+* [API ] GetWindowTextA     @ 9CAC    Retarget    Window - Window
+* [API ] GetWindowTextA     @ A815    Nothing
+* [API ] RegOpenKeyExA      @ AE03    Succeed
+* [API ] RegOpenKeyExA      @ AFE6    Succeed
+* [API ] RegQueryValueExA   @ AE31    Nothing
+* [API ] RegQueryValueExA   @ AE65    Nothing
+* [API ] RegQueryValueExA   @ B012    Nothing
+* [API ] TimeQueryAPIs      @ FA96    Retarget
+
+[Manual annotations]
+====================

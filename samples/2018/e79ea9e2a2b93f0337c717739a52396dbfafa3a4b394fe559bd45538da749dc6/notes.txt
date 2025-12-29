@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: e79ea9e2a2b93f0337c717739a52396dbfafa3a4b394fe559bd45538da749dc6
+MD5: d0737ffb6035e66fd4ba60f488709937
+Year: 2018
+Family name: SINGLETON:d0737ffb6035e66fd4ba60f488709937
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExW @ 32CE
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] FindFirstFileW     @ 5FCE    Retarget    C:\*
+* [API ] GetKeyboardLayout  @ D706    Nothing
+* [API ] GetModuleFileNameA @ 0CE7    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 0F78    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 531F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 55B0    Nothing
+* [API ] GetModuleFileNameA @ E9A0    Nothing
+* [API ] GetModuleFileNameW @ 62F6    Nothing
+* [API ] RegOpenKeyExA      @ 0F96    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 0FB4    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 0FD2    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 55CE    Succeed
+* [API ] RegOpenKeyExA      @ 55EC    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 560A    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 7931    Retarget
+* [API ] TimeQueryAPIs      @ DCE9    Retarget
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI showing buttons to install additional software

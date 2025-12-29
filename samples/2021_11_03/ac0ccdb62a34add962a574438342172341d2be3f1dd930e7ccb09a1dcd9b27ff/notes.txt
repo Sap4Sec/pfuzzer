@@ -1,0 +1,59 @@
+[Basic information]
+=========================================================================
+SHA-256: ac0ccdb62a34add962a574438342172341d2be3f1dd930e7ccb09a1dcd9b27ff
+MD5: f0dae1cb6e02567e304c2069a3e42939
+Year: 2021_11_03
+Family name: lmir
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 7D2E
+* [API ] CreateFileA     @ 7D56
+* [API ] WriteFile       @ 7DA5
+* [API ] CreateProcessA  @ A821
+* [API ] WinExec         @ 3D87
+* [API ] CreateFileA     @ 3E92
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 3A5B
+* [API ] CreateProcessA  @ 3AF6
+* [API ] CopyFileA       @ A989
+* [API ] RegCreateKeyExA @ E66A
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\RunServices
+* [API ] RegSetValueExA  @ E6D6
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\Run
+* [API ] WinExec         @ AAB7
+
+[Mutations applied in the best run (39)]
+=======================================
+
+* [API ] CreateFileA        @ 3E92    Retarget    Detect It Easy.lnk
+* [API ] CreateFileA        @ 7D2E    Succeed     Not modified
+* [API ] CreateFileA        @ 7D56    Retarget    C:\Windows\system32\
+* [API ] FindFirstFileA     @ 7EA4    Fail
+* [API ] FindFirstFileA     @ C2AC    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 7EE4    Retarget
+* [API ] FindWindowA        @ 3CD8    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] FindWindowA        @ A939    Fail
+* [API ] GetModuleFileNameA @ 29F9    Nothing
+* [API ] GetModuleFileNameA @ 5917    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5B51    Nothing
+* [API ] GetModuleFileNameA @ 9A0E    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ A952    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ B59B    Nothing
+* [API ] Process32Next      @ B5BB    Retarget
+* [API ] RegOpenKeyExA      @ 5B6F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5B8D    Succeed
+* [API ] RegOpenKeyExA      @ 5BAB    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 5BF4    Nothing
+* [API ] RegQueryValueExA   @ 5C12    Nothing
+* [API ] TimeDelayAPIs      @ 3DA9    Retarget
+* [API ] TimeQueryAPIs      @ A853    Retarget
+
+[Manual annotations]
+====================

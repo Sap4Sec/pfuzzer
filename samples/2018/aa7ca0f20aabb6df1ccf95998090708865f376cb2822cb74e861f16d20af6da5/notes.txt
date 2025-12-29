@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: aa7ca0f20aabb6df1ccf95998090708865f376cb2822cb74e861f16d20af6da5
+MD5: 1114ce527c0fd1546c77947eac415213
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA   @ 36E8
+* [API ] CopyFileA     @ FB50
+* [API ] WinExec       @ FBCF
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread  @ 93C0
+* [API ] WinExec       @ 905B
+* [API ] FindResourceA @ 79DC
+* [API ] LoadResource  @ 79F2
+* [API ] CreateFileA   @ 7A2D
+* [API ] WriteFile     @ 7A64
+* [API ] CreateFileA   @ 3015
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CreateFileA        @ 36E8    Succeed     Not modified
+* [API ] FindFirstFileA     @ 7C18    Nothing
+* [API ] GetModuleFileNameA @ 2DC8    Nothing
+* [API ] GetModuleFileNameA @ 5D07    Nothing
+* [API ] GetModuleFileNameA @ 5F98    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ 72FF    Nothing
+* [API ] Process32Next      @ 731F    Retarget
+* [API ] RegOpenKeyExA      @ 5FB6    Succeed
+* [API ] RegOpenKeyExA      @ 5FD4    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5FF2    Fail        Not modified
+* [API ] RegQueryValueExA   @ 603B    Nothing
+* [API ] RegQueryValueExA   @ 6059    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ E83A    Retarget
+
+[Manual annotations]
+====================

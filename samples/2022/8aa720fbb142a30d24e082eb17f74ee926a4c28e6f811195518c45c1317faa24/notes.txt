@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Lotok.imz-8aa720fbb142a30d24e082eb17f74ee926a4c28e6f811195518c45c1317faa24
+MD5: 60ca83b13837fc72ea22d8b73823b394
+Year: 2022
+Family name: lotok
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW                 @ 995E
+* [API ] CreateFileW                 @ 1FF0
+* [API ] NtCreateFile                @ 27C3
+* [API ] CopyFileA                   @ 397B
+* [API ] OpenSCManagerA              @ 3AE5
+* [API ] CreateServiceA              @ 3B1E
+* [API ] StartServiceA               @ 3C20
+* [API ] RegSetValueExA              @ 3C80
+* [API ] RegSetValueExA              @ 560B
+* [API ] MoveFileA                   @ 2019
+* [API ] MoveFileExA                 @ 202A
+* [API ] RegCreateKeyExA             @ 55B5
+* [API ] WSAStartup                  @ 1334
+* [API ] socket                      @ 144D
+* [API ] connect                     @ 1490
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile                @ 27F7
+* [API ] StartServiceCtrlDispatcherA @ 38E4
+* [API ] StartServiceCtrlDispatcherA @ 38F1
+* [API ] NtCreateFile                @ F164
+* [API ] NtCreateFile                @ F807
+* [API ] NtCreateFile                @ EE4E
+* [API ] NtCreateFile                @ 338C
+* [API ] NtCreateFile                @ E937
+* [API ] NtCreateFile                @ 9983
+* [API ] NtCreateFile                @ 419F
+* [API ] NtCreateFile                @ D74A
+* [API ] NtCreateFile                @ 0B4F
+* [API ] NtCreateFile                @ F1C5
+* [API ] NtCreateFile                @ 087A
+* [API ] NtCreateFile                @ CC02
+* [API ] NtCreateFile                @ 7094
+* [API ] NtCreateFile                @ 14C8
+* [API ] NtCreateFile                @ 69D7
+* [API ] NtCreateFile                @ 1F72
+* [API ] NtCreateFile                @ 43A6
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 0C7A    Retarget    Missing
+* [API ] CreateFileW        @ 1FF0    Succeed     Not modified
+* [API ] CreateFileW        @ 995E    Succeed     Not modified
+* [API ] CreateMutexA       @ 28E1    Succeed
+* [API ] GetLocalTime       @ 2755    Retarget    2022:10:3:24
+* [API ] GetLocalTime       @ 2BC2    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameA @ 1FD4    Nothing
+* [API ] GetModuleFileNameA @ 3969    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 3A00    Nothing
+* [API ] NtCreateFile       @ 2337    Fail        Not modified
+* [API ] NtCreateFile       @ 27C3    Fail        Not modified
+* [API ] RegOpenKeyA        @ 3C60    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 3D4F    Fail
+* [API ] RegOpenKeyExA      @ 55CC    Fail
+* [API ] TimeDelayAPIs      @ 4CB9    Retarget
+* [API ] TimeQueryAPIs      @ AD01    Retarget
+
+[Manual annotations]
+====================

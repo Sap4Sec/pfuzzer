@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 13b2c3e1916fc4489afc756619c33dde66ce007aa61481c214964309155b55f5
+MD5: f30a09dfc37c9c99c0699b4ac8099fba
+Year: 2019_05_11
+Family name: jaik
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 24C0
+* [API ] OpenServiceW         @ 1BD6
+* [API ] CryptAcquireContextW @ 6882
+* [API ] CryptGenRandom       @ 79F2
+* [API ] CryptReleaseContext  @ 6968
+* [API ] CreateFileW          @ 0301
+* [API ] CreateFileW          @ 00E6
+* [API ] WriteFile            @ 099D
+* [API ] CreateProcessW       @ 3387
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ DE1F    Retarget    Missing
+* [API ] CreateFileW        @ 00E6    Succeed     Not modified
+* [API ] CreateFileW        @ 0301    Succeed     Not modified
+* [API ] GetComputerNameA   @ 730C    Retarget    testuser
+* [API ] GetModuleFileNameW @ 675A    Nothing
+* [API ] GetModuleFileNameW @ D437    Nothing
+* [API ] GetUserNameA       @ A69D    Nothing
+
+[Manual annotations]
+====================

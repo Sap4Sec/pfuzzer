@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: c853bd732c78b5e0a868f534154f12f7571fb7448721bb702bbab8ff7910555c
+MD5: 3fb9746b7c7a51a797cc5dda0f67071f
+Year: 2018
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8D8
+* [API ] CreateProcessA     @ B665
+* [API ] CreateProcessA     @ B6CB
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (34)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Fail        Not modified
+* [API ] CreateFileA        @ 586F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA        @ 5DBB    Fail        Not modified
+* [API ] CreateMutexA       @ 3583    Fail
+* [API ] FindFirstFileA     @ 5D3E    Nothing
+* [API ] FindWindowA        @ B879    Succeed
+* [API ] GetFileAttributesA @ 5A78    Fail
+* [API ] GetFileAttributesA @ 6670    Succeed
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ 55A8    Retarget    Office
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5409    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 54C1    Fail
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69FF    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 537A    Nothing
+* [API ] RegQueryValueExA   @ 5432    Nothing
+* [API ] RegQueryValueExA   @ 54EA    Nothing
+* [API ] RegQueryValueExA   @ 6106    Nothing
+* [API ] RegQueryValueExA   @ 6130    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Nothing
+
+[Manual annotations]
+====================

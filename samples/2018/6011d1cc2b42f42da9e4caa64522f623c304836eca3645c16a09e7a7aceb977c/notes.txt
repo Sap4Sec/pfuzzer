@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: 6011d1cc2b42f42da9e4caa64522f623c304836eca3645c16a09e7a7aceb977c
+MD5: 7710b9360fa8227a63d1473221e807d2
+Year: 2018
+Family name: eorezo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 75BD
+* [API ] FindResourceA  @ 9C43
+* [API ] LoadResource   @ 9C68
+* [API ] WriteFile      @ 76E4
+* [API ] CreateProcessA @ 9A61
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA          @ 75BD    Succeed
+* [API ] GetFileAttributesA   @ 6A0C    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA   @ 6C66    Nothing
+* [API ] GetSystemDefaultLCID @ 52A4    Retarget    Japanese
+* [API ] GetSystemDefaultLCID @ 53E3    Retarget    Russian
+* [API ] GetSystemInfo        @ 9B8F    Nothing
+* [API ] GetSystemTime        @ 26D3    Retarget    2015:12:6:15
+
+[Manual annotations]
+====================

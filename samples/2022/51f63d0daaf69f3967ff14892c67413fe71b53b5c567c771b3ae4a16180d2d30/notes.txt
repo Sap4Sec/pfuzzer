@@ -1,0 +1,57 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.sm-51f63d0daaf69f3967ff14892c67413fe71b53b5c567c771b3ae4a16180d2d30
+MD5: 5ca9428b8ec6b2c592267e7ff3732555
+Year: 2022
+Family name: redcap
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW          @ F621
+* [API ] RegCreateKeyW      @ F1AF
+* [API ] WinHttpOpen        @ 014D
+* [API ] WinHttpConnect     @ 1773
+* [API ] WinHttpOpenRequest @ 17B5
+* [API ] WinHttpSendRequest @ 21CF
+* [API ] WinHttpReadData    @ 1FBD
+* [API ] CreateFileW        @ 637B
+* [API ] CopyFileW          @ 104E
+* [API ] CreateFileW        @ FCCC
+* [API ] CreateThread       @ 71FC
+* [API ] CreateFileMappingW @ F4D3
+* [API ] MapViewOfFile      @ F4EB
+* [API ] CreateFileW        @ F50F
+* [API ] WriteFile          @ F534
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 63BB
+* [API ] InternetOpenW      @ DD49
+* [API ] InternetOpenUrlW   @ DB7A
+* [API ] CreateFileW        @ DBA4
+* [API ] InternetReadFile   @ DBF6
+* [API ] WriteFile          @ DBE0
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID                    @ 738D    Retarget    Missing
+* [API ] CreateFileW              @ 637B    Succeed
+* [API ] CreateFileW              @ F50F    Succeed     Not modified
+* [API ] CreateFileW              @ FCCC    Retarget    attrib.exe
+* [API ] CreateMutexW             @ 1517    Succeed
+* [API ] GetCursorPos             @ C90E    Nothing
+* [API ] GetModuleFileNameA       @ 000C    Nothing
+* [API ] GetModuleFileNameW       @ 12CB    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW       @ 8465    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW       @ 9BCE    Nothing
+* [API ] NtQuerySystemInformation @ FE69    Nothing
+* [API ] TimeDelayAPIs            @ FD9D    Nothing
+* [API ] TimeQueryAPIs            @ 404D    Nothing
+
+[Manual annotations]
+====================

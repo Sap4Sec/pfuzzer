@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Bsymem.aggq-ecf763f4bacb053f371a3c84421af642694013c2a3ed2a451c8269b1ab2d71ca
+MD5: bede1b60932c3176bfcfb1f04d9cff9e
+Year: 2022
+Family name: bsymem
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 3250
+* [API ] CreateFileW    @ EE91
+* [API ] NtCreateFile   @ 3806
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile   @ 3744
+* [API ] NtCreateFile   @ B2ED
+* [API ] MoveFileA      @ 77B7
+* [API ] MoveFileA      @ 7826
+* [API ] CreateFileA    @ 99C5
+* [API ] OpenSCManagerA @ CA03
+* [API ] CreateServiceA @ CE41
+* [API ] StartServiceA  @ D4E7
+* [API ] CreateFileA    @ D96B
+* [API ] NtCreateFile   @ E667
+* [API ] NtCreateFile   @ CA11
+* [API ] NtCreateFile   @ A464
+* [API ] NtCreateFile   @ E724
+* [API ] NtCreateFile   @ 6F1A
+* [API ] NtCreateFile   @ 0D8B
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID         @ 19B6    Nothing
+* [API ] CreateFileW   @ 3250    Succeed     Not modified
+* [API ] CreateFileW   @ EE91    Succeed     Not modified
+* [API ] NtCreateFile  @ 3806    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs @ 19B0    Retarget
+
+[Manual annotations]
+====================

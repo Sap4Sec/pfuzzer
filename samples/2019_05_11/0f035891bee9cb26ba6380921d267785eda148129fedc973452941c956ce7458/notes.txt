@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: 0f035891bee9cb26ba6380921d267785eda148129fedc973452941c956ce7458
+MD5: c0f3374851e928534e7be7f395842326
+Year: 2019_05_11
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 95FF
+* [API ] OpenServiceW         @ 9619
+* [API ] CryptAcquireContextW @ 79FE
+* [API ] CryptGenRandom       @ 7A13
+* [API ] CryptReleaseContext  @ 7A28
+* [API ] CreateFileW          @ B74C
+* [API ] CreateFileW          @ B9C0
+* [API ] WriteFile            @ B9DA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (13)]
+=======================================
+
+* [API ] CreateFileW        @ B74C    Succeed     Not modified
+* [API ] CreateFileW        @ B9C0    Fail
+* [API ] GetModuleFileNameW @ 5C06    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ BF56    Nothing
+* [API ] GetUserNameA       @ 6019    Nothing
+
+[Manual annotations]
+====================
+Dies calling _swprintf_s with empty data, it may require a specific cmd line argument or environment variable

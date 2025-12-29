@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.uc-d1260997bc5cd00b88b61cb7adddae0768a3af22fa53e365a78bd528537f2b74
+MD5: 31602ebe5470cf625f5d0888fbd9918c
+Year: 2022
+Family name: SINGLETON:31602ebe5470cf625f5d0888fbd9918c
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW          @ 231D
+* [API ] RegCreateKeyW      @ 1E74
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExW     @ 3176
+* [API ] WinHttpOpen        @ 7996
+* [API ] WinHttpConnect     @ 10D7
+* [API ] WinHttpOpenRequest @ 3246
+* [API ] WinHttpSendRequest @ 4FA1
+* [API ] WinHttpReadData    @ 4C30
+* [API ] CreateFileW        @ 84E5
+* [API ] CopyFileW          @ 052B
+* [API ] CreateFileW        @ E815
+* [API ] CreateThread       @ A934
+* [API ] CreateFileMappingW @ EC89
+* [API ] MapViewOfFile      @ ECB6
+* [API ] CreateFileW        @ ECDE
+* [API ] WriteFile          @ ED12
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ EA38
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID                    @ 4F1E    Nothing
+* [API ] CreateFileW              @ 84E5    Succeed
+* [API ] CreateFileW              @ E815    Retarget    Detect It Easy.lnk
+* [API ] CreateFileW              @ ECDE    Fail        Not modified
+* [API ] CreateMutexW             @ DF3F    Fail
+* [API ] GetCursorPos             @ E990    Retarget    Missing
+* [API ] GetModuleFileNameA       @ 08DD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW       @ 1F84    Nothing
+* [API ] GetModuleFileNameW       @ 3067    Nothing
+* [API ] GetModuleFileNameW       @ A510    Nothing
+* [API ] GetModuleFileNameW       @ F519    Nothing
+* [API ] NtQuerySystemInformation @ E740    Retarget    John
+* [API ] NtQuerySystemInformation @ E7BA    Nothing
+* [API ] RegOpenKeyExA            @ 3147    Fail
+* [API ] RegOpenKeyExW            @ F714    Succeed
+* [API ] TimeDelayAPIs            @ E97C    Retarget
+* [API ] TimeQueryAPIs            @ 99F3    Retarget
+
+[Manual annotations]
+====================

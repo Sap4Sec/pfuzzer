@@ -1,0 +1,81 @@
+[Basic information]
+=========================================================================
+SHA-256: 24a6f77c229c27b6fca3f09357f50cf303e8cf898820408afc53ff27a6cb1fa6
+MD5: 06a8ceff3b5fde8c6fc38098cf5c500d
+Year: 2018
+Family name: auslogics
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread      @ EC1B
+* [API ] ResumeThread      @ EEE7
+* [API ] CreateFileW       @ 6AC8
+* [API ] RegCreateKeyExW   @ 3E9B
+* [API ] RegSetValueExW    @ 3EDB
+* [API ] socket            @ 0B1B
+* [API ] connect           @ 0C98
+* [API ] send              @ 0CB8
+* [API ] recv              @ 0CE7
+* [API ] InternetOpenW     @ 7923
+* [API ] InternetConnectW  @ 795C
+* [API ] HttpOpenRequestW  @ 79B7
+* [API ] HttpSendRequestW  @ 7A14
+* [API ] InternetReadFile  @ 7AB9
+* [API ] FindResourceW     @ 8B34
+* [API ] FindResourceW     @ 8B6D
+* [API ] LoadResource      @ 8C8D
+* [API ] FindResourceW     @ 15DF
+* [API ] FindResourceW     @ 1618
+* [API ] LoadResource      @ 1773
+* [API ] RegCreateKeyExW   @ BFAF
+* [API ] RegSetValueExW    @ C0FB
+* [API ] CreateThread      @ 6B93
+* [API ] FindResourceW     @ 16F2
+* [API ] InternetOpenW     @ C842
+* [API ] InternetConnectW  @ C87B
+* [API ] HttpOpenRequestW  @ C8C0
+* [API ] HttpSendRequestW  @ C9BC
+* [API ] CreateThread      @ 9121
+* [API ] InternetReadFile  @ CA04
+* [API ] AttachThreadInput @ D41F
+* [API ] AttachThreadInput @ D45F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID               @ 542F    Retarget    Missing
+* [API ] CreateFileW         @ 6AC8    Succeed     Not modified
+* [API ] CreateMutexW        @ D703    Fail
+* [API ] FindFirstFileW      @ 9C70    Succeed
+* [API ] GetFileAttributesW  @ 6B5A    Fail
+* [API ] GetForegroundWindow @ D3E2    Retarget    Missing
+* [API ] GetForegroundWindow @ D3F9    Retarget    Missing
+* [API ] GetForegroundWindow @ D464    Retarget    Missing
+* [API ] GetLocalTime        @ 8C65    Nothing
+* [API ] GetModuleFileNameW  @ 4FA5    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW  @ 8D0F    Nothing
+* [API ] GetModuleFileNameW  @ 989A    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW  @ 9FA1    Nothing
+* [API ] GetSystemInfo       @ B6B5    Nothing
+* [API ] GetUserDefaultLCID  @ A823    Retarget    French
+* [API ] RegOpenKeyExW       @ 3BCA    Succeed     Not modified
+* [API ] RegOpenKeyExW       @ 98E3    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ 9905    Succeed
+* [API ] RegOpenKeyExW       @ 9923    Succeed     Not modified
+* [API ] RegOpenKeyExW       @ 9941    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ 995F    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 997D    Fail        Not modified
+* [API ] RegOpenKeyExW       @ FFF5    Fail        Not modified
+* [API ] RegQueryValueExW    @ 3C09    Retarget    ProductID
+* [API ] RegQueryValueExW    @ BFDF    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs       @ C282    Retarget
+
+[Manual annotations]
+====================

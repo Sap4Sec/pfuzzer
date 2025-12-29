@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: 85974f4e1723d8206504aa53f653dc25494febf8a604231befa8890f5b1076f6
+MD5: bf228ae36d09ad4f344292795f763eb3
+Year: 2019_05_11
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingW @ C523
+* [API ] MapViewOfFile      @ C56C
+* [API ] RegCreateKeyExW    @ 087D
+* [API ] RegSetValueExW     @ 092F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] RegOpenKeyExW    @ 0893    Succeed
+* [API ] RegQueryValueExW @ 0B12    Retarget    ProductID
+* [API ] RegQueryValueExW @ 0D0A    Nothing
+* [API ] RegQueryValueExW @ 0D3A    Nothing
+* [API ] TimeQueryAPIs    @ C2A9    Nothing
+
+[Manual annotations]
+====================
+Other dependencies: messenger stuff required

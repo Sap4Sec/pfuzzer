@@ -1,0 +1,84 @@
+[Basic information]
+=========================================================================
+SHA-256: 14afcc8be2a43ec1531d6853e0df2feacd1e29c671bf0de1cc75f6120b10c43f
+MD5: 00a2a4591995c56de8d133a889dcfa96
+Year: 2018
+Family name: installmonster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] GetKeyboardState   @ 8EDF
+* [API ] CreateFileW        @ 953F
+* [API ] OpenFileMappingA   @ 2DFE
+* [API ] CreateFileMappingA @ 2E69
+* [API ] MapViewOfFile      @ 2EA7
+* [API ] SetWindowsHookExW  @ 174B
+* [API ] RegCreateKeyExA    @ 7398
+* [API ] RegSetValueExA     @ 73C4
+* [API ] FindResourceA      @ 0E4B
+* [API ] FindResourceA      @ 49AC
+* [API ] LoadResource       @ 49C6
+* [API ] FindResourceA      @ 1CA3
+* [API ] LoadResource       @ 1CB1
+* [API ] CreateFileA        @ B32F
+* [API ] CreateFileW        @ E860
+* [API ] ShellExecuteW      @ 72A7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID                @ E9E5    Nothing
+* [API ] CreateFileA          @ B32F    Succeed
+* [API ] CreateFileW          @ 953F    Retarget    C:\Windows\system32\
+* [API ] CreateFileW          @ E860    Succeed     Not modified
+* [API ] CreateMutexA         @ 2A96    Retarget    vscode
+* [API ] DeviceIoControl      @ E897    Retarget    Missing
+* [API ] FindWindowW          @ 92E7    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetAdaptersAddresses @ 7173    Nothing
+* [API ] GetAdaptersInfo      @ E19A    Nothing
+* [API ] GetAdaptersInfo      @ E1C1    Nothing
+* [API ] GetDiskFreeSpaceExW  @ E70C    Nothing
+* [API ] GetKeyboardLayout    @ 0AF2    Retarget    French
+* [API ] GetLocalTime         @ DF69    Nothing
+* [API ] GetLocalTime         @ EFB0    Nothing
+* [API ] GetModuleFileNameA   @ 1D8C    Nothing
+* [API ] GetModuleFileNameA   @ 210F    Nothing
+* [API ] GetModuleFileNameA   @ 30EC    Nothing
+* [API ] GetModuleFileNameA   @ 6A8F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA   @ 6D20    Nothing
+* [API ] GetModuleFileNameA   @ AEE5    Nothing
+* [API ] GetModuleFileNameW   @ A23D    Nothing
+* [API ] GetSystemInfo        @ 776A    Retarget    Missing
+* [API ] GetSystemInfo        @ D33D    Nothing
+* [API ] GetSystemInfo        @ D473    Retarget    Missing
+* [API ] GetUserDefaultLCID   @ E7C0    Nothing
+* [API ] GlobalMemoryStatusEx @ DF42    Retarget    Missing
+* [API ] Process32First       @ 3CB7    Nothing
+* [API ] Process32FirstW      @ 620B    Nothing
+* [API ] Process32Next        @ 3CD7    Retarget
+* [API ] Process32NextW       @ 62D2    Retarget
+* [API ] RegEnumKeyExA        @ 3AB5    Nothing
+* [API ] RegEnumKeyExW        @ 78AC    Retarget    John
+* [API ] RegOpenKeyExA        @ 388D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 6D3E    Fail        Not modified
+* [API ] RegOpenKeyExA        @ 6D5C    Succeed
+* [API ] RegOpenKeyExA        @ 6D7A    Fail        Not modified
+* [API ] RegOpenKeyExW        @ 40C6    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ 872B    Succeed
+* [API ] RegQueryValueExA     @ 3C03    Nothing
+* [API ] RegQueryValueExA     @ 3DD4    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW     @ 4170    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW     @ 87CF    Nothing
+* [API ] TimeDelayAPIs        @ 29D4    Retarget
+* [API ] TimeQueryAPIs        @ D378    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

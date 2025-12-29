@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: b5b1972ab47dd761679031a7f1209fe3877b69825e8d92320229f967e071ce31
+MD5: b8bc9bb1aa717ee95f6548bd5ba5219c
+Year: 2018
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 2ACB
+* [API ] LoadResource         @ 2AB1
+* [API ] CreateProcessA       @ 80D3
+* [API ] ReadProcessMemory    @ 8056
+* [API ] NtUnmapViewOfSection @ 800D
+* [API ] VirtualAllocEx       @ 7D8A
+* [API ] WriteProcessMemory   @ 7FB0
+* [API ] WriteProcessMemory   @ 7F83
+* [API ] SetThreadContext     @ 7F2F
+* [API ] ResumeThread         @ 7F10
+
+Fuzzing Findings
+----------------
+* [API ] VirtualAllocEx       @ 7DB9
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] FindFirstFileA     @ 53BB    Succeed
+* [API ] GetKeyboardLayout  @ 642E    Retarget    Chinese-simplified
+* [API ] GetModuleFileNameA @ 2A1D    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 524B    Nothing
+* [API ] GetModuleFileNameA @ 5485    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 75E4    Nothing
+* [API ] GetUserNameA       @ 257D    Retarget    Office
+* [API ] RegOpenKeyExA      @ 54A3    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 54C1    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 54DF    Succeed
+* [API ] RegQueryValueExA   @ 5528    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 5546    Nothing
+
+[Manual annotations]
+====================

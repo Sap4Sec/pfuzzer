@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: 666bab2f15e190e4e532624a3bd1a5f6deb094749b306eab2cea0d7ebf708f48
+MD5: e60691a7b2a2f0166bef4b375d18cf90
+Year: 2018
+Family name: ramnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA          @ 426E
+* [API ] WriteFile            @ 4298
+* [API ] CreateProcessA       @ 42E6
+* [API ] SetWindowsHookExA    @ E87E
+* [API ] SetWindowsHookExA    @ BA0F
+* [API ] CreateFileA          @ A32B
+* [API ] WriteFile            @ A3C2
+* [API ] ShellExecuteA        @ 39AD
+* [API ] OpenSCManagerA       @ 884A
+* [API ] RegCreateKeyA        @ 491A
+* [API ] RegSetValueExA       @ 499B
+* [API ] CryptAcquireContextA @ D6A2
+* [API ] CryptCreateHash      @ D72E
+* [API ] CryptHashData        @ D802
+* [API ] CryptGetHashParam    @ D8DF
+* [API ] CryptDestroyHash     @ DC38
+* [API ] CryptReleaseContext  @ DC5F
+* [API ] socket               @ D1BF
+* [API ] inet_addr            @ D1E4
+* [API ] connect              @ D204
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

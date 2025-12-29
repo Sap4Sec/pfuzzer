@@ -1,0 +1,75 @@
+[Basic information]
+=========================================================================
+SHA-256: e11f136e23410fe86e8cebc44175b31908b49d2b03f5184c51283dc1b7d46279
+MD5: a6aff8270b6e51f5acec43c5a508b2bc
+Year: 2019_05_11
+Family name: SINGLETON:a6aff8270b6e51f5acec43c5a508b2bc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ DB4C
+* [API ] CreateFileW          @ 71B6
+
+Fuzzing Findings
+----------------
+* [API ] WSAStartup           @ BA0A
+* [API ] CryptAcquireContextA @ B43E
+* [API ] CryptCreateHash      @ B4D1
+* [API ] CryptHashData        @ B5AD
+* [API ] CryptGetHashParam    @ B696
+* [API ] CryptDestroyHash     @ B9E3
+* [API ] CryptReleaseContext  @ BA12
+* [API ] FindResourceExW      @ 26A8
+* [API ] LoadResource         @ 26C2
+* [API ] FindResourceExW      @ 26FD
+* [API ] LoadResource         @ 2722
+* [API ] CreateFileA          @ 3EB5
+* [API ] SetWindowsHookExA    @ 94B3
+* [API ] InternetOpenA        @ 9BD6
+* [API ] InternetConnectA     @ 9E22
+* [API ] HttpOpenRequestA     @ 9ED3
+* [API ] HttpSendRequestA     @ 9F47
+* [API ] WSAStartup           @ 12F3
+* [API ] FindResourceExW      @ DDEC
+* [API ] LoadResource         @ DE06
+* [API ] FindResourceExW      @ DE41
+* [API ] LoadResource         @ DE66
+* [API ] FindResourceExW      @ 8EFF
+* [API ] LoadResource         @ 8F19
+* [API ] FindResourceExW      @ 8F54
+* [API ] LoadResource         @ 8F79
+* [API ] FindResourceExW      @ DB3F
+* [API ] LoadResource         @ DB59
+* [API ] FindResourceExW      @ DB94
+* [API ] LoadResource         @ DBB9
+* [API ] FindResourceExW      @ 9357
+* [API ] LoadResource         @ 9371
+* [API ] FindResourceExW      @ 93AC
+* [API ] LoadResource         @ 93D1
+* [API ] FindResourceExW      @ 5010
+* [API ] LoadResource         @ 502A
+* [API ] FindResourceExW      @ 5065
+* [API ] LoadResource         @ 508A
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 8A7E    Retarget    Missing
+* [API ] CreateFileA        @ 3EB5    Retarget    Backup.txt
+* [API ] CreateFileW        @ 71B6    Succeed     Not modified
+* [API ] CreateFileW        @ DB4C    Retarget    iexplorer.exe
+* [API ] FindWindowExA      @ C20A    Fail
+* [API ] FindWindowExA      @ C286    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] GetModuleFileNameA @ 4F4B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ DD4D    Nothing
+* [API ] GetWindowTextA     @ 331F    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] GetWindowTextA     @ 37E3    Nothing
+* [API ] GetWindowTextA     @ D4FB    Retarget    Program Manager - MSCTFIME UI
+* [API ] TimeQueryAPIs      @ DDC2    Retarget
+
+[Manual annotations]
+====================

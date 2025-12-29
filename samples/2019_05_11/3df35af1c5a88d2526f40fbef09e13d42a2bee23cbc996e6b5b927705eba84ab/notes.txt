@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: 3df35af1c5a88d2526f40fbef09e13d42a2bee23cbc996e6b5b927705eba84ab
+MD5: 2efdb991514029273a4579ee7cf14900
+Year: 2019_05_11
+Family name: SINGLETON:2efdb991514029273a4579ee7cf14900
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 12AD
+* [API ] CreateFileA     @ 1487
+* [API ] WriteFile       @ 14B7
+* [API ] ShellExecuteExA @ 1781
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateFileA        @ 12AD    Succeed     Not modified
+* [API ] CreateFileA        @ 1487    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 11D7    Nothing
+* [API ] TimeDelayAPIs      @ 178F    Retarget
+
+[Manual annotations]
+====================

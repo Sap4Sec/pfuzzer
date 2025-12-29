@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: db3e1ba09803c97c02e55f0a0e309325e3d5fed49c204dc6556d49eed5ed80bf
+MD5: 615e6a0999d3e38a3a3be8d263a821b8
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 36E8
+* [API ] CreateFileA @ 3015
+* [API ] WriteFile   @ 2F40
+* [API ] WinExec     @ EF03
+* [API ] WinExec     @ FEBC
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA   @ FB50
+* [API ] WinExec     @ FBCF
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 3015    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA        @ 36E8    Succeed
+* [API ] FindFirstFileA     @ 7C18    Nothing
+* [API ] GetModuleFileNameA @ 2DC8    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 5D07    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 5F98    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ EC56    Nothing
+* [API ] Process32First     @ 72FF    Nothing
+* [API ] Process32Next      @ 731F    Retarget
+* [API ] RegOpenKeyExA      @ 5FB6    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5FD4    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5FF2    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ E83A    Retarget
+* [API ] TimeQueryAPIs      @ 2E0D    Retarget
+
+[Manual annotations]
+====================

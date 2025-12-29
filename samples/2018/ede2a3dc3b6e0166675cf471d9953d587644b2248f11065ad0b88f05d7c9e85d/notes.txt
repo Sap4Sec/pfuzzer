@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: ede2a3dc3b6e0166675cf471d9953d587644b2248f11065ad0b88f05d7c9e85d
+MD5: e8c7623e099ae4a2e096fbcc2503bd47
+Year: 2018
+Family name: SINGLETON:e8c7623e099ae4a2e096fbcc2503bd47
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: wzmss.dll, npkcrypt.dll, ikl15.dll

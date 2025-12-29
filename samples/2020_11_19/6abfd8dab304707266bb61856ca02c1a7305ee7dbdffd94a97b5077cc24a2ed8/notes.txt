@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 6abfd8dab304707266bb61856ca02c1a7305ee7dbdffd94a97b5077cc24a2ed8
+MD5: ff55f906882bf2bcf52bae323d126b97
+Year: 2020_11_19
+Family name: allaple
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Message box: "The procedure entry point GetDefaultSoftkeySize could not be located in the dynamic link library <path-to-sample>"

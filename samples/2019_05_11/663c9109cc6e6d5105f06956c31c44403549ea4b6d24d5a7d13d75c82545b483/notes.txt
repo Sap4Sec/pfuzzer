@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 663c9109cc6e6d5105f06956c31c44403549ea4b6d24d5a7d13d75c82545b483
+MD5: abbcc6833444dd363255ac4d60d1cf34
+Year: 2019_05_11
+Family name: ldpinch
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessA       @ 477B
+* [API ] NtUnmapViewOfSection @ 47AD
+* [API ] VirtualAllocEx       @ 47D0
+* [API ] WriteProcessMemory   @ 4855
+* [API ] WriteProcessMemory   @ 49CC
+* [API ] WriteProcessMemory   @ 4A3A
+* [API ] SetThreadContext     @ 4A65
+* [API ] ResumeThread         @ 4A73
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] GetModuleFileNameA @ 4472    Retarget    C:\Windows\explorer.exe
+
+[Manual annotations]
+====================

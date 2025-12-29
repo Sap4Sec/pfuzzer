@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: 75897455cab694f27ef92827786b23667002636db409c84232bf64e4fead3479
+MD5: b857164be676abf5cbccc0eae8698406
+Year: 2019_05_11
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CreateFileA        @ 2429    Succeed
+* [API ] CreateFileA        @ 250C    Succeed
+* [API ] CreateFileA        @ 26D6    Succeed
+* [API ] FindWindowA        @ 2E54    Retarget    Window - Window
+* [API ] GetModuleFileNameA @ 121B    Nothing
+* [API ] GetModuleFileNameA @ 2BEA    Nothing
+* [API ] GetModuleFileNameA @ 2E2C    Nothing
+* [API ] GetModuleFileNameA @ 3CD6    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 27E3    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ 3C0F    Nothing
+* [API ] RegOpenKeyExA      @ 3B96    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 3BBB    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: 2345d0a949684e12d7bcdb9f6928dda0a3e68622851783adfbde0aa834fb0330
+MD5: 918a1c1fdcf5389e3df5138d040194aa
+Year: 2019_05_11
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8D8
+* [API ] CreateProcessA     @ B665
+* [API ] CreateProcessA     @ B6CB
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (37)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Retarget    C:\Windows\system32\
+* [API ] CreateFileA        @ 586F    Retarget    iexplorer.exe
+* [API ] CreateFileA        @ 5DBB    Fail        Not modified
+* [API ] CreateMutexA       @ 3583    Fail
+* [API ] FindFirstFileA     @ 5D3E    Fail
+* [API ] FindWindowA        @ B879    Retarget    Window - Window
+* [API ] GetFileAttributesA @ 5A78    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesA @ 6670    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA       @ 55A8    Nothing
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Fail
+* [API ] RegOpenKeyExA      @ 5409    Fail
+* [API ] RegOpenKeyExA      @ 54C1    Fail
+* [API ] RegOpenKeyExA      @ 60E2    Fail
+* [API ] RegOpenKeyExA      @ 69FF    Fail
+* [API ] RegQueryValueExA   @ 537A    Nothing
+* [API ] RegQueryValueExA   @ 5432    Nothing
+* [API ] RegQueryValueExA   @ 54EA    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 6106    Nothing
+* [API ] RegQueryValueExA   @ 6130    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Retarget
+
+[Manual annotations]
+====================

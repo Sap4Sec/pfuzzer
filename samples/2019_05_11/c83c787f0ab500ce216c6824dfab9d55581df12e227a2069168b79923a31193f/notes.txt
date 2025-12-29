@@ -1,0 +1,88 @@
+[Basic information]
+=========================================================================
+SHA-256: c83c787f0ab500ce216c6824dfab9d55581df12e227a2069168b79923a31193f
+MD5: 1982b7981df743dadd6201ffd3455f6d
+Year: 2019_05_11
+Family name: dyamar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 361E
+* [API ] CreateFileA       @ EF88
+* [API ] CreateFileA       @ 3060
+* [API ] ReadProcessMemory @ 2DCA
+* [API ] CreateFileA       @ 348E
+* [API ] WriteFile         @ 9EF9
+* [API ] CreateFileA       @ EE8F
+* [API ] WriteFile         @ EEB2
+* [API ] ReadProcessMemory @ 55A3
+* [API ] ReadProcessMemory @ 5603
+* [API ] ReadProcessMemory @ 5659
+* [API ] ReadProcessMemory @ 571A
+* [API ] ReadProcessMemory @ 5752
+* [API ] ReadProcessMemory @ 578A
+* [API ] ReadProcessMemory @ 57C8
+* [API ] ReadProcessMemory @ 5806
+* [API ] ReadProcessMemory @ 5844
+* [API ] ReadProcessMemory @ 5882
+* [API ] ReadProcessMemory @ 58C0
+* [API ] ReadProcessMemory @ 5901
+* [API ] ReadProcessMemory @ 5948
+* [API ] ReadProcessMemory @ 5990
+* [API ] ReadProcessMemory @ 59DF
+* [API ] ReadProcessMemory @ 5A65
+* [API ] ReadProcessMemory @ 5B0A
+* [API ] ReadProcessMemory @ 5BDC
+* [API ] ReadProcessMemory @ 5C27
+* [API ] ReadProcessMemory @ 5D3B
+* [API ] ReadProcessMemory @ 5DE2
+* [API ] ReadProcessMemory @ 5F26
+* [API ] SetWindowsHookExA @ BF7D
+* [API ] SetWindowsHookExA @ 7D8D
+* [API ] CreateProcessA    @ 2A7F
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA       @ 9C99
+* [API ] CreateFileA       @ 9CEC
+* [API ] SetFileTime       @ 9D0C
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID                    @ 73A2    Nothing
+* [API ] CreateFileA              @ 3060    Fail        Not modified
+* [API ] CreateFileA              @ 348E    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA              @ 361E    Succeed     Not modified
+* [API ] CreateFileA              @ EE8F    Succeed
+* [API ] CreateFileA              @ EF88    Retarget    C:\Windows\system32\
+* [API ] GetCursorPos             @ 0EA8    Nothing
+* [API ] GetFileAttributesA       @ 161D    Fail
+* [API ] GetFileAttributesA       @ 2044    Succeed
+* [API ] GetFileAttributesA       @ E4C1    Succeed
+* [API ] GetModuleFileNameA       @ 0499    Nothing
+* [API ] GetModuleFileNameA       @ 1AFA    Nothing
+* [API ] GetModuleFileNameA       @ 1E03    Nothing
+* [API ] GetModuleFileNameA       @ 2CFA    Nothing
+* [API ] GetModuleFileNameA       @ B4B1    Nothing
+* [API ] GetModuleFileNameA       @ ED8A    Nothing
+* [API ] NtQuerySystemInformation @ 219B    Retarget    John
+* [API ] NtQuerySystemInformation @ 21C6    Nothing
+* [API ] NtQuerySystemInformation @ 22B7    Retarget    Office
+* [API ] NtQuerySystemInformation @ 22E2    Retarget    John
+* [API ] NtQuerySystemInformation @ 30E2    Retarget    testuser
+* [API ] NtQuerySystemInformation @ 310D    Retarget    testuser
+* [API ] Process32First           @ 203D    Nothing
+* [API ] Process32First           @ 2F53    Nothing
+* [API ] Process32Next            @ 20B1    Retarget
+* [API ] Process32Next            @ 2F6E    Retarget
+* [API ] RegOpenKeyExA            @ 2E4F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA            @ 2EA9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeQueryAPIs            @ EFD9    Nothing
+
+[Manual annotations]
+====================

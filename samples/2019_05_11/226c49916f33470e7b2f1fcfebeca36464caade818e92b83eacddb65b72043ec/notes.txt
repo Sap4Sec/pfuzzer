@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 226c49916f33470e7b2f1fcfebeca36464caade818e92b83eacddb65b72043ec
+MD5: 61a429c2992c9fe51aa08152289fd84d
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ EAC2
+* [API ] SetWindowsHookExA @ BC23
+* [API ] CopyFileA         @ 408A
+* [API ] CreateFileA       @ 40DA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateFileA              @ 40DA    Succeed     Not modified
+* [API ] FindFirstFileA           @ A966    Nothing
+* [API ] GetCursorPos             @ 3EB4    Retarget    Missing
+* [API ] GetModuleFileNameA       @ 4108    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA       @ 6719    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA       @ BF53    Nothing
+* [API ] GetModuleFileNameA       @ DAE0    Retarget    C:\Windows\explorer.exe
+* [API ] GetWindowTextA           @ C112    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] NtQuerySystemInformation @ 8FE6    Retarget    testuser
+* [API ] NtQuerySystemInformation @ 90A7    Nothing
+* [API ] NtQuerySystemInformation @ 90FF    Retarget    John
+* [API ] TimeQueryAPIs            @ 1A81    Retarget
+
+[Manual annotations]
+====================
+User interaction: Strange chars GUI appears, performs some malicious operations by clicking the buttons

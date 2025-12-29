@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 530ca979eaf3dafdea222abe36efeaebe6c4c1b01c24698cf1b3250fe27aeb3d
+MD5: 6b3f2e165addbfaf4397eb78c59aefc5
+Year: 2019_11_29
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ B326
+* [API ] CreateThread     @ B340
+* [API ] CreateThread     @ B3D5
+* [API ] CreateThread     @ B3F7
+* [API ] CreateThread     @ B442
+* [API ] WSAStartup       @ A15D
+* [API ] CreateProcessA   @ 93B6
+* [API ] socket           @ A173
+* [API ] bind             @ A1B3
+* [API ] accept           @ A1D7
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA   @ 8AA0
+* [API ] CopyFileA        @ 9346
+* [API ] CopyFileA        @ 9372
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA    @ 95BF
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA      @ 926A
+* [API ] MoveFileExA      @ 927E
+* [API ] CreateThread     @ B384
+* [API ] InternetOpenUrlA @ 95E5
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateMutexA       @ B34F    Fail
+* [API ] GetModuleFileNameA @ 9096    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] Process32First     @ 9854    Nothing
+* [API ] Process32Next      @ 992D    Retarget
+* [API ] RegOpenKeyA        @ 8A7D    Fail
+* [API ] TimeDelayAPIs      @ B3E0    Retarget
+* [API ] TimeQueryAPIs      @ B1D3    Retarget
+
+[Manual annotations]
+====================

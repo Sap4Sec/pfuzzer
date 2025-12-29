@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: a5a18cb781620ad5979882cce99d9d6a7c01f5dbfb1da1996799c70ed6b0c5d5
+MD5: 09e7695a9efb31fecd59b581de5e2510
+Year: 2021_11_03
+Family name: fsysna
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 13AA
+* [API ] CreateFileW  @ D868
+* [API ] NtCreateFile @ 47D0
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ CEBB
+* [API ] NtCreateFile @ 2C41
+* [API ] NtCreateFile @ BEE2
+* [API ] NtCreateFile @ AE84
+* [API ] NtCreateFile @ 8AC9
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CPUID              @ 01A5    Nothing
+* [API ] CreateFileW        @ 13AA    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileW        @ D868    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 151D    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ A2C8    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] NtCreateFile       @ 47D0    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] NtCreateFile       @ 7002    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 01E1    Retarget
+
+[Manual annotations]
+====================
+Opens a GUI requiring text input

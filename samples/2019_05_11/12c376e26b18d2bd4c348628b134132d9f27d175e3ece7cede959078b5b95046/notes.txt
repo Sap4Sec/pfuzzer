@@ -1,0 +1,95 @@
+[Basic information]
+=========================================================================
+SHA-256: 12c376e26b18d2bd4c348628b134132d9f27d175e3ece7cede959078b5b95046
+MD5: 4791a87b7b7d93b301720683a4a944c9
+Year: 2019_05_11
+Family name: inar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ 835F
+* [API ] FindResourceA    @ AFBC
+* [API ] LoadResource     @ AFD6
+* [API ] GetAsyncKeyState @ B293
+* [API ] GetAsyncKeyState @ B34D
+* [API ] GetAsyncKeyState @ B378
+* [API ] GetAsyncKeyState @ B3C0
+* [API ] GetAsyncKeyState @ B4B3
+* [API ] GetAsyncKeyState @ B51F
+* [API ] GetAsyncKeyState @ B534
+* [API ] GetAsyncKeyState @ B549
+* [API ] GetAsyncKeyState @ B55E
+* [API ] GetAsyncKeyState @ B573
+* [API ] GetAsyncKeyState @ B588
+* [API ] GetAsyncKeyState @ B59D
+* [API ] GetAsyncKeyState @ B5AF
+* [API ] GetAsyncKeyState @ B5C4
+* [API ] GetAsyncKeyState @ B5D9
+* [API ] GetAsyncKeyState @ B5EE
+* [API ] GetAsyncKeyState @ B603
+* [API ] GetAsyncKeyState @ B618
+* [API ] GetAsyncKeyState @ B62D
+* [API ] GetAsyncKeyState @ B642
+* [API ] GetAsyncKeyState @ B657
+* [API ] GetAsyncKeyState @ B66C
+* [API ] GetAsyncKeyState @ B681
+* [API ] GetAsyncKeyState @ B696
+* [API ] GetAsyncKeyState @ B6AB
+* [API ] GetAsyncKeyState @ B6C0
+* [API ] GetAsyncKeyState @ B6D8
+* [API ] GetAsyncKeyState @ B6ED
+* [API ] GetAsyncKeyState @ B705
+* [API ] GetAsyncKeyState @ B71A
+* [API ] GetAsyncKeyState @ B72F
+* [API ] GetAsyncKeyState @ B741
+* [API ] GetAsyncKeyState @ B753
+* [API ] GetAsyncKeyState @ BC26
+* [API ] CreateFileA      @ 938F
+* [API ] CreateFileA      @ AB5D
+* [API ] WriteFile        @ 93D9
+
+Fuzzing Findings
+----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA   @ 205B
+* [API ] MoveFileExA      @ CE1D
+* [API ] InternetOpenA    @ C30D
+* [API ] InternetConnectA @ C33E
+* [API ] WinExec          @ DDBF
+* [API ] RegCreateKeyExA  @ 1CA3
+* [API ] RegCreateKeyExA  @ 1B90
+* [API ] InternetOpenA    @ CA93
+* [API ] InternetConnectA @ CAAF
+* [API ] FtpPutFileA      @ CAD0
+* [API ] WSAStartup       @ 6D1C
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 938F    Succeed
+* [API ] CreateFileA        @ AB5D    Succeed
+* [API ] CreateMutexA       @ 6CD3    Retarget    VBoxTray
+* [API ] GetCursorPos       @ D88D    Retarget    Missing
+* [API ] GetFileAttributesA @ 944C    Fail
+* [API ] GetFileAttributesA @ 9470    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetKeyboardLayout  @ A18A    Retarget    Chinese-simplified
+* [API ] GetModuleFileNameA @ 32BD    Nothing
+* [API ] GetModuleFileNameA @ 5E3F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 60A1    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ B476    Nothing
+* [API ] Process32First     @ EF7B    Nothing
+* [API ] Process32Next      @ EF9B    Retarget
+* [API ] RegOpenKeyExA      @ 1D92    Fail
+* [API ] RegOpenKeyExA      @ 60BF    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 60DD    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 60FB    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 1F3B    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 20BC    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 1468    Retarget
+
+[Manual annotations]
+====================

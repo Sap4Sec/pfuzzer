@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: a0b676cc58c3b2b94003a924b9a77c4aeea81f352319350933531105184257d6
+MD5: f0ffc99a0a7cda4298901ce038587db4
+Year: 2018
+Family name: redosdru
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 5227
+* [API ] FindResourceA @ 7E84
+* [API ] LoadResource  @ 7E9E
+* [API ] CreateFileA   @ 977B
+* [API ] CreateFileA   @ 49A6
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA   @ 34F9
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA         @ 49A6    Fail        Not modified
+* [API ] CreateFileA         @ 977B    Succeed     Not modified
+* [API ] DeviceIoControl     @ 4A66    Retarget    Missing
+* [API ] GetCursorPos        @ 1028    Nothing
+* [API ] GetDiskFreeSpaceExA @ 9B9F    Retarget    Missing
+* [API ] GetFileAttributesA  @ 9838    Succeed
+* [API ] GetFileAttributesA  @ 985C    Fail
+* [API ] GetKeyboardLayout   @ DBA2    Nothing
+* [API ] GetModuleFileNameA  @ 32B5    Nothing
+* [API ] GetModuleFileNameA  @ 6307    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA  @ 6569    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA  @ EE8E    Nothing
+* [API ] RegOpenKeyExA       @ 44B9    Fail
+* [API ] RegOpenKeyExA       @ 6587    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA       @ 65A5    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 65C3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA       @ F21A    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA    @ 4523    Nothing
+* [API ] RegQueryValueExA    @ 4582    Nothing
+* [API ] RegQueryValueExA    @ 460C    Retarget    ProductID
+* [API ] RegQueryValueExA    @ F3A3    Nothing
+* [API ] RegQueryValueExA    @ F4BC    Nothing
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI requiring text input

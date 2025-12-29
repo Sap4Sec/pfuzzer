@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: 89758786ce73749f59a930d6c3a80936e515484cfdafc782f59803746b997f94
+MD5: f66f6c5dbf73ced1969cca76853821ff
+Year: 2018
+Family name: darkkomet
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ 22ED
+* [API ] MapViewOfFile      @ 2350
+* [API ] CreateProcessW     @ 6B12
+* [API ] ReadProcessMemory  @ 2B75
+* [API ] WriteProcessMemory @ 2BDB
+* [API ] ResumeThread       @ 2C95
+* [API ] SuspendThread      @ 2CAA
+* [API ] ResumeThread       @ 28E6
+* [API ] SuspendThread      @ 2908
+* [API ] WriteProcessMemory @ 2C03
+* [API ] CreateThread       @ 29A1
+* [API ] ResumeThread       @ 053D
+* [API ] ReadProcessMemory  @ 072F
+* [API ] ReadProcessMemory  @ 0798
+* [API ] ReadProcessMemory  @ 043D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ 086A    Retarget    Missing
+* [API ] CreateMutexA       @ 050F    Retarget    VBoxTray
+* [API ] CreateMutexA       @ E69A    Succeed
+* [API ] GetModuleFileNameW @ 6637    Nothing
+* [API ] GetModuleFileNameW @ EDC3    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ EE66    Retarget    C:\Windows\explorer.exe
+* [API ] TimeDelayAPIs      @ 2C9D    Retarget
+* [API ] TimeQueryAPIs      @ EA40    Retarget
+
+[Manual annotations]
+====================

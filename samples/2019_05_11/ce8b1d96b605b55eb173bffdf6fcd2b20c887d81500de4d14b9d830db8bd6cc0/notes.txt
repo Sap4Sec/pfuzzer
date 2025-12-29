@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: ce8b1d96b605b55eb173bffdf6fcd2b20c887d81500de4d14b9d830db8bd6cc0
+MD5: e2db1edd792bea3c16da2b8c98c48c67
+Year: 2019_05_11
+Family name: bifrose
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: requires wzaudio.dll --- Also, messagebox saying: the code exe3cution cannot proceed because .\\DTserver\\DTserver.dll was not found. Reisntalling the program may fix this problem

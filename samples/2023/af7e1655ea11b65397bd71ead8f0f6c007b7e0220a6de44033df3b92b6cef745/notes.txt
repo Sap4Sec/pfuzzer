@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Inject.gen-af7e1655ea11b65397bd71ead8f0f6c007b7e0220a6de44033df3b92b6cef745
+MD5: 77be8700277c6b0cee0af7a684b70d61
+Year: 2023
+Family name: SINGLETON:77be8700277c6b0cee0af7a684b70d61
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread @ 08FD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] GetKeyboardLayout  @ C24E    Nothing
+* [API ] GetModuleFileNameA @ 6957    Nothing
+* [API ] GetModuleFileNameA @ 6BB9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ D5B2    Nothing
+* [API ] GetModuleFileNameA @ E0CE    Nothing
+* [API ] RegOpenKeyExA      @ 6BD7    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 6BF5    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 6C13    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 8EEA    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 9073    Nothing
+* [API ] RegQueryValueExA   @ 915C    Nothing
+* [API ] TimeDelayAPIs      @ 265B    Retarget
+* [API ] TimeQueryAPIs      @ 08A2    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasions

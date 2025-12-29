@@ -1,0 +1,64 @@
+[Basic information]
+=========================================================================
+SHA-256: 59cc3cf96a6ead5357b52945da399d21fc5eb52bde2701bfa05f82ff0b3aaefa
+MD5: 52739120a8cb73d6ca8e710ac41cd6c0
+Year: 2019_05_11
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 34CF
+* [API ] LoadResource         @ 34E1
+* [API ] FindResourceA        @ 34F6
+* [API ] LoadResource         @ 34FE
+* [API ] RegCreateKeyExA      @ 37CF
+* [API ] CreateFileA          @ 5562
+* [API ] CreateFileW          @ 6B5A
+* [API ] WriteFile            @ B9FA
+* [API ] ShellExecuteA        @ 292E
+* [API ] ShellExecuteA        @ 2C03
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceA        @ 31E5
+* [API ] LoadResource         @ 31F7
+* [API ] FindResourceA        @ 320C
+* [API ] LoadResource         @ 3214
+* [API ] FindResourceA        @ 3232
+* [API ] LoadResource         @ 3242
+* [API ] CreateProcessA       @ 32E8
+* [API ] ReadProcessMemory    @ 3320
+* [API ] NtUnmapViewOfSection @ 3342
+* [API ] VirtualAllocEx       @ 3366
+* [API ] WriteProcessMemory   @ 3383
+* [API ] WriteProcessMemory   @ 33B4
+* [API ] WriteProcessMemory   @ 3411
+* [API ] SetThreadContext     @ 3432
+* [API ] ResumeThread         @ 3440
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CPUID              @ 68C3    Nothing
+* [API ] CreateFileA        @ 5562    Fail        Not modified
+* [API ] CreateFileW        @ 6B5A    Succeed     Not modified
+* [API ] GetModuleFileNameA @ 1324    Nothing
+* [API ] GetModuleFileNameA @ 2832    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 2B78    Nothing
+* [API ] GetModuleFileNameA @ 31D2    Nothing
+* [API ] GetModuleFileNameA @ F27D    Nothing
+* [API ] Process32First     @ 13C8    Nothing
+* [API ] Process32Next      @ 13DB    Retarget
+* [API ] Process32Next      @ 14D3    Retarget
+* [API ] RegOpenKeyExA      @ 15AA    Fail
+* [API ] RegOpenKeyExA      @ 2C59    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 371C    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 15CB    Nothing
+* [API ] TimeDelayAPIs      @ 2913    Retarget
+
+[Manual annotations]
+====================

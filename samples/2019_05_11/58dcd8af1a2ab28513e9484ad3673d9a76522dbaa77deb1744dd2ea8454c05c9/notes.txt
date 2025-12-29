@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 58dcd8af1a2ab28513e9484ad3673d9a76522dbaa77deb1744dd2ea8454c05c9
+MD5: be4dc316550e9f242ab2bbe89598b9c3
+Year: 2019_05_11
+Family name: ulise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 250F
+* [API ] OpenServiceW         @ 272C
+* [API ] CryptAcquireContextW @ 6F73
+* [API ] CryptGenRandom       @ 7C12
+* [API ] CryptReleaseContext  @ 70D1
+* [API ] CreateFileW          @ 0194
+* [API ] CreateFileW          @ FBE1
+* [API ] WriteFile            @ 08A0
+* [API ] CreateProcessW       @ 3900
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ D1FF    Retarget    Missing
+* [API ] CreateFileW        @ 0194    Succeed     Not modified
+* [API ] CreateFileW        @ FBE1    Succeed     Not modified
+* [API ] GetComputerNameA   @ 589F    Nothing
+* [API ] GetModuleFileNameW @ 632E    Nothing
+* [API ] GetModuleFileNameW @ C817    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ B044    Retarget    John
+
+[Manual annotations]
+====================

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 78c7d27747e33fdcfbf259946407f5ea91584b5bb4843adf76c263def33e1dea
+MD5: eaf86441543325ada324be581b0a8c1b
+Year: 2019_11_29
+Family name: dinwod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

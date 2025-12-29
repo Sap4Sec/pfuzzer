@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: 0b0a3294d935f3eb301a60206370131758d6001dfb61a9e92e1ebac72365a396
+MD5: 521247c5a3f52a6d635d97f8abd1a9f8
+Year: 2021_11_03
+Family name: antavmu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 9890
+* [API ] SetWindowsHookExA @ 69F3
+* [API ] CopyFileA         @ 3F93
+* [PERS] software\microsoft\windows\CurrentVersion\Run
+* [API ] RegSetValueExA    @ 43BB
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 433A
+* [API ] CreateFileA       @ 52F5
+* [API ] RegSetValueExA    @ 349A
+* [API ] RegSetValueExA    @ 34D7
+* [API ] RegSetValueExA    @ 34F4
+* [API ] WriteFile         @ 538C
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] FindFirstFileA     @ 65F3    Succeed
+* [API ] FindNextFileA      @ 65D8    Retarget
+* [API ] FindWindowA        @ 3303    Succeed
+* [API ] GetCursorPos       @ ED93    Nothing
+* [API ] GetFileAttributesA @ 3FAD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 8C4C    Nothing
+* [API ] GetModuleFileNameA @ AC79    Nothing
+* [API ] GetModuleFileNameA @ EFE7    Nothing
+* [API ] GetModuleFileNameA @ FE83    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] Process32First     @ 3333    Nothing
+* [API ] Process32Next      @ 3358    Retarget
+* [API ] RegOpenKeyExA      @ 4321    Fail
+
+[Manual annotations]
+====================

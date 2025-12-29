@@ -1,0 +1,73 @@
+[Basic information]
+=========================================================================
+SHA-256: bb37698253ee83d6e0d88995e573a81a488b12901d33b24e2a59a54296dcac55
+MD5: 01b8bb9c8f598dc0d28e1adf24f27c1c
+Year: 2019_05_11
+Family name: llac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 6324
+* [API ] LoadResource       @ 6340
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 7DCF
+* [API ] CreateFileA        @ 7E0B
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 9336
+* [API ] RegCreateKeyA      @ 8233
+* [API ] RegSetValueExA     @ 825B
+* [API ] RegCreateKeyExA    @ 8EAE
+* [API ] RegSetValueExA     @ 8F02
+* [API ] CreateFileA        @ 8357
+* [API ] WriteFile          @ 8385
+* [API ] VirtualAllocEx     @ 6037
+* [API ] VirtualAllocEx     @ 56D9
+* [API ] WriteProcessMemory @ 56FB
+* [API ] VirtualAllocEx     @ 5743
+* [API ] WriteProcessMemory @ 574F
+* [API ] CreateRemoteThread @ 579B
+* [API ] WriteProcessMemory @ 6079
+* [API ] CreateProcessA     @ DE54
+* [API ] CreateProcessA     @ DBE5
+* [API ] CreateProcessA     @ DC4B
+* [API ] CopyFileA          @ 938B
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CreateFileA        @ 7DCF    Fail        Not modified
+* [API ] CreateFileA        @ 7E0B    Fail        Not modified
+* [API ] CreateFileA        @ 8357    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexA       @ 543F    Fail
+* [API ] FindFirstFileA     @ 82DA    Nothing
+* [API ] FindWindowA        @ DDF5    Fail
+* [API ] GetFileAttributesA @ 8014    Succeed
+* [API ] GetFileAttributesA @ 8C0C    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 2B30    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA       @ 6602    Nothing
+* [API ] GetUserNameA       @ 66A6    Retarget    Office
+* [API ] GetUserNameA       @ 674A    Retarget    John
+* [API ] GetUserNameA       @ 67EE    Nothing
+* [API ] GetUserNameA       @ 7B44    Nothing
+* [API ] Process32Next      @ 767F    Retarget
+* [API ] RegOpenKeyExA      @ 78ED    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 79A5    Fail
+* [API ] RegOpenKeyExA      @ 7A5D    Fail
+* [API ] RegOpenKeyExA      @ 867E    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 8F9B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 7916    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 79CE    Nothing
+* [API ] RegQueryValueExA   @ 7A86    Nothing
+* [API ] RegQueryValueExA   @ 86A2    Nothing
+* [API ] RegQueryValueExA   @ 86CC    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ E66A    Nothing
+* [API ] TimeQueryAPIs      @ D7CA    Nothing
+
+[Manual annotations]
+====================

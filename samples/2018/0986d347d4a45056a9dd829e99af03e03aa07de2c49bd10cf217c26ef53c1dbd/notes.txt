@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 0986d347d4a45056a9dd829e99af03e03aa07de2c49bd10cf217c26ef53c1dbd
+MD5: ca5ec1f1f3ee694c7a357298f87fbd0d
+Year: 2018
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ C5DF
+* [API ] OpenServiceW         @ C5F9
+* [API ] CryptAcquireContextW @ 787E
+* [API ] CryptGenRandom       @ 7893
+* [API ] CryptReleaseContext  @ 78A8
+* [API ] CreateFileW          @ E2FC
+* [API ] CreateFileW          @ E570
+* [API ] WriteFile            @ E58A
+* [API ] CreateProcessW       @ EE82
+* [API ] WriteFile            @ CA48
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW          @ F4C6
+* [API ] FindResourceW        @ 51F3
+* [API ] LoadResource         @ 5218
+* [API ] WriteFile            @ F5EC
+* [API ] CreateProcessW       @ 4F95
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CreateFileW        @ E2FC    Succeed     Not modified
+* [API ] CreateFileW        @ E570    Fail        Not modified
+* [API ] GetComputerNameA   @ EB61    Nothing
+* [API ] GetModuleFileNameW @ 9421    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ ED59    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ 6019    Nothing
+* [API ] TimeDelayAPIs      @ EAC3    Retarget
+
+[Manual annotations]
+====================

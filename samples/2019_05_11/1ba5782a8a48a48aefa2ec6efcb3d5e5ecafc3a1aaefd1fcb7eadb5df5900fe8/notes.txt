@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 1ba5782a8a48a48aefa2ec6efcb3d5e5ecafc3a1aaefd1fcb7eadb5df5900fe8
+MD5: c7265df29f4631969515c0637302fc14
+Year: 2019_05_11
+Family name: ulise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ FF1C
+* [API ] OpenServiceW         @ FBB4
+* [API ] CryptAcquireContextW @ 41A2
+* [API ] CryptGenRandom       @ 57B3
+* [API ] CryptReleaseContext  @ 4036
+* [API ] CreateFileW          @ 67F4
+* [API ] CreateFileW          @ 6FBF
+* [API ] WriteFile            @ 5D05
+* [API ] CreateProcessW       @ E34C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID              @ 8DAF    Retarget    Missing
+* [API ] CreateFileW        @ 67F4    Succeed     Not modified
+* [API ] CreateFileW        @ 6FBF    Succeed     Not modified
+* [API ] GetComputerNameA   @ 04C9    Nothing
+* [API ] GetModuleFileNameW @ 83CA    Nothing
+* [API ] GetModuleFileNameW @ F423    Nothing
+* [API ] GetUserNameA       @ 053D    Nothing
+
+[Manual annotations]
+====================

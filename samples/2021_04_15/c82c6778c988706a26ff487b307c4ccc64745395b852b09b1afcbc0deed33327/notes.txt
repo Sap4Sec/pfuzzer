@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: c82c6778c988706a26ff487b307c4ccc64745395b852b09b1afcbc0deed33327
+MD5: 0494af9f587d00c85eb5a33d69bd7135
+Year: 2021_04_15
+Family name: SINGLETON:0494af9f587d00c85eb5a33d69bd7135
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Too many exceptionsm probaly DBI breaks it, it requires also UI

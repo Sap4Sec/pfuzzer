@@ -1,0 +1,72 @@
+[Basic information]
+=========================================================================
+SHA-256: 55a3c455cfbd70fd91663e251ea65db6452edbb0d730c8e3a48b18a4b3f8df6a
+MD5: 3e6d51136b1829813a2501fb655ec652
+Year: 2021_04_15
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 5A10
+* [API ] LoadResource       @ 5A2C
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 7FBB
+* [API ] CreateFileA        @ 7FF7
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 861A
+* [API ] RegCreateKeyA      @ 645B
+* [API ] RegSetValueExA     @ 6483
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 8192
+* [API ] RegSetValueExA     @ 81E6
+* [API ] CreateFileA        @ 657F
+* [API ] WriteFile          @ 65AD
+* [API ] CreateFileA        @ 6A19
+* [API ] CreateProcessA     @ 9245
+* [API ] VirtualAllocEx     @ 5723
+* [API ] VirtualAllocEx     @ 4DC5
+* [API ] WriteProcessMemory @ 4DE7
+* [API ] VirtualAllocEx     @ 4E2F
+* [API ] WriteProcessMemory @ 4E3B
+* [API ] CreateRemoteThread @ 4E87
+* [API ] WriteProcessMemory @ 5765
+* [API ] CreateProcessA     @ 9330
+
+[Mutations applied in the best run (32)]
+=======================================
+
+* [API ] CreateFileA        @ 657F    Succeed
+* [API ] CreateFileA        @ 6A19    Succeed
+* [API ] CreateFileA        @ 7FBB    Retarget    iexplorer.exe
+* [API ] CreateFileA        @ 7FF7    Fail        Not modified
+* [API ] CreateMutexA       @ 4B9B    Fail
+* [API ] FindFirstFileA     @ 6502    Retarget    C:\*
+* [API ] FindWindowA        @ 92CD    Succeed
+* [API ] GetFileAttributesA @ 61DC    Succeed
+* [API ] GetFileAttributesA @ 6CE0    Succeed
+* [API ] GetModuleFileNameA @ 2B0C    Nothing
+* [API ] GetUserNameA       @ 700E    Nothing
+* [API ] GetUserNameA       @ 70B2    Retarget    testuser
+* [API ] GetUserNameA       @ 7D30    Retarget    John
+* [API ] Process32Next      @ 5FF7    Retarget
+* [API ] RegOpenKeyExA      @ 68A6    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 7AD9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 7B91    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 7C49    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 827F    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 68CA    Nothing
+* [API ] RegQueryValueExA   @ 68F4    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 7B02    Nothing
+* [API ] RegQueryValueExA   @ 7BBA    Nothing
+* [API ] RegQueryValueExA   @ 7C72    Nothing
+* [API ] TimeDelayAPIs      @ 5086    Nothing
+* [API ] TimeQueryAPIs      @ 6E85    Retarget
+
+[Manual annotations]
+====================

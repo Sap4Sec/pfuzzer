@@ -1,0 +1,121 @@
+[Basic information]
+=========================================================================
+SHA-256: 1cf67ece170f88a4946a64b667ce505121c5be03c98a8f6e73e89dceb9a8d1ca
+MD5: 516fe73d1ec300e182c6a3228aa19642
+Year: 2018
+Family name: expiro
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread      @ 9241
+* [API ] CreateProcessW    @ 21DE
+* [API ] CreateFileW       @ 0842
+* [API ] CreateThread      @ E55C
+* [API ] FindResourceW     @ 5A0C
+* [API ] LoadResource      @ 5A36
+* [API ] SuspendThread     @ F6FE
+* [API ] ResumeThread      @ F684
+* [API ] RegCreateKeyExW   @ B790
+* [API ] RegSetValueExW    @ B8B4
+* [API ] FindResourceW     @ 8F40
+* [API ] LoadResource      @ 8ED9
+* [API ] SetWindowsHookExW @ D55C
+* [API ] CreateFileA       @ 88D0
+* [API ] OpenSCManagerA    @ 0CE5
+* [API ] CreateThread      @ 0F8B
+* [API ] FindResourceW     @ 957D
+* [API ] LoadResource      @ 959A
+* [API ] CreateFileW       @ CC66
+* [API ] CreateFileW       @ 6D4A
+* [API ] OpenServiceA      @ AEDF
+* [API ] CreateFileA       @ E568
+* [API ] CreateFileW       @ 0AC7
+* [API ] ResumeThread      @ 9B25
+* [API ] InternetOpenW     @ BB05
+* [API ] InternetOpenUrlW  @ BB4F
+* [API ] CreateFileA       @ 0425
+* [API ] WriteFile         @ 044E
+* [API ] CopyFileA         @ 0485
+* [API ] StartServiceA     @ B2CA
+
+Fuzzing Findings
+----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects
+* [API ] CreateFileW       @ DE1D
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID                      @ DE56    Retarget    Missing
+* [API ] CreateFileA                @ 0425    Fail        Not modified
+* [API ] CreateFileA                @ 88D0    Fail        Not modified
+* [API ] CreateFileA                @ E568    Succeed
+* [API ] CreateFileW                @ 0842    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateFileW                @ 0AC7    Fail        Not modified
+* [API ] CreateFileW                @ 6D4A    Succeed
+* [API ] CreateFileW                @ CC66    Fail        Not modified
+* [API ] CreateMutexA               @ 8A04    Succeed
+* [API ] CreateMutexW               @ 002F    Fail
+* [API ] CreateMutexW               @ 5F02    Retarget    vscode
+* [API ] DeviceIoControl            @ B780    Retarget    Missing
+* [API ] DeviceIoControl            @ BD92    Nothing
+* [API ] DeviceIoControl            @ BF17    Retarget    Missing
+* [API ] DeviceIoControl            @ CB4C    Retarget    Missing
+* [API ] DeviceIoControl            @ CC32    Retarget    Missing
+* [API ] EnumDisplayDevicesW        @ 095F    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] FindFirstFileW             @ 48E1    Fail
+* [API ] FindFirstFileW             @ 5AC6    Fail
+* [API ] FindFirstFileW             @ 5B8F    Nothing
+* [API ] FindFirstFileW             @ 8700    Retarget    C:\*
+* [API ] FindFirstFileW             @ 8814    Nothing
+* [API ] FindNextFileW              @ 5B54    Retarget
+* [API ] FindNextFileW              @ 5C7D    Retarget
+* [API ] FindNextFileW              @ 8A66    Retarget
+* [API ] GetComputerNameA           @ 152C    Retarget    John
+* [API ] GetCursorPos               @ EF53    Retarget    Missing
+* [API ] GetFileAttributesExW       @ 0683    Fail
+* [API ] GetFileAttributesExW       @ 0CED    Fail
+* [API ] GetFileAttributesW         @ 1ABA    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesW         @ 3DF5    Succeed
+* [API ] GetFileAttributesW         @ 4466    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesW         @ 4474    Succeed
+* [API ] GetFileAttributesW         @ 7B04    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesW         @ 8C5C    Succeed
+* [API ] GetFileAttributesW         @ B266    Fail
+* [API ] GetFileAttributesW         @ B267    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesW         @ F7DE    Succeed
+* [API ] GetModuleFileNameW         @ 1B3D    Nothing
+* [API ] GetModuleFileNameW         @ 1B8E    Nothing
+* [API ] GetModuleFileNameW         @ 1E5B    Nothing
+* [API ] GetModuleFileNameW         @ 5316    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW         @ 676B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW         @ B018    Nothing
+* [API ] GetModuleFileNameW         @ B0C7    Nothing
+* [API ] GetModuleFileNameW         @ B2A8    Nothing
+* [API ] GetModuleFileNameW         @ F5DC    Nothing
+* [API ] GetSystemInfo              @ F817    Retarget    Missing
+* [API ] GetSystemInfo              @ FDEB    Retarget    Missing
+* [API ] GetUserNameA               @ 146C    Retarget    testuser
+* [API ] GetUserNameW               @ 7B74    Retarget    Office
+* [API ] GetWindowTextW             @ 712E    Nothing
+* [API ] GetWindowTextW             @ 949F    Nothing
+* [API ] GetWindowTextW             @ B686    Retarget    Window - Window
+* [API ] GlobalMemoryStatusEx       @ 07B2    Nothing
+* [API ] InternetGetConnectedState  @ BDCF    Fail
+* [API ] Process32FirstW            @ 6C8E    Nothing
+* [API ] Process32NextW             @ 6CDD    Retarget
+* [API ] QueryFullProcessImageNameW @ 7FD6    Nothing
+* [API ] RegOpenKeyExW              @ 51BA    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW           @ 241F    Retarget    ProductID
+* [API ] RegQueryValueExW           @ 2D9E    Nothing
+* [API ] RegQueryValueExW           @ 7254    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW           @ AC12    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs              @ E429    Retarget
+* [API ] TimeQueryAPIs              @ 095C    Retarget
+
+[Manual annotations]
+====================

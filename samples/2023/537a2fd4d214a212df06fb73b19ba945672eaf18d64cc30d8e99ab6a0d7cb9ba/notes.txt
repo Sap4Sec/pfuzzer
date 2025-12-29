@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.DelShad.kqm-537a2fd4d214a212df06fb73b19ba945672eaf18d64cc30d8e99ab6a0d7cb9ba
+MD5: 99885a3cd64212e5d210c9db4bcae5b1
+Year: 2023
+Family name: delshad
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 8F23
+* [API ] CreateFileW  @ 1E83
+* [API ] NtCreateFile @ 872B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID         @ 62C0    Retarget    Missing
+* [API ] CreateFileW   @ 1E83    Fail        Not modified
+* [API ] CreateFileW   @ 8F23    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] NtCreateFile  @ 872B    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 6B95    Retarget
+
+[Manual annotations]
+====================
+VM detected

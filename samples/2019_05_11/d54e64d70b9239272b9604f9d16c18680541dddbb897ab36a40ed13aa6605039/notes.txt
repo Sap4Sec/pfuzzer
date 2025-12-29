@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: d54e64d70b9239272b9604f9d16c18680541dddbb897ab36a40ed13aa6605039
+MD5: dc2345886b93dee79e173cb634345fa9
+Year: 2019_05_11
+Family name: SINGLETON:dc2345886b93dee79e173cb634345fa9
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: requires ijl15.dll, mss32.dll, nmcogame.dll

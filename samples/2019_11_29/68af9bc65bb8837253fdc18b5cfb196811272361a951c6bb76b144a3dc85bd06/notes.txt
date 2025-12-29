@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 68af9bc65bb8837253fdc18b5cfb196811272361a951c6bb76b144a3dc85bd06
+MD5: 5540f37ec43c1315632f33b9ce237e14
+Year: 2019_11_29
+Family name: SINGLETON:5540f37ec43c1315632f33b9ce237e14
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Error message: the application hs failed to start because its side-by-side configuration  is incorrect. Please see the application event log or use the command-line sxstrace.exe tool for more details.

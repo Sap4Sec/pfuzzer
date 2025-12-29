@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 698ae518d7f5d4cb2b2e9b3c04530373764710181ea265fc78ee4736ab48d61d
+MD5: 5d4068f84fd860cad1fcbd29c61bce5c
+Year: 2021_11_03
+Family name: SINGLETON:5d4068f84fd860cad1fcbd29c61bce5c
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] GetModuleFileNameA @ 5BD1    Retarget    C:\Windows\explorer.exe
+
+[Manual annotations]
+====================
+Other dependencies: language dlls missing

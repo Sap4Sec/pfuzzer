@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 23c67a5992dd7722391532232c5bac5c1dccb5017a4086e12a6438dce86cb82a
+MD5: fd071b8dd017464efa9bad65a1035f33
+Year: 2018
+Family name: genericrxbt
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 8D1F
+* [API ] FindResourceA @ B97C
+* [API ] LoadResource  @ B996
+* [API ] CreateFileA   @ 9EBB
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 9EBB    Succeed     Not modified
+* [API ] GetFileAttributesA @ 9F78    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetFileAttributesA @ 9F9C    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetKeyboardLayout  @ 39EA    Retarget    Portuguese-brazilian
+* [API ] GetModuleFileNameA @ 3375    Nothing
+* [API ] GetModuleFileNameA @ 4CD6    Nothing
+* [API ] GetModuleFileNameA @ 6687    Nothing
+* [API ] GetModuleFileNameA @ 68E9    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetWindowTextA     @ 6057    Retarget    Program Manager - MSCTFIME UI
+* [API ] RegOpenKeyExA      @ 2D8E    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 6907    Succeed
+* [API ] RegOpenKeyExA      @ 6925    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 6943    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 2F17    Nothing
+* [API ] RegQueryValueExA   @ 3030    Nothing
+
+[Manual annotations]
+====================
+User interactiom: keylogger, spawn VLC and records mouse movement and pressed keys

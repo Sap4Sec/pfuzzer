@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: 8041554dc7fc66ba196307d2a02affb81755a66dbe1ee97abded1537a7444140
+MD5: db3a8defae05f2281900fd4a4ce49b62
+Year: 2018
+Family name: SINGLETON:db3a8defae05f2281900fd4a4ce49b62
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup    @ 4FA3
+* [API ] FindResourceA @ AB51
+* [API ] LoadResource  @ AB69
+* [API ] FindResourceA @ ABE5
+* [API ] CreateFileW   @ AD80
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID              @ E0DA    Retarget    Missing
+* [API ] CreateFileW        @ AD80    Succeed     Not modified
+* [API ] GetModuleFileNameA @ CB18    Nothing
+* [API ] GetModuleFileNameW @ AD63    Retarget    C:\Windows\explorer.exe
+* [API ] TimeQueryAPIs      @ CF51    Retarget
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI showing buttons to install additional software

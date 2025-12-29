@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: 87b23c9985bff53a0e98eab1c20b650770a101fe61ec6f10302959b365fbe977
+MD5: ebc87a543d07bb0c5028d3a11d9fcbd0
+Year: 2021_04_15
+Family name: ursu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 8D1F
+* [API ] FindResourceA @ B97C
+* [API ] LoadResource  @ B996
+* [API ] CreateFileA   @ 9EBB
+* [API ] CreateFileA   @ 4A5A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA         @ 4A5A    Fail        Not modified
+* [API ] CreateFileA         @ 9EBB    Succeed     Not modified
+* [API ] DeviceIoControl     @ 4B1A    Retarget    Missing
+* [API ] GetCursorPos        @ 6E70    Nothing
+* [API ] GetDiskFreeSpaceExA @ A2DF    Retarget    Missing
+* [API ] GetFileAttributesA  @ 9F78    Fail
+* [API ] GetFileAttributesA  @ 9F9C    Succeed
+* [API ] GetKeyboardLayout   @ 39EA    Nothing
+* [API ] GetModuleFileNameA  @ 3375    Nothing
+* [API ] GetModuleFileNameA  @ 4CD6    Nothing
+* [API ] GetModuleFileNameA  @ 6687    Nothing
+* [API ] GetModuleFileNameA  @ 68E9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] RegOpenKeyExA       @ 2D8E    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA       @ 456D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA       @ 6907    Succeed
+* [API ] RegOpenKeyExA       @ 6925    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 6943    Succeed     Not modified
+* [API ] RegQueryValueExA    @ 2F17    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 3030    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 45D7    Nothing
+* [API ] RegQueryValueExA    @ 4636    Nothing
+* [API ] RegQueryValueExA    @ 46C0    Nothing
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input

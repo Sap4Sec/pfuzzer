@@ -1,0 +1,65 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.tr-5b60d2cb0b63bcd9c7df5873496d119de3f5364ba6eeea8548f20b2940a73ffa
+MD5: 5c21cca8d79a5c46f7f1bd78b222c47a
+Year: 2022
+Family name: variadic
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW            @ 11E4
+* [API ] RegCreateKeyW        @ 0D67
+* [API ] ShellExecuteExW      @ 31F4
+* [API ] WinHttpOpen          @ D7E9
+* [API ] WinHttpConnect       @ 4D45
+* [API ] WinHttpOpenRequest   @ 4D8F
+* [API ] WinHttpSendRequest   @ 57B7
+* [API ] WinHttpReadData      @ 55D4
+* [API ] CreateFileW          @ 9D9F
+* [API ] CopyFileW            @ 2CD0
+* [API ] CreateFileW          @ 1947
+* [API ] CreateThread         @ 2E94
+* [API ] CreateFileMappingW   @ 109C
+* [API ] MapViewOfFile        @ 10B4
+* [API ] CreateFileW          @ 10D8
+* [API ] WriteFile            @ 10FD
+* [API ] CryptAcquireContextW @ 27DB
+* [API ] CryptGenRandom       @ 27F0
+* [API ] CryptReleaseContext  @ 2826
+* [API ] CryptAcquireContextW @ 283F
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW          @ 9AF7
+* [API ] InternetOpenW        @ F85B
+* [API ] InternetOpenUrlW     @ F68C
+* [API ] CreateFileW          @ F6B6
+* [API ] InternetReadFile     @ F708
+* [API ] WriteFile            @ F6F2
+* [API ] CreateFileW          @ 2FF1
+* [API ] ShellExecuteExW      @ 3769
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID                    @ E10E    Nothing
+* [API ] CreateFileW              @ 10D8    Succeed     Not modified
+* [API ] CreateFileW              @ 1947    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileW              @ 9D9F    Succeed
+* [API ] CreateMutexW             @ 3130    Succeed
+* [API ] GetAdaptersInfo          @ 1B83    Nothing
+* [API ] GetCursorPos             @ 0297    Nothing
+* [API ] GetModuleFileNameA       @ D3FF    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW       @ 2EEE    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW       @ BE19    Nothing
+* [API ] GetModuleFileNameW       @ D6F6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] NtQuerySystemInformation @ 1AED    Nothing
+* [API ] TimeDelayAPIs            @ 1A18    Retarget
+* [API ] TimeQueryAPIs            @ E21C    Retarget
+
+[Manual annotations]
+====================

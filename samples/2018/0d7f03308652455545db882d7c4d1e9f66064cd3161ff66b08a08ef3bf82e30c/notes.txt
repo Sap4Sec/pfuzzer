@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 0d7f03308652455545db882d7c4d1e9f66064cd3161ff66b08a08ef3bf82e30c
+MD5: 700c009b4e864b830241502a8ca1cb48
+Year: 2018
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ 53EB
+* [API ] LoadResource         @ 5460
+* [API ] CreateProcessA       @ 3998
+* [API ] ReadProcessMemory    @ 561D
+* [API ] NtUnmapViewOfSection @ 5675
+* [API ] VirtualAllocEx       @ 3346
+* [API ] WriteProcessMemory   @ 6A76
+* [API ] WriteProcessMemory   @ 6AE5
+* [API ] WriteProcessMemory   @ 6B1A
+* [API ] SetThreadContext     @ 5A74
+* [API ] ResumeThread         @ 587A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (120)]
+=======================================
+
+* [API ] CPUID              @ E01C    Nothing
+* [API ] GetModuleFileNameA @ 3945    Nothing
+* [API ] GetModuleFileNameA @ 5451    Nothing
+* [API ] GetModuleFileNameW @ 1B63    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 1B77    Nothing
+* [API ] GetModuleFileNameW @ DA94    Nothing
+* [API ] RegOpenKeyExW      @ 5CF7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 42F3    Nothing
+* [API ] RegQueryValueExW   @ 4324    Retarget    SystemBiosDate
+
+[Manual annotations]
+====================

@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: c080ef69ca7d4b081948b1c6ca1ad677eae043595de7f998b79edfb371e840fb
+MD5: 689cd14b803bb069dd66750ad89f6e2f
+Year: 2018
+Family name: SINGLETON:689cd14b803bb069dd66750ad89f6e2f
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ A29C
+* [API ] CreateFileW       @ 95E0
+* [API ] NtCreateFile      @ 7ED3
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] FindResourceExW   @ 4BB3
+* [API ] LoadResource      @ 4BCD
+* [API ] FindResourceExW   @ 4C08
+* [API ] LoadResource      @ 4C2D
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile      @ 1A99
+* [API ] NtCreateFile      @ B6F2
+* [API ] FindResourceExW   @ B47E
+* [API ] LoadResource      @ B498
+* [API ] FindResourceExW   @ B4D3
+* [API ] LoadResource      @ B4F8
+* [API ] NtCreateFile      @ 3A31
+* [API ] FindResourceExW   @ F80B
+* [API ] LoadResource      @ F825
+* [API ] FindResourceExW   @ F860
+* [API ] LoadResource      @ F885
+* [API ] NtCreateFile      @ 327A
+* [API ] NtCreateFile      @ ABDA
+* [API ] NtCreateFile      @ DB35
+* [API ] FindResourceExW   @ 193E
+* [API ] LoadResource      @ 1958
+* [API ] FindResourceExW   @ 1993
+* [API ] LoadResource      @ 19B8
+* [API ] InternetOpenA     @ 6466
+* [API ] InternetConnectA  @ 66B2
+* [API ] HttpOpenRequestA  @ 6763
+* [API ] HttpSendRequestA  @ 67D7
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ 300F    Nothing
+* [API ] CreateFileA        @ 3EB5    Succeed    Not modified
+* [API ] CreateFileW        @ 95E0    Succeed    Not modified
+* [API ] CreateFileW        @ A29C    Succeed    Not modified
+* [API ] GetModuleFileNameA @ 4F4B    Nothing
+* [API ] NtCreateFile       @ 7ED3    Succeed    Not modified
+* [API ] TimeDelayAPIs      @ 9893    Nothing
+* [API ] TimeQueryAPIs      @ 2FF2    Nothing
+
+[Manual annotations]
+====================

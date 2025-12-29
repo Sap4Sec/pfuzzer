@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: e3e71f5c5cf94a05b347e9948ef4f0d04d264ff3e25dab43552bc448a97228c8
+MD5: e0909eea66f8419362a54e1747165d1d
+Year: 2018
+Family name: SINGLETON:e0909eea66f8419362a54e1747165d1d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+DynamoRIO bug causes sample crash

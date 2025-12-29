@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: cc3156338d097d762e7f8cbb23101d636b1727adaceddc947c941b0dbe0c9d6b
+MD5: a4c4ef2d7df3820c5dc96108e2e95ee3
+Year: 2018
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ D161
+* [API ] CreateFileW  @ 77B8
+* [API ] NtCreateFile @ 4D17
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 0CBE
+* [API ] NtCreateFile @ 9258
+* [API ] NtCreateFile @ A4A5
+* [API ] NtCreateFile @ 85B4
+* [API ] NtCreateFile @ 78EC
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ 5511    Nothing
+* [API ] CreateFileW        @ 77B8    Succeed     Not modified
+* [API ] CreateFileW        @ D161    Retarget    attrib.exe
+* [API ] GetModuleFileNameW @ D2DE    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] NtCreateFile       @ 4D17    Fail        Not modified
+* [API ] NtCreateFile       @ A881    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs      @ 62A1    Nothing
+
+[Manual annotations]
+====================
+Damaged file, cannot be executed; Safengine

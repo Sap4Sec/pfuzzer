@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Stealerc.azw-bb51422c11080e388fbb7dc7a7bfdb6cc01235d8ccb65fbbf726c230db357be6
+MD5: 9d9c7f57036ac510aaf87baed41ec50e
+Year: 2023
+Family name: stealerc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ E924
+* [API ] CreateFileW      @ 5BCC
+* [API ] CreateThread     @ 567B
+* [API ] FindResourceExW  @ A0FC
+* [API ] LoadResource     @ A191
+* [API ] FindResourceW    @ A2C9
+* [API ] CreateThread     @ 6863
+* [API ] CreateFileW      @ 4B5C
+* [API ] CreateThread     @ 1A5C
+* [API ] CreateFileW      @ 1082
+* [API ] WriteFile        @ 1334
+* [API ] CreateFileW      @ 1417
+* [API ] CreateThread     @ 6C76
+* [API ] ConnectNamedPipe @ CD72
+* [API ] CreateThread     @ BBFD
+* [API ] CopyFileW        @ 612F
+* [API ] CreateProcessW   @ E7D7
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyExW  @ 6B6F
+* [API ] CreateFileW      @ C6C0
+* [API ] WriteFile        @ BCA0
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID               @ 0961    Retarget    Missing
+* [API ] CreateFileW         @ 1082    Succeed
+* [API ] CreateFileW         @ 1417    Fail        Not modified
+* [API ] CreateFileW         @ 4B5C    Retarget    Detect It Easy.lnk
+* [API ] CreateFileW         @ 5BCC    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW         @ E924    Succeed     Not modified
+* [API ] FindFirstFileW      @ BE43    Nothing
+* [API ] GetDiskFreeSpaceExW @ EA50    Retarget    Missing
+* [API ] GetModuleFileNameW  @ 2FCD    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW  @ 325E    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW  @ 565F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW  @ AB33    Nothing
+* [API ] GetUserNameW        @ AFD7    Nothing
+* [API ] GetUserNameW        @ B025    Retarget    John
+* [API ] NtOpenKey           @ 31BB    Succeed     Not modified
+* [API ] NtQueryValueKey     @ 326D    Nothing
+* [API ] RegOpenKeyExW       @ 1154    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ 14E6    Fail        Not modified
+* [API ] RegQueryValueExW    @ 1197    Nothing
+* [API ] RegQueryValueExW    @ 11B6    Nothing
+* [API ] RegQueryValueExW    @ 125A    Nothing
+* [API ] RegQueryValueExW    @ 12D4    Nothing
+* [API ] RegQueryValueExW    @ 1326    Retarget    ProductID
+* [API ] RegQueryValueExW    @ 151D    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW    @ 1598    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs       @ 1496    Nothing
+* [API ] TimeQueryAPIs       @ A0D6    Nothing
+
+[Manual annotations]
+====================

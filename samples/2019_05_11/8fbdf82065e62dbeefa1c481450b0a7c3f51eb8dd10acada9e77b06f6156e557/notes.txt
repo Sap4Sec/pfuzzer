@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: 8fbdf82065e62dbeefa1c481450b0a7c3f51eb8dd10acada9e77b06f6156e557
+MD5: ae3b8cd48323e42b1e35a73d113ac0af
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA    @ 5360
+* [API ] SetWindowsHookExA    @ 24BE
+* [API ] CryptAcquireContextA @ 3BB2
+* [API ] CryptCreateHash      @ 3C45
+* [API ] CryptHashData        @ 3D21
+* [API ] CryptGetHashParam    @ 3E0A
+* [API ] CryptDestroyHash     @ 4157
+* [API ] CryptReleaseContext  @ 4186
+* [API ] CreateThread         @ 375D
+* [API ] CreateThread         @ C372
+* [API ] CreateFileA          @ 0DBF
+* [API ] WriteFile            @ 0E56
+* [API ] GetKeyState          @ CEE2
+* [API ] GetKeyState          @ CEF5
+* [API ] GetKeyState          @ CF08
+* [API ] GetKeyState          @ DFC3
+* [API ] GetKeyState          @ DFD8
+* [API ] GetKeyState          @ DFED
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CreateFileA        @ 0DBF    Retarget    Backup.txt
+* [API ] FindFirstFileA     @ DDF6    Fail
+* [API ] GetCursorPos       @ A757    Nothing
+* [API ] GetCursorPos       @ D0CA    Retarget    Missing
+* [API ] GetModuleFileNameA @ 43FB    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ A079    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ A9AB    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ F3E3    Nothing
+* [API ] Process32First     @ 279E    Nothing
+* [API ] Process32First     @ EDD7    Nothing
+* [API ] Process32Next      @ 2AB1    Retarget
+* [API ] Process32Next      @ EE2E    Retarget
+* [API ] TimeDelayAPIs      @ 7A57    Retarget
+* [API ] TimeQueryAPIs      @ 4D9B    Retarget
+
+[Manual annotations]
+====================

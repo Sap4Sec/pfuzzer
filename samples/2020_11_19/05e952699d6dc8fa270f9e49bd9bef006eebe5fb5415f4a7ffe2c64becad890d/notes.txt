@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 05e952699d6dc8fa270f9e49bd9bef006eebe5fb5415f4a7ffe2c64becad890d
+MD5: e9003be125aa56af9d325f5e191213f2
+Year: 2020_11_19
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CreateFileA        @ 22F9    Succeed
+* [API ] CreateFileA        @ 23DC    Succeed
+* [API ] CreateFileA        @ 25A6    Succeed
+* [API ] FindWindowA        @ 1030    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] FindWindowA        @ 2BC8    Fail
+* [API ] GetModuleFileNameA @ 156B    Nothing
+* [API ] GetModuleFileNameA @ 2909    Nothing
+* [API ] GetModuleFileNameA @ 2BA0    Nothing
+* [API ] GetModuleFileNameA @ 3955    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 3A88    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 26B3    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA       @ 3992    Retarget    John
+* [API ] Process32First     @ 1077    Nothing
+* [API ] Process32First     @ 1AFB    Nothing
+* [API ] Process32Next      @ 109F    Retarget
+* [API ] Process32Next      @ 1B1E    Retarget
+* [API ] RegOpenKeyExA      @ 38A2    Fail
+* [API ] RegQueryValueExA   @ 38C7    Nothing
+
+[Manual annotations]
+====================

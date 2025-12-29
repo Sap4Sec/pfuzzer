@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-91c7bbe56b463a310e1a6452470c0770a5c44a6c1f486ee7080e8c48b868b06b
+MD5: 921fcdba25c39b6d2e9a31f7f0a32109
+Year: 2023
+Family name: palevo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA      @ 55B2
+* [API ] CreateThread     @ F764
+* [API ] CopyFileA        @ F86C
+* [API ] RegCreateKeyExA  @ ABFD
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA   @ AC80
+* [API ] CopyFileA        @ F8E1
+* [API ] CopyFileA        @ F8F2
+* [API ] CopyFileA        @ F903
+* [API ] MoveFileExA      @ F92E
+* [API ] MoveFileExA      @ F93C
+* [API ] CreateThread     @ 9976
+* [API ] GetKeyState      @ 58AF
+* [API ] GetAsyncKeyState @ 58BF
+* [API ] socket           @ 1D5D
+* [API ] connect          @ 1DEA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA          @ 55B2    Succeed     Not modified
+* [API ] CreateMutexA         @ F723    Retarget    ZonesCacheCounterMutex
+* [API ] GetModuleFileNameA   @ 5598    Nothing
+* [API ] GetModuleFileNameA   @ E18D    Nothing
+* [API ] GetModuleFileNameA   @ F83D    Nothing
+* [API ] GetModuleFileNameExA @ F1D1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemDefaultLCID @ F337    Nothing
+* [API ] Process32First       @ 0CDB    Nothing
+* [API ] Process32First       @ F184    Nothing
+* [API ] Process32Next        @ 0D03    Retarget
+* [API ] Process32Next        @ 0D1A    Retarget
+* [API ] Process32Next        @ F266    Retarget
+* [API ] RegOpenKeyExA        @ AC1D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs        @ F489    Retarget
+* [API ] TimeQueryAPIs        @ FF11    Retarget
+
+[Manual annotations]
+====================

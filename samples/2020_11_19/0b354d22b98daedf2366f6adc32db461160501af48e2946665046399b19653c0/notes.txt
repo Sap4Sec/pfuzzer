@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 0b354d22b98daedf2366f6adc32db461160501af48e2946665046399b19653c0
+MD5: bc9fca5619533aa4e5365e3d20f1e103
+Year: 2020_11_19
+Family name: vkontaktedj
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] FindFirstFileW     @ 28D4    Nothing
+* [API ] GetKeyboardLayout  @ 11C2    Retarget    UK
+* [API ] GetModuleFileNameW @ 193F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 24AE    Nothing
+* [API ] GetModuleFileNameW @ 292C    Nothing
+* [API ] GetModuleFileNameW @ 2C00    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ F43D    Nothing
+* [API ] GetSystemInfo      @ 33AD    Nothing
+* [API ] RegOpenKeyExW      @ 17F7    Succeed
+* [API ] RegOpenKeyExW      @ 24F7    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 2519    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 2537    Succeed
+* [API ] RegOpenKeyExW      @ 2555    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 2573    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 2591    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 62FE    Fail
+* [API ] RegQueryValueExW   @ 69F2    Nothing
+* [API ] RegQueryValueExW   @ 6FDC    Nothing
+* [API ] TimeDelayAPIs      @ 8605    Retarget
+* [API ] TimeQueryAPIs      @ D86D    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasion

@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 0289d57a4ac45d31fc887eed9f6b9d96ed2116a58ee470756a8117d293fb251a
+MD5: 2bf0eeea2c963d9fbfb44bb5df128707
+Year: 2021_11_03
+Family name: gator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ CDD8
+* [API ] RegCreateKeyExA @ B2AF
+* [API ] RegSetValueExA  @ B2C8
+* [API ] CopyFileA       @ 9B9B
+* [API ] WriteFile       @ 1115
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA @ B1B2
+* [API ] RegSetValueExA  @ B1D3
+* [API ] CreateProcessA  @ D7CD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (31)]
+=======================================
+
+* [API ] CreateFileA        @ CDD8    Succeed
+* [API ] FindFirstFileA     @ D445    Nothing
+* [API ] GetFileAttributesA @ 1619    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesA @ C9BF    Retarget    C:\Windows\explorer.exe
+* [API ] GetLocalTime       @ B813    Nothing
+* [API ] GetModuleFileNameA @ A4BB    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ F6A1    Retarget    C:\Windows\system32\
+* [API ] GetSystemTime      @ B81D    Nothing
+* [API ] GetWindowTextA     @ 9CAC    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetWindowTextA     @ A815    Retarget    Program Manager - MSCTFIME UI
+* [API ] RegOpenKeyExA      @ AE03    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ AFE6    Succeed
+* [API ] RegQueryValueExA   @ AE31    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ AE65    Nothing
+* [API ] RegQueryValueExA   @ B012    Nothing
+* [API ] TimeQueryAPIs      @ FA96    Retarget
+
+[Manual annotations]
+====================

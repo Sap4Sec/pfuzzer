@@ -1,0 +1,149 @@
+[Basic information]
+=========================================================================
+SHA-256: 4930bcdacba493955d0c53176a5434ad7269ed82d156160c73039ddee90b553f
+MD5: 639b555bc2f972a8fe6a73c8ef708a76
+Year: 2019_05_11
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ 822E
+* [API ] CreateFileMappingA @ 8248
+* [API ] MapViewOfFile      @ 825E
+* [API ] CreateThread       @ 82AC
+* [API ] WSAStartup         @ ED67
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA     @ DCD1
+* [API ] RegSetValueExA     @ DC0E
+* [API ] RegCreateKeyA      @ DC2C
+* [API ] RegSetValueExA     @ DC48
+* [API ] CreateFileA        @ 026E
+* [API ] WriteFile          @ 0298
+* [API ] CreateProcessA     @ 02E6
+* [API ] RegSetValueExA     @ E893
+* [API ] RegSetValueExA     @ E8EF
+* [API ] RegSetValueExA     @ EA05
+* [API ] RegSetValueExA     @ EA30
+* [API ] RegSetValueExA     @ EA5B
+* [API ] CreateFileMappingA @ EAFF
+* [API ] RegCreateKeyA      @ 1D1C
+* [API ] MapViewOfFile      @ 7CAE
+* [API ] RegSetValueExA     @ 1AAB
+* [API ] RegSetValueExA     @ 1ADA
+* [API ] CreateThread       @ EDAB
+* [API ] CreateThread       @ EDD2
+* [API ] CreateThread       @ EDF9
+* [API ] CreateThread       @ EE20
+* [API ] CreateThread       @ EE47
+* [API ] CreateFileMappingA @ F06D
+* [API ] MapViewOfFile      @ F094
+* [API ] RegSetValueExA     @ FB1A
+* [API ] CreateThread       @ EFA4
+* [API ] CreateThread       @ EFCB
+* [API ] CreateThread       @ EFF2
+* [API ] socket             @ 39F6
+* [API ] bind               @ 3A4A
+* [API ] VirtualAllocEx     @ D0F3
+* [API ] WriteProcessMemory @ D124
+* [API ] CreateRemoteThread @ D152
+* [API ] CreateThread       @ E624
+* [API ] CreateThread       @ E64B
+* [API ] FindResourceA      @ 75AF
+* [API ] FindResourceA      @ ACD8
+* [API ] LoadResource       @ ACF2
+* [API ] CreateThread       @ E6B1
+* [API ] VirtualAllocEx     @ D184
+* [API ] WriteProcessMemory @ D1EF
+* [API ] CreateRemoteThread @ D21A
+* [API ] CreateFileMappingA @ 0118
+* [API ] CreateFileMappingA @ 0132
+* [API ] MapViewOfFile      @ 0148
+* [API ] CreateThread       @ 0196
+* [API ] CreateFileA        @ 2D81
+* [API ] RegCreateKeyExA    @ 2377
+* [API ] CreateFileA        @ A4C3
+* [API ] CreateFileA        @ DEDE
+* [API ] WriteFile          @ DF0D
+* [API ] CreateFileA        @ 9B5B
+* [API ] CreateFileMappingA @ 9BFC
+* [API ] MapViewOfFile      @ 9C24
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+
+Fuzzing Findings
+----------------
+* [API ] RegSetValueExA     @ E9A5
+* [API ] InternetOpenA      @ B961
+* [API ] InternetOpenUrlA   @ B993
+* [API ] CreateThread       @ 3E7E
+* [API ] socket             @ 300E
+* [API ] sendto             @ 3078
+* [API ] CreateFileA        @ B9C8
+* [API ] InternetReadFile   @ B9EE
+* [API ] WriteFile          @ BA36
+* [API ] CreateFileA        @ BF17
+* [API ] WriteFile          @ C046
+* [API ] RegCreateKeyA      @ 195B
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA        @ 026E    Fail
+* [API ] CreateFileA        @ 2D81    Succeed
+* [API ] CreateFileA        @ 9B5B    Succeed     Not modified
+* [API ] CreateFileA        @ A4C3    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileA        @ DEDE    Fail        Not modified
+* [API ] CreateMutexA       @ 001D    Succeed
+* [API ] CreateMutexA       @ 01CC    Fail
+* [API ] CreateMutexA       @ 07F2    Fail
+* [API ] CreateMutexA       @ 8908    Fail
+* [API ] CreateMutexA       @ D0BE    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA       @ D4B9    Fail
+* [API ] FindFirstFileA     @ 58B4    Fail
+* [API ] FindFirstFileA     @ 963C    Succeed
+* [API ] FindFirstFileA     @ BBF3    Nothing
+* [API ] FindNextFileA      @ 58DB    Retarget
+* [API ] FindNextFileA      @ BC17    Retarget
+* [API ] GetComputerNameA   @ EA86    Retarget    Office
+* [API ] GetCursorPos       @ 8542    Retarget    Missing
+* [API ] GetCursorPos       @ DCA5    Retarget    Missing
+* [API ] GetFileAttributesA @ 9B1D    Succeed
+* [API ] GetKeyboardLayout  @ 5822    Retarget    Russian
+* [API ] GetLocalTime       @ 9B13    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameA @ 022F    Nothing
+* [API ] GetModuleFileNameA @ 2B29    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 628F    Nothing
+* [API ] GetModuleFileNameA @ 64C9    Nothing
+* [API ] GetModuleFileNameA @ 69D8    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 8848    Nothing
+* [API ] GetSystemInfo      @ 50F1    Retarget    Missing
+* [API ] GetUserNameA       @ 1833    Retarget    Office
+* [API ] GetUserNameA       @ 1BF0    Retarget    testuser
+* [API ] GetUserNameA       @ F828    Nothing
+* [API ] GetWindowTextA     @ 79E8    Retarget    SecHealthHost - SecHealth Win
+* [API ] Process32First     @ D325    Nothing
+* [API ] Process32Next      @ D41E    Retarget
+* [API ] RegOpenKeyExA      @ 193E    Succeed
+* [API ] RegOpenKeyExA      @ 1CFB    Succeed
+* [API ] RegOpenKeyExA      @ 64E7    Succeed
+* [API ] RegOpenKeyExA      @ 6505    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 6523    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ C679    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ CB7B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ DBF2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ DCA3    Fail
+* [API ] RegOpenKeyExA      @ E864    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ E8C0    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ E943    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ E9D2    Fail
+* [API ] RegOpenKeyExA      @ F8FC    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 241F    Retarget    ProductID
+* [API ] RegQueryValueExA   @ FC0C    Nothing
+* [API ] TimeDelayAPIs      @ 82C7    Retarget
+* [API ] TimeQueryAPIs      @ F012    Retarget
+
+[Manual annotations]
+====================

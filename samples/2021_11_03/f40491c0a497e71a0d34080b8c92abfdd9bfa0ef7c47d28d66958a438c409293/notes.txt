@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: f40491c0a497e71a0d34080b8c92abfdd9bfa0ef7c47d28d66958a438c409293
+MD5: e295f5b52017be515478087a672bfe95
+Year: 2021_11_03
+Family name: sivis
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 23A9
+* [API ] CreateFileA     @ 23EF
+* [API ] CreateFileA     @ 2408
+* [API ] WriteFile       @ 22CB
+* [API ] WriteFile       @ 2991
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA  @ 2CE6
+* [API ] ShellExecuteExA @ 2E3D
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA        @ 23A9    Succeed
+* [API ] CreateFileA        @ 23EF    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateFileA        @ 2408    Fail        Not modified
+* [API ] FindFirstFileA     @ 30C1    Nothing
+* [API ] FindFirstFileA     @ 3302    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 3371    Retarget
+* [API ] GetModuleFileNameA @ 2A3B    Nothing
+* [API ] TimeQueryAPIs      @ 20E8    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.DelShad.gen-9a55f55886285eef7ffabdd55c0232d1458175b1d868c03d3e304ce7d98980bc
+MD5: c115bbbdb1a61f8c553d74802bfd78fb
+Year: 2022
+Family name: blackbasta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessW  @ 8D10
+* [API ] CreateFileW     @ B5E7
+* [API ] WriteFile       @ EDDA
+* [API ] RegCreateKeyExW @ D14B
+* [API ] RegSetValueExW  @ D173
+* [API ] CreateThread    @ 04FB
+* [API ] CreateFileW     @ 1564
+* [API ] MoveFileW       @ CDB1
+
+Fuzzing Findings
+----------------
+* [API ] WriteFile       @ E8D8
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID                @ 517D    Nothing
+* [API ] CreateFileW          @ 1564    Succeed     Not modified
+* [API ] CreateFileW          @ B5E7    Fail
+* [API ] CreateMutexW         @ C8D9    Fail
+* [API ] DeviceIoControl      @ 15E3    Nothing
+* [API ] FindFirstFileW       @ 6985    Nothing
+* [API ] FindNextFileW        @ 1942    Retarget
+* [API ] FindNextFileW        @ 6B80    Retarget
+* [API ] GetFileAttributesExW @ 535F    Succeed
+* [API ] GetFileAttributesExW @ 564A    Fail
+* [API ] GetFileAttributesExW @ CA9D    Fail
+* [API ] GetFileAttributesExW @ FE3E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesW   @ BB07    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW   @ 4498    Nothing
+* [API ] GetModuleFileNameW   @ C535    Retarget    C:\Windows\explorer.exe
+* [API ] TimeDelayAPIs        @ C4DC    Retarget
+* [API ] TimeQueryAPIs        @ A23E    Retarget
+
+[Manual annotations]
+====================

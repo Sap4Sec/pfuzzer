@@ -1,0 +1,80 @@
+[Basic information]
+=========================================================================
+SHA-256: d82ab1d6ff438ca033de627787fe59b21aa68812f59a02e20195cf5165a1267f
+MD5: 0734907f4b844238ebc0bd078d903b55
+Year: 2018
+Family name: bugor
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingW @ 1059
+* [API ] MapViewOfFileEx    @ 109A
+* [API ] CreateThread       @ 8A5D
+* [API ] socket             @ CD11
+* [API ] connect            @ CF01
+* [API ] send               @ AA7F
+* [API ] CreateFileW        @ DAFD
+* [API ] WriteFile          @ DB23
+* [API ] RegCreateKeyExW    @ 4BA8
+* [API ] RegSetValueExW     @ 4C73
+* [API ] CreateFileA        @ 57D0
+* [API ] RegCreateKeyExW    @ A629
+* [API ] CreateFileW        @ 63FA
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5D41
+* [API ] CreateFileA        @ 5B8D
+* [API ] CreateFileA        @ 5948
+
+[Mutations applied in the best run (44)]
+=======================================
+
+* [API ] CPUID               @ C0A8    Nothing
+* [API ] CreateFileA         @ 57D0    Succeed
+* [API ] CreateFileA         @ 5948    Fail        Not modified
+* [API ] CreateFileA         @ 5B8D    Fail        Not modified
+* [API ] CreateFileA         @ 5D41    Succeed
+* [API ] CreateFileW         @ 63FA    Succeed
+* [API ] CreateFileW         @ DAFD    Fail        Not modified
+* [API ] CreateMutexA        @ 9C1E    Succeed
+* [API ] DeviceIoControl     @ 5809    Nothing
+* [API ] DeviceIoControl     @ 58AB    Retarget    Missing
+* [API ] DeviceIoControl     @ 597D    Nothing
+* [API ] DeviceIoControl     @ 59AD    Retarget    Missing
+* [API ] DeviceIoControl     @ 5BE0    Retarget    Missing
+* [API ] DeviceIoControl     @ 5CD2    Retarget    Missing
+* [API ] DeviceIoControl     @ 5DC7    Nothing
+* [API ] DeviceIoControl     @ 6425    Retarget    Missing
+* [API ] GetComputerNameA    @ 0087    Retarget    Office
+* [API ] GetComputerNameExW  @ 2FC8    Retarget    John
+* [API ] GetComputerNameExW  @ 316D    Nothing
+* [API ] GetComputerNameExW  @ 31E2    Retarget    testuser
+* [API ] GetComputerNameExW  @ 4415    Nothing
+* [API ] GetDiskFreeSpaceExW @ 0154    Nothing
+* [API ] GetFileAttributesW  @ A6B5    Succeed
+* [API ] GetFileAttributesW  @ B348    Retarget    C:\Windows\explorer.exe
+* [API ] GetLocalTime        @ FFE9    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameW  @ 2166    Nothing
+* [API ] GetModuleFileNameW  @ 9870    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW  @ DC35    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegOpenKeyExW       @ 2FEB    Succeed
+* [API ] RegOpenKeyExW       @ EE5F    Succeed
+* [API ] RegOpenKeyW         @ 227B    Succeed
+* [API ] RegOpenKeyW         @ 4B8C    Fail
+* [API ] RegQueryValueExW    @ 0474    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW    @ 04DA    Retarget    ProductID
+* [API ] RegQueryValueExW    @ 22B3    Nothing
+* [API ] RegQueryValueExW    @ 4BE0    Retarget    ProductID
+* [API ] RegQueryValueExW    @ 4C15    Nothing
+* [API ] RegQueryValueExW    @ A4CD    Nothing
+* [API ] TimeDelayAPIs       @ 2628    Retarget
+* [API ] TimeQueryAPIs       @ 9B7B    Retarget
+
+[Manual annotations]
+====================
+Queries WMI Win32_BaseBoard for SerialNumber and PNPDeviceID

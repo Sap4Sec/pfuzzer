@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: 2007392d812a0de6a35ddc7be5c0adcd8df23659719c3af33aba6a12864dc720
+MD5: 5a0ae35f9fdd0c60691f4711575f4804
+Year: 2018
+Family name: xtrat
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW      @ 3FF8
+* [API ] LoadResource       @ 4014
+* [API ] CreateFileW        @ 3238
+* [API ] WriteFile          @ 3268
+* [API ] RegCreateKeyW      @ 2FA9
+* [API ] RegSetValueExW     @ 2FC4
+* [API ] CopyFileW          @ 4A94
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileW        @ 3BB7
+* [API ] SetFileTime        @ 3C56
+* [API ] CreateProcessW     @ 3EDA
+* [API ] VirtualAllocEx     @ 3D3A
+* [API ] CreateFileW        @ 30BF
+* [API ] CreateProcessW     @ 3F40
+* [API ] WriteProcessMemory @ 3D55
+* [API ] CreateRemoteThread @ 3D76
+* [API ] FindResourceW      @ 408B
+* [API ] LoadResource       @ 40A7
+* [API ] ShellExecuteW      @ 44E6
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 77AA
+* [API ] WriteFile          @ 50AF
+* [API ] SetWindowsHookExW  @ 69B8
+* [API ] GetClipboardData   @ 38DF
+* [API ] CreateThread       @ 3867
+* [API ] ShellExecuteW      @ A605
+* [API ] CreateFileW        @ 3615
+* [API ] CreateFileW        @ 7C3C
+
+[Mutations applied in the best run (29)]
+=======================================
+
+* [API ] CreateFileW        @ 30BF    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileW        @ 3238    Retarget    Backup.txt
+* [API ] CreateFileW        @ 3615    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW        @ 3BB7    Retarget    attrib.exe
+* [API ] CreateMutexW       @ 2657    Fail
+* [API ] FindFirstFileW     @ 35BE    Succeed
+* [API ] GetFileAttributesW @ 34B2    Fail
+* [API ] GetFileAttributesW @ 367D    Fail
+* [API ] GetLocalTime       @ 979C    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameW @ 9F4A    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemTime      @ 1257    Retarget    2022:10:3:24
+* [API ] TimeDelayAPIs      @ 9C15    Retarget
+
+[Manual annotations]
+====================

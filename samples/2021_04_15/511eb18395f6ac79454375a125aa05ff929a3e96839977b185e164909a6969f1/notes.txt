@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 511eb18395f6ac79454375a125aa05ff929a3e96839977b185e164909a6969f1
+MD5: 716939785646f607858238ad4d19ca0e
+Year: 2021_04_15
+Family name: negsid
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinExec        @ 2AE7
+
+Fuzzing Findings
+----------------
+* [API ] WinExec        @ 263A
+* [API ] CreateFileW    @ 287F
+* [API ] CreateFileW    @ 28F7
+* [API ] WriteFile      @ 2933
+* [API ] CreateProcessW @ 2A51
+
+[Mutations applied in the best run (100)]
+=======================================
+
+* [API ] CPUID              @ 8502    Retarget    Missing
+* [API ] CreateFileW        @ 287F    Succeed
+* [API ] CreateFileW        @ 28F7    Fail        Not modified
+* [API ] GetFileAttributesA @ 901D    Fail
+* [API ] GetModuleFileNameW @ 285F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 5FD8    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] Process32FirstW    @ 15C7    Nothing
+* [API ] Process32NextW     @ 15F2    Retarget
+* [API ] Process32NextW     @ 163A    Retarget
+* [API ] TimeDelayAPIs      @ 27B6    Nothing
+* [API ] TimeQueryAPIs      @ 281A    Nothing
+
+[Manual annotations]
+====================

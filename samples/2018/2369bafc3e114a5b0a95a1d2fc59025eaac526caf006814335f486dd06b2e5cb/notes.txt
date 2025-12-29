@@ -1,0 +1,81 @@
+[Basic information]
+=========================================================================
+SHA-256: 2369bafc3e114a5b0a95a1d2fc59025eaac526caf006814335f486dd06b2e5cb
+MD5: bfebd8e9b02b6aa897385eb7fa7e8e7f
+Year: 2018
+Family name: qqhelper
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 6E08
+* [API ] CreateFileW          @ 5885
+* [API ] NtCreateFile         @ C53F
+* [API ] CryptAcquireContextA @ 745D
+* [API ] CryptCreateHash      @ 7515
+* [API ] CryptHashData        @ 7610
+* [API ] CryptGetHashParam    @ 76ED
+* [API ] CryptDestroyHash     @ 7A46
+* [API ] CryptReleaseContext  @ 7A6D
+* [API ] FindResourceExW      @ 9B75
+* [API ] LoadResource         @ 9B8F
+* [API ] FindResourceExW      @ 9BCA
+* [API ] LoadResource         @ 9BEF
+* [API ] NtCreateFile         @ 1691
+* [API ] InternetOpenA        @ EA66
+* [API ] InternetConnectA     @ ECB2
+* [API ] HttpOpenRequestA     @ ED63
+* [API ] HttpSendRequestA     @ EDD7
+* [API ] InternetReadFile     @ EEFC
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile         @ 6F72
+* [API ] FindResourceExW      @ 657A
+* [API ] LoadResource         @ 6594
+* [API ] FindResourceExW      @ 65CF
+* [API ] LoadResource         @ 65F4
+* [API ] NtCreateFile         @ 64CF
+* [API ] FindResourceExW      @ CA89
+* [API ] LoadResource         @ CAA3
+* [API ] FindResourceExW      @ CADE
+* [API ] LoadResource         @ CB03
+* [API ] NtCreateFile         @ 6F73
+* [API ] FindResourceExW      @ B57B
+* [API ] LoadResource         @ B595
+* [API ] FindResourceExW      @ B5D0
+* [API ] LoadResource         @ B5F5
+* [API ] NtCreateFile         @ 78EE
+* [API ] FindResourceExW      @ AED6
+* [API ] LoadResource         @ AEF0
+* [API ] FindResourceExW      @ AF2B
+* [API ] LoadResource         @ AF50
+* [API ] NtCreateFile         @ E881
+* [API ] FindResourceExW      @ 4EC7
+* [API ] LoadResource         @ 4EE1
+* [API ] FindResourceExW      @ 4F1C
+* [API ] LoadResource         @ 4F41
+* [API ] NtCreateFile         @ D93C
+* [API ] FindResourceExW      @ 0F83
+* [API ] LoadResource         @ 0F9D
+* [API ] FindResourceExW      @ 0FD8
+* [API ] LoadResource         @ 0FFD
+* [API ] NtCreateFile         @ 07A6
+* [API ] FindResourceExW      @ DE0C
+* [API ] LoadResource         @ DE26
+* [API ] FindResourceExW      @ DE61
+* [API ] LoadResource         @ DE86
+* [API ] NtCreateFile         @ CEE3
+* [API ] FindResourceExW      @ 848E
+* [API ] LoadResource         @ 84A8
+* [API ] FindResourceExW      @ 84E3
+* [API ] LoadResource         @ 8508
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

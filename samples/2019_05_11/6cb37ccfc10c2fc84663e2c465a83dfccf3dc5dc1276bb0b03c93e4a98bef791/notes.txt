@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: 6cb37ccfc10c2fc84663e2c465a83dfccf3dc5dc1276bb0b03c93e4a98bef791
+MD5: 1c0835d74e5eae2bf8568aef3e9392ed
+Year: 2019_05_11
+Family name: poison
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread         @ 1A3D
+* [API ] CreateFileA          @ 159F
+* [API ] CreateProcessA       @ 13A6
+* [API ] NtUnmapViewOfSection @ 13BC
+* [API ] VirtualAllocEx       @ 13E3
+* [API ] WriteProcessMemory   @ 140A
+* [API ] WriteProcessMemory   @ 1491
+* [API ] SetThreadContext     @ 14D2
+* [API ] ResumeThread         @ 14DF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateFileA        @ 159F    Succeed    Not modified
+* [API ] CreateMutexA       @ 1A19    Fail
+* [API ] GetModuleFileNameA @ 1AA5    Nothing
+* [API ] TimeDelayAPIs      @ 197A    Nothing
+
+[Manual annotations]
+====================

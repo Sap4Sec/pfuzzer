@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.DelShad.icj-b0a010e5a9b353a11fb664501de91fc47878d89bf97cb57bc03428c7a45981b9
+MD5: 7d710e304c5d5d1febe8c0e1bf14615a
+Year: 2022
+Family name: delshad
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 3DCA
+* [API ] CreateFileW    @ E7D3
+* [API ] NtCreateFile   @ F432
+* [API ] OpenSCManagerA @ 47A1
+* [API ] OpenServiceA   @ 47E1
+* [API ] ShellExecuteW  @ 472E
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile   @ 955D
+* [API ] NtCreateFile   @ 84CA
+* [API ] NtCreateFile   @ 568F
+* [API ] NtCreateFile   @ B7C2
+* [API ] NtCreateFile   @ FA43
+* [API ] NtCreateFile   @ 6138
+* [API ] NtCreateFile   @ 6127
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID         @ 7D0F    Nothing
+* [API ] CreateFileW   @ 3DCA    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileW   @ E7D3    Succeed     Not modified
+* [API ] NtCreateFile  @ F432    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 7C4B    Retarget
+
+[Manual annotations]
+====================

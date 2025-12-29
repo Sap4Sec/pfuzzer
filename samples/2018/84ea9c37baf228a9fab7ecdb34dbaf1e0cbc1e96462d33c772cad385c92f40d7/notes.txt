@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: 84ea9c37baf228a9fab7ecdb34dbaf1e0cbc1e96462d33c772cad385c92f40d7
+MD5: fc8781e5c601c4be41975dbd9d1f9091
+Year: 2018
+Family name: expressdownloader
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW   @ 0735
+* [API ] FindResourceW @ 553C
+* [API ] LoadResource  @ 554D
+* [API ] CreateFileW   @ 6BD7
+* [API ] WriteFile     @ 8224
+* [API ] CreateFileW   @ F557
+* [API ] CreateThread  @ 761A
+* [API ] socket        @ C9FA
+* [API ] connect       @ D287
+* [API ] send          @ C194
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CPUID               @ 7365    Retarget    Missing
+* [API ] CreateFileW         @ 0735    Succeed     Not modified
+* [API ] CreateFileW         @ 6BD7    Retarget    C:\Windows\system32\
+* [API ] CreateFileW         @ F557    Succeed     Not modified
+* [API ] CreateMutexW        @ 1D4A    Fail
+* [API ] EnumDisplayDevicesW @ 0D8B    Nothing
+* [API ] EnumDisplayDevicesW @ 0EE6    Nothing
+* [API ] GetAdaptersInfo     @ CB19    Nothing
+* [API ] GetComputerNameW    @ CBDD    Retarget    testuser
+* [API ] GetModuleFileNameA  @ 5010    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW  @ 007A    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW  @ 6E79    Nothing
+* [API ] RegOpenKeyExW       @ 1BB0    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 2B61    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ 2CC0    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ 2DD0    Fail        Not modified
+* [API ] RegOpenKeyExW       @ 340F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ 3486    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ 359A    Fail        Not modified
+* [API ] TimeDelayAPIs       @ BC51    Nothing
+* [API ] TimeQueryAPIs       @ 4723    Nothing
+
+[Manual annotations]
+====================
+Queries WMI classes AntiVirusProduct, AntiSpywareProduct, and FirewallProduct for displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe, productState, and timestamp
+Also queries Win32_Process for Name, ProcessId, and CSName

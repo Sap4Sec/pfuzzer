@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.Remcos.gen-54f5267dea7dfa571027e7ec1f9e8518231c8a9baff0cf49e098ecbaf86e051a
+MD5: 68da0fc8238154152646c59bb3bc5eda
+Year: 2023
+Family name: remcos
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] NtWriteVirtualMemory @ 7C0F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] GetFileAttributesA @ 7E40    Fail
+* [API ] GetKeyboardLayout  @ C62E    Nothing
+* [API ] GetModuleFileNameA @ 55E3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 584F    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 5874    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5AB1    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ C354    Nothing
+* [API ] GetModuleFileNameA @ D814    Nothing
+* [API ] RegOpenKeyExA      @ 5892    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 58B0    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 58CE    Succeed
+* [API ] RegOpenKeyExA      @ 5ACF    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5AED    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5B0B    Fail        Not modified
+* [API ] TimeDelayAPIs      @ 7EDD    Nothing
+* [API ] TimeQueryAPIs      @ 2CC1    Nothing
+
+[Manual annotations]
+====================
+Initially suspected evasion via LoadLibrary("Amsi") and similar techniques, but this was not confirmed --- cause remains unclear.

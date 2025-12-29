@@ -1,0 +1,29 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Dropper.Win32.Delf.eimp-8f2ff0367f882b4ba4f7d29d4e919bebad0c48519d245305af9a791e5b450a17
+MD5: b2c8d8738599f3f590fbf1d4fbcc5c14
+Year: 2022
+Family name: doina
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 1F89
+* [API ] LoadResource  @ 1FAD
+* [API ] CreateFileA   @ 22C5
+* [API ] WriteFile     @ 22FB
+* [API ] ShellExecuteA @ 233E
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA @ 22C5    Retarget    iexplorer.exe
+
+[Manual annotations]
+====================

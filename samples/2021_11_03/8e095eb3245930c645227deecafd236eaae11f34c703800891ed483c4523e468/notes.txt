@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 8e095eb3245930c645227deecafd236eaae11f34c703800891ed483c4523e468
+MD5: ec4969024fd9497deabcf89b7d9d06aa
+Year: 2021_11_03
+Family name: lamer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Retarget    Detect It Easy.lnk
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Succeed
+* [API ] CreateFileA        @ 33ED    Fail        Not modified
+* [API ] CreateMutexA       @ 2A13    Succeed
+* [API ] FindFirstFileA     @ 30A1    Succeed
+* [API ] FindFirstFileA     @ 369C    Succeed
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExA      @ 2D07    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 2DE3    Retarget    SystemBiosDate
+
+[Manual annotations]
+====================

@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 68f22901ca321609823c5211354ef8946432d77be3315077b808b5e0fd015562
+MD5: a9320727931527a71a27ff78956b43b9
+Year: 2021_04_15
+Family name: SINGLETON:a9320727931527a71a27ff78956b43b9
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 5F94
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 22FA
+* [API ] CreateFileMappingA @ 2314
+* [API ] MapViewOfFile      @ 2338
+* [API ] GetKeyState        @ 659F
+* [API ] GetKeyState        @ 65B2
+* [API ] GetKeyState        @ 65C5
+* [API ] CreateFileW        @ B256
+* [API ] InternetOpenA      @ 3A4E
+* [API ] InternetOpenUrlA   @ 3A95
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID              @ C35A    Nothing
+* [API ] CreateFileA        @ 22FA    Fail
+* [API ] CreateFileA        @ 5F94    Retarget    Detect It Easy.lnk
+* [API ] CreateFileW        @ B256    Succeed
+* [API ] GetModuleFileNameA @ 22D9    Nothing
+* [API ] GetModuleFileNameW @ 58C9    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemInfo      @ 2012    Retarget    Missing
+* [API ] Process32First     @ 240C    Nothing
+* [API ] Process32Next      @ 244D    Retarget
+* [API ] RegOpenKeyExA      @ 389F    Fail
+* [API ] RegOpenKeyExA      @ 5FF3    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 38BD    Nothing
+* [API ] RegQueryValueExA   @ 6012    Nothing
+* [API ] TimeQueryAPIs      @ 637B    Retarget
+
+[Manual annotations]
+====================

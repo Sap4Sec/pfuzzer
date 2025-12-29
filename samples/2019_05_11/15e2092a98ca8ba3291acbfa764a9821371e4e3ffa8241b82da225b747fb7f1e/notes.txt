@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 15e2092a98ca8ba3291acbfa764a9821371e4e3ffa8241b82da225b747fb7f1e
+MD5: c2f2a9aff06f881d1d3489ace1a582a2
+Year: 2019_05_11
+Family name: drmsoft
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

@@ -1,0 +1,85 @@
+[Basic information]
+=========================================================================
+SHA-256: 2414ef2cbf32985868868115c78dc6b90f39addfb6a979a605b78bae04617187
+MD5: 1957cec10068c774fe103eef8e3ccdfb
+Year: 2019_11_29
+Family name: kuaiba
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW     @ 3D92
+* [API ] SetWindowsHookExW @ 78BD
+* [API ] CreateFileW       @ E515
+* [API ] CreateFileW       @ E3C0
+* [API ] CreateFileW       @ E6CC
+* [API ] FindResourceW     @ 4287
+* [API ] LoadResource      @ 42CD
+* [API ] FindResourceW     @ FC44
+* [API ] LoadResource      @ FC59
+
+Fuzzing Findings
+----------------
+* [API ] WSAStartup        @ 0A23
+* [API ] socket            @ B0DD
+* [API ] FindResourceW     @ 3418
+* [API ] LoadResource      @ 3420
+* [API ] SetWindowsHookExW @ 18CF
+* [API ] FindResourceW     @ 678E
+* [API ] LoadResource      @ 679A
+* [API ] FindResourceW     @ 29F5
+* [API ] LoadResource      @ 2A01
+* [API ] FindResourceW     @ 4E8D
+* [API ] LoadResource      @ 4EAC
+* [API ] FindResourceW     @ 2F10
+* [API ] LoadResource      @ 2F18
+* [API ] CreateThread      @ 138B
+* [API ] ResumeThread      @ 2212
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 74C4    Nothing
+* [API ] CreateFileW        @ E3C0    Fail        Not modified
+* [API ] CreateFileW        @ E515    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileW        @ E6CC    Succeed
+* [API ] DeviceIoControl    @ E441    Retarget    Missing
+* [API ] DeviceIoControl    @ E555    Retarget    Missing
+* [API ] DeviceIoControl    @ E60F    Retarget    Missing
+* [API ] DeviceIoControl    @ E712    Retarget    Missing
+* [API ] DeviceIoControl    @ E759    Retarget    Missing
+* [API ] GetAdaptersInfo    @ 803B    Nothing
+* [API ] GetAdaptersInfo    @ 805A    Nothing
+* [API ] GetAdaptersInfo    @ 8085    Nothing
+* [API ] GetCursorPos       @ 735D    Nothing
+* [API ] GetFileAttributesW @ 2ECF    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 3BFD    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 57F2    Nothing
+* [API ] GetModuleFileNameW @ 59FB    Nothing
+* [API ] GetModuleFileNameW @ 8695    Nothing
+* [API ] GetModuleFileNameW @ E44E    Nothing
+* [API ] GetModuleFileNameW @ EFE0    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegEnumKeyW        @ 7447    Retarget    John
+* [API ] RegOpenKeyExW      @ 50EC    Succeed
+* [API ] RegOpenKeyExW      @ 5148    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 73A9    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 746F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 75F0    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 76C0    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ B9CD    Fail
+* [API ] RegOpenKeyExW      @ BB5C    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ BB83    Fail        Not modified
+* [API ] RegOpenKeyExW      @ BBAA    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ BBD1    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ E713    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 71CB    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ BA08    Nothing
+* [API ] TimeDelayAPIs      @ 0FAE    Retarget
+* [API ] TimeQueryAPIs      @ 52DE    Retarget
+
+[Manual annotations]
+====================
+Queries WMI Win32_ComputerSystem for Model

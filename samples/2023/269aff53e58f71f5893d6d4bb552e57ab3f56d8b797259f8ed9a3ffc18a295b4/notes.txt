@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Bublik.aeld-269aff53e58f71f5893d6d4bb552e57ab3f56d8b797259f8ed9a3ffc18a295b4
+MD5: 2b541ce551764cda4ec19cf40a6d62a6
+Year: 2023
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 5A10
+* [API ] LoadResource       @ 5A2C
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 861A
+* [API ] CreateFileA        @ 657F
+* [API ] WriteFile          @ 65AD
+* [API ] CreateProcessA     @ 9076
+* [API ] VirtualAllocEx     @ 5723
+* [API ] VirtualAllocEx     @ 4DC5
+* [API ] WriteProcessMemory @ 4DE7
+* [API ] VirtualAllocEx     @ 4E2F
+* [API ] WriteProcessMemory @ 4E3B
+* [API ] CreateRemoteThread @ 4E87
+* [API ] WriteProcessMemory @ 5765
+* [API ] CreateProcessA     @ 9161
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA          @ 866F
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 657F    Succeed
+* [API ] CreateMutexA       @ 4B9B    Retarget    VBoxTray
+* [API ] FindFirstFileA     @ 6502    Fail
+* [API ] FindWindowA        @ 90FE    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] GetFileAttributesA @ 6CE0    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 2B0C    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ 700E    Nothing
+* [API ] GetUserNameA       @ 70B2    Retarget    Office
+* [API ] Process32First     @ 5FD7    Nothing
+* [API ] Process32Next      @ 5FF7    Retarget
+* [API ] RegOpenKeyExA      @ 68A6    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 68CA    Nothing
+* [API ] RegQueryValueExA   @ 68F4    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 5086    Retarget
+* [API ] TimeQueryAPIs      @ 6E85    Retarget
+
+[Manual annotations]
+====================

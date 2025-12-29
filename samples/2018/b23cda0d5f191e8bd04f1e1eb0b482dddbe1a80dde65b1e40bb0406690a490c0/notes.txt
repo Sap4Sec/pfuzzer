@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: b23cda0d5f191e8bd04f1e1eb0b482dddbe1a80dde65b1e40bb0406690a490c0
+MD5: 5243c22dfed2600512e0856880c05e50
+Year: 2018
+Family name: SINGLETON:5243c22dfed2600512e0856880c05e50
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ 129D
+* [API ] SetWindowsHookExA @ 5EBC
+* [API ] SetWindowsHookExA @ 301D
+* [API ] CopyFileA         @ 99F3
+* [API ] CreateProcessA    @ 83ED
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID              @ 746E    Nothing
+* [API ] CreateFileW        @ 129D    Succeed
+* [API ] DeviceIoControl    @ 1231    Nothing
+* [API ] FindFirstFileA     @ 3586    Fail
+* [API ] GetAdaptersInfo    @ E50A    Nothing
+* [API ] GetCursorPos       @ B57D    Retarget    Missing
+* [API ] GetModuleFileNameA @ 0D08    Nothing
+* [API ] GetModuleFileNameA @ 1449    Nothing
+* [API ] GetModuleFileNameA @ 4C83    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 4FDF    Nothing
+* [API ] GetModuleFileNameA @ B831    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA      @ EE57    Fail
+* [API ] RegQueryValueExA   @ EE79    Nothing
+* [API ] TimeQueryAPIs      @ BAE4    Retarget
+
+[Manual annotations]
+====================

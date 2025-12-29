@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: a7c9f43578a4b29f29ffd8993e716b0774996078cec788189796ff0a29cb109d
+MD5: 6141a596342cf0b3bca659521257c952
+Year: 2018
+Family name: expressdownloader
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW        @ 0826
+* [API ] FindResourceW      @ 2391
+* [API ] LoadResource       @ 23A2
+* [API ] CreateFileW        @ 58D2
+* [API ] WriteFile          @ 5FF3
+* [API ] CreateFileW        @ EE27
+* [API ] CreateFileMappingW @ EE56
+* [API ] MapViewOfFile      @ EE7C
+* [API ] CreateThread       @ 490A
+* [API ] socket             @ CD93
+* [API ] connect            @ D620
+* [API ] send               @ C52D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CPUID               @ 76D6    Nothing
+* [API ] CreateFileW         @ 0826    Succeed     Not modified
+* [API ] CreateFileW         @ 58D2    Fail        Not modified
+* [API ] CreateFileW         @ EE27    Fail
+* [API ] CreateMutexW        @ DAD4    Fail
+* [API ] EnumDisplayDevicesW @ B804    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] EnumDisplayDevicesW @ BBB3    Retarget    \??\Analysis
+* [API ] GetAdaptersInfo     @ 6001    Nothing
+* [API ] GetComputerNameW    @ 6122    Nothing
+* [API ] GetModuleFileNameA  @ 2566    Nothing
+* [API ] GetModuleFileNameW  @ 4149    Nothing
+* [API ] GetModuleFileNameW  @ FD9E    Nothing
+* [API ] RegOpenKeyExW       @ D6B5    Succeed     Not modified
+* [API ] RegOpenKeyExW       @ EFA9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ F1AB    Fail        Not modified
+* [API ] RegOpenKeyExW       @ F358    Fail        Not modified
+* [API ] RegOpenKeyExW       @ FD8E    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ FE1F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ FF8F    Fail        Not modified
+* [API ] TimeDelayAPIs       @ BFEA    Nothing
+* [API ] TimeQueryAPIs       @ 4ABC    Nothing
+
+[Manual annotations]
+====================
+Queries WMI classes AntiVirusProduct, AntiSpywareProduct, and FirewallProduct for displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe, productState, and timestamp
+Also queries Win32_Process for Name, ProcessId, and CSName

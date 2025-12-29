@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Droma.aedp-666b7cd211ead3bc4fc8ff1e480a73ab9cb8ecf678e31991f5d6269b00282087
+MD5: 3578aaa113d7683b85fc0768f816dafb
+Year: 2022
+Family name: droma
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ AEDB
+* [API ] CreateFileW  @ 60E4
+* [API ] NtCreateFile @ 2796
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ CA82
+* [API ] NtCreateFile @ E05D
+* [API ] NtCreateFile @ CEED
+* [API ] NtCreateFile @ 02B6
+* [API ] NtCreateFile @ 35E2
+* [API ] NtCreateFile @ 27ED
+
+[Mutations applied in the best run (29)]
+=======================================
+
+* [API ] CPUID              @ 597D    Nothing
+* [API ] CreateFileW        @ 60E4    Succeed     Not modified
+* [API ] CreateFileW        @ AEDB    Fail
+* [API ] GetModuleFileNameW @ 3A1F    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ B041    Nothing
+* [API ] NtCreateFile       @ 2796    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] NtCreateFile       @ 9E97    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs      @ 597B    Nothing
+
+[Manual annotations]
+====================
+Undetermined evasions

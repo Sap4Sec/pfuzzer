@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 36c7719fb231ba57090b2de1c4b0175f57e6d9fef8b4eb3502d97ba25157ed09
+MD5: e176378f4256dda36908fdf773873641
+Year: 2018
+Family name: ramnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: EAX.DLL, vorbisfile.dll --- probably a game

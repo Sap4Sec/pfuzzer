@@ -1,0 +1,99 @@
+[Basic information]
+=========================================================================
+SHA-256: 740a634a99c5528caa092b0c0fee484e86e18a605882e0d800a2e8106e70d19b
+MD5: dfb5b752bd4e76fe1685b4e58212aa6b
+Year: 2018
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ 484A
+* [API ] MapViewOfFile      @ 487F
+* [API ] FindResourceW      @ E233
+* [API ] SetWindowsHookExW  @ 23DE
+* [API ] CreateFileA        @ DAB5
+* [API ] WriteFile          @ FF82
+* [API ] CreateFileW        @ 92F8
+* [API ] SetFileTime        @ 936D
+* [API ] CreateFileMappingW @ 8DB3
+* [API ] MapViewOfFile      @ 8DE0
+* [API ] CreateFileW        @ 94B2
+* [API ] CreateFileMappingW @ 94CC
+* [API ] MapViewOfFile      @ 94FB
+* [API ] CreateThread       @ 56EF
+* [API ] ResumeThread       @ 0B03
+* [API ] SuspendThread      @ 297E
+* [API ] FindResourceW      @ 9FEE
+* [API ] LoadResource       @ 9FFF
+* [API ] SetWindowsHookExW  @ 5CE2
+* [API ] FindResourceW      @ 419E
+* [API ] LoadResource       @ 41B5
+* [API ] FindResourceW      @ D14A
+* [API ] LoadResource       @ D161
+* [API ] FindResourceW      @ C4C6
+* [API ] LoadResource       @ C4DD
+* [API ] ResumeThread       @ B44E
+* [API ] FindResourceW      @ F489
+* [API ] LoadResource       @ F497
+* [API ] FindResourceW      @ A681
+* [API ] LoadResource       @ A692
+* [API ] InternetOpenW      @ 4E84
+* [API ] InternetOpenUrlW   @ 530A
+* [API ] InternetReadFile   @ 6081
+* [API ] InternetConnectW   @ 6FBD
+* [API ] HttpOpenRequestW   @ 70CD
+* [API ] HttpSendRequestW   @ 76D8
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 9322
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ B654    Nothing
+* [API ] CreateFileA        @ DAB5    Succeed
+* [API ] CreateFileW        @ 92F8    Succeed     Not modified
+* [API ] CreateFileW        @ 94B2    Retarget    C:\Windows\explorer.exe
+* [API ] GetComputerNameW   @ F9F3    Nothing
+* [API ] GetCursorPos       @ 2726    Nothing
+* [API ] GetFileAttributesA @ 5C7C    Succeed
+* [API ] GetFileAttributesA @ 5C95    Succeed
+* [API ] GetFileAttributesA @ 5CAE    Succeed
+* [API ] GetModuleFileNameA @ 5D70    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 0074    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 1199    Nothing
+* [API ] GetModuleFileNameW @ 2AA4    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 4480    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ A25A    Nothing
+* [API ] GetModuleFileNameW @ EDC4    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo      @ 489D    Nothing
+* [API ] GetUserNameA       @ 5CE7    Retarget    John
+* [API ] GetWindowTextW     @ 6CCA    Nothing
+* [API ] RegEnumKeyExW      @ 6718    Retarget    testuser
+* [API ] RegEnumKeyExW      @ 681B    Retarget    John
+* [API ] RegEnumKeyExW      @ CB4E    Retarget    Office
+* [API ] RegOpenKeyExW      @ 5A23    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 6573    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 6588    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 6686    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 66D3    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 674A    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 7D97    Fail        Not modified
+* [API ] RegOpenKeyExW      @ CAD0    Fail        Not modified
+* [API ] RegOpenKeyExW      @ CE48    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ CE5E    Fail
+* [API ] RegQueryValueExW   @ 5A44    Nothing
+* [API ] RegQueryValueExW   @ 678A    Nothing
+* [API ] RegQueryValueExW   @ CE96    Nothing
+* [API ] RegQueryValueExW   @ CEB6    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 2947    Nothing
+* [API ] TimeQueryAPIs      @ 0C5B    Nothing
+
+[Manual annotations]
+====================
+Queries WMI Win32_OperatingSystem, AntiVirusProduct, FirewallProduct, and AntiSpywareProduct

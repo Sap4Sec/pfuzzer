@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Agentb.ksqw-e58a84a6bab73181723f3df7a8f931785acfa2e7134f45f95afa5e0be81dd1ea
+MD5: 05b666fa594fabf1f40b331f75609091
+Year: 2022
+Family name: winactivator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW   @ 93F0
+* [API ] CreateFileW     @ 9420
+* [API ] LoadResource    @ 9439
+* [API ] WriteFile       @ 9446
+* [API ] ShellExecuteExW @ 9259
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CPUID              @ 44C7    Nothing
+* [API ] CreateFileW        @ 9420    Fail
+* [API ] FindFirstFileW     @ 39E4    Nothing
+* [API ] FindFirstFileW     @ 7B97    Retarget    C:\*
+* [API ] FindFirstFileW     @ 8068    Fail
+* [API ] GetFileAttributesW @ 3A1A    Fail
+* [API ] GetLocalTime       @ 534D    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameW @ 7103    Nothing
+* [API ] GetModuleFileNameW @ 7C92    Nothing
+* [API ] GetModuleFileNameW @ 8399    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo      @ 88B5    Retarget    Missing
+* [API ] RegOpenKeyExW      @ 7CDB    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 7CFD    Succeed
+* [API ] RegOpenKeyExW      @ 7D1B    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 7D39    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ 7D57    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 7D75    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 7DB5    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 7E04    Retarget    ProductID
+
+[Manual annotations]
+====================

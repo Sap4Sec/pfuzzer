@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Llac.kvdb-968575226d09ba5d3d0b02b3f68aeac03c7b132738bd8f86e7b308f7a19567a5
+MD5: b1d44434ea98598a0b5ebe609c5dfdeb
+Year: 2023
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4448
+* [API ] LoadResource       @ 4464
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5797
+* [API ] CreateFileA        @ 57D3
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6CDA
+* [API ] RegCreateKeyExA    @ 682A
+* [API ] RegSetValueExA     @ 687E
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyA      @ 5BAF
+* [API ] RegSetValueExA     @ 5BD7
+* [API ] CreateFileA        @ 5CD3
+* [API ] WriteFile          @ 5D01
+* [API ] VirtualAllocEx     @ 415B
+* [API ] VirtualAllocEx     @ 37FD
+* [API ] WriteProcessMemory @ 381F
+* [API ] VirtualAllocEx     @ 3867
+* [API ] WriteProcessMemory @ 3873
+* [API ] CreateRemoteThread @ 38BF
+* [API ] WriteProcessMemory @ 419D
+* [API ] CreateProcessA     @ B7CC
+* [API ] CreateProcessA     @ B559
+* [API ] CreateProcessA     @ B5BF
+* [API ] CopyFileA          @ 6D2F
+
+[Mutations applied in the best run (37)]
+=======================================
+
+* [API ] CreateFileA        @ 5797    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileA        @ 57D3    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA        @ 5CD3    Succeed
+* [API ] CreateMutexA       @ 3583    Fail
+* [API ] FindFirstFileA     @ 5C56    Fail
+* [API ] FindWindowA        @ B76D    Succeed
+* [API ] GetFileAttributesA @ 5990    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesA @ 6588    Succeed
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA       @ 550C    Retarget    Office
+* [API ] Process32Next      @ 5047    Retarget
+* [API ] RegOpenKeyExA      @ 52B5    Fail
+* [API ] RegOpenKeyExA      @ 536D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5425    Fail
+* [API ] RegOpenKeyExA      @ 5FFA    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 6917    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 52DE    Nothing
+* [API ] RegQueryValueExA   @ 5396    Nothing
+* [API ] RegQueryValueExA   @ 544E    Nothing
+* [API ] RegQueryValueExA   @ 601E    Nothing
+* [API ] RegQueryValueExA   @ 6048    Nothing
+* [API ] TimeDelayAPIs      @ 3ABE    Retarget
+* [API ] TimeQueryAPIs      @ B13E    Retarget
+
+[Manual annotations]
+====================

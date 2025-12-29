@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.BestaFera.gen-fa4ee29065ca13f70603095ed2bce63362ece4452af31efb1e354b0c928169e7
+MD5: 7ea19ad38940ddb3e47c50e622de2aae
+Year: 2022
+Family name: bestafera
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW @ 4ADC
+* [API ] LoadResource  @ 4AF6
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceW @ 5BD3
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CPUID              @ 7C93    Retarget    Missing
+* [API ] FindFirstFileW     @ DB28    Succeed
+* [API ] GetFileAttributesW @ 727E    Succeed
+* [API ] GetKeyboardLayout  @ 5D42    Retarget    Italian
+* [API ] GetLocalTime       @ A5B1    Nothing
+* [API ] GetModuleFileNameW @ 72C5    Nothing
+* [API ] GetModuleFileNameW @ 7745    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ CBC7    Nothing
+* [API ] GetModuleFileNameW @ D752    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ DE71    Nothing
+* [API ] GetSystemInfo      @ FAC1    Nothing
+* [API ] Process32FirstW    @ 6227    Nothing
+* [API ] Process32NextW     @ 6247    Retarget
+* [API ] RegOpenKeyExW      @ 39C2    Fail
+* [API ] RegOpenKeyExW      @ D79B    Succeed
+* [API ] RegOpenKeyExW      @ D7BD    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D7DB    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D7F9    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D817    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D835    Succeed     Not modified
+* [API ] RegQueryValueExW   @ 40FE    Nothing
+* [API ] RegQueryValueExW   @ 46F8    Nothing
+* [API ] TimeQueryAPIs      @ 7321    Nothing
+
+[Manual annotations]
+====================
+User interaction: opens a GUI requiring text input

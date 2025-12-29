@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 13e42bb0ce4303e61fb7503edfc9f637b1edefbc2a176a68ad04279747aa03c8
+MD5: bc449d84211a24db8c590c45991c4306
+Year: 2018
+Family name: kolabc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinExec         @ 61DD
+* [API ] CopyFileA       @ 49DA
+* [API ] CreateFileA     @ 4A10
+* [API ] CreateFileA     @ 4A47
+* [API ] WriteFile       @ 4A78
+* [API ] WriteFile       @ 4AF1
+* [API ] CreateFileA     @ 4B11
+* [API ] WriteFile       @ 4B42
+* [API ] WriteFile       @ 4BC6
+* [API ] WriteFile       @ 4C08
+* [API ] CopyFileA       @ 4C45
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyExA @ 5AF4
+* [PERS] software\microsoft\windows\currentversion\run
+* [API ] RegSetValueExA  @ 5B0D
+* [API ] socket          @ 58E1
+* [API ] inet_addr       @ 59A0
+* [API ] connect         @ 59C0
+
+[Mutations applied in the best run (13)]
+=======================================
+
+* [API ] CreateFileA        @ 4A10    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA        @ 4A47    Fail
+* [API ] CreateFileA        @ 4B11    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] FindFirstFileA     @ 48F0    Nothing
+* [API ] FindFirstFileA     @ 4D8D    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 4930    Retarget
+* [API ] GetModuleFileNameA @ 2751    Nothing
+
+[Manual annotations]
+====================

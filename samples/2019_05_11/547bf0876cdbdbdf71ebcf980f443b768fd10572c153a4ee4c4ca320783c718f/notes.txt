@@ -1,0 +1,64 @@
+[Basic information]
+=========================================================================
+SHA-256: 547bf0876cdbdbdf71ebcf980f443b768fd10572c153a4ee4c4ca320783c718f
+MD5: ad7f0905eef2fe7737d695bd1c554436
+Year: 2019_05_11
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 34CF
+* [API ] LoadResource         @ 34E1
+* [API ] FindResourceA        @ 34F6
+* [API ] LoadResource         @ 34FE
+* [API ] RegCreateKeyExA      @ 37CF
+* [API ] CreateFileA          @ 5562
+* [API ] CreateFileW          @ 6B5A
+* [API ] WriteFile            @ B9FA
+* [API ] ShellExecuteA        @ 292E
+* [API ] ShellExecuteA        @ 2C03
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceA        @ 31E5
+* [API ] LoadResource         @ 31F7
+* [API ] FindResourceA        @ 320C
+* [API ] LoadResource         @ 3214
+* [API ] FindResourceA        @ 3232
+* [API ] LoadResource         @ 3242
+* [API ] CreateProcessA       @ 32E8
+* [API ] ReadProcessMemory    @ 3320
+* [API ] NtUnmapViewOfSection @ 3342
+* [API ] VirtualAllocEx       @ 3366
+* [API ] WriteProcessMemory   @ 3383
+* [API ] WriteProcessMemory   @ 33B4
+* [API ] WriteProcessMemory   @ 3411
+* [API ] SetThreadContext     @ 3432
+* [API ] ResumeThread         @ 3440
+
+[Mutations applied in the best run (29)]
+=======================================
+
+* [API ] CPUID              @ 68C3    Retarget    Missing
+* [API ] CreateFileA        @ 5562    Retarget    C:\Windows\system32\
+* [API ] CreateFileW        @ 6B5A    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 1324    Nothing
+* [API ] GetModuleFileNameA @ 2832    Nothing
+* [API ] GetModuleFileNameA @ 2B78    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 31D2    Nothing
+* [API ] GetModuleFileNameA @ F27D    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] Process32First     @ 13C8    Nothing
+* [API ] Process32Next      @ 13DB    Retarget
+* [API ] Process32Next      @ 14D3    Retarget
+* [API ] RegOpenKeyExA      @ 15AA    Fail
+* [API ] RegOpenKeyExA      @ 2C59    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 371C    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 15CB    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 2913    Retarget
+
+[Manual annotations]
+====================

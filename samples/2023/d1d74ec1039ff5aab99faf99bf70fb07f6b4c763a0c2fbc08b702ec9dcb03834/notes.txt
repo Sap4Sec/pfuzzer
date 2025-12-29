@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: not-a-virus-HEUR-HackTool.Win32.Impacket.gen-d1d74ec1039ff5aab99faf99bf70fb07f6b4c763a0c2fbc08b702ec9dcb03834
+MD5: a82df55a03a3dc038985a30f797cef24
+Year: 2023
+Family name: impacket
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+User interacttion

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 39fda9a249286581b13dc1f89228bca1656adeb4e564e0b18f1848082c97acde
+MD5: 63e31467511cc122bf762113c60a55f7
+Year: 2019_05_11
+Family name: bifrose
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] ShellExecuteA @ 26D9
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

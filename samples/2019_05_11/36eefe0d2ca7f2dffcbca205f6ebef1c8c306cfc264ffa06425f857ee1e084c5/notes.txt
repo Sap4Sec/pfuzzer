@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: 36eefe0d2ca7f2dffcbca205f6ebef1c8c306cfc264ffa06425f857ee1e084c5
+MD5: 066f1f18e945dce1adf65ca27a3210e5
+Year: 2019_05_11
+Family name: winactivator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup    @ 4FA3
+* [API ] FindResourceA @ AB51
+* [API ] LoadResource  @ AB69
+* [API ] FindResourceA @ ABE5
+* [API ] CreateFileW   @ AD80
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ E0DA    Retarget    Missing
+* [API ] CreateFileW        @ AD80    Succeed     Not modified
+* [API ] GetModuleFileNameA @ CB18    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ AD63    Nothing
+* [API ] TimeQueryAPIs      @ CF51    Retarget
+
+[Manual annotations]
+====================

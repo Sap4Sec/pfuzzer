@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 462345460d9bdb2603041da08c4fc272b918be1b9a718b6967fbeda8dc0cf5c7
+MD5: 402ee0ad7dc3b3c7bd217190d89c67c3
+Year: 2019_05_11
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] CreateProcessA     @ B665
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B6CB
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CreateFileA        @ 5DBB    Succeed     Not modified
+* [API ] CreateMutexA       @ 3583    Retarget    vscode
+* [API ] GetModuleFileNameA @ 13CD    Nothing
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 6106    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6130    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+
+[Manual annotations]
+====================

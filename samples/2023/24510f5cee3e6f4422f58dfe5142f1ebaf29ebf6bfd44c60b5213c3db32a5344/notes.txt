@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Llac.lgnr-24510f5cee3e6f4422f58dfe5142f1ebaf29ebf6bfd44c60b5213c3db32a5344
+MD5: 27922987293cef8ed794a1faaa0acbf6
+Year: 2023
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] CreateProcessA     @ B665
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B6CB
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (162)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 586F    Fail        Not modified
+* [API ] CreateFileA        @ 5DBB    Retarget    iexplorer.exe
+* [API ] CreateMutexA       @ 3583    Retarget    vscode
+* [API ] FindFirstFileA     @ 5D3E    Nothing
+* [API ] GetFileAttributesA @ 5A78    Fail
+* [API ] GetFileAttributesA @ 6670    Succeed
+* [API ] GetModuleFileNameA @ 13CD    Nothing
+* [API ] GetUserNameA       @ 55A8    Nothing
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5409    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 54C1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 60E2    Fail
+* [API ] RegQueryValueExA   @ 537A    Nothing
+* [API ] RegQueryValueExA   @ 5432    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 54EA    Nothing
+* [API ] RegQueryValueExA   @ 6106    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6130    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Retarget
+
+[Manual annotations]
+====================

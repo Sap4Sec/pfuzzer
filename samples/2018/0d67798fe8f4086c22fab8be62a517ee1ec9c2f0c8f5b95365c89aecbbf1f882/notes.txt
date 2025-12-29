@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 0d67798fe8f4086c22fab8be62a517ee1ec9c2f0c8f5b95365c89aecbbf1f882
+MD5: ecd1f5173f0302aa6bc13ceeb27d1662
+Year: 2018
+Family name: SINGLETON:ecd1f5173f0302aa6bc13ceeb27d1662
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ F1E6
+* [API ] CreateFileW       @ B6AC
+* [API ] NtCreateFile      @ 3C0B
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile      @ 1C14
+* [API ] NtCreateFile      @ 6E95
+* [API ] NtCreateFile      @ C68B
+* [API ] ReadProcessMemory @ 69FC
+* [API ] NtCreateFile      @ 33B4
+* [API ] NtCreateFile      @ C8C3
+* [API ] NtCreateFile      @ 5064
+* [API ] NtCreateFile      @ 0643
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID         @ E829    Retarget    Missing
+* [API ] CreateFileW   @ B6AC    Succeed     Not modified
+* [API ] CreateFileW   @ F1E6    Fail
+* [API ] NtCreateFile  @ 3C0B    Fail        Not modified
+* [API ] TimeQueryAPIs @ E8FA    Nothing
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI requiring text input

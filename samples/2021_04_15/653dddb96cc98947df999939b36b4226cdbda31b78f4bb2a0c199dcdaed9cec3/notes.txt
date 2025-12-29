@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 653dddb96cc98947df999939b36b4226cdbda31b78f4bb2a0c199dcdaed9cec3
+MD5: cd545799f5558dc601d1f6198cae4e5c
+Year: 2021_04_15
+Family name: SINGLETON:cd545799f5558dc601d1f6198cae4e5c
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 1AA9
+* [API ] CreateFileW          @ C3C9
+* [API ] NtCreateFile         @ 5645
+* [API ] WSAStartup           @ 0BDD
+* [API ] CryptAcquireContextA @ D91F
+* [API ] CryptCreateHash      @ D9B2
+* [API ] CryptHashData        @ DA8E
+* [API ] CryptGetHashParam    @ DB77
+* [API ] CryptDestroyHash     @ DEC4
+* [API ] CryptReleaseContext  @ DEF3
+* [API ] CreateThread         @ D4CA
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile         @ AC52
+* [API ] NtCreateFile         @ E0C7
+* [API ] NtCreateFile         @ 7E6D
+* [API ] NtCreateFile         @ AC1E
+* [API ] NtCreateFile         @ BF4B
+* [API ] NtCreateFile         @ A268
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 78E3    Retarget    Missing
+* [API ] CreateFileW        @ 1AA9    Fail
+* [API ] CreateFileW        @ C3C9    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 1BBF    Nothing
+* [API ] NtCreateFile       @ 2E70    Succeed     Not modified
+* [API ] NtCreateFile       @ 5645    Fail        Not modified
+* [API ] TimeQueryAPIs      @ 7A31    Retarget
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input

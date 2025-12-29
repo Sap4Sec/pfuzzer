@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: c0e75e713c7fb200c958148a2fc528cff9a1e2da51b77b492d522cbff43ae054
+MD5: 8f15ee727f2b9cf464310c27d51614dd
+Year: 2018
+Family name: bitmin
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ E7F2
+* [API ] WriteFile      @ 45FC
+* [API ] CreateProcessA @ 7C23
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread   @ CF4F
+
+[Mutations applied in the best run (177)]
+=======================================
+
+* [API ] CPUID              @ 2F7F    Nothing
+* [API ] CreateFileW        @ E7F2    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexA       @ 8883    Fail
+* [API ] CreateMutexA       @ 88B1    Fail
+* [API ] GetCursorPos       @ 80B9    Nothing
+* [API ] GetModuleFileNameA @ 5FD1    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 7B8D    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] Process32First     @ 97B3    Nothing
+* [API ] Process32Next      @ 97C8    Retarget
+* [API ] Process32Next      @ 9888    Retarget
+* [API ] TimeDelayAPIs      @ 80FE    Retarget
+* [API ] TimeQueryAPIs      @ D509    Retarget
+
+[Manual annotations]
+====================

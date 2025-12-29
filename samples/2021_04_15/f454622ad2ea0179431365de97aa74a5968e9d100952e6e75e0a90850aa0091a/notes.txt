@@ -1,0 +1,71 @@
+[Basic information]
+=========================================================================
+SHA-256: f454622ad2ea0179431365de97aa74a5968e9d100952e6e75e0a90850aa0091a
+MD5: 18080086195451c4be9deb3090cc3e93
+Year: 2021_04_15
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 754D
+* [API ] SetWindowsHookExA @ 15AE
+* [API ] SetWindowsHookExA @ E70C
+* [API ] WSAStartup        @ C9A0
+* [API ] CreateFileA       @ 692F
+* [API ] InternetOpenA     @ 8716
+* [API ] InternetConnectA  @ 8962
+* [API ] HttpOpenRequestA  @ 8A13
+* [API ] HttpSendRequestA  @ 8A87
+* [API ] InternetReadFile  @ 8BAC
+* [API ] CreateFileA       @ D00D
+* [API ] WriteFile         @ D0A4
+* [API ] CreateProcessA    @ A80D
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] CreateFileA       @ B973
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID              @ 386C    Retarget    Missing
+* [API ] CreateFileA        @ 3EB5    Succeed
+* [API ] CreateFileA        @ 692F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateFileA        @ B973    Retarget    iexplorer.exe
+* [API ] CreateFileA        @ D00D    Fail
+* [API ] CreateMutexA       @ 727B    Succeed
+* [API ] DeviceIoControl    @ 695F    Retarget    Missing
+* [API ] FindFirstFileA     @ BA5C    Succeed
+* [API ] GetCursorPos       @ 6C77    Nothing
+* [API ] GetCursorPos       @ B919    Retarget    Missing
+* [API ] GetKeyboardLayout  @ 8F96    Nothing
+* [API ] GetLocalTime       @ CF91    Nothing
+* [API ] GetModuleFileNameA @ 010D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 4F4B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 6193    Nothing
+* [API ] GetModuleFileNameA @ 6424    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 6F2B    Nothing
+* [API ] GetModuleFileNameA @ 7A69    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ A17C    Nothing
+* [API ] GetModuleFileNameA @ B7D3    Nothing
+* [API ] Process32First     @ 5BB7    Nothing
+* [API ] Process32Next      @ 5BD7    Retarget
+* [API ] RegEnumKeyExA      @ 6683    Nothing
+* [API ] RegOpenKeyExA      @ 6442    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 6460    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 647E    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 663E    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ D6A7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ D783    Nothing
+* [API ] RegQueryValueExA   @ D86C    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ AFE7    Nothing
+* [API ] TimeQueryAPIs      @ 5A71    Nothing
+
+[Manual annotations]
+====================

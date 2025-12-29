@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 08e6ef369c29700bc029841c9cb0ba4b68936f93ef0ded9c99cfc283bfaddbc7
+MD5: 2478e706126a92ec971b40692d4b28c1
+Year: 2019_05_11
+Family name: zepfod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA   @ 4585
+* [API ] WriteFile     @ 478B
+* [API ] ShellExecuteA @ 43DF
+
+Fuzzing Findings
+----------------
+* [API ] ShellExecuteA @ 2A8F
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 4585    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 5823    Fail
+* [API ] GetComputerNameA   @ 2533    Nothing
+* [API ] GetComputerNameA   @ 3CFB    Retarget    John
+* [API ] GetComputerNameA   @ 56E2    Retarget    Office
+* [API ] GetFileAttributesA @ 29B3    Succeed
+* [API ] GetFileAttributesA @ 31B6    Fail
+* [API ] GetFileAttributesA @ 3F39    Fail
+* [API ] GetModuleFileNameA @ 1A45    Nothing
+* [API ] GetModuleFileNameA @ 649A    Nothing
+* [API ] Process32First     @ 4B9F    Nothing
+* [API ] Process32Next      @ 516A    Retarget
+* [API ] TimeDelayAPIs      @ 4484    Retarget
+* [API ] TimeQueryAPIs      @ 45E2    Retarget
+
+[Manual annotations]
+====================

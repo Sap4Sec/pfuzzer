@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: aefb19996eb40f5c018c8e351f7c947d26e239474a7666594c83c7db00ba6657
+MD5: f8b48f4dcc33171464e501e41b54ade4
+Year: 2020_05_06
+Family name: purityscan
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

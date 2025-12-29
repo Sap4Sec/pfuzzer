@@ -1,0 +1,27 @@
+[Basic information]
+=========================================================================
+SHA-256: a3a4c2e6e0ffea41e5c114f584c6e53d472562aee2175d6ec58af1142ecdb9ec
+MD5: 44340152014bb24417108c7f69e8e313
+Year: 2021_11_03
+Family name: pajetbin
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] StartServiceCtrlDispatcherW @ 9250
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID              @ AD17    Retarget    Missing
+* [API ] GetModuleFileNameA @ 5F3C    Nothing
+* [API ] GetSystemInfo      @ 906D    Retarget    Missing
+
+[Manual annotations]
+====================

@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: VHO-Trojan.Win32.Llac.gen-741280ecfc868faa37e9deafa2d6359cc08390e36a5eb37853669045befc068b
+MD5: a8ce195779880c6288d5ae552a44c98c
+Year: 2022
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 3B4C
+* [API ] LoadResource       @ 3B68
+
+Fuzzing Findings
+----------------
+* [API ] SetWindowsHookExA  @ 74F6
+* [API ] SetWindowsHookExA  @ 750B
+* [API ] CreateFileA        @ 4F07
+* [API ] CreateFileA        @ 4F43
+* [API ] CreateFileA        @ 5393
+* [API ] WriteFile          @ 53C1
+* [API ] VirtualAllocEx     @ 385F
+* [API ] VirtualAllocEx     @ 2F01
+* [API ] WriteProcessMemory @ 2F23
+* [API ] VirtualAllocEx     @ 2F6B
+* [API ] WriteProcessMemory @ 2F77
+* [API ] CreateRemoteThread @ 2FC3
+* [API ] WriteProcessMemory @ 38A1
+* [API ] CreateProcessA     @ 718C
+* [API ] CreateProcessA     @ 7035
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateMutexA  @ 2CB7    Fail
+* [API ] Process32Next @ 47B7    Retarget
+* [API ] TimeDelayAPIs @ 7550    Retarget
+
+[Manual annotations]
+====================

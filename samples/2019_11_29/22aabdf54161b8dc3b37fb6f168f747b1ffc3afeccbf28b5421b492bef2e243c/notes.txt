@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: 22aabdf54161b8dc3b37fb6f168f747b1ffc3afeccbf28b5421b492bef2e243c
+MD5: 6853fcbb3a3657a7f8213b34a424f890
+Year: 2019_11_29
+Family name: necurs
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW        @ B194
+* [API ] CreateFileMappingW @ B1BE
+* [API ] MapViewOfFile      @ B1D1
+* [API ] CreateFileW        @ 753F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateFileW        @ 753F    Succeed
+* [API ] CreateFileW        @ B194    Retarget    Detect It Easy.lnk
+* [API ] GetModuleFileNameW @ 629F    Retarget    C:\Windows\system32\
+
+[Manual annotations]
+====================
+Command line arguments

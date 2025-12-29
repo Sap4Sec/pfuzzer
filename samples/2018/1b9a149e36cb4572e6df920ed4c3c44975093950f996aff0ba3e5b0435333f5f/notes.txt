@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 1b9a149e36cb4572e6df920ed4c3c44975093950f996aff0ba3e5b0435333f5f
+MD5: b6fed5c77b9b877b7eeae2e98c0004c1
+Year: 2018
+Family name: zbot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ 2ECC
+* [API ] LoadResource         @ 2F15
+* [API ] CreateProcessW       @ 2592
+* [API ] NtUnmapViewOfSection @ 25CF
+* [API ] VirtualAllocEx       @ 25EB
+* [API ] WriteProcessMemory   @ 261C
+* [API ] SetThreadContext     @ 2639
+* [API ] WriteProcessMemory   @ 2687
+* [API ] WriteProcessMemory   @ 26F8
+* [API ] ResumeThread         @ 272D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID               @ B4F6    Nothing
+* [API ] GetCursorPos        @ 29B6    Nothing
+* [API ] GetForegroundWindow @ 2C5C    Retarget    Missing
+* [API ] GetModuleFileNameW  @ 70B1    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetUserNameW        @ 29FA    Retarget    Office
+* [API ] TimeQueryAPIs       @ 74A3    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: af04b1a05f08228b8c88e5936dec37f3648e5dc7948ecaff0aea96eeabdec8d5
+MD5: b147c8e9bedd3dddf4dccdcbc9bb21d8
+Year: 2018
+Family name: SINGLETON:b147c8e9bedd3dddf4dccdcbc9bb21d8
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 570F
+* [API ] WriteFile   @ 3059
+* [API ] SetFileTime @ 189C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 570F    Succeed     Not modified
+* [API ] FindFirstFileA     @ 5D18    Retarget    C:\*
+* [API ] GetFileAttributesA @ 15F9    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesA @ 56CE    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesA @ 56ED    Fail
+* [API ] GetModuleFileNameA @ 2C55    Nothing
+* [API ] TimeQueryAPIs      @ 572B    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: 7b904ca55cc12215ce57f5369f32925f7388b4f1143e57de431c210eac448ee9
+MD5: 60826c0d8d96b5c4fcf7a6861b311f6b
+Year: 2018
+Family name: SINGLETON:60826c0d8d96b5c4fcf7a6861b311f6b
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 3742
+* [API ] CreateFileW  @ 690A
+* [API ] NtCreateFile @ 4EB6
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: the application requires a valid license file (NetWire.license)

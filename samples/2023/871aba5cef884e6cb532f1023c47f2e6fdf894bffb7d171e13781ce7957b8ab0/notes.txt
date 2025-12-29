@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-871aba5cef884e6cb532f1023c47f2e6fdf894bffb7d171e13781ce7957b8ab0
+MD5: 65edcfa090755e408992785778955dce
+Year: 2023
+Family name: lazy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] NtAllocateVirtualMemory @ 8B13
+
+Fuzzing Findings
+----------------
+* [API ] InternetOpenW           @ 4A64
+* [API ] InternetOpenUrlW        @ 4BA7
+* [API ] CopyFileW               @ 591B
+* [API ] CreateFileW             @ 2F81
+* [API ] WriteFile               @ 327B
+* [API ] ShellExecuteW           @ 8C0F
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ CE18    Retarget    Missing
+* [API ] GetComputerNameW   @ D95D    Nothing
+* [API ] GetFileAttributesW @ F247    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 4BEA    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 97F3    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ E15A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetUserNameW       @ 0A13    Retarget    John
+* [API ] Process32FirstW    @ 15E6    Nothing
+* [API ] Process32NextW     @ 1B0D    Retarget
+* [API ] TimeQueryAPIs      @ 8A6D    Retarget
+
+[Manual annotations]
+====================

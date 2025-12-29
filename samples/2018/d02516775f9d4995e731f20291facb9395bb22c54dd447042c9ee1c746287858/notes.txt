@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: d02516775f9d4995e731f20291facb9395bb22c54dd447042c9ee1c746287858
+MD5: cd99a04ef7b0dfceb26d55c4a0b26b41
+Year: 2018
+Family name: SINGLETON:cd99a04ef7b0dfceb26d55c4a0b26b41
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ A60C
+* [API ] CreateFileW  @ CC70
+* [API ] NtCreateFile @ EBE3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+SAFENGINE-protected; detects virtualized environment and exits.

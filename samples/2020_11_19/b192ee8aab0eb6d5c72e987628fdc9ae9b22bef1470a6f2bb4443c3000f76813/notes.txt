@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: b192ee8aab0eb6d5c72e987628fdc9ae9b22bef1470a6f2bb4443c3000f76813
+MD5: 76d418f4588203394ba3c10234c39c1b
+Year: 2020_11_19
+Family name: vkontaktedj
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] FindFirstFileW     @ 849C    Nothing
+* [API ] GetKeyboardLayout  @ 6D8A    Retarget    Russian
+* [API ] GetModuleFileNameW @ 5005    Nothing
+* [API ] GetModuleFileNameW @ 7507    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 8076    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 84F4    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 87C8    Nothing
+* [API ] GetSystemInfo      @ 8F75    Nothing
+* [API ] RegOpenKeyExW      @ 73BF    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 80BF    Succeed
+* [API ] RegOpenKeyExW      @ 80E1    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 80FF    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 811D    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 813B    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 8159    Fail        Not modified
+* [API ] RegOpenKeyExW      @ BEC6    Fail
+* [API ] RegQueryValueExW   @ C5BA    Nothing
+* [API ] RegQueryValueExW   @ CBA4    Nothing
+* [API ] TimeDelayAPIs      @ E1CD    Retarget
+* [API ] TimeQueryAPIs      @ 3435    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasion

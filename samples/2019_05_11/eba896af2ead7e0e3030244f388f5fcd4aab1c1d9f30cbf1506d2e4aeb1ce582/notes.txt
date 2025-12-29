@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: eba896af2ead7e0e3030244f388f5fcd4aab1c1d9f30cbf1506d2e4aeb1ce582
+MD5: 13a67e10a8523bd49b67b5c25ca97e2d
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ AF16
+* [API ] SetWindowsHookExA @ 80A8
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA       @ 69C3
+* [API ] WriteFile         @ 6A5A
+* [API ] CreateFileA       @ A3E1
+* [API ] CreateFileA       @ 6AE0
+* [API ] CreateFileA       @ 8137
+* [API ] CreateProcessA    @ 8CED
+* [API ] CreateFileA       @ A231
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CreateFileA        @ 69C3    Succeed
+* [API ] CreateFileA        @ 6AE0    Succeed
+* [API ] CreateFileA        @ 8137    Fail        Not modified
+* [API ] CreateFileA        @ A3E1    Succeed
+* [API ] DeviceIoControl    @ 827D    Nothing
+* [API ] DeviceIoControl    @ A20D    Nothing
+* [API ] DeviceIoControl    @ A419    Nothing
+* [API ] FindFirstFileA     @ B2C6    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ C950    Succeed
+* [API ] GetCursorPos       @ 01FF    Nothing
+* [API ] GetLocalTime       @ 8573    Nothing
+* [API ] GetModuleFileNameA @ 0453    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ A3AC    Nothing
+* [API ] GetModuleFileNameA @ B989    Nothing
+* [API ] GetModuleFileNameA @ C843    Nothing
+* [API ] GetSystemTime      @ 857D    Nothing
+* [API ] TimeDelayAPIs      @ 79E1    Retarget
+* [API ] TimeQueryAPIs      @ 8DE1    Retarget
+
+[Manual annotations]
+====================

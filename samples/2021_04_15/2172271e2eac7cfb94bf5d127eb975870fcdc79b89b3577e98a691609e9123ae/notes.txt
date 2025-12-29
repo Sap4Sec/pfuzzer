@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 2172271e2eac7cfb94bf5d127eb975870fcdc79b89b3577e98a691609e9123ae
+MD5: e7aa7b46b0690ba17033fd059aaf9df6
+Year: 2021_04_15
+Family name: zepfod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Message appears: unable to be run on my pc

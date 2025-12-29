@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 1ac0f3cfc29a26587f655efef638feb9d1f489648e1401499c9d123d7bf7994f
+MD5: c124f0fe24278dcca3116585ecc8ca62
+Year: 2018
+Family name: SINGLETON:c124f0fe24278dcca3116585ecc8ca62
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: steam_api.dll

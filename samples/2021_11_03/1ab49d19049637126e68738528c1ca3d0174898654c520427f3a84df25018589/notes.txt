@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 1ab49d19049637126e68738528c1ca3d0174898654c520427f3a84df25018589
+MD5: e89af4504d7b33ce65e3ec7120a535cc
+Year: 2021_11_03
+Family name: vobfus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] ShellExecuteW      @ D7B1
+* [API ] WriteProcessMemory @ 9614
+* [API ] RegCreateKeyExW    @ 9628
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExW     @ 9619
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\
+* [API ] WSAStartup         @ 9605
+* [API ] socket             @ 960A
+
+Fuzzing Findings
+----------------
+* [API ] WSAStartup         @ 8C15
+* [API ] socket             @ 8C1A
+* [API ] WSAStartup         @ A75D
+* [API ] socket             @ A762
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateMutexW       @ 4EF2    Fail
+* [API ] GetModuleFileNameW @ FB8A    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ FFBA    Retarget    C:\Windows\system32\
+* [API ] GetUserNameW       @ 4EED    Nothing
+* [API ] Process32First     @ D79D    Nothing
+* [API ] Process32Next      @ 9605    Retarget
+* [API ] Process32Next      @ D79D    Retarget
+* [API ] TimeDelayAPIs      @ 4EE8    Retarget
+
+[Manual annotations]
+====================

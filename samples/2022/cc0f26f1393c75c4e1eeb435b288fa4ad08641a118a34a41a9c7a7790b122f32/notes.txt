@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-cc0f26f1393c75c4e1eeb435b288fa4ad08641a118a34a41a9c7a7790b122f32
+MD5: a17b20b3a4ff431c1e6a514da2bff5cb
+Year: 2022
+Family name: qbot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ 25C9
+* [API ] CreateFileMappingA @ 2690
+* [API ] MapViewOfFile      @ 26A6
+* [API ] LdrLoadDll         @ 1283
+* [API ] LdrLoadDll         @ 02B9
+* [API ] FindResourceW      @ 1AA5
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 3458    Nothing
+* [API ] GetModuleFileNameA @ 7485    Nothing
+* [API ] GetModuleFileNameW @ 80C4    Nothing
+* [API ] TimeQueryAPIs      @ 3085    Retarget
+
+[Manual annotations]
+====================
+Check the command line and checks  for it in a loop of comparisons

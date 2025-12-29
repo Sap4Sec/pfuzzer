@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-9f665e80fd30880ad8a4e5955dcc7159d05d89dbaa691d7e4d162d402952b4e9
+MD5: 8e0fe5bce9b2a9a6e2f83f679d6f1112
+Year: 2022
+Family name: SINGLETON:8e0fe5bce9b2a9a6e2f83f679d6f1112
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 4D50
+* [API ] CreateFileW  @ B255
+* [API ] NtCreateFile @ 0988
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 5993
+* [API ] NtCreateFile @ CB87
+* [API ] NtCreateFile @ F23C
+* [API ] NtCreateFile @ 230F
+* [API ] NtCreateFile @ 6CA9
+* [API ] NtCreateFile @ 8BFD
+* [API ] NtCreateFile @ AF39
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID         @ 5701    Retarget    Missing
+* [API ] CreateFileW   @ 4D50    Fail
+* [API ] CreateFileW   @ B255    Succeed     Not modified
+* [API ] NtCreateFile  @ 0988    Retarget    \??\Analysis
+* [API ] TimeQueryAPIs @ 56F5    Retarget
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

@@ -1,0 +1,57 @@
+[Basic information]
+=========================================================================
+SHA-256: 99f7852242410b6f8782c96ad90c2292701f0f2835fd7395788d0e9b8d41b17c
+MD5: 70cb2adb489079fb7037aa35bb8493c3
+Year: 2021_11_03
+Family name: lmir
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 7DFE
+* [API ] CreateFileA     @ 7E26
+* [API ] WriteFile       @ 7E75
+* [API ] CreateProcessA  @ C7FC
+* [API ] WinExec         @ 49EF
+* [API ] CreateFileA     @ 4AFA
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 468B
+* [API ] CreateProcessA  @ 4726
+* [API ] CopyFileA       @ C9C2
+* [API ] RegCreateKeyExA @ F146
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA  @ F1B2
+* [API ] WinExec         @ CB02
+
+[Mutations applied in the best run (116)]
+=======================================
+
+* [API ] CreateFileA        @ 4AFA    Retarget    iexplorer.exe
+* [API ] CreateFileA        @ 7DFE    Succeed     Not modified
+* [API ] CreateFileA        @ 7E26    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] FindFirstFileA     @ 7F74    Retarget    C:\*
+* [API ] FindFirstFileA     @ DC74    Succeed
+* [API ] FindNextFileA      @ 7FB4    Retarget
+* [API ] FindWindowA        @ 4940    Fail
+* [API ] FindWindowA        @ C914    Fail
+* [API ] GetModuleFileNameA @ 2A39    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 59AF    Nothing
+* [API ] GetModuleFileNameA @ 5BE9    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ C92D    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ B66B    Nothing
+* [API ] Process32Next      @ B68B    Retarget
+* [API ] RegOpenKeyExA      @ 5C07    Succeed
+* [API ] RegOpenKeyExA      @ 5C25    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5C43    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 5C8C    Nothing
+* [API ] RegQueryValueExA   @ 5CAA    Nothing
+* [API ] TimeDelayAPIs      @ 4A11    Retarget
+* [API ] TimeQueryAPIs      @ A923    Retarget
+
+[Manual annotations]
+====================

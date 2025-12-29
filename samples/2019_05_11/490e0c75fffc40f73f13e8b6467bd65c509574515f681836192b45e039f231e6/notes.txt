@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 490e0c75fffc40f73f13e8b6467bd65c509574515f681836192b45e039f231e6
+MD5: ed75d9d154d0fb2b4a74406e39afa434
+Year: 2019_05_11
+Family name: bifrose
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: missing wzaudio.dll

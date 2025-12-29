@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: e1177f7306cdc7426b37794d7877b600d1d2d8d95a485269a527764ce90c72cd
+MD5: 5643b6029e9f4a25ce04e2fbbe320d14
+Year: 2019_05_11
+Family name: yiwanzhushou
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup    @ 41BF
+* [API ] WSAStartup    @ 421A
+* [API ] WSAStartup    @ 4269
+* [API ] WSAStartup    @ 43A7
+* [API ] WSAStartup    @ 7488
+* [API ] FindResourceA @ C1DC
+* [API ] LoadResource  @ C1EB
+* [API ] CreateFileA   @ 1484
+* [API ] CreateFileA   @ 1B14
+* [API ] CreateThread  @ B1FB
+* [API ] ResumeThread  @ 7B7B
+* [API ] WSAStartup    @ 4D64
+* [API ] getaddrinfo   @ 4C3B
+* [API ] WSASocketW    @ 4FC4
+* [API ] WSAConnect    @ 5156
+* [API ] WSASend       @ 52BF
+* [API ] WSARecv       @ 5495
+* [API ] FindResourceW @ 46DD
+* [API ] LoadResource  @ 4741
+* [API ] CreateFileW   @ 4F89
+* [API ] WriteFile     @ B679
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExW   @ CADA
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CPUID              @ 44B0    Retarget    Missing
+* [API ] CreateFileA        @ 1484    Succeed     Not modified
+* [API ] CreateFileA        @ 1B14    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileW        @ 4F89    Fail
+* [API ] CreateMutexA       @ 5BD4    Retarget    vscode
+* [API ] DeviceIoControl    @ 14CE    Nothing
+* [API ] DeviceIoControl    @ 1B63    Nothing
+* [API ] DeviceIoControl    @ 30BD    Nothing
+* [API ] GetFileAttributesW @ 503B    Fail
+* [API ] GetModuleFileNameA @ 52E8    Nothing
+* [API ] GetModuleFileNameW @ 2E77    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 53FA    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 54F7    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ D765    Nothing
+* [API ] RegEnumKeyExA      @ 1C62    Nothing
+* [API ] RegEnumKeyExA      @ 1D7F    Retarget    Office
+* [API ] RegOpenKeyExA      @ 1C30    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 1C8C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 3101    Fail
+* [API ] RegOpenKeyExA      @ 31B1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 3261    Fail
+* [API ] RegQueryValueExA   @ 1CC4    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 3127    Nothing
+* [API ] RegQueryValueExA   @ 3155    Nothing
+* [API ] RegQueryValueExA   @ 31D7    Nothing
+* [API ] RegQueryValueExA   @ 3205    Nothing
+* [API ] RegQueryValueExA   @ 3287    Nothing
+* [API ] TimeDelayAPIs      @ CA69    Retarget
+* [API ] TimeQueryAPIs      @ CF7D    Retarget
+
+[Manual annotations]
+====================

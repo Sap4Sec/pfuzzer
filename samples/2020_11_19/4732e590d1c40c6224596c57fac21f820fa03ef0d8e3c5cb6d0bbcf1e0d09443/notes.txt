@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 4732e590d1c40c6224596c57fac21f820fa03ef0d8e3c5cb6d0bbcf1e0d09443
+MD5: 86c32a2ff97f15997ce935ac64ec1e3f
+Year: 2020_11_19
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 5A0F
+* [API ] SetWindowsHookExA @ 2B6F
+* [API ] WSAStartup        @ F93C
+* [API ] WSAStartup        @ 6F82
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] FindFirstFileA     @ 119E    Nothing
+* [API ] FindFirstFileA     @ EE25    Nothing
+* [API ] FindNextFileA      @ 12D9    Retarget
+* [API ] FindNextFileA      @ F03F    Retarget
+* [API ] GetCursorPos       @ AE7C    Retarget    Missing
+* [API ] GetFileAttributesA @ 1263    Fail
+* [API ] GetModuleFileNameA @ 40AA    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 8B19    Nothing
+* [API ] GetModuleFileNameA @ B0D6    Nothing
+* [API ] GetModuleFileNameA @ D4D3    Nothing
+* [API ] GetWindowTextA     @ 29E6    Nothing
+
+[Manual annotations]
+====================
+User interaction: opens a GUI requiring text input

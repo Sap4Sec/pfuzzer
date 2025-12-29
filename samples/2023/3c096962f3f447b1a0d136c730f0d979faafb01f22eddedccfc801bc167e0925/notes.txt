@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: P2P-Worm.Win32.Palevo.hzct-3c096962f3f447b1a0d136c730f0d979faafb01f22eddedccfc801bc167e0925
+MD5: 003f93a1f33ec617b46a87c98b19fd85
+Year: 2023
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1120
+* [API ] CreateFileA @ 12A6
+* [API ] WriteFile   @ 1308
+* [API ] WriteFile   @ 131C
+* [API ] WinExec     @ 13AA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA   @ 1120    Succeed     Not modified
+* [API ] CreateFileA   @ 12A6    Retarget    iexplorer.exe
+* [API ] TimeDelayAPIs @ 12F2    Retarget
+* [API ] TimeQueryAPIs @ 109B    Retarget
+
+[Manual annotations]
+====================

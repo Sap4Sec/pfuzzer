@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.Generic-c1805c2e5c5236abf7dfa8c1edb4306e5d0eb518688aba5f2a1c74bd4db53454
+MD5: 3ee2c0a5e02e4fa9998e3dc37346b85f
+Year: 2022
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (29)]
+=======================================
+
+* [API ] CreateFileA        @ 22F9    Succeed
+* [API ] CreateFileA        @ 23DC    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 25A6    Succeed
+* [API ] FindWindowA        @ 1030    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] FindWindowA        @ 2BC8    Succeed
+* [API ] GetModuleFileNameA @ 156B    Nothing
+* [API ] GetModuleFileNameA @ 2909    Nothing
+* [API ] GetModuleFileNameA @ 2BA0    Nothing
+* [API ] GetModuleFileNameA @ 3955    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 3A88    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 26B3    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetUserNameA       @ 3992    Retarget    John
+* [API ] Process32First     @ 1077    Nothing
+* [API ] Process32First     @ 1AFB    Nothing
+* [API ] Process32Next      @ 109F    Retarget
+* [API ] Process32Next      @ 1B1E    Retarget
+* [API ] RegOpenKeyExA      @ 38A2    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 38C7    Retarget    ProductID
+
+[Manual annotations]
+====================

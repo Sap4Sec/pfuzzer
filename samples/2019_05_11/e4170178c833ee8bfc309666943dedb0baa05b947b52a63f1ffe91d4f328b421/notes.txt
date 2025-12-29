@@ -1,0 +1,81 @@
+[Basic information]
+=========================================================================
+SHA-256: e4170178c833ee8bfc309666943dedb0baa05b947b52a63f1ffe91d4f328b421
+MD5: b7471ca71e0efc1b12bbda642258a2b3
+Year: 2019_05_11
+Family name: webalta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ EEED
+* [API ] CreateFileW       @ 0A93
+* [API ] NtCreateFile      @ AA7E
+* [API ] WSAStartup        @ 9932
+* [API ] FindResourceExW   @ D79C
+* [API ] LoadResource      @ D7B6
+* [API ] FindResourceExW   @ D7F1
+* [API ] LoadResource      @ D816
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile      @ 9E5D
+* [API ] FindResourceExW   @ 9D41
+* [API ] LoadResource      @ 9D5B
+* [API ] FindResourceExW   @ 9D96
+* [API ] LoadResource      @ 9DBB
+* [API ] VirtualAllocEx    @ 7AEB
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] NtCreateFile      @ DB86
+* [API ] FindResourceExW   @ 9A98
+* [API ] LoadResource      @ 9AB2
+* [API ] FindResourceExW   @ 9AED
+* [API ] LoadResource      @ 9B12
+* [API ] NtCreateFile      @ E534
+* [API ] FindResourceExW   @ B446
+* [API ] LoadResource      @ B460
+* [API ] FindResourceExW   @ B49B
+* [API ] LoadResource      @ B4C0
+* [API ] NtCreateFile      @ 6989
+* [API ] FindResourceExW   @ F89C
+* [API ] LoadResource      @ F8B6
+* [API ] FindResourceExW   @ F8F1
+* [API ] LoadResource      @ F916
+* [API ] NtCreateFile      @ CD24
+* [API ] FindResourceExW   @ ABD8
+* [API ] LoadResource      @ ABF2
+* [API ] FindResourceExW   @ AC2D
+* [API ] LoadResource      @ AC52
+* [API ] NtCreateFile      @ EFF3
+* [API ] FindResourceExW   @ BEC7
+* [API ] LoadResource      @ BEE1
+* [API ] FindResourceExW   @ BF1C
+* [API ] LoadResource      @ BF41
+* [API ] NtCreateFile      @ 22B2
+* [API ] FindResourceExW   @ C1A5
+* [API ] LoadResource      @ C1BF
+* [API ] FindResourceExW   @ C1FA
+* [API ] LoadResource      @ C21F
+* [API ] NtCreateFile      @ F61D
+* [API ] FindResourceExW   @ 24F1
+* [API ] LoadResource      @ 250B
+* [API ] FindResourceExW   @ 2546
+* [API ] LoadResource      @ 256B
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID         @ 8971    Nothing
+* [API ] CreateFileW   @ 0A93    Succeed     Not modified
+* [API ] CreateFileW   @ EEED    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] NtCreateFile  @ AA7E    Fail        Not modified
+* [API ] TimeQueryAPIs @ 8923    Nothing
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

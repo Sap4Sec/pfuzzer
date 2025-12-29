@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 4fbfd4c6daa9f6294f391c7f62869297ce08a69bfa1c06edf95587b9d0f67278
+MD5: db267920a25b831c2d39f6e10b3576ec
+Year: 2018
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: MSVCP71.dll, ATL71.dll, MSVCR71.dll, C:\Windows\SYSTEM32\SQLUNIRL.dll; also require command line arg: /UnRegServer, -UnRegServer, etc

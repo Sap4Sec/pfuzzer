@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: fcc7288d2b048931911c4a053e199bff32bbccd8eb9398d8d0d01a95e1fa0459
+MD5: b73f885aef2791332d553a5ad9a0c024
+Year: 2021_11_03
+Family name: xolxo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Fail
+* [API ] CreateFileA        @ 32AC    Succeed
+* [API ] CreateFileA        @ 3310    Fail        Not modified
+* [API ] CreateFileA        @ 33ED    Succeed
+* [API ] CreateMutexA       @ 2A13    Retarget    vscode
+* [API ] FindFirstFileA     @ 30A1    Fail
+* [API ] FindFirstFileA     @ 369C    Nothing
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA      @ 2D07    Fail        Not modified
+
+[Manual annotations]
+====================

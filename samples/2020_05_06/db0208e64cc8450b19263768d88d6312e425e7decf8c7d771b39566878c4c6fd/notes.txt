@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: db0208e64cc8450b19263768d88d6312e425e7decf8c7d771b39566878c4c6fd
+MD5: b6379e81e84a1a25aedec89df997c205
+Year: 2020_05_06
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+[Mutations applied in the best run (46)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA          @ 1BEA    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA          @ 1C1B    Retarget    C:\Windows\system32\
+* [API ] CreateFileA          @ 239A    Fail        Not modified
+* [API ] CreateMutexA         @ 105A    Retarget    VBoxTray
+* [API ] CreateMutexA         @ 1101    Fail
+* [API ] FindFirstFileA       @ 3004    Nothing
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesExA @ 1B43    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 11A7    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA   @ 1E4D    Nothing
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2A94    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2AE1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 2D0B    Fail
+* [API ] RegQueryValueExA     @ 2B12    Retarget    ProductID
+* [API ] TimeDelayAPIs        @ 10C1    Retarget
+* [API ] TimeQueryAPIs        @ 1100    Retarget
+
+[Manual annotations]
+====================

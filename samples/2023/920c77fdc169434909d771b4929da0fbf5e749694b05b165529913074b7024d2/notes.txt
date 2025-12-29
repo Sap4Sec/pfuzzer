@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Downloader.Win32.Delf.gen-920c77fdc169434909d771b4929da0fbf5e749694b05b165529913074b7024d2
+MD5: b045db7fd000286470fcfc5b555be769
+Year: 2023
+Family name: modiloader
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 726F
+* [API ] FindResourceA        @ 9D60
+* [API ] LoadResource         @ 9D7A
+* [API ] NtWriteVirtualMemory @ FD4E
+* [API ] NtWriteVirtualMemory @ 7C0F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] GetFileAttributesA @ 7E40    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetKeyboardLayout  @ 28AA    Retarget    Italian
+* [API ] GetLocalTime       @ A071    Nothing
+* [API ] GetModuleFileNameA @ 3A90    Nothing
+* [API ] GetModuleFileNameA @ 57C3    Nothing
+* [API ] GetModuleFileNameA @ 584F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5A54    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 5AB1    Nothing
+* [API ] GetModuleFileNameA @ C354    Nothing
+* [API ] GetSystemInfo      @ 1B05    Nothing
+* [API ] RegOpenKeyExA      @ 5A72    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5A90    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5AAE    Succeed
+* [API ] RegOpenKeyExA      @ 5ACF    Succeed
+* [API ] RegOpenKeyExA      @ 5AED    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5B0B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs      @ DC2C    Retarget
+* [API ] TimeQueryAPIs      @ 2EA1    Retarget
+
+[Manual annotations]
+====================
+Initially suspected evasion via LoadLibrary("Amsi") and similar techniques, but this was not confirmed --- cause remains unclear.

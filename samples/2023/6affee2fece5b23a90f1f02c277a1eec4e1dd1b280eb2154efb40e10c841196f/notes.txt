@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan.Win32.GenericML.xnet-6affee2fece5b23a90f1f02c277a1eec4e1dd1b280eb2154efb40e10c841196f
+MD5: ef7010b7c019df4e6918b81389ac6ca8
+Year: 2023
+Family name: wacatac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID              @ 936B    Retarget    Missing
+* [API ] GetModuleFileNameW @ 1AE8    Nothing
+
+[Manual annotations]
+====================
+Other dependencies: Calls GetRawInputDeviceList @ 0x0108A1AA  and check info for each input device, it exits then without finding what it needed. Further calls are related to the input device drtivers. so it requires a specific device. This can be fuzzed by adding support to this technique after studying it, interesting sample

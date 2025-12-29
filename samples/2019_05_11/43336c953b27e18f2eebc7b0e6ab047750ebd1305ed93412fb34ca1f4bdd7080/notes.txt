@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 43336c953b27e18f2eebc7b0e6ab047750ebd1305ed93412fb34ca1f4bdd7080
+MD5: 187a0f1408b59c1da98bd1424bdd9815
+Year: 2019_05_11
+Family name: ulise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 3CBB
+* [API ] OpenServiceW         @ 3B8A
+* [API ] CryptAcquireContextW @ 7AC7
+* [API ] CryptGenRandom       @ 8A16
+* [API ] CryptReleaseContext  @ 7F36
+* [API ] CreateFileW          @ 220B
+* [API ] CreateFileW          @ 1DFC
+* [API ] WriteFile            @ 1FB0
+* [API ] CreateProcessW       @ 40AA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ EADF    Nothing
+* [API ] CreateFileW        @ 1DFC    Fail        Not modified
+* [API ] CreateFileW        @ 220B    Retarget    C:\Windows\explorer.exe
+* [API ] GetComputerNameA   @ 6CDD    Retarget    testuser
+* [API ] GetModuleFileNameW @ 6F9F    Nothing
+* [API ] GetModuleFileNameW @ E0F7    Nothing
+* [API ] GetUserNameA       @ B3CB    Retarget    John
+
+[Manual annotations]
+====================

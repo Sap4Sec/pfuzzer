@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 5400ae98e995e381f5d8a41d7a3e1502c75bd12b830cb6da507e21ae4494396c
+MD5: 067dfc4c988929a3a17c6f79e7aaf083
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA  @ 55E9
+* [API ] SetWindowsHookExA  @ 2747
+* [API ] WSAStartup         @ 54AC
+* [API ] WSAStartup         @ 0AE8
+* [API ] socket             @ 937B
+* [API ] inet_addr          @ 9955
+* [API ] connect            @ 9A03
+* [API ] OpenFileMappingA   @ F0A6
+* [API ] CreateFileMappingA @ EE2B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID              @ 2578    Retarget    Missing
+* [API ] CreateMutexA       @ 846B    Fail
+* [API ] GetComputerNameA   @ 2195    Nothing
+* [API ] GetCursorPos       @ A9E6    Retarget    Missing
+* [API ] GetModuleFileNameA @ 4C52    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 5079    Nothing
+* [API ] GetModuleFileNameA @ 8F63    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ AC3A    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetWindowTextA     @ 2C36    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] Process32First     @ 9B89    Nothing
+* [API ] Process32Next      @ A047    Retarget
+* [API ] RegOpenKeyExA      @ D2C0    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs      @ AC9A    Retarget
+* [API ] TimeQueryAPIs      @ 1489    Retarget
+
+[Manual annotations]
+====================
+VMPotect --- Seems not evasive with classic VMP anti-vm evasions

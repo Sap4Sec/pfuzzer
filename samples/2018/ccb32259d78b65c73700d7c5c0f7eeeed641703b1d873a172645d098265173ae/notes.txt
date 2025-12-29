@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: ccb32259d78b65c73700d7c5c0f7eeeed641703b1d873a172645d098265173ae
+MD5: f2bd65bccd882d3c486462930edde960
+Year: 2018
+Family name: fraudster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ E45E
+* [API ] CreateFileW  @ B6CC
+* [API ] NtCreateFile @ 9657
+* [API ] WSAStartup   @ 41F2
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 1F72
+* [API ] NtCreateFile @ C680
+* [API ] NtCreateFile @ 7B53
+* [API ] NtCreateFile @ DBF0
+* [API ] NtCreateFile @ 8001
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ 5B19    Nothing
+* [API ] CreateFileW        @ B6CC    Succeed     Not modified
+* [API ] CreateFileW        @ E45E    Fail
+* [API ] GetModuleFileNameW @ D8A1    Nothing
+* [API ] NtCreateFile       @ 9657    Succeed     Not modified
+* [API ] NtCreateFile       @ A99E    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs      @ 5FC9    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected; creates a .dat file containing binary data, shows a message box with unreadable characters, then exits.

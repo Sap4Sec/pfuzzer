@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 62a0c449ac690fc4cb122c5f7eed10bd9480c55332ace1f7d4dedd69faf1b207
+MD5: cf962f4ef03f8cc9ebf2e8f7aaa1f78a
+Year: 2019_05_11
+Family name: dinwod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 262B
+* [API ] CreateFileA    @ 291E
+* [API ] WriteFile      @ 2959
+* [API ] CreateProcessA @ 2A37
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CreateFileA        @ 262B    Succeed
+* [API ] CreateFileA        @ 291E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 24EA    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 258E    Nothing
+* [API ] TimeQueryAPIs      @ 2165    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: 8c13f53a70cd0b0b4ac224359d784123cf8fd6865e54289a608a7a57208c927a
+MD5: 513c1a33a8cdd55dc4d9c2fbc77626b6
+Year: 2018
+Family name: SINGLETON:513c1a33a8cdd55dc4d9c2fbc77626b6
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] MapVirtualKeyW  @ 2B77
+* [API ] MapVirtualKeyW  @ 2B7F
+* [API ] MapVirtualKeyW  @ 2B8A
+* [API ] MapVirtualKeyW  @ 2B95
+* [API ] MapVirtualKeyW  @ 2B9D
+* [API ] MapVirtualKeyW  @ 2BA5
+* [API ] CreateThread    @ ADAE
+* [API ] CreateFileW     @ 73AE
+* [API ] FindResourceExW @ 54BA
+* [API ] CreateFileW     @ 3E2F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 7CD4    Nothing
+* [API ] CreateFileW        @ 3E2F    Fail        Not modified
+* [API ] CreateFileW        @ 73AE    Succeed
+* [API ] FindFirstFileW     @ 793B    Nothing
+* [API ] GetFileAttributesW @ 86A1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 3540    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 429F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ CD47    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ F764    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExW      @ D903    Fail
+* [API ] RegOpenKeyExW      @ F852    Fail        Not modified
+* [API ] RegQueryValueExW   @ D924    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 2D48    Retarget
+* [API ] TimeQueryAPIs      @ 4B39    Retarget
+
+[Manual annotations]
+====================
+Likely requires additional dependencies (possibly a file passed via command line).
+Shows a message box with the error: "Array variable has incorrect number of subscripts or subscript dimension range exceeded."

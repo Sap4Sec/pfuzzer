@@ -1,0 +1,68 @@
+[Basic information]
+=========================================================================
+SHA-256: 154d189973d80b5637cc45731fda56ae864891df7ada5a7fba52a364343f4190
+MD5: aba7ff86ee2e7b1ad24b85c54d257ae8
+Year: 2019_05_11
+Family name: gamemodding
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingW   @ DE2D
+* [API ] CreateFileMappingW @ DE92
+* [API ] MapViewOfFile      @ DED3
+* [API ] FindResourceW      @ A7EF
+* [API ] FindResourceW      @ FE50
+* [API ] LoadResource       @ FE6A
+* [API ] CreateThread       @ DF3F
+* [API ] WSAStartup         @ 2556
+* [API ] FindResourceW      @ C19E
+* [API ] RegCreateKeyExW    @ E2DD
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 1E2B
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CreateMutexW       @ F881    Retarget    ZonesCacheCounterMutex
+* [API ] FindFirstFileW     @ 13E4    Nothing
+* [API ] GetCursorPos       @ A808    Retarget    Missing
+* [API ] GetFileAttributesW @ 1FB6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesW @ 2053    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetFileAttributesW @ 2340    Succeed
+* [API ] GetKeyboardLayout  @ 6942    Nothing
+* [API ] GetModuleFileNameW @ 036B    Nothing
+* [API ] GetModuleFileNameW @ 044F    Nothing
+* [API ] GetModuleFileNameW @ 0FBE    Nothing
+* [API ] GetModuleFileNameW @ 1710    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 80AC    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 9B6D    Nothing
+* [API ] GetModuleFileNameW @ BEA1    Nothing
+* [API ] GetSystemInfo      @ 1EC1    Nothing
+* [API ] GetSystemInfo      @ CD9D    Nothing
+* [API ] GetSystemInfo      @ E707    Nothing
+* [API ] RegOpenKeyExW      @ 1007    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 1029    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 1047    Succeed
+* [API ] RegOpenKeyExW      @ 1065    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 1083    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 10A1    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 6F77    Succeed
+* [API ] RegOpenKeyExW      @ 8082    Fail
+* [API ] RegOpenKeyExW      @ E3D6    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ E44C    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ E4BD    Fail        Not modified
+* [API ] RegQueryValueExW   @ 8130    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ EACA    Nothing
+* [API ] RegQueryValueExW   @ F0B4    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ F750    Retarget
+* [API ] TimeQueryAPIs      @ BEE1    Retarget
+
+[Manual annotations]
+====================
+User interaction: GTA Sand Andreas modder software

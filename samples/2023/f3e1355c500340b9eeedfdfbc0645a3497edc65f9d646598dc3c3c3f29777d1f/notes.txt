@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Raccoon.xm-f3e1355c500340b9eeedfdfbc0645a3497edc65f9d646598dc3c3c3f29777d1f
+MD5: a4c82773687421058df73eb3cda2db29
+Year: 2023
+Family name: racealer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID         @ 7659    Retarget    Missing
+* [API ] CreateFileA   @ 9865    Succeed
+* [API ] GetSystemInfo @ 9865    Nothing
+* [API ] TimeDelayAPIs @ 9865    Retarget
+
+[Manual annotations]
+====================
+Cannot get rid of access_vilation but it stops where BluePill also terminates

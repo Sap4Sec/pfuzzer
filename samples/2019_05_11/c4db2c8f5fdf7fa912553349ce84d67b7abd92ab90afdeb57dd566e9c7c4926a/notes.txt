@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: c4db2c8f5fdf7fa912553349ce84d67b7abd92ab90afdeb57dd566e9c7c4926a
+MD5: d1fc79af1c2da55095fe41b31e213778
+Year: 2019_05_11
+Family name: wopla
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup  @ 27FB
+* [API ] socket      @ 280F
+* [API ] inet_addr   @ 2846
+* [API ] connect     @ 2868
+* [API ] CreateFileA @ 48E5
+* [API ] CreateFileA @ 4AA0
+* [API ] send        @ 2AE9
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA @ 49B8
+* [API ] CreateFileA @ 4C29
+* [API ] CreateFileA @ 4ECE
+
+[Mutations applied in the best run (40)]
+=======================================
+
+* [API ] CreateFileA     @ 48E5    Fail        Not modified
+* [API ] CreateFileA     @ 49B8    Fail        Not modified
+* [API ] CreateFileA     @ 4AA0    Succeed
+* [API ] CreateFileA     @ 4C29    Succeed
+* [API ] CreateFileA     @ 4ECE    Succeed
+* [API ] DeviceIoControl @ 45EE    Nothing
+* [API ] DeviceIoControl @ 4923    Retarget    Missing
+* [API ] DeviceIoControl @ 49EA    Retarget    Missing
+* [API ] DeviceIoControl @ 4ADB    Retarget    Missing
+* [API ] DeviceIoControl @ 4CD1    Nothing
+* [API ] DeviceIoControl @ 4F2C    Retarget    Missing
+* [API ] DeviceIoControl @ 4FF5    Nothing
+* [API ] GetAdaptersInfo @ 4710    Nothing
+
+[Manual annotations]
+====================

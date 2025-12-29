@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: e5bf434e3154327d815a1a7d3d3d6dc8645f443af36a9d49e18e6f9eae277341
+MD5: fb11ad4bfdf3b063ce1116294c8db769
+Year: 2018
+Family name: crck
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ AB51
+* [API ] LoadResource     @ AB69
+* [API ] FindResourceA    @ ABE5
+* [API ] CreateFileW      @ AD80
+* [API ] GetAsyncKeyState @ 5A3F
+* [API ] RegCreateKeyExA  @ DDBE
+* [API ] CreateFileW      @ 108A
+* [API ] CreatePipe       @ 14CB
+* [API ] CreatePipe       @ 151C
+* [API ] CreateProcessW   @ 1631
+* [API ] PeekNamedPipe    @ 12A9
+* [API ] PeekNamedPipe    @ 1BB7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID                    @ E0DA    Nothing
+* [API ] CreateFileW              @ 108A    Fail        Not modified
+* [API ] CreateFileW              @ AD80    Succeed     Not modified
+* [API ] CreateMutexW             @ 8472    Retarget    vscode
+* [API ] FindFirstFileW           @ D12E    Fail
+* [API ] GetCursorPos             @ E920    Retarget    Missing
+* [API ] GetCursorPos             @ E9D0    Nothing
+* [API ] GetFileAttributesW       @ DEDB    Succeed
+* [API ] GetFileAttributesW       @ E0D7    Fail
+* [API ] GetForegroundWindow      @ 8C88    Retarget    Missing
+* [API ] GetForegroundWindow      @ 9CD9    Retarget    Missing
+* [API ] GetForegroundWindow      @ AE4B    Nothing
+* [API ] GetModuleFileNameA       @ CB18    Nothing
+* [API ] GetModuleFileNameW       @ 2A02    Nothing
+* [API ] GetModuleFileNameW       @ 42F3    Nothing
+* [API ] GetModuleFileNameW       @ AD63    Nothing
+* [API ] GetProcessImageFileNameW @ 11C1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetUserDefaultLCID       @ A757    Retarget    Chinese-simplified
+* [API ] Process32FirstW          @ 2B5C    Nothing
+* [API ] Process32NextW           @ 2DCC    Retarget
+* [API ] RegQueryValueExA         @ E8F3    Nothing
+* [API ] RegQueryValueExW         @ E9F7    Retarget    ProductID
+* [API ] RegQueryValueExW         @ EAA6    Nothing
+* [API ] TimeDelayAPIs            @ 4581    Retarget
+* [API ] TimeQueryAPIs            @ CF51    Retarget
+
+[Manual annotations]
+====================

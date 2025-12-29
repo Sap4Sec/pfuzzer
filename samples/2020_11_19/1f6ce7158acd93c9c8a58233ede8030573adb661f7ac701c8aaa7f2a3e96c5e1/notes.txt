@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 1f6ce7158acd93c9c8a58233ede8030573adb661f7ac701c8aaa7f2a3e96c5e1
+MD5: dc4ad430137961372ce875200f8acd3d
+Year: 2020_11_19
+Family name: vkontaktedj
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] FindFirstFileW     @ 2ACC    Nothing
+* [API ] GetKeyboardLayout  @ 13BA    Retarget    French
+* [API ] GetModuleFileNameW @ 1B37    Nothing
+* [API ] GetModuleFileNameW @ 26A6    Nothing
+* [API ] GetModuleFileNameW @ 2B24    Nothing
+* [API ] GetModuleFileNameW @ 2DF8    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ F635    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo      @ 35A5    Nothing
+* [API ] RegOpenKeyExW      @ 19EF    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 26EF    Succeed
+* [API ] RegOpenKeyExW      @ 2711    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 272F    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 274D    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 276B    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 2789    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 64F6    Fail
+* [API ] RegQueryValueExW   @ 6BEA    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 71D4    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 87FD    Nothing
+* [API ] TimeQueryAPIs      @ DA65    Nothing
+
+[Manual annotations]
+====================
+Undetermined evasion

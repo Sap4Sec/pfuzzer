@@ -1,0 +1,29 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Ransom.Win32.Agent.bayo-a5ff97673b9c5fdfb26d14f6c4c28d71233743de97bd8141ee08b0d34df5382a
+MD5: 3e17fa9c6132a38068e13df42ddb275e
+Year: 2022
+Family name: redcap
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (13)]
+=======================================
+
+* [API ] CPUID         @ 1C39    Retarget    Missing
+* [API ] CreateFileA   @ 3FF5    Succeed
+* [API ] GetSystemInfo @ 3FF5    Nothing
+* [API ] TimeDelayAPIs @ 41D2    Retarget
+
+[Manual annotations]
+====================
+Exhibits some evasion techniques; BluePill detects relevant behaviors but fails to identify the specific evasion method.
+Runs successfully when executed with drrun.exe alone.

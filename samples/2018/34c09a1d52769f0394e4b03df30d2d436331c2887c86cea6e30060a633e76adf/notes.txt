@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: 34c09a1d52769f0394e4b03df30d2d436331c2887c86cea6e30060a633e76adf
+MD5: ae1c1463463f7e6765588759c5cb16eb
+Year: 2018
+Family name: SINGLETON:ae1c1463463f7e6765588759c5cb16eb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA  @ 019B
+* [API ] CreateThread @ AB8B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ F3F0    Retarget    Missing
+* [API ] CreateFileA        @ 019B    Succeed
+* [API ] CreateMutexA       @ 042B    Fail
+* [API ] GetModuleFileNameA @ EEE3    Nothing
+* [API ] TimeDelayAPIs      @ E8D6    Retarget
+
+[Manual annotations]
+====================
+No malicious activity or specific environmental requirements identified.

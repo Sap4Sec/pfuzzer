@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.DelShad.gen-48976d7bf38cca4e952507e9ab27e3874ca01092eed53d0fde89c5966e9533bb
+MD5: eff424376edca5680b90ea9fedad163d
+Year: 2022
+Family name: blackbasta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] StartServiceCtrlDispatcherW @ B78E
+* [API ] OpenSCManagerW              @ B7A3
+* [API ] CreateProcessW              @ AE20
+* [API ] CreateFileW                 @ D6F7
+* [API ] WriteFile                   @ 117B
+* [API ] RegCreateKeyExW             @ EF5B
+* [API ] RegSetValueExW              @ EF83
+* [API ] OpenServiceW                @ BEC6
+* [API ] ControlService              @ BEFA
+* [API ] WriteFile                   @ 0C79
+* [API ] DeleteService               @ C056
+* [API ] CreateServiceW              @ C0EE
+* [API ] RegCreateKeyExW             @ C30F
+* [API ] RegSetValueExW              @ C36E
+* [API ] WinExec                     @ B8D8
+* [API ] WinExec                     @ B8E1
+* [API ] WinExec                     @ B8EA
+* [API ] ShellExecuteA               @ B95A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

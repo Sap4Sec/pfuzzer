@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: 7508cf45c0cc46586005abfcfa89db939a859d97b225c2340463ef29d65bfa8b
+MD5: 6412dd10ea0fef67505da2d6f259f31b
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA          @ 36E8
+* [API ] CreateFileA          @ 3015
+* [API ] WriteFile            @ 2F40
+* [API ] WinExec              @ EF03
+* [API ] WinExec              @ FEBC
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA          @ 2E52
+* [API ] CreateThread         @ 5469
+* [API ] CreateFileA          @ 3947
+* [API ] CryptAcquireContextA @ 4EBB
+* [API ] CryptGenRandom       @ 4EE6
+* [API ] DecryptFileA         @ 4356
+* [API ] CryptReleaseContext  @ 4F85
+* [API ] CreateFileA          @ 5361
+* [API ] WriteFile            @ 39F9
+* [API ] SetFileTime          @ 5141
+* [API ] CreateFileA          @ 355E
+* [API ] WriteFile            @ 35B5
+* [API ] CreateProcessA       @ 5856
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 3015    Fail        Not modified
+* [API ] CreateFileA        @ 36E8    Retarget    Backup.txt
+* [API ] FindFirstFileA     @ 7C18    Nothing
+* [API ] GetModuleFileNameA @ 2DC8    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 5D07    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 5F98    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ EC56    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] Process32First     @ 72FF    Nothing
+* [API ] Process32Next      @ 731F    Retarget
+* [API ] RegOpenKeyExA      @ 5FB6    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5FD4    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5FF2    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs      @ E83A    Retarget
+* [API ] TimeQueryAPIs      @ 2E0D    Retarget
+
+[Manual annotations]
+====================

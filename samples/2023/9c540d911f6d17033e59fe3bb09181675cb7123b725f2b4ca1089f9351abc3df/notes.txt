@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agent.gen-9c540d911f6d17033e59fe3bb09181675cb7123b725f2b4ca1089f9351abc3df
+MD5: 2bb46fe9c2ddd3d458f7ed8068a799d4
+Year: 2023
+Family name: wacatac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread @ E88B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ CCD2    Nothing
+* [API ] GetKeyboardLayout  @ 07E6    Retarget    German
+* [API ] GetModuleFileNameA @ 1B4A    Nothing
+* [API ] GetModuleFileNameA @ 5B27    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 5D89    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ C236    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExA      @ 5DA7    Succeed
+* [API ] RegOpenKeyExA      @ 5DC5    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5DE3    Fail        Not modified
+* [API ] RegOpenKeyExA      @ D5E6    Fail
+* [API ] RegQueryValueExA   @ D76F    Nothing
+* [API ] RegQueryValueExA   @ D858    Nothing
+* [API ] TimeDelayAPIs      @ AE6B    Retarget
+* [API ] TimeQueryAPIs      @ D8EE    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasions

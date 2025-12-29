@@ -1,0 +1,27 @@
+[Basic information]
+=========================================================================
+SHA-256: b3dd8a2cedb105e080a73f76f8bc3a931468a01ed765bb94fa8631ad93d575e3
+MD5: c7110164b4bd5e6c17377f50ddfa90fa
+Year: 2018
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 5EAC
+* [API ] SetWindowsHookExA @ 3010
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] CreateProcessA    @ 348D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

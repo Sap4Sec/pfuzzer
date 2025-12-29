@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 0719fa4aaebd161445402551b289001d97e5869bb9584b3135365fdfbcae1a18
+MD5: e1ec665097a4bba501e5072e684d7838
+Year: 2018
+Family name: skeeyah
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ EF3C
+* [API ] OpenServiceW         @ F62E
+* [API ] CryptAcquireContextW @ 2AC8
+* [API ] CryptGenRandom       @ 4624
+* [API ] CryptReleaseContext  @ 28B2
+* [API ] CreateFileW          @ 4E48
+* [API ] CreateFileW          @ 631A
+* [API ] WriteFile            @ 60A0
+* [API ] CreateProcessW       @ D384
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 806F    Nothing
+* [API ] CreateFileW        @ 4E48    Succeed     Not modified
+* [API ] CreateFileW        @ 631A    Succeed     Not modified
+* [API ] GetComputerNameA   @ E42A    Nothing
+* [API ] GetModuleFileNameW @ 768A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ E082    Nothing
+* [API ] GetUserNameA       @ F7A5    Nothing
+
+[Manual annotations]
+====================

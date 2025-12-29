@@ -1,0 +1,123 @@
+[Basic information]
+=========================================================================
+SHA-256: 5970980d9e53467f1fe1997528e17bf2412ee6ddce40d79c58ead2a80ab36716
+MD5: a83e3bdcaf240211c91c7b4def6c260e
+Year: 2019_05_11
+Family name: zumanek
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread       @ 331B
+* [API ] CreateFileA        @ 13C3
+* [API ] WSAStartup         @ 8A44
+* [API ] CreateFileA        @ 7E55
+* [API ] CreateFileA        @ 82B0
+* [API ] RegCreateKeyExA    @ 9389
+* [API ] RegSetValueExA     @ BF78
+* [API ] CreateFileMappingA @ 4F4F
+* [API ] MapViewOfFile      @ 508B
+* [API ] CreateThread       @ 7555
+* [API ] RegCreateKeyExW    @ A629
+* [API ] RegSetValueExA     @ 9D20
+* [API ] RegSetValueExA     @ 9662
+* [API ] RegCreateKeyExA    @ 970E
+* [API ] RegSetValueExA     @ 979B
+* [API ] CreateFileA        @ A423
+* [API ] CreateFileA        @ 15F5
+* [API ] CreateFileA        @ 668F
+* [API ] CreateFileA        @ 0BFE
+* [API ] CreateFileA        @ A6B1
+* [API ] CreateThread       @ 18AC
+* [API ] FindResourceW      @ EDDE
+* [API ] LoadResource       @ 7F2E
+* [API ] CreateThread       @ 259F
+* [API ] CreateFileW        @ D09E
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 683D
+* [API ] WriteFile          @ D7E2
+* [API ] WinExec            @ F319
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ A013    Nothing
+* [API ] CreateFileA        @ 0BFE    Succeed     Not modified
+* [API ] CreateFileA        @ 13C3    Succeed     Not modified
+* [API ] CreateFileA        @ 15F5    Fail        Not modified
+* [API ] CreateFileA        @ 668F    Succeed
+* [API ] CreateFileA        @ 7E55    Succeed
+* [API ] CreateFileA        @ 82B0    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileA        @ A423    Succeed
+* [API ] CreateFileA        @ A6B1    Succeed     Not modified
+* [API ] CreateFileW        @ D09E    Succeed     Not modified
+* [API ] CreateMutexA       @ 91CA    Succeed
+* [API ] CreateMutexA       @ 9C1E    Succeed
+* [API ] CreateMutexA       @ 9EC1    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA       @ AD09    Fail
+* [API ] DeviceIoControl    @ 7E7D    Nothing
+* [API ] DeviceIoControl    @ 8377    Nothing
+* [API ] FindFirstFileA     @ 27FB    Nothing
+* [API ] FindFirstFileA     @ 2EA8    Nothing
+* [API ] FindFirstFileW     @ E8A2    Retarget    C:\*
+* [API ] FindNextFileA      @ 2907    Retarget
+* [API ] FindNextFileA      @ 2FAA    Retarget
+* [API ] FindNextFileW      @ 85C0    Retarget
+* [API ] FindWindowA        @ A850    Fail
+* [API ] FindWindowA        @ A86C    Fail
+* [API ] FindWindowA        @ A888    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetComputerNameExA @ 7CA9    Retarget    Office
+* [API ] GetFileAttributesW @ 8062    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesW @ A6B5    Succeed
+* [API ] GetKeyboardLayout  @ A796    Retarget    Italian
+* [API ] GetLocalTime       @ 2710    Retarget    2017:8:5:19
+* [API ] GetLocalTime       @ 28A0    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameW @ 4DD3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 4E76    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ C141    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ D03B    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ D0D1    Nothing
+* [API ] GetModuleFileNameW @ DBC6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ E2CD    Nothing
+* [API ] GetSystemInfo      @ 91E3    Retarget    Missing
+* [API ] GetSystemInfo      @ FBF1    Nothing
+* [API ] GetSystemTime      @ BE06    Retarget    2017:8:5:19
+* [API ] GetUserDefaultLCID @ 9B0A    Retarget    German
+* [API ] GetWindowTextA     @ CD3A    Nothing
+* [API ] GetWindowTextW     @ EB98    Nothing
+* [API ] RegEnumKeyA        @ 9520    Retarget    testuser
+* [API ] RegEnumKeyA        @ 9697    Retarget    John
+* [API ] RegEnumKeyA        @ 97D0    Retarget    Office
+* [API ] RegOpenKeyExA      @ 7AA0    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 935C    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 94A3    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 9570    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 96DD    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 9C45    Fail
+* [API ] RegOpenKeyExA      @ AB91    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ BFE3    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ B07E    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ BEA0    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ DC0F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ DC31    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ DC4F    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DC6D    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DC8B    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ DCA9    Fail        Not modified
+* [API ] RegQueryValueExA   @ 7ACD    Nothing
+* [API ] RegQueryValueExA   @ 7B16    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 9C68    Nothing
+* [API ] RegQueryValueExA   @ ABE1    Nothing
+* [API ] RegQueryValueExW   @ A4CD    Nothing
+* [API ] RegQueryValueExW   @ B7B6    Nothing
+* [API ] RegQueryValueExW   @ BDB0    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 3333    Retarget
+* [API ] TimeQueryAPIs      @ 92A5    Retarget
+
+[Manual annotations]
+====================

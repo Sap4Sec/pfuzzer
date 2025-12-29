@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-dda6d5e3b900caeb66bb32e4034b848b3d41b6683fc912f7b38b0b9980eb6b3d
+MD5: a0cba5f2f1ce7bb12a960606c2a3585a
+Year: 2023
+Family name: fugrafa
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

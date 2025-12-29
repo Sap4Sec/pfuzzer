@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: e1177f7306cdc7426b37794d7877b600d1d2d8d95a485269a527764ce90c72cd
+MD5: 5643b6029e9f4a25ce04e2fbbe320d14
+Year: 2018
+Family name: yiwanzhushou
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup    @ 41BF
+* [API ] WSAStartup    @ 421A
+* [API ] WSAStartup    @ 4269
+* [API ] WSAStartup    @ 43A7
+* [API ] WSAStartup    @ 7488
+* [API ] FindResourceA @ C1DC
+* [API ] LoadResource  @ C1EB
+* [API ] CreateFileA   @ 1484
+* [API ] CreateFileA   @ 1B14
+* [API ] CreateThread  @ B1FB
+* [API ] ResumeThread  @ 7B7B
+* [API ] WSAStartup    @ 4D64
+* [API ] getaddrinfo   @ 4C3B
+* [API ] WSASocketW    @ 4FC4
+* [API ] WSAConnect    @ 5156
+* [API ] WSASend       @ 52BF
+* [API ] WSARecv       @ 5495
+* [API ] FindResourceW @ 46DD
+* [API ] LoadResource  @ 4741
+* [API ] CreateFileW   @ 4F89
+* [API ] WriteFile     @ B679
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExW   @ CADA
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CPUID              @ 44B0    Retarget    Missing
+* [API ] CreateFileA        @ 1484    Fail        Not modified
+* [API ] CreateFileA        @ 1B14    Fail        Not modified
+* [API ] CreateFileW        @ 4F89    Succeed     Not modified
+* [API ] CreateMutexA       @ 5BD4    Fail
+* [API ] DeviceIoControl    @ 14CE    Nothing
+* [API ] DeviceIoControl    @ 1B63    Retarget    Missing
+* [API ] DeviceIoControl    @ 30BD    Nothing
+* [API ] GetFileAttributesW @ 503B    Succeed
+* [API ] GetModuleFileNameA @ 52E8    Nothing
+* [API ] GetModuleFileNameW @ 2E77    Nothing
+* [API ] GetModuleFileNameW @ 53FA    Nothing
+* [API ] GetModuleFileNameW @ 54F7    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ D765    Retarget    C:\Windows\explorer.exe
+* [API ] RegEnumKeyExA      @ 1C62    Retarget    John
+* [API ] RegEnumKeyExA      @ 1D7F    Retarget    Office
+* [API ] RegOpenKeyExA      @ 1C30    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 1C8C    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 3101    Fail
+* [API ] RegOpenKeyExA      @ 31B1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 3261    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 1CC4    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 3127    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 3155    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 31D7    Nothing
+* [API ] RegQueryValueExA   @ 3205    Nothing
+* [API ] RegQueryValueExA   @ 3287    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ CA69    Nothing
+* [API ] TimeQueryAPIs      @ CF7D    Nothing
+
+[Manual annotations]
+====================

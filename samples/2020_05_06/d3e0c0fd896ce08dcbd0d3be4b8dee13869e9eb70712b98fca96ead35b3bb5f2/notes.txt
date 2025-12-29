@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: d3e0c0fd896ce08dcbd0d3be4b8dee13869e9eb70712b98fca96ead35b3bb5f2
+MD5: a5505b3d6f43b5fb61b9fb68a2643186
+Year: 2020_05_06
+Family name: neshta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 4B8D
+* [API ] WriteFile      @ 4BEF
+* [API ] ShellExecuteA  @ 796E
+* [API ] RegSetValueExA @ 57BC
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 4B8D    Succeed
+* [API ] CreateMutexA       @ 4033    Fail
+* [API ] FindFirstFileA     @ 4F79    Nothing
+* [API ] FindFirstFileA     @ 5140    Fail
+* [API ] FindFirstFileA     @ 56DA    Nothing
+* [API ] FindNextFileA      @ 51A0    Retarget
+* [API ] FindNextFileA      @ 573C    Retarget
+* [API ] GetFileAttributesA @ 4BA7    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesA @ 4CFE    Fail
+* [API ] GetFileAttributesA @ 731D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 4A0E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA      @ 5779    Fail
+
+[Manual annotations]
+====================

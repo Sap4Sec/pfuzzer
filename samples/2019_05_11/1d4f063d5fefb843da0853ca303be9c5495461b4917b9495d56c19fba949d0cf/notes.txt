@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 1d4f063d5fefb843da0853ca303be9c5495461b4917b9495d56c19fba949d0cf
+MD5: d116181c1f618802c67e65ba96aed6fa
+Year: 2019_05_11
+Family name: SINGLETON:d116181c1f618802c67e65ba96aed6fa
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Requires UI - DBI breaks it

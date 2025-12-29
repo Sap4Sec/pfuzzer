@@ -1,0 +1,29 @@
+[Basic information]
+=========================================================================
+SHA-256: 8b6d369247ac7abaad8dc11db28e42d2beb327c64d3291f20af12da212c6945d
+MD5: 09be3df3901420b4ab73f906c5783897
+Year: 2021_11_03
+Family name: urelas
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 3F01
+* [API ] WriteFile      @ 02B6
+* [API ] ShellExecuteW  @ 272F
+* [API ] RegSetValueExW @ 2790
+* [API ] CreateFileA    @ 3C99
+* [API ] WriteFile      @ 3D49
+* [API ] ShellExecuteA  @ 3D68
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

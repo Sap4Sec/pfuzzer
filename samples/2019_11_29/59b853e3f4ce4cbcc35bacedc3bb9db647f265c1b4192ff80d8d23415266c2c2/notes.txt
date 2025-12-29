@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 59b853e3f4ce4cbcc35bacedc3bb9db647f265c1b4192ff80d8d23415266c2c2
+MD5: 6b52b2b19dc4f35efcf2b1bf310894af
+Year: 2019_11_29
+Family name: SINGLETON:6b52b2b19dc4f35efcf2b1bf310894af
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ E04F
+* [API ] CreateFileW  @ 66E6
+* [API ] NtCreateFile @ 9B56
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 078E
+* [API ] NtCreateFile @ 6747
+* [API ] NtCreateFile @ 8DB0
+* [API ] NtCreateFile @ E05F
+* [API ] NtCreateFile @ 54B5
+* [API ] NtCreateFile @ 378D
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID         @ 0259    Retarget    Missing
+* [API ] CreateFileW   @ 66E6    Succeed     Not modified
+* [API ] CreateFileW   @ E04F    Succeed     Not modified
+* [API ] NtCreateFile  @ 9B56    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 025B    Nothing
+
+[Manual annotations]
+====================
+Safengine Shielden(v2.4.0.0) --- Chinese error message pops up almost instantly

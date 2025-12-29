@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 662ba8bb0c04af303dbd4e9ceafa55e5d99d30d554f2e9dbedb2eab2c8a62c4b
+MD5: ffb8aaf5866ed36ae1e9f7184f61055e
+Year: 2021_04_15
+Family name: SINGLETON:ffb8aaf5866ed36ae1e9f7184f61055e
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 83FC
+* [API ] CreateFileW  @ 1039
+* [API ] NtCreateFile @ 0F1A
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ E605
+* [API ] NtCreateFile @ F71E
+* [API ] NtCreateFile @ AA7A
+* [API ] NtCreateFile @ ABF6
+* [API ] NtCreateFile @ 6F32
+* [API ] NtCreateFile @ E227
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CPUID              @ 6EC7    Nothing
+* [API ] CreateFileW        @ 1039    Succeed     Not modified
+* [API ] CreateFileW        @ 83FC    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 8562    Nothing
+* [API ] NtCreateFile       @ 0F1A    Fail        Not modified
+* [API ] NtCreateFile       @ A84C    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 6E27    Nothing
+
+[Manual annotations]
+====================
+Detects the VM but unable to identify the environmental information item

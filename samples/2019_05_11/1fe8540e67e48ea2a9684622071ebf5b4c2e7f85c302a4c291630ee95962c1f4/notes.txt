@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 1fe8540e67e48ea2a9684622071ebf5b4c2e7f85c302a4c291630ee95962c1f4
+MD5: b7aab74918dda6ba7d8d6b3a299aa339
+Year: 2019_05_11
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 5503
+* [API ] CopyFileA         @ 37A2
+* [API ] MoveFileExA       @ 243B
+* [API ] MoveFileExA       @ 2486
+* [API ] MoveFileA         @ 37C0
+* [API ] CreateFileA       @ 34DE
+* [API ] WriteFile         @ 3519
+* [API ] CreateProcessA    @ 35F7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 34DE    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] FindWindowA        @ A8C3    Retarget    SecHealthHost - SecHealth Win
+* [API ] GetCursorPos       @ A790    Nothing
+* [API ] GetModuleFileNameA @ 366A    Nothing
+* [API ] GetModuleFileNameA @ 370E    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ BAA1    Nothing
+* [API ] GetModuleFileNameA @ E3A8    Nothing
+* [API ] Process32First     @ 26B1    Nothing
+* [API ] Process32First     @ A8F3    Nothing
+* [API ] Process32Next      @ 2937    Retarget
+* [API ] Process32Next      @ A918    Retarget
+* [API ] TimeDelayAPIs      @ 1280    Nothing
+
+[Manual annotations]
+====================

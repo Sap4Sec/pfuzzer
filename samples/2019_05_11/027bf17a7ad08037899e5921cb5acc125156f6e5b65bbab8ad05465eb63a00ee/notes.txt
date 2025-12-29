@@ -1,0 +1,65 @@
+[Basic information]
+=========================================================================
+SHA-256: 027bf17a7ad08037899e5921cb5acc125156f6e5b65bbab8ad05465eb63a00ee
+MD5: ca92a96f72488be8ed65472c85e2aae5
+Year: 2019_05_11
+Family name: SINGLETON:ca92a96f72488be8ed65472c85e2aae5
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ 23E4
+* [API ] CreateFileW     @ AAB2
+* [API ] NtCreateFile    @ 85B0
+* [API ] WSAStartup      @ EAE2
+* [API ] FindResourceExW @ 52CE
+* [API ] LoadResource    @ 52E8
+* [API ] FindResourceExW @ 5323
+* [API ] LoadResource    @ 5348
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ 48E1
+* [API ] FindResourceExW @ D6EA
+* [API ] LoadResource    @ D704
+* [API ] FindResourceExW @ D73F
+* [API ] LoadResource    @ D764
+* [API ] NtCreateFile    @ A342
+* [API ] FindResourceExW @ B051
+* [API ] LoadResource    @ B06B
+* [API ] FindResourceExW @ B0A6
+* [API ] LoadResource    @ B0CB
+* [API ] NtCreateFile    @ FCD1
+* [API ] FindResourceExW @ EABB
+* [API ] LoadResource    @ EAD5
+* [API ] FindResourceExW @ EB10
+* [API ] LoadResource    @ EB35
+* [API ] NtCreateFile    @ 9FA0
+* [API ] FindResourceExW @ 2E07
+* [API ] LoadResource    @ 2E21
+* [API ] FindResourceExW @ 2E5C
+* [API ] LoadResource    @ 2E81
+* [API ] NtCreateFile    @ 6DC3
+* [API ] FindResourceExW @ 7BEB
+* [API ] LoadResource    @ 7C05
+* [API ] FindResourceExW @ 7C40
+* [API ] LoadResource    @ 7C65
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CPUID              @ F1FB    Nothing
+* [API ] CreateFileW        @ 23E4    Retarget    Backup.txt
+* [API ] CreateFileW        @ AAB2    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 254F    Nothing
+* [API ] NtCreateFile       @ 85B0    Fail        Not modified
+* [API ] NtCreateFile       @ B035    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ F01A    Nothing
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

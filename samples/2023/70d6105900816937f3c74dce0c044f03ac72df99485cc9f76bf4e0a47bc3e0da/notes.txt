@@ -1,0 +1,24 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Ransom.Win32.Zerber.fntn-70d6105900816937f3c74dce0c044f03ac72df99485cc9f76bf4e0a47bc3e0da
+MD5: 6a4025d67f9b2c8d8d44173eee98ece3
+Year: 2023
+Family name: cerber
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExW @ 6BBF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

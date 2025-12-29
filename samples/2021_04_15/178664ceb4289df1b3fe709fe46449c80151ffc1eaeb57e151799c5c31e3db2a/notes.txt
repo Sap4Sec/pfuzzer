@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: 178664ceb4289df1b3fe709fe46449c80151ffc1eaeb57e151799c5c31e3db2a
+MD5: baf6dac54c1b7f0e7371ec7e22dd2f40
+Year: 2021_04_15
+Family name: SINGLETON:baf6dac54c1b7f0e7371ec7e22dd2f40
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 1B07
+* [API ] CreateFileW  @ 754E
+* [API ] NtCreateFile @ CFF7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: Safengine Shielden(v2.3.7.0) --- Chinese error messagebox: missing patch.dll (errors #5)

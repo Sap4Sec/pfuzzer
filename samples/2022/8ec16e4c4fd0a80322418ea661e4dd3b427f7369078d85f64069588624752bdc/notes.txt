@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan.Win32.GenericML.xnet-8ec16e4c4fd0a80322418ea661e4dd3b427f7369078d85f64069588624752bdc
+MD5: 3cec5fd58c7007f1050086d6c03876ca
+Year: 2022
+Family name: SINGLETON:3cec5fd58c7007f1050086d6c03876ca
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 870A
+* [API ] CreateFileW  @ 42BE
+* [API ] NtCreateFile @ 4AD7
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ C67F
+* [API ] NtCreateFile @ D68F
+* [API ] NtCreateFile @ FBD2
+* [API ] NtCreateFile @ D488
+* [API ] NtCreateFile @ 1A4E
+* [API ] NtCreateFile @ 8050
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID         @ E6AA    Nothing
+* [API ] CreateFileW   @ 42BE    Succeed     Not modified
+* [API ] CreateFileW   @ 870A    Retarget    C:\Windows\system32\
+* [API ] NtCreateFile  @ 4AD7    Succeed     Not modified
+* [API ] TimeQueryAPIs @ E676    Retarget
+
+[Manual annotations]
+====================
+Safengine Shielden(v2.3.9.0), no activity, takes forever for each run

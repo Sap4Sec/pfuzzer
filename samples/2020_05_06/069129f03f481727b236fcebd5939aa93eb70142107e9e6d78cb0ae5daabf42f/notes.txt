@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 069129f03f481727b236fcebd5939aa93eb70142107e9e6d78cb0ae5daabf42f
+MD5: bd36e869724965f38656f0c8a60c042b
+Year: 2020_05_06
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CreateFileA        @ 22F9    Retarget    iexplorer.exe
+* [API ] CreateFileA        @ 23DC    Succeed
+* [API ] CreateFileA        @ 25A6    Succeed
+* [API ] FindWindowA        @ 1030    Succeed
+* [API ] FindWindowA        @ 2BC8    Succeed
+* [API ] GetModuleFileNameA @ 156B    Nothing
+* [API ] GetModuleFileNameA @ 2909    Nothing
+* [API ] GetModuleFileNameA @ 2BA0    Nothing
+* [API ] GetModuleFileNameA @ 3955    Nothing
+* [API ] GetModuleFileNameA @ 3A88    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 26B3    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetUserNameA       @ 3992    Retarget    Office
+* [API ] Process32First     @ 1077    Nothing
+* [API ] Process32First     @ 1AFB    Nothing
+* [API ] Process32Next      @ 109F    Retarget
+* [API ] Process32Next      @ 1B1E    Retarget
+* [API ] RegOpenKeyExA      @ 38A2    Fail
+* [API ] RegQueryValueExA   @ 38C7    Retarget    ProductID
+
+[Manual annotations]
+====================

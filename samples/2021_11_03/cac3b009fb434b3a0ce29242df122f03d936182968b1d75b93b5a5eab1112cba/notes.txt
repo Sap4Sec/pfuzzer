@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: cac3b009fb434b3a0ce29242df122f03d936182968b1d75b93b5a5eab1112cba
+MD5: 0e47ea365c29f9c680f3b651c59f28ac
+Year: 2021_11_03
+Family name: urelas
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 389A
+* [API ] WriteFile      @ ED4C
+* [API ] RegSetValueExW @ 1BA4
+* [API ] ShellExecuteW  @ 1BCE
+* [API ] CreateFileA    @ 2A19
+* [API ] WriteFile      @ 2AC9
+* [API ] ShellExecuteA  @ 2AE8
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ CD58    Nothing
+* [API ] CreateFileA        @ 2A19    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW        @ 389A    Fail
+* [API ] GetFileAttributesW @ 136F    Succeed
+* [API ] GetModuleFileNameA @ 29C8    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 1314    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 331C    Nothing
+* [API ] RegOpenKeyExW      @ 1B6B    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs      @ 4E86    Retarget
+* [API ] TimeQueryAPIs      @ 348A    Retarget
+
+[Manual annotations]
+====================

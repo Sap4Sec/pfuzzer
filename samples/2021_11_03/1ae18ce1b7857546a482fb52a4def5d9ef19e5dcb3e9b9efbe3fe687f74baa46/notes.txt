@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 1ae18ce1b7857546a482fb52a4def5d9ef19e5dcb3e9b9efbe3fe687f74baa46
+MD5: d88fb0d696b799ae7a768ef06fb6730e
+Year: 2021_11_03
+Family name: gogo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA   @ 419D
+* [API ] WriteFile     @ 3641
+* [API ] WinExec       @ 1121
+* [API ] CreateThread  @ 115E
+* [API ] CreateThread  @ 1172
+* [API ] SuspendThread @ 118E
+* [API ] ResumeThread  @ 119C
+* [API ] MoveFileA     @ 1A8A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 419D    Succeed
+* [API ] FindFirstFileA     @ 11E2    Nothing
+* [API ] FindFirstFileA     @ 12F6    Nothing
+* [API ] FindFirstFileA     @ 140C    Nothing
+* [API ] FindNextFileA      @ 13CA    Retarget
+* [API ] FindNextFileA      @ 1478    Retarget
+* [API ] GetLocalTime       @ 2DA7    Nothing
+* [API ] GetModuleFileNameA @ 5958    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemTime      @ 2DB1    Nothing
+* [API ] TimeDelayAPIs      @ 113B    Retarget
+
+[Manual annotations]
+====================

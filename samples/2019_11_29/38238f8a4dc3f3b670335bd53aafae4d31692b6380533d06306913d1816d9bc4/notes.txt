@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: 38238f8a4dc3f3b670335bd53aafae4d31692b6380533d06306913d1816d9bc4
+MD5: cd2ba31066a35ebb6fbfa9438e8c6ed3
+Year: 2019_11_29
+Family name: gocloudnet
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID                      @ 781F    Nothing
+* [API ] GetModuleFileNameA         @ EB91    Nothing
+* [API ] GetModuleFileNameW         @ EE25    Retarget    C:\Windows\system32\
+* [API ] GetSystemInfo              @ EE25    Retarget    Missing
+* [API ] Process32FirstW            @ EE25    Nothing
+* [API ] Process32NextW             @ EE25    Retarget
+* [API ] QueryFullProcessImageNameW @ EE25    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExW              @ EE25    Succeed     Not modified
+* [API ] RegQueryValueExW           @ EE25    Nothing
+* [API ] TimeDelayAPIs              @ F1B2    Retarget
+* [API ] TimeQueryAPIs              @ EEF8    Retarget
+
+[Manual annotations]
+====================
+Malicious activity occurs in the recap section at the end of the baseline. It calls APIs from the same address repeatedly, and during trace creation, these addresses are suppressed after being seen twice.

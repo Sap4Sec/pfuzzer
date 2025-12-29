@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 27287b011b77c8d7599ddefeead00986c596431820251e48e2fa05e1b1c728a4
+MD5: b26c373902e71ef1c7ee7f6fe09dd8ef
+Year: 2018
+Family name: SINGLETON:b26c373902e71ef1c7ee7f6fe09dd8ef
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

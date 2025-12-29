@@ -1,0 +1,24 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan-Ransom.Win32.GenericML.xnet-2aebddfd22ccb317b35b54e627d0eb05c59e761edbabe2a5029b19e8866e03c8
+MD5: 18c062ae3a545ade59842cafe5b17ea8
+Year: 2023
+Family name: cerber
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExW @ 6BBF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

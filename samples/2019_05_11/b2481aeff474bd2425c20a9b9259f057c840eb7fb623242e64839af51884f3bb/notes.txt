@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: b2481aeff474bd2425c20a9b9259f057c840eb7fb623242e64839af51884f3bb
+MD5: 439def3bfe06443d50855e4cb9947447
+Year: 2019_05_11
+Family name: blackv
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 9AB6
+* [API ] CreateFileW  @ BD1C
+* [API ] NtCreateFile @ 1F68
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 6EAF
+* [API ] NtCreateFile @ C2E6
+* [API ] NtCreateFile @ F0A6
+* [API ] NtCreateFile @ 2BE0
+* [API ] NtCreateFile @ F14F
+* [API ] NtCreateFile @ 450F
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 10A3    Nothing
+* [API ] CreateFileW        @ 9AB6    Retarget    C:\Windows\system32\
+* [API ] CreateFileW        @ BD1C    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 93F4    Nothing
+* [API ] GetModuleFileNameW @ 9B25    Nothing
+* [API ] NtCreateFile       @ 1F68    Succeed     Not modified
+* [API ] NtCreateFile       @ 3482    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 10FF    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: Safengine Shielden(v2.4.0.0)

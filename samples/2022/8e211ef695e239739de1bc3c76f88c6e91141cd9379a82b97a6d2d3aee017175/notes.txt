@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.Generic-8e211ef695e239739de1bc3c76f88c6e91141cd9379a82b97a6d2d3aee017175
+MD5: ce6f9d5944f3d246888ddb075381c5c0
+Year: 2022
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CreateFileA        @ 22F9    Succeed
+* [API ] CreateFileA        @ 23DC    Succeed
+* [API ] CreateFileA        @ 25A6    Succeed
+* [API ] FindWindowA        @ 1030    Succeed
+* [API ] FindWindowA        @ 2BC8    Fail
+* [API ] GetModuleFileNameA @ 156B    Nothing
+* [API ] GetModuleFileNameA @ 2909    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 2BA0    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 3955    Nothing
+* [API ] GetModuleFileNameA @ 3A88    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 26B3    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ 3992    Nothing
+* [API ] Process32First     @ 1077    Nothing
+* [API ] Process32First     @ 1AFB    Nothing
+* [API ] Process32Next      @ 109F    Retarget
+* [API ] Process32Next      @ 1B1E    Retarget
+* [API ] RegOpenKeyExA      @ 38A2    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 38C7    Nothing
+
+[Manual annotations]
+====================

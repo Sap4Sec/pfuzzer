@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 82413e4cbaf2c9f2258884f15f61134b485fa43a9c3f62dc5cd38b6bc15079ce
+MD5: 6140a7003bdc196a8ee26d072a2f3dc5
+Year: 2018
+Family name: joiner
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+The application was unable to start correctly (exception: 0xC000007B)

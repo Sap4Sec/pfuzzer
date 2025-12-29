@@ -1,0 +1,57 @@
+[Basic information]
+=========================================================================
+SHA-256: f29937d78404d05594e444ad22a07cf1eaa09c57140723026cd30af0f43a9cba
+MD5: 19cf564705651e1ae0c36a795418aa61
+Year: 2018
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 3C03
+* [API ] CreateFileW    @ 3CDE
+* [API ] RegCreateKeyA  @ 3F0B
+* [API ] RegCreateKeyA  @ 4484
+* [API ] RegSetValueExA @ 44EA
+* [API ] RegCreateKeyA  @ 4507
+* [API ] RegSetValueExA @ 4536
+* [API ] CreateFileW    @ 4197
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA      @ 3C03    Succeed     Not modified
+* [API ] CreateFileW      @ 3CDE    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileW      @ 4197    Fail        Not modified
+* [API ] DeviceIoControl  @ 36DA    Retarget    Missing
+* [API ] DeviceIoControl  @ 3744    Nothing
+* [API ] DeviceIoControl  @ 37DF    Retarget    Missing
+* [API ] DeviceIoControl  @ 3839    Retarget    Missing
+* [API ] DeviceIoControl  @ 38F7    Retarget    Missing
+* [API ] DeviceIoControl  @ 3955    Nothing
+* [API ] RegEnumKeyExA    @ 4802    Retarget    Office
+* [API ] RegEnumKeyExA    @ 48AF    Retarget    John
+* [API ] RegEnumKeyExA    @ 4938    Retarget    John
+* [API ] RegOpenKeyExA    @ 4685    Succeed     Not modified
+* [API ] RegOpenKeyExA    @ 469B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA    @ 47E6    Fail
+* [API ] RegOpenKeyExA    @ 4887    Succeed     Not modified
+* [API ] RegOpenKeyExA    @ 48DB    Fail        Not modified
+* [API ] RegQueryValueExA @ 3F47    Nothing
+* [API ] RegQueryValueExA @ 3FAB    Nothing
+* [API ] RegQueryValueExA @ 451E    Nothing
+* [API ] RegQueryValueExA @ 46CE    Retarget    ProductID
+* [API ] RegQueryValueExA @ 4703    Retarget    ProductID
+* [API ] RegQueryValueExA @ 4738    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA @ 4901    Retarget    ProductID
+* [API ] RegQueryValueExA @ 4966    Retarget    ProductID
+
+[Manual annotations]
+====================
+PoC samples: Pafish/Al-kaser like

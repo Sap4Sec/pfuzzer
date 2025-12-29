@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: cefd3991c699a0e61ff0c4aea9eb25d9bc3e2d9fb387d61d93cb7b88b160bbd9
+MD5: b0473e8253a12b0367e5b536687ec5a5
+Year: 2018
+Family name: bestafera
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ BFBB
+* [API ] FindResourceA @ F918
+* [API ] LoadResource  @ F932
+* [API ] WSAStartup    @ 8364
+* [API ] CreateFileA   @ A863
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA   @ 3739
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA         @ A863    Succeed     Not modified
+* [API ] GetCursorPos        @ 4170    Retarget    Missing
+* [API ] GetDiskFreeSpaceExA @ B10F    Retarget    Missing
+* [API ] GetFileAttributesA  @ AA30    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesA  @ AA54    Fail
+* [API ] GetKeyboardLayout   @ 0CD2    Retarget    Russian
+* [API ] GetModuleFileNameA  @ 1FBE    Nothing
+* [API ] GetModuleFileNameA  @ 34D9    Nothing
+* [API ] GetModuleFileNameA  @ 6B4F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA  @ 6DB1    Nothing
+* [API ] RegOpenKeyExA       @ 6D0E    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA       @ 6DCF    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 6DED    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 6E0B    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 7034    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 8C87    Fail
+* [API ] RegQueryValueExA    @ 6E97    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 6F80    Nothing
+* [API ] RegQueryValueExA    @ 8CDA    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 8D39    Nothing
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI requiring text input

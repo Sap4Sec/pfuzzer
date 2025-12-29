@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 7c32326e46e2c2f2941e3f8363f0c29ab98073249ef145b84de0ee80ac87d17d
+MD5: 32d353d70c3bb1b59da92603103aed61
+Year: 2019_11_29
+Family name: dinwod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 262B
+* [API ] CreateFileA    @ 291E
+* [API ] WriteFile      @ 2959
+* [API ] CreateProcessA @ 2A37
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CreateFileA        @ 262B    Succeed     Not modified
+* [API ] CreateFileA        @ 291E    Fail        Not modified
+* [API ] GetModuleFileNameA @ 24EA    Nothing
+* [API ] GetModuleFileNameA @ 258E    Nothing
+* [API ] TimeQueryAPIs      @ 2165    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Khalesi.gen-f04f70e5f3b5c742fd11546f580bc662bf88fda3fd24fbe110ec8c6aced5754f
+MD5: 1493baf09a63359ff41fe26b16a18ad4
+Year: 2022
+Family name: khalesi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID              @ 1C26    Retarget    Missing
+* [API ] GetAdaptersInfo    @ E0CE    Nothing
+* [API ] GetAdaptersInfo    @ E102    Retarget    testuser
+* [API ] GetComputerNameA   @ DF8D    Retarget    John
+* [API ] GetLocalTime       @ E426    Nothing
+* [API ] GetModuleFileNameA @ 9997    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ AB80    Nothing
+* [API ] GetModuleFileNameA @ ABC5    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ DF0C    Nothing
+* [API ] TimeQueryAPIs      @ 19BE    Retarget
+
+[Manual annotations]
+====================
+User interaction

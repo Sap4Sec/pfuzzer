@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 4927d21c92a3f090dbcb6da8d62f2c22ba640b06986ad89582b907cb0ba526cc
+MD5: a37e4aa687af893bcdf00b3d9117d52f
+Year: 2018
+Family name: installerex
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ A08B
+* [API ] CreateFileMappingA @ A0D0
+* [API ] MapViewOfFile      @ A14C
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User
+* [API ] CreateFileA        @ A530
+* [API ] WriteFile          @ A6B4
+* [API ] WriteFile          @ A70D
+* [API ] CreateProcessW     @ C28A
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA        @ BAC8
+* [API ] MoveFileExA        @ BB25
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CPUID                    @ 7BEC    Nothing
+* [API ] CreateFileA              @ A08B    Succeed     Not modified
+* [API ] CreateFileA              @ A530    Succeed
+* [API ] FindFirstFileA           @ 0156    Retarget    C:\*
+* [API ] GetAdaptersInfo          @ 1172    Nothing
+* [API ] GetFileAttributesA       @ FB49    Fail
+* [API ] GetLocalTime             @ AB00    Nothing
+* [API ] GetModuleFileNameA       @ A02C    Nothing
+* [API ] GetModuleFileNameA       @ CBF3    Nothing
+* [API ] NtQuerySystemInformation @ AFF1    Nothing
+* [API ] NtQuerySystemInformation @ B015    Nothing
+* [API ] RegOpenKeyExA            @ 0CD1    Fail
+* [API ] RegQueryValueExA         @ 0D1B    Nothing
+* [API ] TimeDelayAPIs            @ BD06    Retarget
+* [API ] TimeQueryAPIs            @ D0FD    Retarget
+
+[Manual annotations]
+====================

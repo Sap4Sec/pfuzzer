@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 161ee6340cb3fa2c3b141961a324e8fae15bb8451c734654965b5fe9887e30ba
+MD5: 55b358050c41c91f5f02246823728546
+Year: 2021_11_03
+Family name: SINGLETON:55b358050c41c91f5f02246823728546
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] RegOpenKeyExA @ 11BB    Succeed
+
+[Manual annotations]
+====================
+Other dependencies: acrobat securit required

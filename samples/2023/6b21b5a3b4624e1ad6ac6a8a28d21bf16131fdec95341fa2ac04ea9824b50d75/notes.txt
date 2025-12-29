@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Gorgon.gri-6b21b5a3b4624e1ad6ac6a8a28d21bf16131fdec95341fa2ac04ea9824b50d75
+MD5: 778607f5f1fd624ee1d4416ca564480c
+Year: 2023
+Family name: gorgon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext @ FFE8
+* [API ] CreateFileW      @ BB36
+* [API ] CreateFileW      @ 638D
+* [API ] CreateFileW      @ 7BFB
+* [API ] CreateFileW      @ 7FCD
+* [API ] CreateThread     @ 07D1
+* [API ] CreateFileW      @ F627
+* [API ] CreateFileW      @ FF01
+* [API ] SuspendThread    @ EFC9
+* [API ] CreateFileW      @ 8ECF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID            @ 5CC1    Nothing
+* [API ] CreateFileW      @ 638D    Succeed     Not modified
+* [API ] CreateFileW      @ 7BFB    Fail        Not modified
+* [API ] CreateFileW      @ 7FCD    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW      @ 8ECF    Succeed
+* [API ] CreateFileW      @ BB36    Fail
+* [API ] CreateFileW      @ F627    Fail        Not modified
+* [API ] CreateFileW      @ FF01    Fail        Not modified
+* [API ] RegOpenKeyExA    @ DDEC    Succeed     Not modified
+* [API ] RegQueryValueExA @ E106    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs    @ F590    Nothing
+* [API ] TimeQueryAPIs    @ 7DB6    Nothing
+
+[Manual annotations]
+====================
+VM detected

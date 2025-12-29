@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: 37209bd15e3da538ec9505d9f4d52564dff924d612bc29da0d743b76984fcf01
+MD5: a3ba5eeeabd060692512910f4cbec70c
+Year: 2021_11_03
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA    @ 1BEA
+* [API ] MoveFileA      @ 25ED
+* [API ] MoveFileA      @ 261D
+* [API ] CreateFileA    @ 239A
+* [API ] MoveFileA      @ 2F6D
+
+[Mutations applied in the best run (39)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Succeed     Not modified
+* [API ] CreateFileA          @ 1C1B    Succeed
+* [API ] CreateFileA          @ 239A    Succeed
+* [API ] CreateMutexA         @ 105A    Succeed
+* [API ] CreateMutexA         @ 1101    Fail
+* [API ] FindFirstFileA       @ 3004    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesExA @ 1B43    Succeed
+* [API ] GetModuleFileNameA   @ 11A7    Nothing
+* [API ] GetModuleFileNameA   @ 1E4D    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Fail
+* [API ] RegOpenKeyExA        @ 2A94    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2AE1    Fail
+* [API ] RegOpenKeyExA        @ 2D0B    Fail
+* [API ] RegQueryValueExA     @ 2B12    Nothing
+* [API ] TimeDelayAPIs        @ 10C1    Retarget
+* [API ] TimeQueryAPIs        @ 1100    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: b715e12e64e2883eaf51f8925cc7c40a2444080f3fd481d6969ef5d4b16dbe56
+MD5: 283fc6a358df2220b0101d66a8796344
+Year: 2021_04_15
+Family name: ranumbot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (27)]
+=======================================
+
+* [API ] CPUID                @ EF39    Retarget    Missing
+* [API ] CreateMutexA         @ 9C1E    Succeed
+* [API ] GetAdaptersAddresses @ 15D5    Retarget    testuser
+* [API ] GetFileAttributesW   @ A6B5    Fail
+* [API ] GetModuleFileNameW   @ 15D5    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemInfo        @ 15D5    Retarget    Missing
+* [API ] GetUserDefaultLCID   @ 15D5    Nothing
+* [API ] Process32FirstW      @ 15D5    Nothing
+* [API ] Process32NextW       @ 15D5    Retarget
+* [API ] RegOpenKeyExW        @ 15D5    Succeed
+* [API ] RegQueryValueExW     @ 15D5    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW     @ A4CD    Nothing
+* [API ] TimeDelayAPIs        @ 1962    Retarget
+* [API ] TimeQueryAPIs        @ 065A    Retarget
+
+[Manual annotations]
+====================

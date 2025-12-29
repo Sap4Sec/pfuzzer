@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: 5a74ab9975a4795f083115173f129dc8898a86df080690589e378ee8416cee85
+MD5: 0861c7d5273b7ff73d477dac20430577
+Year: 2019_05_11
+Family name: palevo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ 59B6
+* [API ] LoadResource     @ 59D2
+* [API ] FindResourceA    @ 7292
+* [API ] LoadResource     @ 7324
+* [API ] GetKeyboardState @ 5A36
+* [API ] MapVirtualKeyA   @ 5ADF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CreateMutexA       @ 28FF    Succeed
+* [API ] GetModuleFileNameA @ 13A9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ 61CD    Nothing
+* [API ] GetUserNameA       @ 62C5    Retarget    testuser
+* [API ] TimeDelayAPIs      @ 5E11    Retarget
+* [API ] TimeQueryAPIs      @ 5DFF    Retarget
+
+[Manual annotations]
+====================

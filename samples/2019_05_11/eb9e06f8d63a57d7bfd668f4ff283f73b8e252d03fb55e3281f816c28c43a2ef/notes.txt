@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: eb9e06f8d63a57d7bfd668f4ff283f73b8e252d03fb55e3281f816c28c43a2ef
+MD5: 788ef223d0d8bd701f4d9415b769c1b1
+Year: 2019_05_11
+Family name: jaik
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW     @ 2745
+* [API ] SetWindowsHookExW @ EEE6
+* [API ] ReadProcessMemory @ C67C
+* [API ] ReadProcessMemory @ C68B
+* [API ] CreateFileW       @ FC9D
+* [API ] FindResourceW     @ 0F62
+* [API ] LoadResource      @ 0F6C
+* [API ] CreateFileW       @ 2114
+* [API ] FindResourceW     @ 5E0E
+* [API ] LoadResource      @ 5E16
+* [API ] SetWindowsHookExW @ FAEC
+* [API ] FindResourceW     @ E7A3
+* [API ] FindResourceW     @ 0F29
+* [API ] FindResourceW     @ 20FB
+* [API ] LoadResource      @ 2105
+* [API ] CreateThread      @ A6FD
+* [API ] InternetOpenW     @ 3C94
+* [API ] InternetConnectW  @ 3CCA
+* [API ] HttpOpenRequestW  @ 3CFB
+* [API ] HttpSendRequestW  @ 3D3F
+* [API ] InternetReadFile  @ 3D84
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Queries WMI Win32_VideoController for AdapterRAM and Name, Win32_BIOS for SerialNumber, Manufacturer, and Version, and Win32_BaseBoard for Product

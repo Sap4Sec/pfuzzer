@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: 40b899898603cda1cf7c4d553c046096269086290fdaa11c7518f02f0787541f
+MD5: 9defe9a3699a5e90d498ae436506c0ce
+Year: 2019_05_11
+Family name: SINGLETON:9defe9a3699a5e90d498ae436506c0ce
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread  @ 60F1
+* [API ] SuspendThread @ 63E8
+* [API ] CreateThread  @ 4B14
+* [API ] SuspendThread @ 7960
+* [API ] CreateFileW   @ 4E32
+* [API ] CreateFileW   @ 524C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID                @ E7C7    Nothing
+* [API ] CreateFileW          @ 4E32    Fail
+* [API ] CreateFileW          @ 524C    Succeed     Not modified
+* [API ] CreateMutexW         @ 59D2    Retarget    vscode
+* [API ] GetModuleFileNameExW @ 79DD    Retarget    C:\Windows\explorer.exe
+* [API ] TimeDelayAPIs        @ 8BF8    Retarget
+* [API ] TimeQueryAPIs        @ 5251    Retarget
+
+[Manual annotations]
+====================
+Protectors

@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: 5f6eb83935da7c37d44f02145e77877ca0b251f515bae957b8e62ddbc04a4457
+MD5: 15bc57919c1cbe1e385a1f933c192aa2
+Year: 2019_05_11
+Family name: secrar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (190)]
+=======================================
+
+* [API ] CreateFileA               @ 3FC0    Retarget    C:\Windows\system32\
+* [API ] CreateFileA               @ 628E    Succeed
+* [API ] FindFirstFileA            @ 410C    Nothing
+* [API ] FindNextFileA             @ 41FC    Retarget
+* [API ] GetFileAttributesA        @ 37F8    Fail
+* [API ] GetModuleFileNameA        @ 4240    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] InternetGetConnectedState @ 4B90    Succeed
+* [API ] Process32First            @ 36DC    Nothing
+* [API ] Process32Next             @ 36FC    Retarget
+* [API ] RegEnumKeyExA             @ 3784    Nothing
+* [API ] RegOpenKeyExA             @ 3748    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA          @ 37DC    Nothing
+* [API ] TimeDelayAPIs             @ 45AC    Retarget
+
+[Manual annotations]
+====================

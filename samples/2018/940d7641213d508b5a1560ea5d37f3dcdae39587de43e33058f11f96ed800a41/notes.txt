@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 940d7641213d508b5a1560ea5d37f3dcdae39587de43e33058f11f96ed800a41
+MD5: 1b61357ac02b9558d5429a9398a72ddb
+Year: 2018
+Family name: SINGLETON:1b61357ac02b9558d5429a9398a72ddb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ 0191
+* [API ] CreateFileW      @ 13E3
+* [API ] NtCreateFile     @ 10E2
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile     @ D88A
+* [API ] NtCreateFile     @ 6C6C
+* [API ] NtCreateFile     @ 3B48
+* [API ] InternetOpenA    @ 2AF2
+* [API ] InternetConnectA @ 2CBE
+* [API ] HttpOpenRequestA @ 2EE3
+* [API ] HttpSendRequestA @ 334F
+* [API ] InternetReadFile @ 34E4
+* [API ] NtCreateFile     @ 686A
+* [API ] NtCreateFile     @ 3CB7
+* [API ] NtCreateFile     @ 4E66
+* [API ] NtCreateFile     @ D209
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID         @ 1D36    Retarget    Missing
+* [API ] CreateFileW   @ 0191    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileW   @ 13E3    Succeed     Not modified
+* [API ] NtCreateFile  @ 10E2    Fail        Not modified
+* [API ] TimeQueryAPIs @ 4CA0    Retarget
+
+[Manual annotations]
+====================

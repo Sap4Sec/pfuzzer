@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 1fbc703275e2f6e0aa03ad805ee0fa8b680768b1cf1d8377abaa8d819be39fed
+MD5: b0403c71219891f2f3fa434f2a610f89
+Year: 2019_05_11
+Family name: SINGLETON:b0403c71219891f2f3fa434f2a610f89
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessA @ 6483
+* [API ] CreateFileW    @ D323
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA @ 6BED
+* [API ] WSAStartup     @ 7D5C
+* [API ] socket         @ 7D7D
+* [API ] connect        @ 7DD4
+* [API ] send           @ 7E08
+* [API ] CreateFileA    @ 8311
+* [API ] WriteFile      @ 8335
+* [API ] CreateProcessA @ 6DA6
+
+[Mutations applied in the best run (73)]
+=======================================
+
+* [API ] CPUID              @ 1E77    Nothing
+* [API ] CreateFileW        @ D323    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 74A9    Retarget    VBoxTray
+* [API ] CreateMutexA       @ 74DD    Fail
+* [API ] GetModuleFileNameA @ 4AF4    Nothing
+* [API ] GetModuleFileNameA @ 642A    Nothing
+* [API ] GetModuleFileNameA @ 6B55    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] Process32First     @ 8663    Nothing
+* [API ] Process32Next      @ 867A    Retarget
+* [API ] Process32Next      @ 874E    Retarget
+* [API ] TimeDelayAPIs      @ 6490    Retarget
+
+[Manual annotations]
+====================

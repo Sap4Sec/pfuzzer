@@ -1,0 +1,88 @@
+[Basic information]
+=========================================================================
+SHA-256: c59bce3c046f269362629ac44a4078b2511dc05f2cf67e4c2c35da5e052d88ca
+MD5: a4f8f5ea6bdd32a4e47776ff723f1ca2
+Year: 2018
+Family name: installmonster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ 4406
+* [API ] CreateFileMappingA @ 4471
+* [API ] MapViewOfFile      @ 44AF
+* [API ] GetKeyboardState   @ 9BBB
+* [API ] CreateFileA        @ EF0C
+* [API ] CreateFileA        @ EF3E
+* [API ] FindResourceA      @ FE67
+* [API ] FindResourceA      @ 4240
+* [API ] LoadResource       @ 425A
+* [API ] CreateFileA        @ AC73
+* [API ] CreateFileW        @ C300
+* [API ] WriteFile          @ 3320
+* [API ] ShellExecuteW      @ 7E53
+
+Fuzzing Findings
+----------------
+* [API ] socket             @ 935E
+* [API ] CreateThread       @ 502F
+* [API ] ResumeThread       @ 9BED
+* [API ] connect            @ 8DE6
+* [API ] send               @ 9226
+* [API ] socket             @ EA16
+* [API ] connect            @ 00D7
+* [API ] send               @ E7BC
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID                @ E63A    Retarget    Missing
+* [API ] CreateFileA          @ AC73    Succeed
+* [API ] CreateFileA          @ EF0C    Fail
+* [API ] CreateFileA          @ EF3E    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW          @ C300    Fail        Not modified
+* [API ] CreateMutexA         @ 409E    Succeed
+* [API ] DeviceIoControl      @ C337    Nothing
+* [API ] FindWindowW          @ A06F    Succeed
+* [API ] GetAdaptersAddresses @ 7D1F    Retarget    John
+* [API ] GetAdaptersInfo      @ BC26    Nothing
+* [API ] GetAdaptersInfo      @ BC4D    Nothing
+* [API ] GetDiskFreeSpaceExW  @ C1AC    Nothing
+* [API ] GetKeyboardLayout    @ 2BF2    Retarget    Chinese-simplified
+* [API ] GetLocalTime         @ CF65    Nothing
+* [API ] GetLocalTime         @ D851    Nothing
+* [API ] GetModuleFileNameA   @ 2487    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA   @ 3110    Nothing
+* [API ] GetModuleFileNameA   @ 3DD8    Nothing
+* [API ] GetModuleFileNameA   @ 5935    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA   @ 6CCB    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 6F5C    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ AFC5    Nothing
+* [API ] GetSystemInfo        @ 831A    Retarget    Missing
+* [API ] GetSystemInfo        @ AD7A    Nothing
+* [API ] GetSystemInfo        @ F9C7    Retarget    Missing
+* [API ] GlobalMemoryStatusEx @ B9A2    Retarget    Missing
+* [API ] Process32First       @ F3AB    Nothing
+* [API ] Process32FirstW      @ 424F    Nothing
+* [API ] Process32Next        @ F3CB    Retarget
+* [API ] Process32NextW       @ 4316    Retarget
+* [API ] RegEnumKeyExA        @ 2BA9    Nothing
+* [API ] RegEnumKeyExW        @ 58F0    Nothing
+* [API ] RegOpenKeyExA        @ 2981    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 6F7A    Fail        Not modified
+* [API ] RegOpenKeyExA        @ 6F98    Fail        Not modified
+* [API ] RegOpenKeyExA        @ 6FB6    Succeed
+* [API ] RegOpenKeyExW        @ 340A    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ 9373    Fail        Not modified
+* [API ] RegQueryValueExA     @ 2CF7    Nothing
+* [API ] RegQueryValueExA     @ 2EC8    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW     @ 350C    Retarget    ProductID
+* [API ] RegQueryValueExW     @ 9417    Nothing
+* [API ] TimeDelayAPIs        @ 3FDC    Retarget
+* [API ] TimeQueryAPIs        @ 3159    Retarget
+
+[Manual annotations]
+====================

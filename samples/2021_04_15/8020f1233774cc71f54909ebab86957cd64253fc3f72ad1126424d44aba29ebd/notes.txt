@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: 8020f1233774cc71f54909ebab86957cd64253fc3f72ad1126424d44aba29ebd
+MD5: e4eb2a43c4eafed40a2d36467a36cad7
+Year: 2021_04_15
+Family name: neshta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 4612
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA        @ 4612    Succeed
+* [API ] GetModuleFileNameA @ 400B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 41F9    Retarget    C:\ProgramData\VMWareUser.exe
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 82c911654f0ee48371791f470c0998e9a82e8c09df8dcb8a1257b795922a4b68
+MD5: 823f26a80be46a78c0165bff11c19070
+Year: 2019_05_11
+Family name: skeeyah
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 87B4
+* [API ] CryptAcquireContextW @ 87D0
+* [API ] CryptCreateHash      @ 87F8
+* [API ] CryptHashData        @ 8856
+* [API ] CryptGetHashParam    @ 88B7
+* [API ] CryptDestroyHash     @ 88FC
+* [API ] CryptReleaseContext  @ 8907
+* [API ] NtMapViewOfSection   @ 2F2C
+* [API ] InternetOpenA        @ 4843
+* [API ] InternetConnectA     @ 4873
+* [API ] HttpOpenRequestA     @ 48F3
+* [API ] HttpSendRequestA     @ 4961
+* [API ] InternetReadFile     @ 4993
+* [API ] NtCreateFile         @ 3D59
+* [API ] NtWriteFile          @ 414B
+* [API ] NtCreateFile         @ 36DA
+* [API ] NtCreateFile         @ 36F7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

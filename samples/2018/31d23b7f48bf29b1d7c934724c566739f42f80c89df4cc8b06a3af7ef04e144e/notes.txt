@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 31d23b7f48bf29b1d7c934724c566739f42f80c89df4cc8b06a3af7ef04e144e
+MD5: 6d7c6459490a4c84b846c9215576ff4f
+Year: 2018
+Family name: mutabaha
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Does not start --- neither with drrun.exe nor by double-clicking the sample

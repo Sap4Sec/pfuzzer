@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: 31444aff3154fb28ade5e86d5a0173d0026ad9b4da100a4174718403e3588687
+MD5: 97a6ae3cb646ae0b4a9118f51cfecad7
+Year: 2021_04_15
+Family name: khalesi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] getaddrinfo @ 23FC
+* [API ] CreateFileA @ 3BA9
+* [API ] CreateFileA @ 3463
+* [API ] CreateFileA @ 40A7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID                @ 440E    Retarget    Missing
+* [API ] CreateFileA          @ 3463    Fail        Not modified
+* [API ] CreateFileA          @ 3BA9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA          @ 40A7    Succeed
+* [API ] DeviceIoControl      @ 3C12    Nothing
+* [API ] FindWindowA          @ 34EB    Succeed
+* [API ] FindWindowA          @ 3507    Retarget    Window - Window
+* [API ] GetAdaptersAddresses @ 28DA    Nothing
+* [API ] GetAdaptersAddresses @ 293F    Retarget    Office
+* [API ] GetAdaptersAddresses @ 2A22    Retarget    Office
+* [API ] GetAdaptersAddresses @ 2A87    Retarget    testuser
+* [API ] GetCursorPos         @ 3812    Retarget    Missing
+* [API ] GetCursorPos         @ 3833    Retarget    Missing
+* [API ] GetDiskFreeSpaceExA  @ 3C7E    Retarget    Missing
+* [API ] GetFileAttributesA   @ 2870    Succeed
+* [API ] GetModuleFileNameA   @ 396B    Nothing
+* [API ] GetSystemInfo        @ 3D25    Nothing
+* [API ] GetUserNameA         @ 3885    Retarget    Office
+* [API ] GlobalMemoryStatusEx @ 3D50    Nothing
+* [API ] IsNativeVhdBoot      @ 3DDA    Retarget    Missing
+* [API ] Process32First       @ 3619    Nothing
+* [API ] Process32Next        @ 36D1    Retarget
+* [API ] RegOpenKeyExA        @ 25FF    Succeed
+* [API ] RegOpenKeyExA        @ 26DC    Succeed
+* [API ] RegQueryValueExA     @ 2754    Nothing
+* [API ] TimeDelayAPIs        @ 4763    Retarget
+* [API ] TimeQueryAPIs        @ 4D3F    Retarget
+* [API ] WNetGetProviderNameA @ 3588    Retarget    John
+
+[Manual annotations]
+====================
+PoC samples: Pafish/Al-khaser like

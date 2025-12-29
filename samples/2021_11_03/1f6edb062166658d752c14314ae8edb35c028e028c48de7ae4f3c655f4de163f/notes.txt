@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 1f6edb062166658d752c14314ae8edb35c028e028c48de7ae4f3c655f4de163f
+MD5: e2133c1d5aa57b4801f73490c6046913
+Year: 2021_11_03
+Family name: xolxo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Succeed
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Succeed
+* [API ] CreateFileA        @ 33ED    Succeed
+* [API ] CreateMutexA       @ 2A13    Fail
+* [API ] FindFirstFileA     @ 30A1    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ 369C    Succeed
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] RegOpenKeyExA      @ 2D07    Succeed
+* [API ] RegQueryValueExA   @ 2DE3    Nothing
+
+[Manual annotations]
+====================

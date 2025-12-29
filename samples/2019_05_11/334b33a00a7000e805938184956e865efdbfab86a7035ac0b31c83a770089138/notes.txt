@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 334b33a00a7000e805938184956e865efdbfab86a7035ac0b31c83a770089138
+MD5: bb154af0c551fe2d29289193bd7c7c0c
+Year: 2019_05_11
+Family name: libpatcher
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerA @ 13B6
+* [API ] OpenServiceA   @ 13D8
+* [API ] ControlService @ 13E6
+* [API ] FindResourceA  @ 12E9
+* [API ] LoadResource   @ 12FD
+* [API ] CreateFileA    @ 1339
+* [API ] WriteFile      @ 1353
+* [API ] CreateFileA    @ 11C2
+* [API ] WriteFile      @ 122E
+* [API ] ShellExecuteA  @ 124D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 11C2    Fail        Not modified
+* [API ] CreateFileA        @ 1339    Fail        Not modified
+* [API ] GetModuleFileNameA @ 1154    Nothing
+* [API ] GetModuleFileNameA @ 12AA    Nothing
+* [API ] Process32First     @ 1044    Nothing
+* [API ] Process32First     @ 1076    Nothing
+* [API ] Process32Next      @ 1067    Retarget
+* [API ] Process32Next      @ 10F1    Retarget
+* [API ] TimeDelayAPIs      @ 1540    Retarget
+* [API ] TimeQueryAPIs      @ 14C9    Retarget
+
+[Manual annotations]
+====================

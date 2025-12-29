@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: 54645fc38a58ce5a0a7ef119e03988db46bf2c9b1ed940d61f61c1e20f11de5f
+MD5: 205a6ac7728fb0f03bce5cc98467f940
+Year: 2021_11_03
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 63F6
+* [API ] OpenServiceW         @ 6CD4
+* [API ] CryptAcquireContextW @ 0046
+* [API ] CryptGenRandom       @ FC4A
+* [API ] CryptReleaseContext  @ FDD9
+* [API ] CreateFileW          @ E551
+* [API ] CreateFileW          @ E845
+* [API ] WriteFile            @ E925
+* [API ] CreateProcessW       @ 95DF
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceW        @ 3519
+* [API ] SetWindowsHookExW    @ 93CF
+* [API ] FindResourceW        @ A417
+* [API ] LoadResource         @ A41F
+* [API ] SetWindowsHookExW    @ 2BC3
+* [API ] FindResourceW        @ 8CA4
+* [API ] FindResourceW        @ 3F03
+* [API ] FindResourceW        @ 44EF
+* [API ] LoadResource         @ 44F9
+* [API ] FindResourceW        @ 9FF2
+* [API ] LoadResource         @ 9FFA
+* [API ] CreateThread         @ AACD
+* [API ] FindResourceW        @ B01A
+* [API ] LoadResource         @ B02C
+* [API ] CreateFileW          @ B06E
+* [API ] WriteFile            @ B0B4
+* [API ] FindResourceW        @ 41D8
+* [API ] LoadResource         @ 41E2
+* [API ] AttachThreadInput    @ 508C
+* [API ] AttachThreadInput    @ 50A7
+
+[Mutations applied in the best run (81)]
+=======================================
+
+* [API ] CPUID               @ 3861    Retarget    Missing
+* [API ] CreateFileW         @ B06E    Retarget    iexplorer.exe
+* [API ] CreateFileW         @ E551    Succeed     Not modified
+* [API ] CreateFileW         @ E845    Fail        Not modified
+* [API ] GetComputerNameA    @ A0F2    Retarget    Office
+* [API ] GetCursorPos        @ 95B5    Nothing
+* [API ] GetForegroundWindow @ 505F    Nothing
+* [API ] GetModuleFileNameW  @ 2436    Nothing
+* [API ] GetModuleFileNameW  @ 2FCD    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW  @ 6B0E    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW  @ 9052    Nothing
+* [API ] GetModuleFileNameW  @ AD88    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW  @ B169    Nothing
+* [API ] GetModuleFileNameW  @ CEF2    Nothing
+* [API ] GetModuleFileNameW  @ F8BA    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA        @ 9FBC    Retarget    testuser
+* [API ] RegOpenKeyExW       @ 71F2    Succeed
+* [API ] RegOpenKeyExW       @ AEEB    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW    @ AF0B    Nothing
+* [API ] RegQueryValueExW    @ AF49    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs       @ 288F    Nothing
+* [API ] TimeQueryAPIs       @ 334B    Nothing
+
+[Manual annotations]
+====================

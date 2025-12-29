@@ -1,0 +1,97 @@
+[Basic information]
+=========================================================================
+SHA-256: d12c986c285418af59365aaea50834e55ca025534af1d926a55296db917c5185
+MD5: adab34c96b26c59a393f73e7700bcf55
+Year: 2018
+Family name: installmonster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ DD01
+* [API ] CreateFileMappingA @ DD66
+* [API ] MapViewOfFile      @ DDA7
+* [API ] GetKeyboardState   @ 33BB
+* [API ] CreateFileA        @ 8670
+* [API ] CreateFileA        @ 86A2
+* [API ] CreateFileMappingA @ BA13
+* [API ] MapViewOfFile      @ BA34
+* [API ] FindResourceA      @ 790C
+* [API ] LoadResource       @ 7926
+* [API ] FindResourceA      @ 3223
+* [API ] FindResourceA      @ 3345
+* [API ] LoadResource       @ 3353
+* [API ] CreateFileA        @ B41B
+* [API ] CreateFileW        @ 23B8
+* [API ] WriteFile          @ 2F4C
+* [API ] ShellExecuteW      @ 1653
+
+Fuzzing Findings
+----------------
+* [API ] socket             @ FC46
+* [API ] CreateThread       @ 4E9F
+* [API ] ResumeThread       @ F401
+* [API ] connect            @ F6CE
+* [API ] send               @ FB0E
+* [API ] socket             @ 52FA
+* [API ] connect            @ 69BB
+* [API ] send               @ 50A0
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID                @ 986A    Retarget    Missing
+* [API ] CreateFileA          @ 8670    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileA          @ 86A2    Retarget    Detect It Easy.lnk
+* [API ] CreateFileA          @ B41B    Succeed
+* [API ] CreateFileW          @ 23B8    Succeed
+* [API ] CreateMutexA         @ D9B6    Succeed
+* [API ] DeviceIoControl      @ 23EF    Retarget    Missing
+* [API ] FindFirstFileA       @ 140E    Fail
+* [API ] FindFirstFileA       @ B504    Retarget    C:\Users\Student\*
+* [API ] FindWindowW          @ 386F    Fail
+* [API ] GetAdaptersAddresses @ 151F    Nothing
+* [API ] GetAdaptersInfo      @ 1CDE    Nothing
+* [API ] GetAdaptersInfo      @ 1D05    Retarget    Office
+* [API ] GetDiskFreeSpaceExW  @ 226C    Retarget    Missing
+* [API ] GetKeyboardLayout    @ 1FDE    Retarget    German
+* [API ] GetLocalTime         @ 2B08    Nothing
+* [API ] GetLocalTime         @ E2C9    Nothing
+* [API ] GetModuleFileNameA   @ 1509    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA   @ 2D39    Nothing
+* [API ] GetModuleFileNameA   @ 329C    Nothing
+* [API ] GetModuleFileNameA   @ 6B2F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 6D69    Nothing
+* [API ] GetModuleFileNameA   @ BDBB    Nothing
+* [API ] GetModuleFileNameW   @ 47C5    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemInfo        @ 0E3E    Retarget    Missing
+* [API ] GetSystemInfo        @ 1B1A    Retarget    Missing
+* [API ] GetSystemInfo        @ 2075    Retarget    Missing
+* [API ] GetSystemInfo        @ 92FB    Retarget    Missing
+* [API ] GlobalMemoryStatusEx @ 1A5A    Nothing
+* [API ] Process32First       @ 8CDF    Nothing
+* [API ] Process32FirstW      @ 9083    Nothing
+* [API ] Process32Next        @ 8CFF    Retarget
+* [API ] Process32NextW       @ 914A    Retarget
+* [API ] RegEnumKeyExA        @ B109    Nothing
+* [API ] RegEnumKeyExW        @ A724    Retarget    Office
+* [API ] RegOpenKeyExA        @ 6D87    Succeed
+* [API ] RegOpenKeyExA        @ 6DA5    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 6DC3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ AD49    Fail
+* [API ] RegOpenKeyExA        @ ADB4    Fail
+* [API ] RegOpenKeyExA        @ AE19    Fail
+* [API ] RegOpenKeyExW        @ 2B73    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ CD22    Succeed     Not modified
+* [API ] RegQueryValueExA     @ B257    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA     @ B594    Nothing
+* [API ] RegQueryValueExW     @ 2C17    Retarget    ProductID
+* [API ] RegQueryValueExW     @ CE24    Nothing
+* [API ] TimeDelayAPIs        @ D8F4    Retarget
+* [API ] TimeQueryAPIs        @ 2D7D    Retarget
+
+[Manual annotations]
+====================

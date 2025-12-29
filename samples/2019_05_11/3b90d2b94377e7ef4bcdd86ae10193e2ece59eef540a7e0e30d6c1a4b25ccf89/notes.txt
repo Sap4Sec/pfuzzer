@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: 3b90d2b94377e7ef4bcdd86ae10193e2ece59eef540a7e0e30d6c1a4b25ccf89
+MD5: e78e2a4eababb5b05856205427668459
+Year: 2019_05_11
+Family name: gamania
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA      @ 5252
+* [API ] CreateThread     @ 03A5
+* [API ] WSAStartup       @ 1BC3
+* [API ] socket           @ 1D5D
+* [API ] GetKeyState      @ 554F
+* [API ] GetAsyncKeyState @ 555F
+* [API ] connect          @ 1DEA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 5252    Succeed    Not modified
+* [API ] CreateMutexA       @ FF55    Fail
+* [API ] GetModuleFileNameA @ 5238    Nothing
+* [API ] TimeDelayAPIs      @ 03AC    Nothing
+* [API ] TimeQueryAPIs      @ FB90    Nothing
+
+[Manual annotations]
+====================

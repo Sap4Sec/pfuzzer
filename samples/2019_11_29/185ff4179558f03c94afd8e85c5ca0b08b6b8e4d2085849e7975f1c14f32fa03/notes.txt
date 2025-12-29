@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: 185ff4179558f03c94afd8e85c5ca0b08b6b8e4d2085849e7975f1c14f32fa03
+MD5: b7dba82476200436944e7bcc2c1ab3a9
+Year: 2019_11_29
+Family name: SINGLETON:b7dba82476200436944e7bcc2c1ab3a9
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ B962
+* [API ] SetWindowsHookExA @ 8AC3
+* [API ] WSAStartup        @ 0BB3
+* [API ] WSAStartup        @ E8A6
+* [API ] OpenSCManagerA    @ CC22
+* [API ] OpenServiceA      @ CCDB
+* [API ] OpenSCManagerA    @ F671
+* [API ] OpenServiceA      @ F6AA
+* [API ] OpenSCManagerA    @ F7B2
+* [API ] OpenServiceA      @ F7EB
+* [API ] OpenSCManagerA    @ FA40
+* [API ] OpenServiceA      @ FA79
+* [API ] StartServiceA     @ FAB2
+* [API ] CreateProcessA    @ B32D
+* [API ] OpenSCManagerA    @ FB70
+* [API ] OpenServiceA      @ FBA9
+* [API ] ControlService    @ FBE0
+
+Fuzzing Findings
+----------------
+* [API ] GetKeyState       @ 8453
+* [API ] GetKeyState       @ 8468
+* [API ] GetKeyState       @ 847D
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ 4BB0    Nothing
+* [API ] GetCursorPos       @ 0EED    Retarget    Missing
+* [API ] GetModuleFileNameA @ 1167    Nothing
+* [API ] GetModuleFileNameA @ 4A29    Nothing
+* [API ] GetModuleFileNameA @ 9943    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ A387    Nothing
+* [API ] GetWindowTextA     @ 8FB2    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] TimeDelayAPIs      @ E2F7    Retarget
+* [API ] TimeQueryAPIs      @ 4BC1    Retarget
+
+[Manual annotations]
+====================
+On Windows 8 and later, the sample fails due to a INT 29h instruction with ECX = FAST_FAIL_GUARD_ICALL_CHECK_FAILURE. This is because the fast fail mechanism was introduced starting with Windows 8.
+On Windows 7, the sample executes correctly, as this guard check does not exist in that version.
+Reference: FAST_FAIL in MSVC

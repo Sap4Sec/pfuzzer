@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: 6b1d4f7c3365b1c9ffb305174a86b7449dedda795d23ee533d33384f65e51224
+MD5: 1729d1e56cfbb17655429c085096fb2c
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 36E8
+* [API ] CreateFileA @ 3015
+* [API ] WriteFile   @ 2F40
+* [API ] WinExec     @ EF03
+* [API ] WinExec     @ FEBC
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 3015    Fail        Not modified
+* [API ] CreateFileA        @ 36E8    Fail        Not modified
+* [API ] FindFirstFileA     @ 7C18    Retarget    C:\*
+* [API ] GetModuleFileNameA @ 2DC8    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 5D07    Nothing
+* [API ] GetModuleFileNameA @ 5F98    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ EC56    Nothing
+* [API ] Process32First     @ 72FF    Nothing
+* [API ] Process32Next      @ 731F    Retarget
+* [API ] RegOpenKeyExA      @ 5FB6    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5FD4    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5FF2    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ E83A    Retarget
+* [API ] TimeQueryAPIs      @ 2E0D    Retarget
+
+[Manual annotations]
+====================

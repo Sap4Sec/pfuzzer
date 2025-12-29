@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Agent.xapeth-0c4624fdad728743915d3c15afb1257021f351b7dbe358908e395f4f5f2c93ef
+MD5: 327e181d948ff5f7a280267d503ef617
+Year: 2022
+Family name: SINGLETON:327e181d948ff5f7a280267d503ef617
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+DR bug: werfault.exe process triggers instantly only with drrun.exe

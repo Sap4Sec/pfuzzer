@@ -1,0 +1,24 @@
+[Basic information]
+=========================================================================
+SHA-256: 3cfb8596e16167700d005309487ec9d884b2a6ab62216ee042f6cec973ce58ec
+MD5: 6a659cb456163171ba681146657b4766
+Year: 2018
+Family name: secrar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Message appears: "Unable to run on this PC"
+DynamoRIO error: failed to create process

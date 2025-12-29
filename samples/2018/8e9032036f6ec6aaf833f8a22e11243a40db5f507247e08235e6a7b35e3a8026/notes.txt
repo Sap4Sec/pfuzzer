@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 8e9032036f6ec6aaf833f8a22e11243a40db5f507247e08235e6a7b35e3a8026
+MD5: a60bdd2424dd1acfd9ce7fc0dfc2d213
+Year: 2018
+Family name: tapaoux
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (38)]
+=======================================
+
+* [API ] CreateFileA        @ 85F6    Succeed     Not modified
+* [API ] CreateFileA        @ 885A    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA        @ DCC0    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesA @ 7B7B    Succeed
+* [API ] GetFileAttributesA @ 7B9B    Fail
+* [API ] GetModuleFileNameA @ 1116    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 2F0B    Nothing
+* [API ] GetModuleFileNameA @ A606    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ 8C66    Nothing
+* [API ] Process32First     @ E718    Nothing
+* [API ] Process32Next      @ 8CDC    Retarget
+* [API ] Process32Next      @ E75D    Retarget
+* [API ] Process32Next      @ E78B    Retarget
+* [API ] RegOpenKeyExA      @ 7CED    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 7D5E    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 8A07    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 8A4C    Retarget    \??\Analysis
+* [API ] RegOpenKeyExA      @ 8A91    Retarget    \??\Analysis
+* [API ] RegOpenKeyExA      @ 8AD6    Retarget    gamesaves
+* [API ] RegOpenKeyExA      @ 8B1B    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 8B84    Retarget    \??\Analysis
+* [API ] RegOpenKeyExA      @ 8BE4    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 7D27    Retarget    \REGISTRY\MACHINE\HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs      @ 131F    Retarget
+
+[Manual annotations]
+====================

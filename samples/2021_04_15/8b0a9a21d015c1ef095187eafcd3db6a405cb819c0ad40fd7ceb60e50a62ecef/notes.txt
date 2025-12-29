@@ -1,0 +1,61 @@
+[Basic information]
+=========================================================================
+SHA-256: 8b0a9a21d015c1ef095187eafcd3db6a405cb819c0ad40fd7ceb60e50a62ecef
+MD5: 738682ccfb518c11a89cfaec1e1494d1
+Year: 2021_04_15
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA    @ 1BEA
+* [API ] MoveFileA      @ 25ED
+* [API ] MoveFileA      @ 261D
+* [API ] CreateFileA    @ 239A
+* [API ] MoveFileA      @ 2F6D
+
+[Mutations applied in the best run (38)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA          @ 1BEA    Succeed     Not modified
+* [API ] CreateFileA          @ 1C1B    Fail
+* [API ] CreateFileA          @ 239A    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA         @ 105A    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA         @ 1101    Succeed
+* [API ] FindFirstFileA       @ 3004    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Succeed
+* [API ] GetFileAttributesExA @ 1B43    Succeed
+* [API ] GetModuleFileNameA   @ 11A7    Nothing
+* [API ] GetModuleFileNameA   @ 1E4D    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 52B0    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 2A94    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2AE1    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 2D0B    Succeed     Not modified
+* [API ] RegQueryValueExA     @ 2B12    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 10C1    Retarget
+* [API ] TimeQueryAPIs        @ 1100    Retarget
+
+[Manual annotations]
+====================

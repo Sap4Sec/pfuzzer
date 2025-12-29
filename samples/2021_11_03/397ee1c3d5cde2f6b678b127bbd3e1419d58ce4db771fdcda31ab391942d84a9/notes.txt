@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: 397ee1c3d5cde2f6b678b127bbd3e1419d58ce4db771fdcda31ab391942d84a9
+MD5: 81699dd3f9a96c27cbb72ef721f99852
+Year: 2021_11_03
+Family name: fasong
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExA @ A987
+* [API ] CreateFileA     @ 8D77
+* [API ] CreateFileA     @ 8D9E
+* [API ] WriteFile       @ 8DE5
+* [API ] CreateFileA     @ 615C
+* [API ] WriteFile       @ 60A9
+* [API ] RegSetValueExA  @ AB4A
+* [API ] OpenSCManagerA  @ 696A
+* [API ] CreateServiceA  @ 6995
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] WinExec         @ 8AC9
+* [API ] FindResourceA   @ E66F
+* [API ] FindResourceA   @ 11E8
+* [API ] LoadResource    @ 1202
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (37)]
+=======================================
+
+* [API ] CreateFileA        @ 615C    Fail        Not modified
+* [API ] CreateFileA        @ 8D77    Succeed     Not modified
+* [API ] CreateFileA        @ 8D9E    Retarget    Backup.txt
+* [API ] CreateMutexA       @ 8C6A    Fail
+* [API ] FindFirstFileA     @ 8E2C    Nothing
+* [API ] FindFirstFileA     @ 9104    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 917D    Retarget
+* [API ] GetKeyboardLayout  @ 516A    Nothing
+* [API ] GetModuleFileNameA @ 297E    Nothing
+* [API ] GetModuleFileNameA @ 5B9D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 61B8    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 6E00    Nothing
+* [API ] GetSystemTime      @ 29C3    Nothing
+* [API ] GetWindowTextA     @ 70A0    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] RegOpenKeyExA      @ 5BBB    Succeed
+* [API ] RegOpenKeyExA      @ 5BD9    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 5C13    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 5C31    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ AA2F    Nothing
+* [API ] RegQueryValueExA   @ ABAC    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 954C    Nothing
+
+[Manual annotations]
+====================

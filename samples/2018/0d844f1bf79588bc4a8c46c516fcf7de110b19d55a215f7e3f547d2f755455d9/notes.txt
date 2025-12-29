@@ -1,0 +1,69 @@
+[Basic information]
+=========================================================================
+SHA-256: 0d844f1bf79588bc4a8c46c516fcf7de110b19d55a215f7e3f547d2f755455d9
+MD5: 422bac91f60e06754c75262f5ca4bcd0
+Year: 2018
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 580B
+* [API ] CreateFileA        @ 5847
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D72
+* [API ] RegCreateKeyA      @ 5C6F
+* [API ] RegSetValueExA     @ 5C97
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 68EA
+* [API ] RegSetValueExA     @ 693E
+* [API ] CreateFileA        @ 5D93
+* [API ] WriteFile          @ 5DC1
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8BC
+* [API ] CreateProcessA     @ B52A
+* [API ] CopyFileA          @ 6DC7
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CreateFileA        @ 580B    Retarget    C:\Windows\system32\
+* [API ] CreateFileA        @ 5847    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 5D93    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateMutexA       @ 3583    Fail
+* [API ] FindFirstFileA     @ 5D16    Succeed
+* [API ] FindWindowA        @ B85D    Fail
+* [API ] GetFileAttributesA @ 5A50    Fail
+* [API ] GetFileAttributesA @ 6648    Fail
+* [API ] GetModuleFileNameA @ 13CD    Nothing
+* [API ] GetUserNameA       @ 5580    Retarget    testuser
+* [API ] Process32Next      @ 50BB    Retarget
+* [API ] RegOpenKeyExA      @ 5329    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 53E1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5499    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 60BA    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69D7    Fail
+* [API ] RegQueryValueExA   @ 5352    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 540A    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 54C2    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 60DE    Nothing
+* [API ] RegQueryValueExA   @ 6108    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ BF15    Retarget
+* [API ] TimeQueryAPIs      @ B238    Retarget
+
+[Manual annotations]
+====================

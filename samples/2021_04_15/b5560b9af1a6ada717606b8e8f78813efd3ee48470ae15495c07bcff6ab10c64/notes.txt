@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: b5560b9af1a6ada717606b8e8f78813efd3ee48470ae15495c07bcff6ab10c64
+MD5: b5ce71e9f2e276001a24207e91baa3e2
+Year: 2021_04_15
+Family name: fsysna
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: the ordinal 1 could not be located in the dynamic link library C:\Windows\SYSTEM32\SQLUNIRL.dll

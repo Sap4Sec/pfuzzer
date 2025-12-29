@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: 32964a5f1a48ab5bd5bd019116ef18e2d0f90cee720f27d9fe9c78bb3b60281c
+MD5: 8791d1c01d75c6b650899db8089291ae
+Year: 2018
+Family name: amonetize
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinHttpOpen       @ 1445
+* [API ] CreateThread      @ AB77
+* [API ] CreateThread      @ 2AEB
+* [API ] FindResourceW     @ C6CB
+* [API ] FindResourceW     @ C6DE
+* [API ] LoadResource      @ C6FE
+* [API ] FindResourceW     @ 9166
+* [API ] FindResourceW     @ 919D
+* [API ] LoadResource      @ 91AE
+* [API ] CreateThread      @ D507
+* [API ] CreateThread      @ D52C
+* [API ] AttachThreadInput @ 37B3
+* [API ] AttachThreadInput @ 37CD
+
+Fuzzing Findings
+----------------
+* [API ] ShellExecuteExW   @ 8CD4
+* [API ] CreateThread      @ 2C63
+* [API ] CreateFileW       @ 46E7
+* [API ] WriteFile         @ D12C
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CreateMutexW         @ E387    Fail
+* [API ] FindFirstFileW       @ B8BA    Retarget    C:\*
+* [API ] GetAdaptersAddresses @ 9CE5    Retarget    John
+* [API ] GetComputerNameExW   @ 2FC8    Nothing
+* [API ] GetComputerNameExW   @ 316D    Retarget    Office
+* [API ] GetComputerNameExW   @ 31E2    Retarget    testuser
+* [API ] GetComputerNameExW   @ 4415    Retarget    John
+* [API ] GetComputerNameW     @ 9C4A    Nothing
+* [API ] GetForegroundWindow  @ 3776    Retarget    Missing
+* [API ] GetModuleFileNameW   @ 0BBD    Nothing
+* [API ] GetModuleFileNameW   @ 68E6    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW   @ 7E65    Nothing
+* [API ] GetWindowTextW       @ 1DD4    Retarget    Window - Window
+* [API ] RegOpenKeyExA        @ 9B7F    Fail
+* [API ] RegOpenKeyExW        @ B1C6    Succeed
+* [API ] RegQueryValueExA     @ 9BA7    Nothing
+* [API ] RegQueryValueExA     @ 9BD8    Nothing
+* [API ] RegQueryValueExW     @ B0B8    Retarget    ProductID
+* [API ] RegQueryValueExW     @ B11F    Retarget    ProductID
+* [API ] TimeDelayAPIs        @ E324    Retarget
+* [API ] TimeQueryAPIs        @ 7FCE    Retarget
+
+[Manual annotations]
+====================
+Queries WMI DisplayName for AntiVirusProduct

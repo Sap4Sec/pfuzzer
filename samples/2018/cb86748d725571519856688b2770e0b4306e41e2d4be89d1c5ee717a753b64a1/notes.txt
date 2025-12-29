@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: cb86748d725571519856688b2770e0b4306e41e2d4be89d1c5ee717a753b64a1
+MD5: 06c17d66e7338d086dc1c895c80aff9f
+Year: 2018
+Family name: jeefo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA                 @ 3037
+* [API ] CreateFileA                 @ 253A
+* [API ] CreateFileA                 @ 2561
+* [API ] WriteFile                   @ 2373
+* [API ] WriteFile                   @ 23B3
+* [API ] WriteFile                   @ 23E0
+* [API ] WriteFile                   @ 240D
+* [API ] WriteFile                   @ 243A
+* [API ] WriteFile                   @ 246D
+* [API ] WriteFile                   @ 2487
+* [API ] WriteFile                   @ 2517
+* [API ] SetFileTime                 @ 25A4
+* [API ] CreateProcessA              @ 2EFE
+
+Fuzzing Findings
+----------------
+* [API ] StartServiceCtrlDispatcherA @ 3773
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA        @ 253A    Retarget    attrib.exe
+* [API ] CreateFileA        @ 2561    Succeed     Not modified
+* [API ] CreateFileA        @ 3037    Succeed     Not modified
+* [API ] CreateMutexA       @ 316B    Retarget    ZonesCacheCounterMutex
+* [API ] GetModuleFileNameA @ 301D    Nothing
+
+[Manual annotations]
+====================

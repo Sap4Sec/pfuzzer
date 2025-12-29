@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: c37cd53b09bd97dc55204def081e87bfab6c93c37e69449c971a1d1fa57cf3b9
+MD5: 369e911c6a7c2860b2397de215be0386
+Year: 2021_11_03
+Family name: neconyd
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileW      @ 75FE
+* [API ] CreateFileW      @ 761A
+* [API ] WriteFile        @ 7685
+* [API ] WriteFile        @ 770B
+* [API ] CreateProcessW   @ 7821
+
+Fuzzing Findings
+----------------
+* [API ] InternetOpenW    @ 6D32
+* [API ] CreateFileW      @ 7D4E
+* [API ] CreateFileW      @ 786A
+* [API ] InternetOpenUrlW @ 9CD1
+* [API ] InternetReadFile @ 9D74
+* [API ] WriteFile        @ 7E26
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CreateFileW        @ 75FE    Succeed     Not modified
+* [API ] CreateFileW        @ 761A    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 774A    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ AB99    Nothing
+* [API ] GetModuleFileNameW @ B36E    Retarget    C:\Windows\system32\
+* [API ] RegOpenKeyExW      @ AC46    Fail
+* [API ] RegOpenKeyExW      @ AC74    Succeed     Not modified
+* [API ] RegQueryValueExW   @ 69E9    Nothing
+
+[Manual annotations]
+====================

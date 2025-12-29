@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: aafec4733fa28295f631c2ee91424cb3ec500ceab14463c02007ce56ece30d5e
+MD5: 5c617a0b64f0293d240e41b52bdf156e
+Year: 2019_05_11
+Family name: SINGLETON:5c617a0b64f0293d240e41b52bdf156e
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 7B26
+* [API ] CreateFileW  @ 315F
+* [API ] NtCreateFile @ D17C
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ A18E
+* [API ] NtCreateFile @ ADA2
+* [API ] NtCreateFile @ 9E8D
+* [API ] NtCreateFile @ E0B6
+* [API ] NtCreateFile @ AB0A
+* [API ] NtCreateFile @ F99A
+* [API ] NtCreateFile @ B317
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID              @ 49C0    Retarget    Missing
+* [API ] CreateFileW        @ 315F    Succeed     Not modified
+* [API ] CreateFileW        @ 7B26    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 7CA6    Nothing
+* [API ] NtCreateFile       @ 84B8    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] NtCreateFile       @ D17C    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 4AC9    Retarget
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input in a log-in form

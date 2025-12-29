@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 2b3ed45a72c0e71a2f0ccf9f8307d0a094e79c66cff078c3a7a4e515edd29302
+MD5: 4aa90c690f9e3023174e90e932f6441a
+Year: 2018
+Family name: chir
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: libprotobuf.dll

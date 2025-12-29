@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: d628e621502f044b3b6087b3b041cd4315d3813a56ae566431332efebed30e41
+MD5: 813e483eed3a5f2de438b4093cd3df17
+Year: 2020_05_06
+Family name: ypdbw
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] VirtualAllocExNuma @ 25B3
+* [API ] InternetOpenA      @ 2663
+* [API ] InternetOpenUrlA   @ 2682
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateMutexA         @ 2458    Succeed
+* [API ] GetSystemInfo        @ 1DB5    Nothing
+* [API ] GlobalMemoryStatusEx @ 1CE5    Nothing
+* [API ] TimeDelayAPIs        @ 1D8A    Retarget
+* [API ] TimeQueryAPIs        @ 1D7D    Retarget
+
+[Manual annotations]
+====================

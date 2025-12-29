@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 749029fc81d287e23a4b6a077af9dbc427f02b5488770187217c62f5d24ba6cc
+MD5: a82dbfec0469968012399e5ae474058b
+Year: 2018
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

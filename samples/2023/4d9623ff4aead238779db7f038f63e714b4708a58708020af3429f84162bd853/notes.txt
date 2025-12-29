@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Downloader.Win32.Alien.sge-4d9623ff4aead238779db7f038f63e714b4708a58708020af3429f84162bd853
+MD5: 709b707c79f958f9ca12521f55873427
+Year: 2023
+Family name: alien
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA  @ 90E5
+* [API ] FindResourceA  @ 92F3
+* [API ] LoadResource   @ 9347
+* [API ] CreateFileA    @ 98BC
+* [API ] WriteFile      @ 98E8
+* [API ] CreateProcessA @ 9579
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (44)]
+=======================================
+
+* [API ] CreateFileA        @ 98BC    Fail        Not modified
+* [API ] FindFirstFileA     @ 4187    Retarget    C:\*
+* [API ] FindFirstFileA     @ 5990    Retarget    C:\Users\Student\*
+* [API ] GetModuleFileNameA @ 2829    Nothing
+* [API ] GetModuleFileNameA @ 4017    Nothing
+* [API ] GetModuleFileNameA @ 4251    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegOpenKeyExA      @ 426F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 428D    Succeed
+* [API ] RegOpenKeyExA      @ 42AB    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 42F4    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 4312    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 9598    Retarget
+* [API ] TimeQueryAPIs      @ 2869    Retarget
+
+[Manual annotations]
+====================

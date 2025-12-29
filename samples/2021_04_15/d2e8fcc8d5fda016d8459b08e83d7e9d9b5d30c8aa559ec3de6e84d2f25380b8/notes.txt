@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: d2e8fcc8d5fda016d8459b08e83d7e9d9b5d30c8aa559ec3de6e84d2f25380b8
+MD5: 037c3ad63685ac0eec86edc056f70399
+Year: 2021_04_15
+Family name: SINGLETON:037c3ad63685ac0eec86edc056f70399
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ EC13
+* [API ] CreateFileW  @ 4677
+* [API ] NtCreateFile @ 7B65
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 7BE5
+* [API ] NtCreateFile @ 8722
+* [API ] NtCreateFile @ 6F8B
+* [API ] NtCreateFile @ 506F
+* [API ] NtCreateFile @ DAD9
+* [API ] NtCreateFile @ ED3A
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID         @ 548B    Retarget    Missing
+* [API ] CreateFileW   @ 4677    Succeed     Not modified
+* [API ] CreateFileW   @ EC13    Succeed     Not modified
+* [API ] NtCreateFile  @ 7B65    Retarget    \??\Analysis
+* [API ] NtCreateFile  @ A8F4    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 5491    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: Safengine Shielden(v2.3.9.0)

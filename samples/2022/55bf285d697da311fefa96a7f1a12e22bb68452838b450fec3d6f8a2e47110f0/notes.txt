@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan.Win32.GenericML.xnet-55bf285d697da311fefa96a7f1a12e22bb68452838b450fec3d6f8a2e47110f0
+MD5: a5da3554bd487d59fa73810876f1db24
+Year: 2022
+Family name: SINGLETON:a5da3554bd487d59fa73810876f1db24
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext @ 51D3
+* [API ] CreateThread     @ 00E2
+* [API ] ResumeThread     @ DF2F
+
+Fuzzing Findings
+----------------
+* [API ] WinExec          @ 3430
+* [API ] WinExec          @ 343D
+* [API ] WinExec          @ 344A
+* [API ] WinExec          @ 3457
+* [API ] WinExec          @ 346F
+* [API ] WinExec          @ 347C
+* [API ] WinExec          @ 3489
+* [API ] WinExec          @ 3496
+* [API ] CreateFileA      @ 3142
+* [API ] CopyFileA        @ 2CA4
+* [API ] WinExec          @ 2CB1
+* [API ] WinExec          @ 2CBE
+* [API ] WinExec          @ 2CCB
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID                @ 7800    Retarget    Missing
+* [API ] GetFileAttributesExW @ C412    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ 8AB0    Nothing
+* [API ] TimeDelayAPIs        @ 18CD    Nothing
+* [API ] TimeQueryAPIs        @ 7821    Nothing
+
+[Manual annotations]
+====================

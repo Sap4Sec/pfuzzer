@@ -1,0 +1,66 @@
+[Basic information]
+=========================================================================
+SHA-256: 916a6c54e39f4d92bb0901e4812aa82a10e54befe5da2aaa984b3121c5bb7c55
+MD5: 1444bbca9c29f1ff3fa8d5e00510bd5a
+Year: 2020_11_19
+Family name: SINGLETON:1444bbca9c29f1ff3fa8d5e00510bd5a
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ 5755
+* [API ] CreateFileW     @ F8DE
+* [API ] NtCreateFile    @ E626
+* [API ] FindResourceExW @ A383
+* [API ] LoadResource    @ A39D
+* [API ] FindResourceExW @ A3D8
+* [API ] LoadResource    @ A3FD
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ DA5E
+* [API ] FindResourceExW @ 97BB
+* [API ] LoadResource    @ 97D5
+* [API ] FindResourceExW @ 9810
+* [API ] LoadResource    @ 9835
+* [API ] NtCreateFile    @ 3E83
+* [API ] FindResourceExW @ DC5D
+* [API ] LoadResource    @ DC77
+* [API ] FindResourceExW @ DCB2
+* [API ] LoadResource    @ DCD7
+* [API ] NtCreateFile    @ A1B0
+* [API ] FindResourceExW @ AF1C
+* [API ] LoadResource    @ AF36
+* [API ] FindResourceExW @ AF71
+* [API ] LoadResource    @ AF96
+* [API ] NtCreateFile    @ 7637
+* [API ] FindResourceExW @ A346
+* [API ] LoadResource    @ A360
+* [API ] FindResourceExW @ A39B
+* [API ] LoadResource    @ A3C0
+* [API ] NtCreateFile    @ 5DC8
+* [API ] FindResourceExW @ 6B26
+* [API ] LoadResource    @ 6B40
+* [API ] FindResourceExW @ 6B7B
+* [API ] LoadResource    @ 6BA0
+* [API ] NtCreateFile    @ 1C42
+* [API ] FindResourceExW @ 8AC8
+* [API ] LoadResource    @ 8AE2
+* [API ] FindResourceExW @ 8B1D
+* [API ] LoadResource    @ 8B42
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CPUID         @ 7013    Nothing
+* [API ] CreateFileW   @ 5755    Fail
+* [API ] CreateFileW   @ F8DE    Succeed     Not modified
+* [API ] NtCreateFile  @ E626    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs @ 6FD9    Nothing
+
+[Manual annotations]
+====================
+Other dependencies: messagebog saying "Database DB does not exist."

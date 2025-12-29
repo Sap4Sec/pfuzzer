@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: fa8d2d3952cdf13709ac97a8a24e896ce357c86760d99b8500531aa4acf20059
+MD5: 93d40ec273675be4d0a31b8e839c0e0f
+Year: 2018
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 5B1D
+* [API ] SetWindowsHookExA @ 2C7E
+* [API ] WSAStartup        @ 64A3
+* [API ] WSAStartup        @ 142F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] FindWindowA        @ 3A09    Fail
+* [API ] GetCursorPos       @ AF1D    Nothing
+* [API ] GetModuleFileNameA @ 4B39    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 4F72    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 8A33    Nothing
+* [API ] GetModuleFileNameA @ B176    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] Process32First     @ 14BB    Nothing
+* [API ] Process32Next      @ 1735    Retarget
+* [API ] TimeQueryAPIs      @ 3925    Nothing
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI requiring text input

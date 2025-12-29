@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: cb8f291b17c423ae944b030fc20442d2206b0ade98650799d1514d846528f2b0
+MD5: 9941f6ce238aaee668241a6f840aa4c4
+Year: 2018
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4BD4
+* [API ] LoadResource       @ 4BF0
+* [API ] RegCreateKeyA      @ 5597
+* [API ] RegSetValueExA     @ 55BF
+* [API ] FindResourceA      @ 50A3
+* [API ] LoadResource       @ 50C8
+* [API ] CreateProcessA     @ 7F17
+* [API ] VirtualAllocEx     @ 6F9F
+* [API ] VirtualAllocEx     @ 6641
+* [API ] WriteProcessMemory @ 6663
+* [API ] VirtualAllocEx     @ 66AB
+* [API ] WriteProcessMemory @ 66B7
+* [API ] CreateRemoteThread @ 6703
+* [API ] WriteProcessMemory @ 6FE1
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA     @ 7FD6
+
+[Mutations applied in the best run (29)]
+=======================================
+
+* [API ] CreateMutexA         @ 4867    Fail
+* [API ] GetModuleFileNameA   @ 2B0C    Nothing
+* [API ] GetModuleFileNameExA @ 54E0    Retarget    C:\Windows\system32\
+* [API ] Process32First       @ 5003    Nothing
+* [API ] Process32Next        @ 5023    Retarget
+* [API ] RegOpenKeyA          @ 7B54    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 5AF1    Fail
+* [API ] RegQueryValueExA     @ 5B15    Retarget    ProductID
+* [API ] RegQueryValueExA     @ 5B3F    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 7B40    Nothing
+
+[Manual annotations]
+====================

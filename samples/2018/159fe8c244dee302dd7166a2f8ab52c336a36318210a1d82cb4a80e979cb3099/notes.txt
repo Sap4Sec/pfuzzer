@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 159fe8c244dee302dd7166a2f8ab52c336a36318210a1d82cb4a80e979cb3099
+MD5: 75709e557bfd63c82413026a5c53d74f
+Year: 2018
+Family name: vilsel
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Protectors: Armadillo(6.X-9.X)

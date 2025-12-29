@@ -1,0 +1,29 @@
+[Basic information]
+=========================================================================
+SHA-256: 584454f7d728bfedc059b642c8b92d876736cb3ccbcaea412e153db84494ff3f
+MD5: 84788883fcc9952a0623587e3d02d49a
+Year: 2021_04_15
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerA  @ 9F3B
+* [API ] CreateFileA     @ D32E
+* [API ] WriteFile       @ D369
+* [API ] RegCreateKeyExA @ D1FC
+* [API ] RegSetValueExA  @ D215
+* [API ] CreateThread    @ F262
+* [API ] ShellExecuteA   @ F3ED
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

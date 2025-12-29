@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Tasker.gen-2f66e12d5f65fad1c9e562115fbf079e0d0dd9b960d8130d30c03e2eb7040584
+MD5: a0dfab58c7663d20a489e5948b96b01f
+Year: 2022
+Family name: tasker
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA     @ 1578
+* [API ] ShellExecuteA @ 15C2
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 2BEB    Nothing
+* [API ] CreateMutexA       @ 130C    Fail
+* [API ] GetModuleFileNameA @ 1336    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 7F6B    Nothing
+* [API ] TimeDelayAPIs      @ 1319    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: e4f152f52599342ece9fdb0933e192e68e36e2b2a1ec1f54e8fc24aa44b8226c
+MD5: e0254c601857325a3fdb672caba95436
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID                    @ 5958    Retarget    Missing
+* [API ] GetSystemFirmwareTable   @ 65F6    Retarget    testuser
+* [API ] GetSystemFirmwareTable   @ C366    Retarget    Office
+* [API ] NtQuerySystemInformation @ 1D47    Nothing
+* [API ] NtQuerySystemInformation @ 8069    Retarget    testuser
+* [API ] NtQuerySystemInformation @ E3A8    Nothing
+* [API ] TimeQueryAPIs            @ E489    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Writos.vhu-a2cd0c436407cd92287e39a413aee136d5451d696a7018907c229708a781a6ca
+MD5: c882aead8a0131ade97c7c01de442f0f
+Year: 2022
+Family name: writos
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] Process32First   @ 3234    Nothing
+* [API ] Process32Next    @ 34CE    Retarget
+* [API ] RegOpenKeyExA    @ 4640    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA    @ 4C51    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA @ 46D8    Nothing
+* [API ] RegQueryValueExA @ 4CE5    Retarget    ProductID
+
+[Manual annotations]
+====================
+Evasive sample that detects VBox with unknown technique

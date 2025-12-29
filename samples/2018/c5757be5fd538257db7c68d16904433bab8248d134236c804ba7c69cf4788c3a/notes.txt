@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: c5757be5fd538257db7c68d16904433bab8248d134236c804ba7c69cf4788c3a
+MD5: 67f94c8e971e833da85fcdbee2e7ee2f
+Year: 2018
+Family name: nitol
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA                 @ 7104
+* [API ] CopyFileA                   @ A5BB
+* [API ] OpenSCManagerA              @ A684
+* [API ] CreateServiceA              @ A6BD
+* [API ] StartServiceA               @ A7BF
+* [API ] RegSetValueExA              @ A81F
+
+Fuzzing Findings
+----------------
+* [API ] StartServiceCtrlDispatcherA @ A452
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA          @ 7104    Succeed
+* [API ] GetFileAttributesA   @ A59D    Fail
+* [API ] GetModuleFileNameA   @ 65C4    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA   @ A56F    Nothing
+* [API ] GetModuleFileNameExA @ 90AF    Nothing
+* [API ] Process32First       @ 9064    Nothing
+* [API ] Process32First       @ 9472    Nothing
+* [API ] Process32Next        @ 9131    Retarget
+* [API ] Process32Next        @ 9498    Retarget
+* [API ] RegOpenKeyA          @ A7FF    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ A52C    Fail
+* [API ] TimeQueryAPIs        @ 1007    Retarget
+
+[Manual annotations]
+====================

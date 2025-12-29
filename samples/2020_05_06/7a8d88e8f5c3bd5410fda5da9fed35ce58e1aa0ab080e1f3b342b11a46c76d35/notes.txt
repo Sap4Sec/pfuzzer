@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 7a8d88e8f5c3bd5410fda5da9fed35ce58e1aa0ab080e1f3b342b11a46c76d35
+MD5: 548021a2cc8c025a4827bd851d163a98
+Year: 2020_05_06
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] MoveFileW      @ 131F
+
+Fuzzing Findings
+----------------
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExW @ 2266
+* [API ] CreateProcessW @ 327C
+* [API ] RegSetValueExW @ 21BB
+
+[Mutations applied in the best run (131)]
+=======================================
+
+* [API ] CreateMutexA       @ 1C40    Fail
+* [API ] FindWindowW        @ 1242    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowW        @ 1291    Succeed
+* [API ] FindWindowW        @ 12E0    Succeed
+* [API ] GetModuleFileNameW @ 1CFB    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] Process32First     @ 2FAA    Nothing
+* [API ] Process32Next      @ 306F    Retarget
+* [API ] RegOpenKeyExW      @ 213A    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 21E5    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 1346    Retarget
+* [API ] TimeQueryAPIs      @ 1C61    Retarget
+
+[Manual annotations]
+====================
+Interesting case: depending on the filename returned by GetModuleFileName (matching the name and path of a file it creates), the sample either drops a binary that it launches or behaves as the dropped process itself.

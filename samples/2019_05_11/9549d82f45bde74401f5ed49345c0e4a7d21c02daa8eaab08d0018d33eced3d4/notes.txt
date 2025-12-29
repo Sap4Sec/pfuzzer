@@ -1,0 +1,27 @@
+[Basic information]
+=========================================================================
+SHA-256: 9549d82f45bde74401f5ed49345c0e4a7d21c02daa8eaab08d0018d33eced3d4
+MD5: 9bc47401d993833ab1f2f6b3caf62332
+Year: 2019_05_11
+Family name: SINGLETON:9bc47401d993833ab1f2f6b3caf62332
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Detect the VM as it shows in a messagebox the following info about it:
+VM Additions S3 Trio32/64
+S3 Trio32/64
+VirtualBox Graphics Adapter
+VMware SVTGA II Detected!

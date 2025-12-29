@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: a2fed68b8423a8ee33a05e6809ba936abc66067426aa04884004c6e61acf9f7c
+MD5: 0a55e4303a4fbdced81eb860a6d39f2a
+Year: 2018
+Family name: hjack
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessA @ 1A0B
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA      @ 25DC
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] GetModuleFileNameA   @ 2901    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameExA @ 21A0    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First       @ 214A    Nothing
+* [API ] Process32First       @ 296A    Nothing
+* [API ] Process32Next        @ 227E    Retarget
+* [API ] Process32Next        @ 298F    Retarget
+
+[Manual annotations]
+====================

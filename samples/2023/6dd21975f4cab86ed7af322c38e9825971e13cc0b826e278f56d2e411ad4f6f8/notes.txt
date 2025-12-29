@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: HackTool.Win32.Binder.bs-6dd21975f4cab86ed7af322c38e9825971e13cc0b826e278f56d2e411ad4f6f8
+MD5: 20d9ace6b4fff715f204ea2cf008e0ee
+Year: 2023
+Family name: binder
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 1B26
+* [API ] LoadResource  @ 1B60
+* [API ] FindResourceA @ 1228
+* [API ] CreateFileA   @ 1247
+* [API ] LoadResource  @ 1262
+* [API ] WriteFile     @ 1271
+* [API ] ShellExecuteA @ 12D9
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CreateFileA        @ 1247    Succeed     Not modified
+* [API ] GetModuleFileNameA @ 4DF0    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+
+[Manual annotations]
+====================

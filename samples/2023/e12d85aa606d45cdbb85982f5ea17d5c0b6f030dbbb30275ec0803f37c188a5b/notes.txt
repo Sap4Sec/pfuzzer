@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.XRed.afk-e12d85aa606d45cdbb85982f5ea17d5c0b6f030dbbb30275ec0803f37c188a5b
+MD5: 7b1f03fb9936f72548c7d006eabfc310
+Year: 2023
+Family name: xred
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ 96F0
+* [API ] CreateFileW      @ 7717
+* [API ] NtCreateFile     @ C679
+* [API ] ShellExecuteA    @ 1C6A
+* [API ] ShellExecuteA    @ 9FE7
+* [API ] CreateThread     @ 9697
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA   @ 9556
+* [API ] RegCreateKeyExA  @ A97A
+* [API ] RegSetValueExA   @ A9D0
+* [API ] socket           @ 1A6D
+* [API ] GetKeyState      @ 4C0A
+* [API ] GetAsyncKeyState @ 4C1D
+* [API ] connect          @ 1AB0
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile     @ 7164
+* [API ] NtCreateFile     @ D377
+* [API ] NtCreateFile     @ 05FB
+* [API ] NtCreateFile     @ F0CD
+* [API ] NtCreateFile     @ 5D67
+* [API ] NtCreateFile     @ 7E71
+* [API ] NtCreateFile     @ 46D4
+* [API ] NtCreateFile     @ B648
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ F1D3    Nothing
+* [API ] CreateFileW        @ 7717    Succeed     Not modified
+* [API ] CreateFileW        @ 96F0    Fail
+* [API ] CreateMutexA       @ 8C2A    Retarget    vscode
+* [API ] GetLocalTime       @ 82E2    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameA @ 951D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 97D6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] NtCreateFile       @ A55D    Fail        Not modified
+* [API ] NtCreateFile       @ C679    Fail        Not modified
+* [API ] Process32First     @ A526    Nothing
+* [API ] Process32Next      @ A549    Retarget
+* [API ] RegOpenKeyExA      @ 9538    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ A991    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ A0A0    Retarget
+* [API ] TimeQueryAPIs      @ F186    Retarget
+
+[Manual annotations]
+====================

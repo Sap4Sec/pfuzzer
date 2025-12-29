@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Penguish.gen-1962e1ad21afde8f394e37cfc6d5982f170392c59a532da734f5d6a5ea927d86
+MD5: 0c83780f4e84047cb272c0043b33a207
+Year: 2023
+Family name: penguish
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 22E8
+* [API ] FindResourceW     @ 1ECD
+* [API ] SetWindowsHookExW @ 215B
+* [API ] CreateFileW       @ 02DA
+* [API ] FindResourceW     @ FC46
+* [API ] LoadResource      @ FC4E
+* [API ] SetWindowsHookExW @ 6D82
+* [API ] FindResourceW     @ 7F11
+* [API ] FindResourceW     @ F765
+* [API ] LoadResource      @ F76D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 2D05    Retarget    Missing
+* [API ] CreateFileA        @ 22E8    Succeed
+* [API ] CreateFileW        @ 02DA    Succeed
+* [API ] GetCursorPos       @ 1BB1    Retarget    Missing
+* [API ] GetFileAttributesA @ 6E4A    Succeed
+* [API ] GetModuleFileNameW @ 2D0E    Nothing
+* [API ] GetModuleFileNameW @ 93F1    Nothing
+* [API ] GetModuleFileNameW @ 94EB    Nothing
+* [API ] GetModuleFileNameW @ 9A4F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 9B2E    Nothing
+* [API ] GetModuleFileNameW @ CD33    Nothing
+* [API ] GetModuleFileNameW @ CE7D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ EA07    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExW      @ 8C94    Fail        Not modified
+
+[Manual annotations]
+====================
+Other dependencies: checks command line

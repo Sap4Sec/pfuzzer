@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 0d18cb78787714d2e3f6914dd1e587eb570ede8f761115a74e4aa261fae8725b
+MD5: 80c92645db9b534ff7fe229f8e2212f9
+Year: 2019_11_29
+Family name: ulise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ 57C1
+* [API ] CreateFileW     @ 0578
+* [API ] NtCreateFile    @ B5C6
+* [API ] WSAStartup      @ 6542
+* [API ] FindResourceExW @ A093
+* [API ] LoadResource    @ A0AD
+* [API ] FindResourceExW @ A0E8
+* [API ] LoadResource    @ A10D
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ 4866
+* [API ] FindResourceExW @ C74A
+* [API ] LoadResource    @ C764
+* [API ] FindResourceExW @ C79F
+* [API ] LoadResource    @ C7C4
+* [API ] NtCreateFile    @ 5818
+* [API ] FindResourceExW @ 45C4
+* [API ] LoadResource    @ 45DE
+* [API ] FindResourceExW @ 4619
+* [API ] LoadResource    @ 463E
+* [API ] NtCreateFile    @ 80CF
+* [API ] NtCreateFile    @ 75B4
+* [API ] FindResourceExW @ 73CC
+* [API ] LoadResource    @ 73E6
+* [API ] FindResourceExW @ 7421
+* [API ] LoadResource    @ 7446
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CPUID         @ 3E56    Retarget    Missing
+* [API ] CreateFileW   @ 0578    Succeed     Not modified
+* [API ] CreateFileW   @ 57C1    Succeed     Not modified
+* [API ] NtCreateFile  @ B5C6    Fail        Not modified
+* [API ] TimeQueryAPIs @ 3DF2    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

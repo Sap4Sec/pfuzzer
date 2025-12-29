@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agentb.gen-5b33b53607c8a74d787cf1303bbdb20196577023bf9f68e13788f7f06cb723f6
+MD5: 5e748489c4bb54ebb67e3d4a3779ea03
+Year: 2022
+Family name: agentb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] CreateFileMappingW @ 2995
+* [API ] CreateThread       @ 1284
+* [API ] MapViewOfFile      @ 2A5B
+* [API ] CreateThread       @ AEE7
+* [API ] FindResourceW      @ 224B
+* [API ] FindResourceW      @ 0C64
+* [API ] LoadResource       @ 0C7E
+* [API ] WinHttpOpen        @ AA95
+* [API ] WinHttpOpen        @ 8782
+* [API ] FindResourceW      @ EC80
+* [API ] LoadResource       @ EC92
+* [API ] RegCreateKeyExW    @ 44BD
+* [API ] RegSetValueExW     @ 527F
+* [API ] CreateFileMappingW @ DDDB
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID                @ 8CC7    Nothing
+* [API ] CreateMutexW         @ AB3F    Fail
+* [API ] FindFirstFileW       @ F858    Retarget    C:\Users\Student\*
+* [API ] GetComputerNameW     @ 3861    Nothing
+* [API ] GetCursorPos         @ 6F34    Retarget    Missing
+* [API ] GetFileAttributesW   @ CCBE    Succeed
+* [API ] GetKeyboardLayout    @ 2A0E    Nothing
+* [API ] GetModuleFileNameW   @ 14C0    Nothing
+* [API ] GetModuleFileNameW   @ 4411    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW   @ 7609    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ E8F7    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW   @ F41A    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ F482    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW   @ FBA1    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo        @ 189D    Retarget    Missing
+* [API ] GetUserDefaultLCID   @ 6793    Nothing
+* [API ] GetUserNameW         @ 3895    Nothing
+* [API ] GlobalMemoryStatusEx @ B064    Nothing
+* [API ] RegEnumKeyExW        @ 49F9    Nothing
+* [API ] RegOpenKeyExW        @ 4483    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 45B6    Fail
+* [API ] RegOpenKeyExW        @ 462C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 469D    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 53DC    Fail        Not modified
+* [API ] RegOpenKeyExW        @ F4CB    Succeed
+* [API ] RegOpenKeyExW        @ F4ED    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ F50B    Fail        Not modified
+* [API ] RegOpenKeyExW        @ F529    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ F547    Succeed     Not modified
+* [API ] RegOpenKeyExW        @ F565    Succeed     Not modified
+* [API ] RegQueryValueExW     @ 4CF2    Nothing
+* [API ] RegQueryValueExW     @ 52EC    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW     @ F2AB    Nothing
+* [API ] RegQueryValueExW     @ F371    Nothing
+* [API ] TimeDelayAPIs        @ C301    Retarget
+* [API ] TimeQueryAPIs        @ 7665    Retarget
+
+[Manual annotations]
+====================

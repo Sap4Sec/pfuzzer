@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: f109680a5e878138ae5aa2d8a28d0165f9d95f7155f66889d044f272cdbcf27e
+MD5: e552667421409b04c42877b545f32756
+Year: 2018
+Family name: daws
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessW @ 1576
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] GetModuleFileNameW @ 1485    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+
+[Manual annotations]
+====================

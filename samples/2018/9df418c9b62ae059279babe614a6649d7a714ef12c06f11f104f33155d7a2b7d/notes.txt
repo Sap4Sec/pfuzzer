@@ -1,0 +1,78 @@
+[Basic information]
+=========================================================================
+SHA-256: 9df418c9b62ae059279babe614a6649d7a714ef12c06f11f104f33155d7a2b7d
+MD5: 8f9ccbdb647d6a7ff0c693a2700727aa
+Year: 2018
+Family name: winactivator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingW   @ 31C6
+* [API ] CreateFileMappingW @ 322B
+* [API ] MapViewOfFile      @ 326C
+* [API ] FindResourceW      @ A923
+* [API ] FindResourceW      @ FDA4
+* [API ] LoadResource       @ FDBE
+* [API ] FindResourceW      @ E7BA
+* [API ] LoadResource       @ E7C8
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 697B
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateMutexW           @ ACD1    Retarget    VBoxTray
+* [API ] FindFirstFileW         @ AB67    Fail
+* [API ] GetComputerNameW       @ 5EC9    Nothing
+* [API ] GetFileAttributesW     @ 25C8    Fail
+* [API ] GetFileAttributesW     @ 25E9    Succeed
+* [API ] GetKeyboardLayout      @ 3E32    Nothing
+* [API ] GetModuleFileNameExW   @ 9A08    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW     @ 261F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW     @ 4773    Nothing
+* [API ] GetModuleFileNameW     @ 55D0    Nothing
+* [API ] GetModuleFileNameW     @ 9C43    Nothing
+* [API ] GetModuleFileNameW     @ A81A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW     @ AABD    Nothing
+* [API ] GetSystemFirmwareTable @ A321    Retarget    testuser
+* [API ] GetSystemFirmwareTable @ A365    Retarget    testuser
+* [API ] GetSystemFirmwareTable @ D521    Retarget    John
+* [API ] GetSystemFirmwareTable @ D5E0    Retarget    Office
+* [API ] GetSystemFirmwareTable @ D69F    Retarget    testuser
+* [API ] GetSystemFirmwareTable @ D6DE    Retarget    Office
+* [API ] GetSystemFirmwareTable @ D75E    Retarget    testuser
+* [API ] GetSystemFirmwareTable @ D81D    Nothing
+* [API ] GetSystemInfo          @ 41D1    Retarget    Missing
+* [API ] GetSystemInfo          @ 6B2F    Nothing
+* [API ] GetSystemInfo          @ B641    Retarget    Missing
+* [API ] GetUserNameW           @ 5FF9    Nothing
+* [API ] GetWindowTextW         @ 6BB0    Nothing
+* [API ] NtQueryDirectoryObject @ A4D3    Nothing
+* [API ] Process32FirstW        @ 2117    Nothing
+* [API ] Process32FirstW        @ 99B7    Nothing
+* [API ] Process32NextW         @ 2137    Retarget
+* [API ] Process32NextW         @ 9A2F    Retarget
+* [API ] RegEnumKeyExW          @ 05A9    Retarget    John
+* [API ] RegOpenKeyExW          @ 0077    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW          @ 01AA    Succeed     Not modified
+* [API ] RegOpenKeyExW          @ 1030    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW          @ 4489    Fail        Not modified
+* [API ] RegOpenKeyExW          @ A863    Fail        Not modified
+* [API ] RegOpenKeyExW          @ A881    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW          @ A89F    Fail        Not modified
+* [API ] RegOpenKeyExW          @ A8BD    Succeed
+* [API ] RegQueryValueExW       @ 08A2    Nothing
+* [API ] RegQueryValueExW       @ 0F40    Nothing
+* [API ] RegQueryValueExW       @ 6A9F    Nothing
+* [API ] TimeDelayAPIs          @ ABA0    Retarget
+* [API ] TimeQueryAPIs          @ 47B1    Retarget
+
+[Manual annotations]
+====================

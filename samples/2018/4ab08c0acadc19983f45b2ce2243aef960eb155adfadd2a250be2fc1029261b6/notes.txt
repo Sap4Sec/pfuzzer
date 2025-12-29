@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: 4ab08c0acadc19983f45b2ce2243aef960eb155adfadd2a250be2fc1029261b6
+MD5: 368e0fab9b729a6ed51b3a3a1551b1cb
+Year: 2018
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 92C3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 92C3    Retarget    C:\Windows\explorer.exe
+* [API ] CreateMutexA       @ 077A    Succeed
+* [API ] GetModuleFileNameA @ 41E7    Nothing
+
+[Manual annotations]
+====================
+Other dependencies: setup.cfg

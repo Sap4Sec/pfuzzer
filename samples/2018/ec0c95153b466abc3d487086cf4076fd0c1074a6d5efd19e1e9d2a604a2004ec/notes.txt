@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: ec0c95153b466abc3d487086cf4076fd0c1074a6d5efd19e1e9d2a604a2004ec
+MD5: 9e12d4c7643b1428113c9c5b2039df40
+Year: 2018
+Family name: qqhelper
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 6CFD
+* [API ] SetWindowsHookExA @ 3E60
+* [API ] VirtualAllocEx    @ C9FB
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] CreateFileA       @ DD8A
+* [API ] CreateFileA       @ 275F
+* [API ] WriteFile         @ 27F6
+* [API ] OpenSCManagerA    @ 4B45
+* [API ] GetAsyncKeyState  @ DCDD
+* [API ] ControlService    @ 4B45
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

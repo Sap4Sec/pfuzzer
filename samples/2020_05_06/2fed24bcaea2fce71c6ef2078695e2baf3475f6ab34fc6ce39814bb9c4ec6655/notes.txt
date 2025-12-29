@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 2fed24bcaea2fce71c6ef2078695e2baf3475f6ab34fc6ce39814bb9c4ec6655
+MD5: 8f636521a158add0d62bd4ad103212c4
+Year: 2020_05_06
+Family name: ulise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: Missing lib_game.dll

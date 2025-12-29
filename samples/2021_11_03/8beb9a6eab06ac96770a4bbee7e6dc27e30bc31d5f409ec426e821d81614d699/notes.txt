@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: 8beb9a6eab06ac96770a4bbee7e6dc27e30bc31d5f409ec426e821d81614d699
+MD5: 5ac2827d68a8cce973b6105784c22992
+Year: 2021_11_03
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileA      @ 25ED
+* [API ] MoveFileA      @ 261D
+* [API ] CreateFileA    @ 1BEA
+* [API ] CreateFileA    @ 239A
+* [API ] MoveFileA      @ 2F6D
+
+[Mutations applied in the best run (39)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Succeed     Not modified
+* [API ] CreateFileA          @ 1C1B    Succeed
+* [API ] CreateFileA          @ 239A    Succeed
+* [API ] CreateMutexA         @ 105A    Fail
+* [API ] CreateMutexA         @ 1101    Fail
+* [API ] FindFirstFileA       @ 3004    Succeed
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesExA @ 1B43    Succeed
+* [API ] GetModuleFileNameA   @ 11A7    Nothing
+* [API ] GetModuleFileNameA   @ 1E4D    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2A94    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2AE1    Fail
+* [API ] RegOpenKeyExA        @ 2D0B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA     @ 2B12    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 10C1    Nothing
+* [API ] TimeQueryAPIs        @ 1100    Nothing
+
+[Manual annotations]
+====================

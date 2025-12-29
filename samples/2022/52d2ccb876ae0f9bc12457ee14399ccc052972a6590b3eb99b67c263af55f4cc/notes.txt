@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.cber-52d2ccb876ae0f9bc12457ee14399ccc052972a6590b3eb99b67c263af55f4cc
+MD5: bd6c3deea68bd2f362887e99e9a819f1
+Year: 2022
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Numerous exceptions occur, and the sample exits immediately without triggering werfault.exe; likely broken by DynamoRIO.

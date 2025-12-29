@@ -1,0 +1,91 @@
+[Basic information]
+=========================================================================
+SHA-256: 062d0924d5641e35a020bea1b54528b3aaa043d90a45443902c376b7cd9b4dfd
+MD5: 3f9d7f03b2769ce6c4782099f0f12e08
+Year: 2020_11_19
+Family name: as8brjdi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessW       @ 773F
+* [API ] FindResourceW        @ 2DD5
+* [API ] LoadResource         @ 2DED
+* [API ] CreateFileW          @ 8B35
+* [API ] WriteFile            @ 8867
+* [API ] CreateFileW          @ 1BB4
+* [API ] WriteFile            @ 22BA
+* [API ] RegCreateKeyExW      @ B88F
+* [API ] CreateProcessW       @ C8BF
+* [API ] CreateFileW          @ 0053
+* [API ] CreateFileW          @ EE8A
+* [API ] CreateFileW          @ 9DBA
+* [API ] WriteFile            @ ED9C
+* [API ] RegSetValueExW       @ BE59
+* [API ] CreateThread         @ B4A2
+* [API ] CreateFileW          @ 6D5F
+* [API ] ConnectNamedPipe     @ 6DCA
+* [API ] CreateThread         @ 745C
+* [API ] CreateProcessAsUserW @ DEF3
+* [API ] ReadProcessMemory    @ 2281
+* [API ] ReadProcessMemory    @ 22AB
+* [API ] VirtualAllocEx       @ 216A
+* [API ] WriteProcessMemory   @ 2180
+* [API ] VirtualAllocEx       @ C6BB
+* [API ] VirtualAllocEx       @ C6FF
+* [API ] ReadProcessMemory    @ 01F7
+* [API ] WriteProcessMemory   @ FF7C
+* [API ] WriteProcessMemory   @ 20F3
+* [API ] WriteProcessMemory   @ C75A
+* [API ] WriteProcessMemory   @ E1C6
+* [API ] CreateFileMappingW   @ E226
+* [API ] MapViewOfFile        @ E299
+* [API ] ResumeThread         @ A6AC
+* [API ] WriteFile            @ EA55
+* [API ] CreateFileW          @ DDB2
+* [API ] RegSetValueExW       @ BE26
+* [API ] WriteFile            @ 5701
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW          @ 1C55
+* [API ] VirtualAllocEx       @ C9C0
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID                      @ 0943    Nothing
+* [API ] CreateFileW                @ 0053    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileW                @ 1BB4    Fail
+* [API ] CreateFileW                @ 1C55    Retarget    Backup.txt
+* [API ] CreateFileW                @ 6D5F    Fail        Not modified
+* [API ] CreateFileW                @ 8B35    Succeed     Not modified
+* [API ] CreateFileW                @ 9DBA    Succeed     Not modified
+* [API ] CreateFileW                @ DDB2    Succeed     Not modified
+* [API ] CreateFileW                @ EE8A    Fail        Not modified
+* [API ] CreateMutexW               @ D212    Fail
+* [API ] FindNextFileW              @ D0D8    Retarget
+* [API ] GetFileAttributesW         @ 1E93    Fail
+* [API ] GetFileAttributesW         @ 71DB    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesW         @ 7B9D    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetFileAttributesW         @ 7C0D    Fail
+* [API ] GetFileAttributesW         @ 7DE0    Fail
+* [API ] GetFileAttributesW         @ 9943    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetLocalTime               @ 1F2F    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameExW       @ 35B9    Nothing
+* [API ] GetModuleFileNameW         @ 1AD1    Nothing
+* [API ] GetModuleFileNameW         @ 6ED9    Nothing
+* [API ] GetModuleFileNameW         @ FB68    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] QueryFullProcessImageNameW @ 379D    Retarget    C:\Windows\system32\
+* [API ] RegOpenKeyExW              @ B915    Fail
+* [API ] RegOpenKeyExW              @ B9D7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW           @ BCF2    Nothing
+* [API ] RegQueryValueExW           @ BD82    Nothing
+* [API ] TimeDelayAPIs              @ AF6D    Nothing
+* [API ] TimeQueryAPIs              @ E9C5    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 1953fb7984865bd6ece8c7a22aa67f8e7846b3190c35401574488d50b79c9620
+MD5: bf2716743214ef2b07eae2bc41be5d94
+Year: 2021_11_03
+Family name: SINGLETON:bf2716743214ef2b07eae2bc41be5d94
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Calls GetCommandLine @ 0x004019CC and checks the result in order to proceed with the execution, otherwise it terminaes.

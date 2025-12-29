@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: 4d09d4fce2c5419723385688f8b74a0cbc904a8f1c12f97c8e3c147956b885cc
+MD5: 2b1a9b85365533c7242dadc0225d9360
+Year: 2018
+Family name: SINGLETON:2b1a9b85365533c7242dadc0225d9360
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA @ 2D31
+* [API ] socket         @ 2630
+* [API ] connect        @ 2677
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 9E70    Nothing
+* [API ] GetModuleFileNameA @ 2CF9    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 1920    Nothing
+* [API ] Process32First     @ 2BCF    Nothing
+* [API ] Process32Next      @ 2BE1    Retarget
+* [API ] Process32Next      @ 2C2A    Retarget
+* [API ] RegOpenKeyA        @ 2D10    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 2CC1    Retarget
+
+[Manual annotations]
+====================

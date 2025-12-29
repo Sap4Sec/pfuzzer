@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: Virus.Win32.Lamer.cb-48d552045f20c86e97faab624f452afc46d745d0ebbbd676ace7a8e4b8148fab
+MD5: 86410468b05d6bc22802a56f7f71fb75
+Year: 2022
+Family name: lamer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ 7217
+* [API ] FindResourceA   @ 9BF4
+* [API ] LoadResource    @ 9C0E
+* [API ] CreateFileA     @ 8833
+* [API ] CreateFileA     @ 885A
+* [API ] WriteFile       @ 88A9
+* [API ] WinExec         @ BC2C
+* [API ] CreateThread    @ 407B
+* [API ] ResumeThread    @ D4B5
+* [API ] RegCreateKeyExA @ DEE3
+* [PERS] SoftWare\Microsoft\Windows
+* [API ] RegSetValueExA  @ DFCA
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL
+* [API ] CopyFileA       @ B6D6
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ CA7B
+* [API ] MoveFileA       @ 8A5F
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 8833    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 885A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetKeyboardLayout  @ 5A8E    Nothing
+* [API ] GetModuleFileNameA @ 2A2D    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 53B3    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 55ED    Nothing
+* [API ] GetModuleFileNameA @ 6C44    Nothing
+* [API ] GetWindowTextA     @ 7CE4    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] RegOpenKeyExA      @ 560B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5629    Succeed
+* [API ] RegOpenKeyExA      @ 5647    Fail        Not modified
+* [API ] TimeDelayAPIs      @ C5D8    Retarget
+
+[Manual annotations]
+====================

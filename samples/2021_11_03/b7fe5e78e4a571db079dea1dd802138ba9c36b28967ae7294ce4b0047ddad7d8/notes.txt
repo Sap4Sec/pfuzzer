@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: b7fe5e78e4a571db079dea1dd802138ba9c36b28967ae7294ce4b0047ddad7d8
+MD5: 65e5160ce882f1bce12543c144c888cb
+Year: 2021_11_03
+Family name: SINGLETON:65e5160ce882f1bce12543c144c888cb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Succeed
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Fail
+* [API ] CreateFileA        @ 33ED    Succeed
+* [API ] CreateMutexA       @ 2A13    Fail
+* [API ] FindFirstFileA     @ 30A1    Nothing
+* [API ] FindFirstFileA     @ 369C    Succeed
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExA      @ 2D07    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 2DE3    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: be76a2c3e98906400a85f539fb0e88c30c708ecc68ae44002fc8c8a00b3fa44e
+MD5: dcf1d074fb3ee5e8780cb23daadaf282
+Year: 2020_05_06
+Family name: virlock
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 1409    Retarget    Missing
+* [API ] GetUserDefaultLCID @ 5FF6    Nothing
+* [API ] GetUserDefaultLCID @ 6EB3    Nothing
+* [API ] GetUserDefaultLCID @ 71C9    Retarget    Japanese
+* [API ] GetUserDefaultLCID @ 7744    Nothing
+* [API ] GetUserDefaultLCID @ 7D31    Nothing
+* [API ] GetUserDefaultLCID @ 7F90    Retarget    Japanese
+* [API ] GetUserDefaultLCID @ 858F    Nothing
+* [API ] TimeQueryAPIs      @ 1407    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasion: runs correctly on Windows 7 under BluePill, but the required environmental indicators remain unidentified.

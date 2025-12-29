@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Agent.xalovr-d0aad99f10bdd6f6af2f7a0f6c319ed7d126de4d1ff44ca86858e7ffc17cc39b
+MD5: 08982381ef296038ae7ad8d083ef8ca8
+Year: 2022
+Family name: fragtor
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

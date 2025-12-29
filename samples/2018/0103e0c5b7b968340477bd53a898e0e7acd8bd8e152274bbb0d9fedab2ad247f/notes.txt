@@ -1,0 +1,63 @@
+[Basic information]
+=========================================================================
+SHA-256: 0103e0c5b7b968340477bd53a898e0e7acd8bd8e152274bbb0d9fedab2ad247f
+MD5: bad0f4dde2a3c85d8d3e80a8b3fe874b
+Year: 2018
+Family name: yiwanzhushou
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ C1DC
+* [API ] LoadResource  @ C1EB
+* [API ] CreateFileA   @ 1484
+* [API ] CreateFileA   @ 1B14
+* [API ] CreateThread  @ B1FB
+* [API ] ResumeThread  @ 7B7B
+* [API ] FindResourceW @ 46DD
+* [API ] LoadResource  @ 4741
+* [API ] CreateFileW   @ 4F89
+* [API ] WriteFile     @ B679
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExW   @ CADA
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 44B0    Retarget    Missing
+* [API ] CreateFileA        @ 1484    Succeed     Not modified
+* [API ] CreateFileA        @ 1B14    Succeed     Not modified
+* [API ] CreateFileW        @ 4F89    Fail        Not modified
+* [API ] CreateMutexA       @ 5BD4    Fail
+* [API ] DeviceIoControl    @ 14CE    Nothing
+* [API ] DeviceIoControl    @ 1B63    Retarget    Missing
+* [API ] DeviceIoControl    @ 30BD    Nothing
+* [API ] GetFileAttributesW @ 503B    Succeed
+* [API ] GetModuleFileNameA @ 52E8    Nothing
+* [API ] GetModuleFileNameW @ 2E77    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 53FA    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 54F7    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ D765    Retarget    C:\Windows\system32\
+* [API ] RegEnumKeyExA      @ 1C62    Retarget    Office
+* [API ] RegEnumKeyExA      @ 1D7F    Retarget    testuser
+* [API ] RegOpenKeyExA      @ 1C30    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 1C8C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 3101    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 31B1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 3261    Fail
+* [API ] RegQueryValueExA   @ 1CC4    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 3127    Nothing
+* [API ] RegQueryValueExA   @ 3155    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 31D7    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 3205    Nothing
+* [API ] RegQueryValueExA   @ 3287    Nothing
+* [API ] TimeDelayAPIs      @ CA69    Retarget
+* [API ] TimeQueryAPIs      @ CF7D    Retarget
+
+[Manual annotations]
+====================

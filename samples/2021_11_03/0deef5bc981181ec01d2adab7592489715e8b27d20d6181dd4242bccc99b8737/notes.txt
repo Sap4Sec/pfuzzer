@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: 0deef5bc981181ec01d2adab7592489715e8b27d20d6181dd4242bccc99b8737
+MD5: 06373a904a8b967b9baacb2b7a407ab7
+Year: 2021_11_03
+Family name: shyape
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ A51A
+* [API ] WriteFile      @ 7B04
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExA @ 2EC7
+* [API ] WinExec        @ 2EEC
+* [API ] ShellExecuteA  @ 30FE
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ A51A    Succeed     Not modified
+* [API ] GetModuleFileNameA @ 2DC6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 8BA9    Nothing
+* [API ] RegOpenKeyA        @ 2E95    Fail
+* [API ] TimeQueryAPIs      @ 2C21    Retarget
+
+[Manual annotations]
+====================

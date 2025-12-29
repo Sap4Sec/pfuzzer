@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Penguish.gen-1adbec6750be50faf1e5f8cddf9d0555afbe1a21289013cac49931004ffb8547
+MD5: 1dfc25b41bddbb8f77db2e932d521aae
+Year: 2023
+Family name: rugmi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 22E8
+* [API ] FindResourceW     @ 1ECD
+* [API ] SetWindowsHookExW @ 215B
+* [API ] CreateFileW       @ 02DA
+* [API ] FindResourceW     @ FC46
+* [API ] LoadResource      @ FC4E
+* [API ] SetWindowsHookExW @ 6D82
+* [API ] FindResourceW     @ 7F11
+* [API ] FindResourceW     @ F765
+* [API ] LoadResource      @ F76D
+* [API ] InternetOpenA     @ C091
+* [API ] InternetOpenUrlA  @ C0AE
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 2D05    Retarget    Missing
+* [API ] CreateFileA        @ 22E8    Fail        Not modified
+* [API ] CreateFileW        @ 02DA    Succeed
+* [API ] GetCursorPos       @ 1BB1    Retarget    Missing
+* [API ] GetFileAttributesA @ 6E4A    Succeed
+* [API ] GetModuleFileNameW @ 2D0E    Nothing
+* [API ] GetModuleFileNameW @ 93F1    Nothing
+* [API ] GetModuleFileNameW @ 94EB    Nothing
+* [API ] GetModuleFileNameW @ 9A4F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 9B2E    Nothing
+* [API ] GetModuleFileNameW @ BFE3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ CD33    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ CE7D    Nothing
+* [API ] RegOpenKeyExW      @ 8C94    Retarget    SOFTWARE\GOOGLE\
+
+[Manual annotations]
+====================

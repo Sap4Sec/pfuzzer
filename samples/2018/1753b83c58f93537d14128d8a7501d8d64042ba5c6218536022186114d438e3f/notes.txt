@@ -1,0 +1,87 @@
+[Basic information]
+=========================================================================
+SHA-256: 1753b83c58f93537d14128d8a7501d8d64042ba5c6218536022186114d438e3f
+MD5: ac6fdc0ed819b00e04fbf89a0f782682
+Year: 2018
+Family name: delfreg
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread       @ 458B
+* [API ] ResumeThread       @ 1AB9
+* [API ] FindResourceW      @ 7A01
+* [API ] LoadResource       @ 7A1D
+* [API ] CreateThread       @ E7CF
+* [API ] CopyFileW          @ A10B
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyW      @ 8BCF
+* [API ] RegSetValueExW     @ 8BFB
+* [PERS] Software\Microsoft\Windows\CurrentVersion\RunOnce
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] CreateFileW        @ 9317
+* [API ] SetFileTime        @ 93B6
+* [API ] ShellExecuteW      @ E940
+* [API ] CreateFileA        @ 2BED
+* [API ] WriteFile          @ 2B18
+* [API ] ShellExecuteW      @ ACC8
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessW     @ B052
+* [API ] CreateFileW        @ AB07
+* [API ] CreateFileMappingW @ D53F
+* [API ] FindResourceW      @ D48A
+* [API ] LoadResource       @ D4AB
+* [API ] CreateThread       @ F022
+* [API ] CreateThread       @ F039
+* [API ] CreateFileW        @ 1965
+* [API ] WriteFile          @ F1CC
+* [API ] SetWindowsHookExW  @ 126B
+* [API ] GetClipboardData   @ F0EA
+* [API ] CopyFileW          @ DAAE
+* [API ] CopyFileW          @ DD5B
+* [API ] socket             @ 7A79
+* [API ] InternetOpenW      @ 7F4E
+* [API ] MapViewOfFile      @ D555
+* [API ] VirtualAllocEx     @ AFCE
+* [API ] CreateProcessW     @ AC9F
+* [API ] ReadProcessMemory  @ AD44
+* [API ] VirtualAllocEx     @ AD83
+* [API ] connect            @ 7599
+* [API ] socket             @ AC18
+* [API ] connect            @ BAE8
+* [API ] CopyFileW          @ A1A7
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CreateFileA        @ 2BED    Retarget    Backup.txt
+* [API ] CreateFileW        @ 1965    Fail        Not modified
+* [API ] CreateFileW        @ 9317    Succeed     Not modified
+* [API ] CreateFileW        @ AB07    Fail
+* [API ] CreateMutexW       @ 6E9F    Fail
+* [API ] FindFirstFileW     @ 8D7E    Retarget    C:\Users\Student\*
+* [API ] GetFileAttributesW @ 8A86    Succeed
+* [API ] GetFileAttributesW @ 92E9    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetLocalTime       @ 9783    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameA @ 5F0B    Nothing
+* [API ] GetModuleFileNameA @ 6145    Nothing
+* [API ] GetModuleFileNameW @ 8830    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetWindowTextW     @ DF7D    Nothing
+* [API ] RegOpenKeyExA      @ 6163    Succeed
+* [API ] RegOpenKeyExA      @ 6181    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 619F    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 8C9A    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 61E8    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 6206    Nothing
+* [API ] RegQueryValueExW   @ 8CBE    Nothing
+* [API ] RegQueryValueExW   @ 8CE8    Nothing
+* [API ] TimeDelayAPIs      @ E7AD    Nothing
+* [API ] TimeQueryAPIs      @ 29C1    Nothing
+
+[Manual annotations]
+====================

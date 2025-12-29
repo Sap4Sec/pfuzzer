@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 0d634effd6b6f48aa13001a6b07da8eb86d11b39e7762ef1420369c5c6b22532
+MD5: b5b536ab0f034bea74578789875effc0
+Year: 2019_05_11
+Family name: fjoiner
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] ShellExecuteA @ 3D5A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

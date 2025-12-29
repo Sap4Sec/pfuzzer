@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 1254d6a460c59dc58ab3242c4c14e96b89e069e486ec6a08612e221c29b196a3
+MD5: d6ee5c675bae0f42f9cc57d3ff8b591a
+Year: 2018
+Family name: SINGLETON:d6ee5c675bae0f42f9cc57d3ff8b591a
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 108C
+* [API ] LoadResource         @ 1028
+* [API ] SetWindowsHookExA    @ F2B9
+* [API ] FindResourceA        @ 4CC0
+* [API ] LoadResource         @ 42D7
+* [API ] CreateProcessA       @ 45D1
+* [API ] NtUnmapViewOfSection @ 460F
+* [API ] VirtualAllocEx       @ 4628
+* [API ] WriteProcessMemory   @ 464D
+* [API ] WriteProcessMemory   @ 468F
+* [API ] WriteProcessMemory   @ 46E5
+* [API ] SetThreadContext     @ 470B
+* [API ] ResumeThread         @ 4727
+
+Fuzzing Findings
+----------------
+* [API ] WriteFile            @ EE88
+
+[Mutations applied in the best run (29)]
+=======================================
+
+* [API ] CPUID              @ 7D5A    Retarget    Missing
+* [API ] GetCursorPos       @ ED0F    Nothing
+* [API ] GetModuleFileNameA @ 0C01    Nothing
+* [API ] GetModuleFileNameA @ 1D6D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ B269    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ E151    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ 1C8E    Nothing
+* [API ] Process32Next      @ 1CEE    Retarget
+* [API ] RegOpenKeyExA      @ 1B5D    Fail
+* [API ] RegOpenKeyExA      @ 87B2    Succeed
+* [API ] RegQueryValueExA   @ 87D2    Nothing
+* [API ] TimeDelayAPIs      @ 45E0    Retarget
+* [API ] TimeQueryAPIs      @ 22CE    Retarget
+
+[Manual annotations]
+====================

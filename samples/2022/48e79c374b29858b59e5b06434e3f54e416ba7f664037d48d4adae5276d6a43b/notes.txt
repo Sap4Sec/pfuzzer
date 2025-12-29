@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Agentb.kxqw-48e79c374b29858b59e5b06434e3f54e416ba7f664037d48d4adae5276d6a43b
+MD5: 466b47ec56c7707ea13b52ffeac9cbe0
+Year: 2022
+Family name: cerber
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+DR bug: The application was unable to start correctly, a lot of exceptions happens

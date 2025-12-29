@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: 33c2d715fc21ea16fc437de8819acc89d0fc1073a37b3616a418657980b83d6e
+MD5: 0a40b87e41dcd9e3ef74cbf6d05e50e1
+Year: 2018
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 95FF
+* [API ] OpenServiceW         @ 9619
+* [API ] CryptAcquireContextW @ 79FE
+* [API ] CryptGenRandom       @ 7A13
+* [API ] CryptReleaseContext  @ 7A28
+* [API ] CreateFileW          @ B6FC
+* [API ] CreateFileW          @ B970
+* [API ] WriteFile            @ B98A
+* [API ] CreateProcessW       @ C0BF
+
+Fuzzing Findings
+----------------
+* [API ] SetWindowsHookExW    @ C1FC
+* [API ] FindResourceA        @ BEF7
+* [API ] FindResourceA        @ F6F4
+* [API ] LoadResource         @ F70E
+
+[Mutations applied in the best run (136)]
+=======================================
+
+* [API ] CreateFileW        @ B6FC    Succeed     Not modified
+* [API ] CreateFileW        @ B970    Fail        Not modified
+* [API ] FindFirstFileW     @ 877E    Retarget    C:\Users\Student\*
+* [API ] GetComputerNameA   @ BEE8    Retarget    Office
+* [API ] GetCursorPos       @ 14C8    Retarget    Missing
+* [API ] GetCursorPos       @ C30D    Retarget    Missing
+* [API ] GetKeyboardLayout  @ DD8E    Nothing
+* [API ] GetModuleFileNameA @ 64AB    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 670D    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ F1DE    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 5C71    Nothing
+* [API ] GetModuleFileNameW @ 8AA4    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ BF42    Nothing
+* [API ] GetUserNameA       @ 6019    Retarget    Office
+* [API ] GetWindowTextW     @ E35D    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] RegOpenKeyExA      @ 672B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 6749    Succeed
+* [API ] RegOpenKeyExA      @ 6767    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 765A    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 77E3    Nothing
+* [API ] RegQueryValueExA   @ 78CC    Nothing
+* [API ] TimeQueryAPIs      @ B91A    Retarget
+
+[Manual annotations]
+====================

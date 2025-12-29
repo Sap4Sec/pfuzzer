@@ -1,0 +1,73 @@
+[Basic information]
+=========================================================================
+SHA-256: 99bb5d60c19560db1efedddaf95c87a5b37074dbe510ac0a4093641b5995475e
+MD5: d5a61b83371de41421b82cd4aa933ecb
+Year: 2021_11_03
+Family name: ibryte
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA     @ 3105
+* [API ] SetWindowsHookExA @ EB79
+* [API ] CreateFileA       @ B234
+* [API ] WriteFile         @ A96B
+* [API ] OpenSCManagerA    @ 4426
+* [API ] LoadResource      @ 30A1
+* [API ] SetWindowsHookExA @ 6A70
+* [API ] InternetOpenA     @ C6F2
+* [API ] InternetConnectA  @ CFBD
+* [API ] HttpOpenRequestA  @ D13D
+* [API ] HttpSendRequestA  @ CC4F
+* [API ] FindResourceA     @ 12AA
+* [API ] LoadResource      @ 12B2
+* [API ] FindResourceA     @ FE3F
+* [API ] FindResourceA     @ 7D74
+* [API ] CreateThread      @ 4BEB
+* [API ] ResumeThread      @ EE42
+* [API ] SuspendThread     @ EE67
+* [API ] ResumeThread      @ CB56
+* [API ] FindResourceA     @ 14D8
+* [API ] LoadResource      @ 14E0
+* [API ] FindResourceA     @ 0FFC
+* [API ] LoadResource      @ 1004
+* [API ] InternetReadFile  @ C8C6
+* [API ] FindResourceA     @ 2F7F
+* [API ] LoadResource      @ 2F89
+* [API ] CreateFileW       @ B151
+* [API ] WriteFile         @ A741
+* [API ] GetKeyboardState  @ 4EB5
+* [API ] GetKeyboardState  @ 4EDC
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CPUID              @ 77F5    Retarget    Missing
+* [API ] CreateFileA        @ B234    Succeed     Not modified
+* [API ] CreateFileW        @ B151    Succeed
+* [API ] FindFirstFileA     @ B737    Succeed
+* [API ] FindFirstFileA     @ BA0D    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ B3A7    Retarget
+* [API ] GetCursorPos       @ E534    Retarget    Missing
+* [API ] GetModuleFileNameA @ 267A    Nothing
+* [API ] GetModuleFileNameA @ 9625    Nothing
+* [API ] GetModuleFileNameA @ BBA8    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ BCA1    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ C7FF    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ F64A    Nothing
+* [API ] GetModuleFileNameW @ C397    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] Process32First     @ 4301    Nothing
+* [API ] Process32Next      @ 43C9    Retarget
+* [API ] RegOpenKeyExA      @ 8AA6    Fail
+* [API ] RegOpenKeyExA      @ B270    Succeed
+* [API ] TimeDelayAPIs      @ 3F94    Retarget
+* [API ] TimeQueryAPIs      @ B19A    Retarget
+
+[Manual annotations]
+====================

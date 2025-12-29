@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 056da9ddf4979ef3d60baca1173d42641ebd1a6076f8d48c645599cffa9c005c
+MD5: f754a0d950ec7fc4a5fb500833d74fee
+Year: 2018
+Family name: midia
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ E460
+* [API ] LoadResource  @ E47A
+* [API ] FindResourceA @ ADBB
+* [API ] WSAStartup    @ 72BC
+* [API ] CreateFileA   @ 2C4D
+* [API ] WriteFile     @ 2B78
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 2C4D    Fail
+* [API ] FindFirstFileA     @ 91B8    Retarget    C:\Users\Student\*
+* [API ] GetCursorPos       @ 4406    Nothing
+* [API ] GetCursorPos       @ 5391    Retarget    Missing
+* [API ] GetKeyboardLayout  @ 161A    Retarget    French
+* [API ] GetModuleFileNameA @ 27D0    Nothing
+* [API ] GetModuleFileNameA @ 5A97    Nothing
+* [API ] GetModuleFileNameA @ 5CD1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemInfo      @ 6A61    Retarget    Missing
+* [API ] GetWindowTextA     @ 3870    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] RegOpenKeyExA      @ 5CEF    Succeed
+* [API ] RegOpenKeyExA      @ 5D0D    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5D2B    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs      @ 2998    Retarget
+* [API ] TimeQueryAPIs      @ D56C    Retarget
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI showing buttons to install additional software

@@ -1,0 +1,24 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan.Win32.GenericML.xnet-db47addc5d20966badd482543d67e70a1ef5e719a2c907e80bc1d3a9080c22d4
+MD5: 73edf11e61fcd4446cd6c9dc3dab1a76
+Year: 2023
+Family name: cerber
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExW @ 6BBF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Crash because string in RegCreateKeyExW is null - Cannot get rid of access_violation

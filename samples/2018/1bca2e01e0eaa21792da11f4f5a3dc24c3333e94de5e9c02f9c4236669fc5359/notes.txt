@@ -1,0 +1,130 @@
+[Basic information]
+=========================================================================
+SHA-256: 1bca2e01e0eaa21792da11f4f5a3dc24c3333e94de5e9c02f9c4236669fc5359
+MD5: 892a370ca96120eae576d96093128021
+Year: 2018
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ CA2E
+* [API ] CreateFileMappingA @ CA48
+* [API ] MapViewOfFile      @ CA5E
+* [API ] CreateThread       @ CAAC
+* [API ] CopyFileA          @ D4BB
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA     @ DCD1
+* [API ] RegSetValueExA     @ DC0E
+* [API ] RegCreateKeyA      @ DC2C
+* [API ] RegSetValueExA     @ DC48
+* [API ] CreateFileA        @ D4D5
+* [API ] CreateFileMappingA @ D518
+* [API ] MapViewOfFile      @ D535
+* [API ] RegSetValueExA     @ E893
+* [API ] RegSetValueExA     @ E8EF
+* [API ] RegSetValueExA     @ EA05
+* [API ] RegSetValueExA     @ EA30
+* [API ] RegSetValueExA     @ EA5B
+* [API ] CreateFileMappingA @ EAFF
+* [API ] CreateFileA        @ F356
+* [API ] FindResourceW      @ 5207
+* [API ] LoadResource       @ 522C
+* [API ] RegCreateKeyA      @ 1D1C
+* [API ] MapViewOfFile      @ 7CAE
+* [API ] CreateFileW        @ F356
+* [API ] RegSetValueExA     @ 1AAB
+* [API ] RegSetValueExA     @ 1ADA
+* [API ] CreateThread       @ EDAB
+* [API ] CreateThread       @ EDD2
+* [API ] CreateThread       @ EDF9
+* [API ] CreateThread       @ EE20
+* [API ] CreateThread       @ EE47
+* [API ] CreateFileMappingA @ F06D
+* [API ] MapViewOfFile      @ F094
+* [API ] RegSetValueExA     @ FB1A
+* [API ] CreateThread       @ EFA4
+* [API ] CreateThread       @ EFCB
+* [API ] CreateThread       @ EFF2
+* [API ] socket             @ 39F6
+* [API ] WriteFile          @ F47C
+* [API ] VirtualAllocEx     @ D0F3
+* [API ] WriteProcessMemory @ D124
+* [API ] CreateRemoteThread @ D152
+* [API ] CreateProcessW     @ 4FA9
+* [API ] CreateThread       @ E624
+* [API ] CreateThread       @ E64B
+* [API ] VirtualAllocEx     @ D184
+* [API ] WriteProcessMemory @ D1EF
+* [API ] CreateRemoteThread @ D21A
+* [API ] CreateFileMappingA @ 0118
+* [API ] CreateFileMappingA @ 0132
+* [API ] MapViewOfFile      @ 0148
+* [API ] CreateThread       @ 0196
+
+Fuzzing Findings
+----------------
+* [API ] RegSetValueExA     @ E9A5
+* [API ] RegCreateKeyA      @ 195B
+* [API ] CreateThread       @ 3E7E
+* [API ] InternetOpenA      @ B961
+* [API ] CreateThread       @ E6B1
+* [API ] RegCreateKeyA      @ F924
+* [API ] socket             @ 300E
+* [API ] CreateFileA        @ DEDE
+* [API ] WriteFile          @ DF0D
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] sendto             @ 3078
+* [API ] CreateFileA        @ 9B5B
+* [API ] CreateFileMappingA @ 9BFC
+* [API ] MapViewOfFile      @ 9C24
+* [API ] InternetOpenUrlA   @ B993
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ D4D5    Succeed     Not modified
+* [API ] CreateFileA        @ F356    Fail        Not modified
+* [API ] CreateFileW        @ F356    Succeed     Not modified
+* [API ] CreateMutexA       @ 001D    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA       @ 07F2    Fail
+* [API ] CreateMutexA       @ D0BE    Fail
+* [API ] CreateMutexA       @ D108    Retarget    VBoxTray
+* [API ] CreateMutexA       @ D4B9    Fail
+* [API ] FindFirstFileA     @ 58B4    Nothing
+* [API ] FindNextFileA      @ 58DB    Retarget
+* [API ] GetComputerNameA   @ EA86    Retarget    testuser
+* [API ] GetFileAttributesW @ E726    Succeed
+* [API ] GetModuleFileNameA @ D048    Nothing
+* [API ] GetModuleFileNameW @ 5DEB    Nothing
+* [API ] GetModuleFileNameW @ 6089    Nothing
+* [API ] GetModuleFileNameW @ E996    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemInfo      @ 513C    Retarget    Missing
+* [API ] GetSystemInfo      @ 66E1    Nothing
+* [API ] GetUserNameA       @ 1833    Nothing
+* [API ] GetUserNameA       @ 1BF0    Retarget    John
+* [API ] GetUserNameA       @ F828    Nothing
+* [API ] Process32First     @ D325    Nothing
+* [API ] Process32Next      @ D41E    Retarget
+* [API ] RegOpenKeyExA      @ 193E    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 1CFB    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ DBF2    Fail
+* [API ] RegOpenKeyExA      @ DCA3    Fail
+* [API ] RegOpenKeyExA      @ E864    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ E8C0    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ E943    Fail        Not modified
+* [API ] RegOpenKeyExA      @ E9D2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ F8FC    Fail
+* [API ] RegOpenKeyExW      @ 60A9    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 60C7    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 60E5    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 6103    Fail        Not modified
+* [API ] RegQueryValueExA   @ FC0C    Nothing
+* [API ] TimeDelayAPIs      @ CAC7    Retarget
+* [API ] TimeQueryAPIs      @ D44A    Retarget
+
+[Manual annotations]
+====================

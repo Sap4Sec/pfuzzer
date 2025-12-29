@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: 2552e5ba05af49d14fa9e4c758d351995cf4ea8aab4343a572243a449dcacf57
+MD5: 674555bca257e033f403bfe8f14c895d
+Year: 2021_11_03
+Family name: viking
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 4957
+* [API ] CreateFileA    @ 497E
+* [API ] WriteFile      @ 4999
+* [API ] SetFileTime    @ 6F22
+* [API ] CreateProcessA @ 70DE
+* [API ] CreateProcessA @ 539B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 4957    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 497E    Retarget    iexplorer.exe
+* [API ] FindFirstFileA     @ 48AC    Succeed
+* [API ] GetModuleFileNameA @ 26ED    Nothing
+
+[Manual annotations]
+====================

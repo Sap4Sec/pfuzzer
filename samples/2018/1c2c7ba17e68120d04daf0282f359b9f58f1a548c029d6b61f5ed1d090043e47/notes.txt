@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 1c2c7ba17e68120d04daf0282f359b9f58f1a548c029d6b61f5ed1d090043e47
+MD5: eadbc160c6deab07cb259781d8ad513d
+Year: 2018
+Family name: dinwod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 262B
+* [API ] CreateFileA    @ 291E
+* [API ] WriteFile      @ 2959
+* [API ] CreateProcessA @ 2A37
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 262B    Succeed
+* [API ] CreateFileA        @ 291E    Succeed
+* [API ] GetModuleFileNameA @ 24EA    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 258E    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] TimeQueryAPIs      @ 2165    Retarget
+
+[Manual annotations]
+====================

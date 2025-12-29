@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Chapak.gen-11212d76a760b3a88eafaa75678220e4c478923b3613a4a65f8111b3e8187017
+MD5: 6418a2893ab5e498347d4a04079ce834
+Year: 2022
+Family name: vidarstealer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] VirtualAllocExNuma @ 1177
+* [API ] InternetOpenA      @ CCBE
+* [API ] InternetConnectA   @ CCF5
+* [API ] HttpOpenRequestA   @ CD21
+* [API ] HttpSendRequestA   @ CD36
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] GetComputerNameA   @ 513A    Nothing
+* [API ] GetModuleFileNameA @ A9D9    Nothing
+* [API ] TimeDelayAPIs      @ ED51    Retarget
+
+[Manual annotations]
+====================

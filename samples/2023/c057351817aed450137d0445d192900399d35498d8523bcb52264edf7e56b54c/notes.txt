@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Spy.Win32.Windigo.pef-c057351817aed450137d0445d192900399d35498d8523bcb52264edf7e56b54c
+MD5: a856ef291297cdb54fca7469e38ddb34
+Year: 2023
+Family name: windigo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID                @ 3259    Retarget    Missing
+* [API ] CreateFileA          @ 5615    Fail        Not modified
+* [API ] CreateFileW          @ 5615    Retarget    iexplorer.exe
+* [API ] GetFileAttributesExW @ 5615    Succeed
+* [API ] GetModuleFileNameW   @ 5615    Nothing
+* [API ] GetModuleFileNameW   @ CE70    Nothing
+* [API ] GetSystemInfo        @ 5615    Nothing
+* [API ] Process32FirstW      @ 5615    Nothing
+* [API ] Process32NextW       @ 5615    Retarget
+* [API ] RegOpenKeyExW        @ 5615    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExW     @ 5615    Nothing
+* [API ] TimeDelayAPIs        @ 5615    Retarget
+* [API ] TimeQueryAPIs        @ CF8D    Retarget
+
+[Manual annotations]
+====================
+Malicious activity occurs in the recap section at the end of the baseline. It calls APIs from the same address repeatedly, and during trace creation, these addresses are suppressed after being seen twice.

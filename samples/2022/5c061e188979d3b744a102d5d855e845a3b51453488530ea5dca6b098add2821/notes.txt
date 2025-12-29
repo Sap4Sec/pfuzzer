@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.DelShad.ici-5c061e188979d3b744a102d5d855e845a3b51453488530ea5dca6b098add2821
+MD5: f61231237bbe45009996a9576eddde09
+Year: 2022
+Family name: delshad
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 34F5
+* [API ] CreateFileW    @ 0E01
+* [API ] NtCreateFile   @ 45A0
+* [API ] OpenSCManagerA @ 47A1
+* [API ] OpenServiceA   @ 47E1
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile   @ 6A3D
+* [API ] ShellExecuteW  @ 472E
+* [API ] NtCreateFile   @ 08F5
+* [API ] NtCreateFile   @ A109
+* [API ] NtCreateFile   @ 661E
+* [API ] NtCreateFile   @ C700
+* [API ] NtCreateFile   @ 2A14
+* [API ] NtCreateFile   @ 7BE9
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID         @ 46D4    Nothing
+* [API ] CreateFileW   @ 0E01    Succeed     Not modified
+* [API ] CreateFileW   @ 34F5    Retarget    Backup.txt
+* [API ] NtCreateFile  @ 45A0    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 7367    Retarget
+
+[Manual annotations]
+====================

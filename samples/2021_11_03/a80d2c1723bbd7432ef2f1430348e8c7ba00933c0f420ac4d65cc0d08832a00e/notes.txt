@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: a80d2c1723bbd7432ef2f1430348e8c7ba00933c0f420ac4d65cc0d08832a00e
+MD5: 5dbee190644f6639a8f3f77375e2b2c0
+Year: 2021_11_03
+Family name: griptolo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 3CCE
+* [API ] CreateFileA     @ 5500
+* [API ] CreateFileA     @ 3EAE
+* [API ] WriteFile       @ 3F01
+* [API ] RegSetValueExA  @ 36AF
+* [API ] RegCreateKeyExA @ 3926
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA @ 3992
+* [API ] ShellExecuteA   @ 33EA
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 46B6
+* [API ] CopyFileA       @ 4685
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateFileA        @ 3CCE    Succeed     Not modified
+* [API ] CreateFileA        @ 3EAE    Succeed     Not modified
+* [API ] CreateFileA        @ 5500    Fail
+* [API ] FindFirstFileA     @ 2AD2    Nothing
+* [API ] GetModuleFileNameA @ 520E    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 53DB    Nothing
+* [API ] GetModuleFileNameA @ 9AC6    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemTime      @ 4379    Nothing
+* [API ] GetUserNameW       @ 430F    Nothing
+* [API ] RegOpenKeyExA      @ 367A    Succeed
+* [API ] TimeDelayAPIs      @ 54BA    Nothing
+
+[Manual annotations]
+====================
+Additional behavior: copies itself into the process it launches via ShellExecute.

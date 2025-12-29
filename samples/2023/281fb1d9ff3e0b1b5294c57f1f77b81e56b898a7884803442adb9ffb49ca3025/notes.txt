@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Bublik.elnr-281fb1d9ff3e0b1b5294c57f1f77b81e56b898a7884803442adb9ffb49ca3025
+MD5: 91537c86fac927f13d4b08454695c7bc
+Year: 2023
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4BD4
+* [API ] LoadResource       @ 4BF0
+* [API ] RegCreateKeyA      @ 5597
+* [API ] RegSetValueExA     @ 55BF
+* [API ] FindResourceA      @ 50A3
+* [API ] CreateProcessA     @ 7F17
+* [API ] VirtualAllocEx     @ 6F9F
+* [API ] VirtualAllocEx     @ 6641
+* [API ] WriteProcessMemory @ 6663
+* [API ] VirtualAllocEx     @ 66AB
+* [API ] WriteProcessMemory @ 66B7
+* [API ] CreateRemoteThread @ 6703
+* [API ] WriteProcessMemory @ 6FE1
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA     @ 7FD6
+
+[Mutations applied in the best run (26)]
+=======================================
+
+* [API ] CreateMutexA         @ 4867    Retarget    VBoxTray
+* [API ] GetModuleFileNameA   @ 2B0C    Nothing
+* [API ] GetModuleFileNameExA @ 54E0    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] Process32First       @ 5003    Nothing
+* [API ] Process32Next        @ 5023    Retarget
+* [API ] RegOpenKeyA          @ 7B54    Fail
+* [API ] RegOpenKeyExA        @ 5AF1    Succeed     Not modified
+* [API ] RegQueryValueExA     @ 5B15    Nothing
+* [API ] RegQueryValueExA     @ 5B3F    Retarget    ProductID
+* [API ] TimeDelayAPIs        @ 7B40    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,80 @@
+[Basic information]
+=========================================================================
+SHA-256: 952440b5592895e6f775ee700126bfea25321e088923f950e553f0590d616a8b
+MD5: f3be8dd2e292133e55319943d8bfa1a0
+Year: 2018
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 2479
+* [API ] CreateFileA        @ 255C
+* [API ] MoveFileA          @ 2695
+* [API ] CreateFileA        @ 2726
+* [API ] RegCreateKeyExA    @ 1086
+* [PERS] software\microsoft\windows
+* [API ] RegSetValueExA     @ 114B
+* [API ] VirtualAllocEx     @ 1CFD
+* [API ] WriteProcessMemory @ 1D1F
+* [API ] WriteProcessMemory @ 1D88
+* [API ] WriteProcessMemory @ 1DC9
+* [API ] CreateRemoteThread @ 1DEB
+* [API ] CreateThread       @ 5A3A
+* [API ] CreateThread       @ 39A2
+* [API ] CreateThread       @ 59E6
+
+Fuzzing Findings
+----------------
+* [API ] WriteFile          @ 2578
+* [API ] WriteFile          @ 259C
+* [PERS] software\microsoft\windows\currentversion\run
+* [API ] CreateThread       @ 5442
+* [API ] CreateThread       @ 547E
+* [API ] CreateThread       @ 54B4
+* [API ] CreateThread       @ 54EA
+* [API ] CreateThread       @ 5520
+* [API ] CreateThread       @ 5556
+* [API ] CreateThread       @ 558C
+* [API ] CreateThread       @ 55C2
+* [API ] WriteFile          @ 275A
+* [API ] WriteFile          @ 2775
+* [API ] WriteFile          @ 2790
+* [API ] WriteFile          @ 27AB
+* [API ] WriteFile          @ 27C6
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CreateFileA        @ 2479    Succeed
+* [API ] CreateFileA        @ 255C    Succeed
+* [API ] CreateFileA        @ 2726    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 3988    Fail
+* [API ] CreateMutexA       @ 4F99    Fail
+* [API ] FindWindowA        @ 2D47    Succeed
+* [API ] GetComputerNameA   @ 44FB    Retarget    John
+* [API ] GetComputerNameA   @ BC4D    Nothing
+* [API ] GetModuleFileNameA @ 2D30    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 38FA    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 396D    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 4EF5    Nothing
+* [API ] GetModuleFileNameW @ 2833    Nothing
+* [API ] GetUserNameA       @ 43FA    Retarget    testuser
+* [API ] RegOpenKeyExA      @ 1A4B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 3334    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 3565    Fail
+* [API ] RegOpenKeyExA      @ 4D30    Fail
+* [API ] RegOpenKeyExA      @ 4E91    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 1A6C    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 3355    Nothing
+* [API ] RegQueryValueExA   @ 3585    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 4D57    Nothing
+* [API ] RegQueryValueExA   @ 4EB8    Nothing
+* [API ] TimeDelayAPIs      @ 2DF3    Nothing
+* [API ] TimeQueryAPIs      @ 3A20    Nothing
+
+[Manual annotations]
+====================

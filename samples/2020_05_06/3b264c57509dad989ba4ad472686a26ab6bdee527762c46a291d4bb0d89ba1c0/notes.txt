@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: 3b264c57509dad989ba4ad472686a26ab6bdee527762c46a291d4bb0d89ba1c0
+MD5: 2ca0e61078ab744b37a95e00a86fb1b5
+Year: 2020_05_06
+Family name: bestafera
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ BFBB
+* [API ] FindResourceA @ F918
+* [API ] LoadResource  @ F932
+* [API ] WSAStartup    @ 8364
+* [API ] CreateFileA   @ A863
+* [API ] CreateFileA   @ C522
+* [API ] WriteFile     @ A8AD
+* [API ] CreateFileA   @ F381
+* [API ] SetFileTime   @ ABF5
+* [API ] ShellExecuteA @ CA43
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA         @ A863    Succeed     Not modified
+* [API ] CreateFileA         @ C522    Fail        Not modified
+* [API ] CreateFileA         @ F381    Fail        Not modified
+* [API ] GetCursorPos        @ 4170    Nothing
+* [API ] GetDiskFreeSpaceExA @ B10F    Retarget    Missing
+* [API ] GetFileAttributesA  @ AA30    Succeed
+* [API ] GetFileAttributesA  @ AA54    Fail
+* [API ] GetKeyboardLayout   @ 0CD2    Nothing
+* [API ] GetModuleFileNameA  @ 1FBE    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA  @ 34D9    Nothing
+* [API ] GetModuleFileNameA  @ 6B4F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA  @ 6DB1    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetWindowTextA      @ C0A6    Retarget    Program Manager - MSCTFIME UI
+* [API ] Process32First      @ 308B    Nothing
+* [API ] Process32Next       @ 30AB    Retarget
+* [API ] RegOpenKeyExA       @ 6D0E    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 6DCF    Succeed
+* [API ] RegOpenKeyExA       @ 6DED    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 6E0B    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 7034    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 8C87    Succeed     Not modified
+* [API ] RegQueryValueExA    @ 6E97    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 6F80    Nothing
+* [API ] RegQueryValueExA    @ 8CDA    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ 8D39    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs       @ 1218    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

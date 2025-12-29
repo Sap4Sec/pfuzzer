@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: 4f8986cbdc7be629dea69e81d7cd11c9cec3a259e273af96e88a0a6bf17948d3
+MD5: 46e1eeba9fa409de5d27ef5b752fb65c
+Year: 2018
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 21B3
+* [API ] CreateFileW  @ A9E6
+* [API ] NtCreateFile @ F295
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 9602
+* [API ] NtCreateFile @ BA1C
+* [API ] NtCreateFile @ 8960
+* [API ] NtCreateFile @ 4656
+* [API ] NtCreateFile @ 178A
+* [API ] NtCreateFile @ DB05
+* [API ] NtCreateFile @ 054D
+* [API ] NtCreateFile @ 062F
+* [API ] NtCreateFile @ 7768
+* [API ] NtCreateFile @ C108
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID         @ 9028    Retarget    Missing
+* [API ] CreateFileW   @ 21B3    Fail
+* [API ] CreateFileW   @ A9E6    Succeed     Not modified
+* [API ] NtCreateFile  @ F295    Fail        Not modified
+* [API ] TimeQueryAPIs @ AA88    Nothing
+
+[Manual annotations]
+====================
+SAFENGINE-protected: CPUID evasion is successfully bypassed, but no significant findings except a SetWindowsHook call.

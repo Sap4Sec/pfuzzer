@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Witch.nwq-b6a3b9630a6ed8f626b7fdc083c73a03c57923c1055314bacaa49031c5fa6ae3
+MD5: d9079709c37a9977a75123a38cbd6660
+Year: 2022
+Family name: witch
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 5CBC
+* [API ] WriteFile      @ 5D51
+* [API ] SetFileTime    @ 18C1
+* [API ] CreateProcessA @ 57C5
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 5CBC    Succeed
+* [API ] GetFileAttributesA @ 1613    Succeed
+* [API ] GetFileAttributesA @ 5C76    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesA @ 5C9A    Fail
+* [API ] GetModuleFileNameA @ 2ED4    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] TimeQueryAPIs      @ 5CD9    Retarget
+
+[Manual annotations]
+====================

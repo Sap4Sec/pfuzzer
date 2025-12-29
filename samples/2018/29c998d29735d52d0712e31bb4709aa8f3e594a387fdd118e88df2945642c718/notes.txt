@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 29c998d29735d52d0712e31bb4709aa8f3e594a387fdd118e88df2945642c718
+MD5: 219c9416beaa2e50b0327f52ebffcfec
+Year: 2018
+Family name: SINGLETON:219c9416beaa2e50b0327f52ebffcfec
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW @ AE32
+* [API ] CreateFileW @ B24C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID                @ 47C7    Retarget    Missing
+* [API ] CreateFileW          @ AE32    Succeed     Not modified
+* [API ] CreateFileW          @ B24C    Succeed     Not modified
+* [API ] CreateMutexW         @ B9D2    Succeed
+* [API ] GetModuleFileNameExW @ D9DD    Nothing
+* [API ] TimeQueryAPIs        @ B251    Retarget
+
+[Manual annotations]
+====================
+Protectors: VProtector

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 24dffbff43869a90e7045ab71145198258dbbdd22e8d74e6f1d2c2b0acebec52
+MD5: 4997763b70b5c2cc8b12fcc283e46a6a
+Year: 2020_05_06
+Family name: mimikatz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

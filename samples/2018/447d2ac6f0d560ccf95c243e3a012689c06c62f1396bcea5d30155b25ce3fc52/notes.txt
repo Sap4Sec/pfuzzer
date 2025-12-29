@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: 447d2ac6f0d560ccf95c243e3a012689c06c62f1396bcea5d30155b25ce3fc52
+MD5: 153bbd091021eec121984c1d61ac6f78
+Year: 2018
+Family name: drmsoft
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ E5EC
+* [API ] LoadResource  @ E606
+* [API ] CreateFileA   @ E11D
+* [API ] WriteFile     @ A4A5
+* [API ] CreateFileA   @ A45B
+* [API ] SetFileTime   @ A7ED
+* [API ] FindResourceA @ B157
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA   @ 3739
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateFileA         @ A45B    Succeed     Not modified
+* [API ] CreateFileA         @ E11D    Fail
+* [API ] GetCursorPos        @ 3E68    Nothing
+* [API ] GetDiskFreeSpaceExA @ AD07    Nothing
+* [API ] GetFileAttributesA  @ A628    Succeed
+* [API ] GetFileAttributesA  @ A64C    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetKeyboardLayout   @ 09CA    Retarget    German
+* [API ] GetModuleFileNameA  @ 1CB6    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ 3495    Nothing
+* [API ] GetModuleFileNameA  @ 694B    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA  @ 6BAD    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegOpenKeyExA       @ 527F    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 52D6    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 6BCB    Succeed
+* [API ] RegOpenKeyExA       @ 6BE9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA       @ 6C07    Succeed     Not modified
+* [API ] RegQueryValueExA    @ 52D2    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ 5331    Nothing
+* [API ] RegQueryValueExA    @ 545F    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ 5548    Nothing
+
+[Manual annotations]
+====================

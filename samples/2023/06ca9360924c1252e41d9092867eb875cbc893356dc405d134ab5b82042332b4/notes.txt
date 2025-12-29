@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Spy.Win32.Stealer.pef-06ca9360924c1252e41d9092867eb875cbc893356dc405d134ab5b82042332b4
+MD5: 0237fad25780bbc896ea11d8f30f919a
+Year: 2023
+Family name: reline
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WriteFile          @ 3FFC
+* [API ] CreateProcessW     @ 2EF8
+* [API ] VirtualAllocEx     @ 2F33
+* [API ] ReadProcessMemory  @ 2FAB
+* [API ] VirtualAllocEx     @ 2FC4
+* [API ] WriteProcessMemory @ 2FF5
+* [API ] WriteProcessMemory @ 306C
+* [API ] WriteProcessMemory @ 309C
+* [API ] SetThreadContext   @ 30B2
+* [API ] ResumeThread       @ 30CA
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessW     @ 301C
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ 1B7A    Nothing
+* [API ] GetModuleFileNameW @ B643    Retarget    C:\Users\student\Desktop\config.cfg
+
+[Manual annotations]
+====================

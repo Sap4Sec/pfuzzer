@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 5b7646d79bfa28b7a9a2822f072c9cf68d90151c76aa244e053ccb198bc0b87d
+MD5: 50188192acab19bfe1528791597e0557
+Year: 2019_05_11
+Family name: gamania
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Protectors

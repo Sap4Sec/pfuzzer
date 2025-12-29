@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: 624bd921007e3c38e3f2d95721a364aa4dcb120d7ab8ede82df1a3f0a43b9084
+MD5: cac13e07df2bf4719cc6ec65ddc10c02
+Year: 2018
+Family name: SINGLETON:cac13e07df2bf4719cc6ec65ddc10c02
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ 250D
+* [API ] MapViewOfFile      @ 2570
+* [API ] CreateProcessW     @ 6DA2
+* [API ] ReadProcessMemory  @ 2D95
+* [API ] WriteProcessMemory @ 2DFB
+* [API ] ResumeThread       @ 2EB5
+* [API ] SuspendThread      @ 2ECA
+* [API ] ResumeThread       @ 2B06
+* [API ] SuspendThread      @ 2B28
+* [API ] WriteProcessMemory @ 2E23
+* [API ] CreateThread       @ 2BC1
+* [API ] ResumeThread       @ 075D
+* [API ] ReadProcessMemory  @ 094F
+* [API ] ReadProcessMemory  @ 09B8
+* [API ] ReadProcessMemory  @ 065D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 228A    Nothing
+* [API ] CreateMutexA       @ 072F    Fail
+* [API ] CreateMutexA       @ E8BA    Succeed
+* [API ] GetModuleFileNameW @ 68C7    Nothing
+* [API ] GetModuleFileNameW @ E533    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ E5D6    Nothing
+* [API ] TimeDelayAPIs      @ 2EBD    Retarget
+* [API ] TimeQueryAPIs      @ 04D0    Retarget
+
+[Manual annotations]
+====================

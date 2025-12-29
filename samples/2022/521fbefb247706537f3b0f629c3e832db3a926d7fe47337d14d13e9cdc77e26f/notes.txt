@@ -1,0 +1,83 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.Banbra.gen-521fbefb247706537f3b0f629c3e832db3a926d7fe47337d14d13e9cdc77e26f
+MD5: 99cb79758bec1284319716110d182484
+Year: 2022
+Family name: banbra
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExW  @ 22FD
+* [API ] FindResourceW    @ 6557
+* [API ] FindResourceW    @ 4F34
+* [API ] LoadResource     @ 4F4E
+
+Fuzzing Findings
+----------------
+* [API ] GetKeyState      @ 1F3A
+* [API ] GetKeyState      @ 1F4A
+* [API ] GetKeyState      @ 1F13
+* [API ] GetKeyboardState @ 32B9
+* [API ] CreateFileW      @ 6EE4
+* [API ] MoveFileW        @ 7F7C
+* [API ] InternetOpenW    @ 830A
+* [API ] InternetOpenUrlW @ 8373
+* [API ] CreateFileW      @ 6F36
+* [API ] WriteFile        @ 71C5
+* [API ] ShellExecuteW    @ 7FE9
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ 7F33    Nothing
+* [API ] CreateMutexW       @ 5A4B    Succeed
+* [API ] FindFirstFileW     @ 7994    Succeed
+* [API ] FindFirstFileW     @ DD94    Succeed
+* [API ] FindWindowW        @ A328    Fail
+* [API ] FindWindowW        @ A394    Fail
+* [API ] GetComputerNameW   @ 711A    Nothing
+* [API ] GetCursorPos       @ F9BC    Retarget    Missing
+* [API ] GetFileAttributesW @ 747A    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesW @ 7517    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesW @ 7A30    Retarget    C:\Windows\explorer.exe
+* [API ] GetKeyboardLayout  @ B496    Retarget    Italian
+* [API ] GetLocalTime       @ AA45    Nothing
+* [API ] GetModuleFileNameW @ 74E9    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ CE33    Nothing
+* [API ] GetModuleFileNameW @ CE99    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ D9BE    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ E0DD    Nothing
+* [API ] GetModuleFileNameW @ EBFF    Nothing
+* [API ] GetSystemInfo      @ 2003    Nothing
+* [API ] GetSystemInfo      @ FD31    Retarget    Missing
+* [API ] GetUserDefaultLCID @ 840A    Nothing
+* [API ] GetUserNameW       @ 70BC    Nothing
+* [API ] GetWindowTextW     @ 6858    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] GetWindowTextW     @ A3B0    Retarget    SecHealthHost - SecHealth Win
+* [API ] Process32FirstW    @ 7D0B    Nothing
+* [API ] Process32NextW     @ 7D2B    Retarget
+* [API ] RegOpenKeyExW      @ 23F6    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ 321C    Succeed
+* [API ] RegOpenKeyExW      @ BB9F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ DA07    Succeed
+* [API ] RegOpenKeyExW      @ DA29    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ DA47    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ DA65    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ DA83    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DAA1    Fail        Not modified
+* [API ] RegOpenKeyExW      @ E17E    Succeed     Not modified
+* [API ] RegQueryValueExW   @ 2B32    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 312C    Nothing
+* [API ] RegQueryValueExW   @ BBD9    Nothing
+* [API ] RegQueryValueExW   @ DAE1    Nothing
+* [API ] RegQueryValueExW   @ DB30    Retarget    ProductID
+* [API ] RegQueryValueExW   @ E22C    Nothing
+* [API ] TimeDelayAPIs      @ 8A79    Retarget
+* [API ] TimeQueryAPIs      @ 7545    Retarget
+
+[Manual annotations]
+====================

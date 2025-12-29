@@ -1,0 +1,194 @@
+[Basic information]
+=========================================================================
+SHA-256: 170bc7e29f016cc0648c0b334ae1bb8ce44bf0a73a903e0436a5aebaad8d3b35
+MD5: 664e09805fb8d42e0413286244dff0f6
+Year: 2019_11_29
+Family name: ridnu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 099C
+* [API ] ShellExecuteA  @ 229D
+* [API ] ShellExecuteA  @ 22B4
+* [API ] ShellExecuteA  @ 22CB
+* [API ] ShellExecuteA  @ 22E2
+* [API ] ShellExecuteA  @ 22F9
+* [API ] ShellExecuteA  @ 2310
+* [API ] ShellExecuteA  @ 2327
+* [API ] ShellExecuteA  @ 233E
+* [API ] ShellExecuteA  @ 2355
+* [API ] ShellExecuteA  @ 236C
+* [API ] ShellExecuteA  @ 2383
+* [API ] ShellExecuteA  @ 239A
+* [API ] ShellExecuteA  @ 23B1
+* [API ] ShellExecuteA  @ 23C8
+* [API ] ShellExecuteA  @ 23DF
+* [API ] ShellExecuteA  @ 23F6
+* [API ] ShellExecuteA  @ 240D
+* [API ] ShellExecuteA  @ 2424
+* [API ] ShellExecuteA  @ 243B
+* [API ] ShellExecuteA  @ 2452
+* [API ] ShellExecuteA  @ 2469
+* [API ] ShellExecuteA  @ 2480
+* [API ] CreateFileA    @ 24A2
+* [API ] CreateFileA    @ 24D6
+* [API ] CopyFileA      @ 73D8
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA @ 740E
+* [API ] RegSetValueExA @ 7425
+* [API ] CopyFileA      @ 7499
+* [API ] RegSetValueExA @ 74CD
+* [API ] CreateFileA    @ A9BF
+* [API ] CreateThread   @ 5F28
+* [API ] CreateThread   @ 5F3C
+* [API ] CreateThread   @ 5F50
+* [API ] CreateThread   @ 5F64
+* [API ] CreateThread   @ 5F78
+* [API ] CopyFileA      @ 3DAF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\NOHIDDEN
+* [API ] RegSetValueExA @ CE17
+* [API ] RegSetValueExA @ CE2E
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL
+* [API ] RegSetValueExA @ CE5A
+* [API ] RegSetValueExA @ CE71
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\HideFileExt
+* [API ] RegSetValueExA @ CE9D
+* [API ] RegSetValueExA @ CEB4
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\SuperHidden
+* [API ] RegSetValueExA @ CEE0
+* [API ] RegSetValueExA @ CEF7
+* [API ] RegSetValueExA @ CF0E
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA @ CF44
+* [API ] RegSetValueExA @ CF5B
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\CabinetState
+* [API ] RegSetValueExA @ CF87
+* [API ] RegSetValueExA @ CF9E
+* [API ] CopyFileA      @ 3DCA
+* [API ] CopyFileA      @ 3DDC
+* [API ] RegCreateKeyA  @ CFB9
+* [API ] RegSetValueExA @ CFD0
+* [API ] RegCreateKeyA  @ CFEE
+* [API ] RegSetValueExA @ D005
+* [API ] RegCreateKeyA  @ D021
+* [API ] RegSetValueExA @ D038
+* [API ] RegSetValueExA @ D04F
+* [API ] CopyFileA      @ 3DEE
+* [API ] RegSetValueExA @ 1BBC
+* [API ] RegSetValueExA @ 1BE8
+* [API ] RegSetValueExA @ 1C17
+* [API ] RegSetValueExA @ 1C43
+* [API ] RegSetValueExA @ 1C5D
+* [API ] RegSetValueExA @ 1C77
+* [API ] RegSetValueExA @ 2FF3
+* [API ] RegSetValueExA @ 300D
+* [API ] RegSetValueExA @ 3027
+* [API ] RegSetValueExA @ 303E
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer
+* [API ] RegSetValueExA @ 3077
+* [API ] RegSetValueExA @ 30A3
+* [API ] RegSetValueExA @ 30BD
+* [API ] RegSetValueExA @ 30D4
+* [API ] RegSetValueExA @ 30EB
+* [API ] RegSetValueExA @ 3121
+* [API ] RegSetValueExA @ 313B
+* [API ] CopyFileA      @ 3E00
+* [API ] CopyFileA      @ 3E12
+* [API ] CopyFileA      @ 3E24
+* [API ] CopyFileA      @ 3E36
+* [API ] WriteFile      @ 9FA0
+* [API ] CopyFileA      @ 3E48
+* [API ] CopyFileA      @ 3E5A
+* [API ] CopyFileA      @ 7C30
+* [API ] CopyFileA      @ 7EF8
+* [API ] CopyFileA      @ 7F06
+* [API ] CopyFileA      @ 7F39
+* [API ] CopyFileA      @ 7F4A
+* [API ] CopyFileA      @ 7F68
+* [API ] CopyFileA      @ 3591
+* [API ] CopyFileA      @ 35A2
+* [API ] CopyFileA      @ 35B3
+* [API ] CreateProcessA @ F7D2
+* [API ] CopyFileA      @ 35EC
+* [API ] CopyFileA      @ 5FFA
+* [API ] CopyFileA      @ 6885
+* [API ] CopyFileA      @ 68AA
+* [API ] RegSetValueExA @ 68E7
+* [API ] RegSetValueExA @ 7048
+* [API ] WriteFile      @ A005
+
+Fuzzing Findings
+----------------
+* [API ] ShellExecuteA  @ 2503
+* [API ] CopyFileA      @ 3EF2
+* [API ] CopyFileA      @ 3F07
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CreateFileA           @ 099C    Succeed     Not modified
+* [API ] CreateFileA           @ 24A2    Succeed     Not modified
+* [API ] CreateFileA           @ 24D6    Fail
+* [API ] CreateFileA           @ A9BF    Succeed
+* [API ] CreateMutexA          @ 0CA6    Fail
+* [API ] CreateMutexA          @ 5EFD    Fail
+* [API ] FindFirstFileA        @ 10B6    Succeed
+* [API ] FindWindowA           @ 38A8    Succeed
+* [API ] FindWindowA           @ 38CB    Fail
+* [API ] FindWindowA           @ 38EE    Succeed
+* [API ] FindWindowA           @ 3911    Fail
+* [API ] FindWindowA           @ 3931    Fail
+* [API ] FindWindowA           @ 3954    Succeed
+* [API ] FindWindowA           @ 3977    Succeed
+* [API ] FindWindowA           @ 399A    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowA           @ 39BD    Fail
+* [API ] GetFileAttributesA    @ E1FE    Fail
+* [API ] GetForegroundWindow   @ 16E4    Retarget    Missing
+* [API ] GetForegroundWindow   @ 2B0D    Nothing
+* [API ] GetForegroundWindow   @ 43E6    Nothing
+* [API ] GetForegroundWindow   @ 4854    Nothing
+* [API ] GetLocalTime          @ 9908    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameA    @ 0954    Nothing
+* [API ] GetModuleFileNameA    @ 1095    Nothing
+* [API ] GetModuleFileNameA    @ 1C1C    Nothing
+* [API ] GetModuleFileNameA    @ 1C2A    Nothing
+* [API ] GetModuleFileNameA    @ 3326    Nothing
+* [API ] GetModuleFileNameA    @ 7EE1    Nothing
+* [API ] GetModuleFileNameA    @ E573    Retarget    C:\Windows\system32\
+* [API ] GetSystemTime         @ 9912    Retarget    2015:12:6:15
+* [API ] GetUserNameA          @ 3C04    Nothing
+* [API ] GetUserNameA          @ 55CF    Retarget    testuser
+* [API ] GetUserNameA          @ 648D    Nothing
+* [API ] GetUserNameA          @ 77B7    Retarget    Office
+* [API ] GetUserNameA          @ 78BA    Nothing
+* [API ] GetWindowTextA        @ 16F5    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] GetWindowTextA        @ 2B20    Nothing
+* [API ] K32GetModuleBaseNameA @ E934    Retarget    HintClient.exe
+* [API ] RegOpenKeyExA         @ 1B9F    Fail
+* [API ] RegOpenKeyExA         @ 1BD1    Fail
+* [API ] RegOpenKeyExA         @ 1BFD    Succeed     Not modified
+* [API ] RegOpenKeyExA         @ 1C2C    Succeed     Not modified
+* [API ] RegOpenKeyExA         @ 2FD0    Succeed     Not modified
+* [API ] RegOpenKeyExA         @ 3060    Succeed     Not modified
+* [API ] RegOpenKeyExA         @ 308C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA         @ 3107    Fail        Not modified
+* [API ] RegOpenKeyExA         @ 3150    Succeed     Not modified
+* [API ] RegOpenKeyExA         @ 68CC    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA         @ 702B    Fail        Not modified
+* [API ] RegOpenKeyExA         @ 73F1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA         @ 74B2    Fail
+* [API ] RegOpenKeyExA         @ CDFA    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA         @ CE43    Succeed     Not modified
+* [API ] RegOpenKeyExA         @ CE86    Fail
+* [API ] RegOpenKeyExA         @ CEC9    Fail
+* [API ] RegOpenKeyExA         @ CF2D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA         @ CF70    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs         @ 6352    Retarget
+* [API ] TimeQueryAPIs         @ 5A62    Retarget
+
+[Manual annotations]
+====================

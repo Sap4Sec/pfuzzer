@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: 77d5b20f604fdcdad1934e372a9bc9eb6cdb661df244b82f328e78303582d838
+MD5: dbb66b9056b4d0b9f76d40ee1bf01376
+Year: 2019_05_11
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ 8CCA
+* [API ] LoadResource         @ 8D8E
+* [API ] CreateFileW          @ 6F27
+* [API ] WriteFile            @ D0E0
+* [API ] CreateProcessA       @ 9040
+* [API ] ReadProcessMemory    @ 993A
+* [API ] NtUnmapViewOfSection @ 99A0
+* [API ] VirtualAllocEx       @ 9F19
+* [API ] WriteProcessMemory   @ 9A92
+* [API ] SetThreadContext     @ 9CEC
+* [API ] ResumeThread         @ A1D4
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CPUID              @ B4F9    Retarget    Missing
+* [API ] CreateFileW        @ 6F27    Succeed     Not modified
+* [API ] GetFileAttributesA @ 1F84    Fail
+* [API ] GetFileAttributesA @ 1F9C    Succeed
+* [API ] GetFileAttributesA @ 1FB4    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 21C7    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 8D26    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 9113    Nothing
+* [API ] GetModuleFileNameW @ 1AE3    Nothing
+* [API ] GetModuleFileNameW @ 1AF7    Nothing
+* [API ] GetModuleFileNameW @ AD94    Nothing
+* [API ] GetUserNameA       @ 2107    Nothing
+* [API ] RegOpenKeyExW      @ 1D6C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ AAD3    Succeed
+* [API ] RegQueryValueExW   @ 1DA2    Nothing
+* [API ] RegQueryValueExW   @ AC16    Nothing
+* [API ] RegQueryValueExW   @ AC46    Retarget    SystemBiosDate
+* [API ] TimeQueryAPIs      @ 1FF8    Nothing
+
+[Manual annotations]
+====================
+Queries WMI Win32_BIOS for SMBIOSVersion, checking for XEN, VBOX, BOCH, QEMU, and VIRTUALBOX (further investigation recommended). Also queries Win32_NetworkAdapter for TAP, ISATAP, and NetEnabled

@@ -1,0 +1,61 @@
+[Basic information]
+=========================================================================
+SHA-256: d4beb1021a1b10d5091e0534a86fa6d897d164c731f812fe7e467d444c713628
+MD5: 889aa021e3b95f3282d27c9f74e01d53
+Year: 2018
+Family name: ramnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 126E
+* [API ] WriteFile         @ 1298
+* [API ] CreateProcessA    @ 12E6
+* [API ] SetWindowsHookExW @ 8A7E
+* [API ] CreateFileA       @ FB96
+* [API ] CreateFileW       @ 252E
+* [API ] RegCreateKeyExA   @ D913
+* [API ] RegSetValueExA    @ DD56
+* [API ] WriteFile         @ 0CE0
+* [API ] CreateThread      @ E054
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA       @ FEE8
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 126E    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileA        @ FB96    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW        @ 252E    Succeed     Not modified
+* [API ] CreateMutexA       @ 11CC    Succeed
+* [API ] DeviceIoControl    @ FC5F    Retarget    Missing
+* [API ] FindFirstFileW     @ 25BE    Retarget    C:\*
+* [API ] GetComputerNameA   @ 3D01    Nothing
+* [API ] GetFileAttributesW @ 268E    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetKeyboardLayout  @ 3072    Retarget    Russian
+* [API ] GetLocalTime       @ D459    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameA @ 122F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 42B8    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 790F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 7B49    Nothing
+* [API ] GetModuleFileNameA @ BF7B    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ C1B5    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 2A2E    Nothing
+* [API ] GetUserNameA       @ 3CED    Nothing
+* [API ] RegOpenKeyExA      @ 7B67    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 7B85    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 7BA3    Fail        Not modified
+* [API ] RegOpenKeyExA      @ C1D3    Fail        Not modified
+* [API ] RegOpenKeyExA      @ C1F1    Fail        Not modified
+* [API ] RegOpenKeyExA      @ C20F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ D8DF    Fail
+* [API ] TimeDelayAPIs      @ E361    Retarget
+* [API ] TimeQueryAPIs      @ 4959    Retarget
+
+[Manual annotations]
+====================

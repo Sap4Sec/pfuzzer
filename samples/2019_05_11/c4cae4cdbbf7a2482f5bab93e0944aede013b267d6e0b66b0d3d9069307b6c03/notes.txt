@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: c4cae4cdbbf7a2482f5bab93e0944aede013b267d6e0b66b0d3d9069307b6c03
+MD5: 93cb5a293e2c3cbd58b9602609298549
+Year: 2019_05_11
+Family name: SINGLETON:93cb5a293e2c3cbd58b9602609298549
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW @ 8EDE
+* [API ] CreateFileW @ F429
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CPUID              @ 2B6B    Nothing
+* [API ] CreateFileW        @ 8EDE    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW        @ F429    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 9170    Nothing
+* [API ] TimeQueryAPIs      @ 944A    Retarget
+
+[Manual annotations]
+====================
+Other dependencies:  Safengine Shielden(v2.1.3.0) - Chinese error messagebox: missing security.key & another messagebox saying: unable to download the game from scratch - add the screenshots in the repo (errors #1, #2)

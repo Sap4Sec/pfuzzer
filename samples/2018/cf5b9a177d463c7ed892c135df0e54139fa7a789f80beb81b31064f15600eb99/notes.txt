@@ -1,0 +1,67 @@
+[Basic information]
+=========================================================================
+SHA-256: cf5b9a177d463c7ed892c135df0e54139fa7a789f80beb81b31064f15600eb99
+MD5: ef9b6e28fc6cf14b5178e2c538fb151f
+Year: 2018
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B4E7
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (41)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Fail        Not modified
+* [API ] CreateFileA        @ 586F    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 5DBB    Fail        Not modified
+* [API ] CreateMutexA       @ 3583    Fail
+* [API ] FindFirstFileA     @ 5D3E    Retarget    C:\*
+* [API ] FindWindowA        @ B488    Fail
+* [API ] GetFileAttributesA @ 5A78    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesA @ 6670    Fail
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetUserNameA       @ 55A8    Retarget    Office
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5409    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 54C1    Fail
+* [API ] RegOpenKeyExA      @ 60E2    Fail
+* [API ] RegOpenKeyExA      @ 69FF    Fail
+* [API ] RegQueryValueExA   @ 537A    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 5432    Nothing
+* [API ] RegQueryValueExA   @ 54EA    Nothing
+* [API ] RegQueryValueExA   @ 6106    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6130    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Retarget
+
+[Manual annotations]
+====================

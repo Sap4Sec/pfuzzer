@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: ca24f5360c286ae7bc3c1c3cfc8462b1deda26beab28a0115eb074f65eb43a08
+MD5: ea06c054a09c8d680d1190410e2da9e5
+Year: 2021_11_03
+Family name: pidgeon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 9A9F
+* [API ] SetWindowsHookExA @ 3B09
+* [API ] SetWindowsHookExA @ 0C6A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA    @ 4D5C
+* [API ] CreateFileA       @ F56B
+* [API ] WriteFile         @ F602
+* [API ] CreateProcessA    @ 250D
+* [API ] MoveFileExA       @ 1A27
+* [API ] CreateThread      @ 30CA
+* [API ] InternetOpenA     @ AD36
+* [API ] InternetConnectA  @ AF82
+* [API ] HttpOpenRequestA  @ B033
+* [API ] HttpSendRequestA  @ B0A7
+* [API ] InternetReadFile  @ B1CC
+* [API ] WSAStartup        @ 75F7
+* [API ] socket            @ 76FC
+* [API ] inet_addr         @ 772C
+* [API ] connect           @ 77E8
+* [API ] CreateFileA       @ 699D
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 4D0A
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CreateFileA         @ 699D    Succeed
+* [API ] CreateFileA         @ F56B    Succeed
+* [API ] CreateMutexA        @ 2E9B    Fail
+* [API ] FindFirstFileA      @ 2203    Nothing
+* [API ] FindFirstFileA      @ 3FD8    Fail
+* [API ] FindNextFileA       @ 21E8    Retarget
+* [API ] GetCursorPos        @ 91C4    Nothing
+* [API ] GetDiskFreeSpaceExA @ 3EB2    Nothing
+* [API ] GetModuleFileNameA  @ 2E17    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA  @ 6029    Nothing
+* [API ] GetModuleFileNameA  @ 9478    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ B8E3    Nothing
+* [API ] RegOpenKeyExA       @ 4910    Fail
+* [API ] RegOpenKeyExA       @ 4CF1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA    @ 4940    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 4A6C    Nothing
+* [API ] TimeDelayAPIs       @ 50D7    Retarget
+* [API ] TimeQueryAPIs       @ 2701    Retarget
+
+[Manual annotations]
+====================

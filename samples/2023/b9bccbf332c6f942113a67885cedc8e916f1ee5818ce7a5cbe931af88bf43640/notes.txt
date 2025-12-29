@@ -1,0 +1,57 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Llac.lgnr-b9bccbf332c6f942113a67885cedc8e916f1ee5818ce7a5cbe931af88bf43640
+MD5: 6860240392c808dabd36baa6685cb004
+Year: 2023
+Family name: llac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8D8
+* [API ] CreateProcessA     @ B665
+* [API ] CreateProcessA     @ B6CB
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (36)]
+=======================================
+
+* [API ] CreateFileA        @ 5DBB    Retarget    Backup.txt
+* [API ] CreateMutexA       @ 3583    Retarget    VBoxTray
+* [API ] FindFirstFileA     @ 5D3E    Retarget    C:\Users\Student\*
+* [API ] FindWindowA        @ B879    Fail
+* [API ] GetFileAttributesA @ 5A78    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesA @ 6670    Fail
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69FF    Fail
+* [API ] RegQueryValueExA   @ 6106    Nothing
+* [API ] RegQueryValueExA   @ 6130    Nothing
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+
+[Manual annotations]
+====================

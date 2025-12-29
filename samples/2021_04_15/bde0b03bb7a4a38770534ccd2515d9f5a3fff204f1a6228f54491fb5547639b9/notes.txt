@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: bde0b03bb7a4a38770534ccd2515d9f5a3fff204f1a6228f54491fb5547639b9
+MD5: 348dab20769664891e387da150a2d8de
+Year: 2021_04_15
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4780
+* [API ] LoadResource       @ 479C
+* [API ] RegCreateKeyA      @ 5163
+* [API ] RegSetValueExA     @ 518B
+* [API ] FindResourceA      @ 4C4B
+* [API ] CreateProcessA     @ 7E7B
+* [API ] VirtualAllocEx     @ 6F03
+* [API ] VirtualAllocEx     @ 65A5
+* [API ] WriteProcessMemory @ 65C7
+* [API ] VirtualAllocEx     @ 660F
+* [API ] WriteProcessMemory @ 661B
+* [API ] CreateRemoteThread @ 6667
+* [API ] WriteProcessMemory @ 6F45
+* [API ] CreateProcessA     @ 7F3A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CreateMutexA         @ 4413    Fail
+* [API ] GetModuleFileNameA   @ 2719    Nothing
+* [API ] GetModuleFileNameExA @ 50AC    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] Process32First       @ 4BAB    Nothing
+* [API ] Process32Next        @ 4BCB    Retarget
+* [API ] RegOpenKeyA          @ 7AB8    Succeed
+* [API ] RegOpenKeyExA        @ 56BD    Succeed     Not modified
+* [API ] RegQueryValueExA     @ 56E1    Nothing
+* [API ] RegQueryValueExA     @ 570B    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 7AA4    Retarget
+
+[Manual annotations]
+====================

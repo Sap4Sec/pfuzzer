@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 89615b53b5c50465a4fe80c2d18ec6bdc193b4132d9e2e70cc13df5c6768dda9
+MD5: 3a2e188144a7d8b8eeb7e0f0257f4c18
+Year: 2021_04_15
+Family name: viking
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 4B87
+* [API ] OpenFileMappingA   @ 058D
+* [API ] CreateFileMappingA @ 05B6
+* [API ] MapViewOfFile      @ 05CE
+* [API ] WinExec            @ 922D
+* [API ] CreateThread       @ 9243
+* [API ] CreateFileA        @ 49A6
+* [API ] WriteFile          @ 8B55
+* [API ] RegCreateKeyExA    @ 5002
+* [API ] RegSetValueExA     @ 504A
+* [API ] WriteFile          @ 49C1
+* [API ] SetFileTime        @ 8636
+* [API ] CreateProcessA     @ 8844
+* [API ] CreateProcessA     @ ECA8
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 49A6    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileA        @ 4B87    Succeed     Not modified
+* [API ] FindFirstFileA     @ 4ADC    Fail
+* [API ] FindWindowA        @ 77D6    Fail
+* [API ] GetModuleFileNameA @ 274D    Nothing
+* [API ] Process32First     @ 5B57    Nothing
+* [API ] Process32Next      @ 5B77    Retarget
+* [API ] TimeDelayAPIs      @ 924D    Retarget
+
+[Manual annotations]
+====================

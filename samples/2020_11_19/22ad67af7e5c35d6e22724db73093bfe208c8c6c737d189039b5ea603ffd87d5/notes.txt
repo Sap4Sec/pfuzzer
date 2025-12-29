@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 22ad67af7e5c35d6e22724db73093bfe208c8c6c737d189039b5ea603ffd87d5
+MD5: 9ea627fc3863c12bab540e1419198c48
+Year: 2020_11_19
+Family name: vkontaktedj
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] FindFirstFileW     @ 8598    Fail
+* [API ] GetKeyboardLayout  @ 6E86    Retarget    Russian
+* [API ] GetModuleFileNameW @ 5101    Nothing
+* [API ] GetModuleFileNameW @ 7603    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 8172    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 85F0    Nothing
+* [API ] GetModuleFileNameW @ 88C4    Nothing
+* [API ] GetSystemInfo      @ 9071    Retarget    Missing
+* [API ] RegOpenKeyExW      @ 74BB    Succeed
+* [API ] RegOpenKeyExW      @ 81BB    Succeed
+* [API ] RegOpenKeyExW      @ 81DD    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 81FB    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 8219    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ 8237    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ 8255    Fail        Not modified
+* [API ] RegOpenKeyExW      @ BFC2    Fail
+* [API ] RegQueryValueExW   @ C6B6    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ CCA0    Nothing
+* [API ] TimeDelayAPIs      @ DF19    Retarget
+* [API ] TimeQueryAPIs      @ 3531    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasion

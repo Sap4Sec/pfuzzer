@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: Virus.Win32.Induc.li-f55b5576d248b3bf0683f71fdae522a5c91ef87bb7e8dbded251e364687f3586
+MD5: e3e5d520468b058d86c4bb4fa0b3459e
+Year: 2022
+Family name: induc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 3189
+* [API ] FindResourceA     @ EDFC
+* [API ] LoadResource      @ EE16
+* [API ] FindResourceA     @ BA47
+* [API ] SetWindowsHookExA @ B5D0
+* [API ] RegCreateKeyExA   @ 68FB
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA    @ 6A02
+* [API ] CreateFileA       @ 14F5
+* [API ] CreateFileA       @ 1510
+* [API ] WriteFile         @ 1540
+* [API ] GetKeyState       @ 81EF
+* [API ] CreateFileA       @ 17CA
+* [API ] WriteFile         @ 17F3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA        @ 14F5    Fail        Not modified
+* [API ] CreateFileA        @ 1510    Fail
+* [API ] CreateFileA        @ 17CA    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileA        @ 3189    Succeed
+* [API ] CreateMutexA       @ 74A7    Fail
+* [API ] FindFirstFileA     @ C52C    Retarget    C:\Users\Student\*
+* [API ] GetCursorPos       @ 5E6F    Retarget    Missing
+* [API ] GetKeyboardLayout  @ E946    Nothing
+* [API ] GetModuleFileNameA @ 2EE8    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 6387    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 6618    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ FC58    Nothing
+* [API ] GetSystemInfo      @ 76E9    Retarget    Missing
+* [API ] Process32First     @ 0D8B    Nothing
+* [API ] Process32Next      @ 0DAB    Retarget
+* [API ] RegOpenKeyExA      @ 6636    Succeed
+* [API ] RegOpenKeyExA      @ 6654    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 6672    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ A680    Fail        Not modified
+* [API ] TimeDelayAPIs      @ 916C    Retarget
+* [API ] TimeQueryAPIs      @ 439C    Retarget
+
+[Manual annotations]
+====================

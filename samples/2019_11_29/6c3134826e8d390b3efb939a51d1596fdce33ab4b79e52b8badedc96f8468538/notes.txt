@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 6c3134826e8d390b3efb939a51d1596fdce33ab4b79e52b8badedc96f8468538
+MD5: 807f86f946e9d316368bd2248d2e1909
+Year: 2019_11_29
+Family name: zepfod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA   @ 4585
+* [API ] WriteFile     @ 478B
+* [API ] ShellExecuteA @ 43DF
+
+Fuzzing Findings
+----------------
+* [API ] ShellExecuteA @ 2A8F
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CreateFileA        @ 4585    Fail
+* [API ] CreateMutexA       @ 5823    Retarget    VBoxTray
+* [API ] GetComputerNameA   @ 2533    Retarget    John
+* [API ] GetComputerNameA   @ 3CFB    Retarget    testuser
+* [API ] GetComputerNameA   @ 56E2    Retarget    testuser
+* [API ] GetFileAttributesA @ 29B3    Fail
+* [API ] GetFileAttributesA @ 31B6    Fail
+* [API ] GetFileAttributesA @ 3F39    Fail
+* [API ] GetModuleFileNameA @ 1A45    Nothing
+* [API ] GetModuleFileNameA @ 649A    Nothing
+* [API ] Process32First     @ 4B9F    Nothing
+* [API ] Process32Next      @ 516A    Retarget
+* [API ] TimeDelayAPIs      @ 4484    Retarget
+* [API ] TimeQueryAPIs      @ 45E2    Retarget
+
+[Manual annotations]
+====================

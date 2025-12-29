@@ -1,0 +1,64 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.BestaFera.gen-45eae3fcfc0e6f6808356f2f15a52bb550d003c45000c25d0bb83c9c62f61e2d
+MD5: 3c2f112fcb46f6f6157098c2ea4b7d9e
+Year: 2022
+Family name: bestafera
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW    @ 4CBC
+* [API ] LoadResource     @ 4CD6
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceW    @ 5DB3
+* [API ] GetKeyState      @ D3EB
+* [API ] GetKeyboardState @ 3D7D
+* [API ] GetKeyState      @ D412
+* [API ] GetKeyState      @ D422
+* [API ] WSAStartup       @ A5B5
+* [API ] getaddrinfo      @ 1857
+* [API ] socket           @ AA59
+* [API ] connect          @ 18A6
+* [API ] send             @ B8D3
+* [API ] recv             @ B873
+* [API ] RegCreateKeyExW  @ 3AA9
+* [API ] CreateFileW      @ 707C
+* [API ] inet_addr        @ 7CA0
+* [API ] CreateFileW      @ 70CE
+* [API ] WriteFile        @ 735D
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID              @ 7C93    Nothing
+* [API ] FindFirstFileW     @ DB28    Nothing
+* [API ] GetFileAttributesW @ 741A    Succeed
+* [API ] GetKeyboardLayout  @ 6C92    Nothing
+* [API ] GetLocalTime       @ A74D    Nothing
+* [API ] GetModuleFileNameW @ 72C5    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 8695    Nothing
+* [API ] GetModuleFileNameW @ CBC7    Nothing
+* [API ] GetModuleFileNameW @ D752    Nothing
+* [API ] GetModuleFileNameW @ DE71    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemInfo      @ FAC1    Nothing
+* [API ] Process32FirstW    @ 7177    Nothing
+* [API ] Process32NextW     @ 7197    Retarget
+* [API ] RegOpenKeyExW      @ 3BA2    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D79B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ D7BD    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ D7DB    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D7F9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D817    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D835    Fail        Not modified
+* [API ] RegQueryValueExW   @ 42DE    Nothing
+* [API ] RegQueryValueExW   @ 48D8    Nothing
+* [API ] TimeQueryAPIs      @ 7321    Nothing
+
+[Manual annotations]
+====================

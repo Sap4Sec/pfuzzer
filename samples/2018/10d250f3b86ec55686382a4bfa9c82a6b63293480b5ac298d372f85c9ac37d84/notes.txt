@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: 10d250f3b86ec55686382a4bfa9c82a6b63293480b5ac298d372f85c9ac37d84
+MD5: b4d86719e02de68fd0af544e3e8b7517
+Year: 2018
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ F2C8
+* [API ] CreateThread     @ F36E
+* [API ] CreateThread     @ F385
+* [API ] CreateThread     @ F39C
+* [API ] CreateProcessA   @ D3DD
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA   @ CAAF
+* [API ] CopyFileA        @ D353
+* [API ] CopyFileA        @ D37F
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA    @ D5B9
+* [API ] InternetOpenUrlA @ D5DF
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread     @ F313
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CreateMutexA         @ F2D7    Fail
+* [API ] GetModuleFileNameA   @ D09F    Nothing
+* [API ] GetModuleFileNameExA @ DA91    Nothing
+* [API ] GetModuleFileNameExA @ DF77    Nothing
+* [API ] Process32First       @ DA2C    Nothing
+* [API ] Process32First       @ DF03    Nothing
+* [API ] Process32Next        @ DD4F    Retarget
+* [API ] Process32Next        @ E0FC    Retarget
+* [API ] RegOpenKeyA          @ CA8C    Succeed
+* [API ] TimeDelayAPIs        @ F2AE    Retarget
+* [API ] TimeQueryAPIs        @ F28C    Retarget
+
+[Manual annotations]
+====================
+The sample performs evasion in sub_43C195 and sub_43C110 using vpcxt and other evasion techniques (see https://elearning.di.unipi.it/pluginfile.php/25436/mod_resource/content/1/5-0%20Vulnerabilities%20and%20Attacks.pdf and https://unprotect.it/technique/vpcext/) which are not supported in our environment.
+I patched these out to continue the analysis.

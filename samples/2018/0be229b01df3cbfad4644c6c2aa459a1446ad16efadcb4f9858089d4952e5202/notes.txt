@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 0be229b01df3cbfad4644c6c2aa459a1446ad16efadcb4f9858089d4952e5202
+MD5: 8c1e36ab5d380637dfeff97d98442a4b
+Year: 2018
+Family name: vobfus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Immediately deletes itself without exhibiting any notable behavior.

@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: 6e30b3ae20d38f72048213ac957c3b8f309fcc6a65f931b4a93404fd7d1a6b7a
+MD5: a93fac33d53162bf655b76ca0842c1c9
+Year: 2021_11_03
+Family name: antavmu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 9890
+* [API ] SetWindowsHookExA @ 69F3
+* [API ] CopyFileA         @ 3F93
+* [PERS] software\microsoft\windows\CurrentVersion\Run
+* [API ] RegSetValueExA    @ 43BB
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 433A
+* [API ] CreateFileA       @ 52F5
+* [API ] WriteFile         @ 538C
+* [API ] RegSetValueExA    @ 349A
+* [API ] RegSetValueExA    @ 34D7
+* [API ] RegSetValueExA    @ 34F4
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] FindFirstFileA     @ 65F3    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 65D8    Retarget
+* [API ] FindWindowA        @ 3303    Succeed
+* [API ] GetCursorPos       @ ED93    Nothing
+* [API ] GetFileAttributesA @ 3FAD    Fail
+* [API ] GetModuleFileNameA @ 8C4C    Nothing
+* [API ] GetModuleFileNameA @ AC79    Nothing
+* [API ] GetModuleFileNameA @ EFE7    Nothing
+* [API ] GetModuleFileNameA @ FE83    Nothing
+* [API ] Process32First     @ 3333    Nothing
+* [API ] Process32Next      @ 3358    Retarget
+* [API ] RegOpenKeyExA      @ 4321    Succeed     Not modified
+
+[Manual annotations]
+====================

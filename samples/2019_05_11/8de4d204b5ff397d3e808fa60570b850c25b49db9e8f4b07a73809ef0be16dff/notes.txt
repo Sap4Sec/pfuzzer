@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 8de4d204b5ff397d3e808fa60570b850c25b49db9e8f4b07a73809ef0be16dff
+MD5: 2800fe1a8a4678e865c15948d5b91121
+Year: 2019_05_11
+Family name: cinmus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Unable to run in Win32 mode, even by changing compability in the properties

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Sheljector.hl-5d897ac5c7c3fb20d6b3f34dbfd01fd10121ff446beb9166bcbbad5cf2818f64
+MD5: 78022aaafb1bdfe2ba2095147bddfcad
+Year: 2023
+Family name: cobaltstrike
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Salgorea.a-0b73dd00e24a4f9fbc21b1cd05971603878b1337608ac765d10e36ac7a711f1b
+MD5: a774a0ae5149b605c64cb2e19ed6a050
+Year: 2022
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ A1AF
+* [API ] OpenServiceW         @ A1C9
+* [API ] CryptAcquireContextW @ 54AE
+* [API ] CryptGenRandom       @ 54DA
+* [API ] CryptReleaseContext  @ 54F3
+* [API ] CreateFileW          @ BEFC
+* [API ] CreateFileW          @ C170
+* [API ] WriteFile            @ C18A
+* [API ] CreateProcessW       @ CA82
+* [API ] WriteFile            @ 8F58
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileW        @ BEFC    Succeed     Not modified
+* [API ] CreateFileW        @ C170    Fail
+* [API ] GetComputerNameA   @ C761    Retarget    John
+* [API ] GetModuleFileNameW @ 5931    Nothing
+* [API ] GetModuleFileNameW @ C959    Nothing
+* [API ] GetUserNameA       @ 3C69    Nothing
+* [API ] TimeDelayAPIs      @ C6C3    Nothing
+
+[Manual annotations]
+====================

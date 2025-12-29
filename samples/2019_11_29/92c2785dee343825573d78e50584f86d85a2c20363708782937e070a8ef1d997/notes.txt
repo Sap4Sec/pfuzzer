@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 92c2785dee343825573d78e50584f86d85a2c20363708782937e070a8ef1d997
+MD5: 6f1cc0a23d06c46e0abb009b18e3e824
+Year: 2019_11_29
+Family name: ulise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.Salgorea.gen-e5474bdcb0a87bd6c1c74d6a2fd6cff6c8ff913248b84e22c1ef5e82cb6f5cde
+MD5: 84b1f23a2a44bba69b9993d7d8f4508d
+Year: 2023
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 960F
+* [API ] OpenServiceW         @ 9629
+* [API ] CryptAcquireContextW @ 7A0E
+* [API ] CryptGenRandom       @ 7A23
+* [API ] CryptReleaseContext  @ 7A38
+* [API ] CreateFileW          @ B7AC
+* [API ] CreateFileW          @ BA20
+* [API ] WriteFile            @ BA3A
+* [API ] CreateProcessW       @ C13C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileW        @ B7AC    Succeed     Not modified
+* [API ] CreateFileW        @ BA20    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 5C16    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ BFBD    Nothing
+* [API ] GetUserNameA       @ 6019    Retarget    Office
+
+[Manual annotations]
+====================

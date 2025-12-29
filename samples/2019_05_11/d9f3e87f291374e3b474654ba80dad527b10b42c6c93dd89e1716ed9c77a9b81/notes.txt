@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: d9f3e87f291374e3b474654ba80dad527b10b42c6c93dd89e1716ed9c77a9b81
+MD5: fef1505b030fef67818bcaeac036bb71
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ D3D8
+* [API ] SetWindowsHookExA @ 7442
+* [API ] SetWindowsHookExA @ 45A3
+* [API ] MoveFileA         @ 8387
+* [API ] MoveFileA         @ 83EC
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA       @ 2EA4
+* [API ] WriteFile         @ 2F3B
+* [API ] InternetOpenA     @ 7706
+* [API ] InternetConnectA  @ 7952
+* [API ] HttpOpenRequestA  @ 7A03
+* [API ] HttpSendRequestA  @ 7A77
+* [API ] InternetReadFile  @ 7B9C
+* [API ] WSAStartup        @ 7A43
+
+[Mutations applied in the best run (31)]
+=======================================
+
+* [API ] CreateFileA        @ 2EA4    Retarget    Detect It Easy.lnk
+* [API ] FindFirstFileA     @ 1D86    Fail
+* [API ] FindFirstFileA     @ 3510    Nothing
+* [API ] FindNextFileA      @ 35BE    Retarget
+* [API ] GetCursorPos       @ CAFD    Nothing
+* [API ] GetModuleFileNameA @ 3403    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 6218    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ CDB1    Nothing
+* [API ] GetModuleFileNameA @ F839    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ 7C53    Nothing
+* [API ] Process32Next      @ 80EF    Retarget
+* [API ] RegOpenKeyExA      @ C500    Succeed     Not modified
+* [API ] RegQueryValueExA   @ C530    Nothing
+* [API ] RegQueryValueExA   @ C5C7    Retarget    ProductID
+* [API ] TimeQueryAPIs      @ C886    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: bfbfdc11a020a8dac0ea646527478d69cc1334d17355da1c0d8d8634ed277bd9
+MD5: 26aae7651015640e993482371db8e8a3
+Year: 2020_11_19
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ B326
+* [API ] CreateThread     @ B340
+* [API ] CreateThread     @ B3D5
+* [API ] CreateThread     @ B3F7
+* [API ] CreateThread     @ B442
+* [API ] WSAStartup       @ A15D
+* [API ] CreateProcessA   @ 93B6
+* [API ] socket           @ A173
+* [API ] bind             @ A1B3
+* [API ] accept           @ A1D7
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA   @ 8AA0
+* [API ] CopyFileA        @ 9346
+* [API ] CopyFileA        @ 9372
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA    @ 95BF
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA      @ 926A
+* [API ] MoveFileExA      @ 927E
+* [API ] InternetOpenUrlA @ 95E5
+* [API ] CreateThread     @ B384
+* [API ] InternetReadFile @ 9613
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CreateMutexA       @ B34F    Fail
+* [API ] GetModuleFileNameA @ 9096    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] Process32First     @ 9854    Nothing
+* [API ] Process32Next      @ 992D    Retarget
+* [API ] RegOpenKeyA        @ 8A7D    Fail
+* [API ] TimeDelayAPIs      @ B3E0    Nothing
+* [API ] TimeQueryAPIs      @ B1D3    Nothing
+
+[Manual annotations]
+====================
+The sample performs evasion in sub_43C195 and sub_43C110 using vpcxt and other evasion techniques (see https://elearning.di.unipi.it/pluginfile.php/25436/mod_resource/content/1/5-0%20Vulnerabilities%20and%20Attacks.pdf and https://unprotect.it/technique/vpcext/) which are not supported in our environment.
+I patched these out to continue the analysis.

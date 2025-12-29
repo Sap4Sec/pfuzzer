@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 49953d54b0a2db8190fe82f86b5427c5648456d4d3d7fe445ed2f0c75624daf5
+MD5: c7f8463c21eeac54d013beea6de88ce5
+Year: 2018
+Family name: sdbot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Protectors: ENIGMA(2.33 build 2018.3.5 1:12:5)

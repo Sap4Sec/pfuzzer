@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: 4aa3b9ccad6d3891a1521d7e67ff4f34fa64e3bae3aad3c21cd2c1937994639d
+MD5: 100e4db945c00f087a485bb302de05d2
+Year: 2019_05_11
+Family name: SINGLETON:100e4db945c00f087a485bb302de05d2
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW @ 0156
+* [API ] CreateFileW @ 9E36
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ D5FD    Retarget    Missing
+* [API ] CreateFileW        @ 0156    Retarget    Backup.txt
+* [API ] CreateFileW        @ 9E36    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 0243    Nothing
+* [API ] TimeQueryAPIs      @ 0FD5    Retarget
+
+[Manual annotations]
+====================
+Damaged file, cannot be executed: Safengine Shielden(v2.1.2.0)

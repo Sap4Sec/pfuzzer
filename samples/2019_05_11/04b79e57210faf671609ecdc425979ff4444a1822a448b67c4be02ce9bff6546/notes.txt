@@ -1,0 +1,78 @@
+[Basic information]
+=========================================================================
+SHA-256: 04b79e57210faf671609ecdc425979ff4444a1822a448b67c4be02ce9bff6546
+MD5: bf3dd7bae90d20dff47d95c2a1f55abd
+Year: 2019_05_11
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW     @ D5C0
+* [API ] LoadResource      @ D5DA
+* [API ] FindResourceW     @ 77F3
+* [API ] WSAStartup        @ C74A
+* [API ] CreateFileW       @ 540D
+* [API ] WriteFile         @ 543D
+* [API ] SetWindowsHookExW @ 5287
+* [API ] CreateFileW       @ 0EE2
+* [API ] WriteFile         @ 0F2D
+* [API ] MapVirtualKeyW    @ C4F6
+* [API ] GetKeyNameTextW   @ C50F
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW       @ 53A8
+* [API ] WriteFile         @ 97FC
+* [API ] CreateFileW       @ 0E90
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID              @ 50F7    Retarget    Missing
+* [API ] CreateFileW        @ 0EE2    Fail        Not modified
+* [API ] CreateFileW        @ 540D    Fail
+* [API ] CreateMutexW       @ ED9B    Fail
+* [API ] FindFirstFileW     @ 0FB0    Nothing
+* [API ] FindFirstFileW     @ 12DC    Nothing
+* [API ] FindFirstFileW     @ 4C28    Fail
+* [API ] FindFirstFileW     @ A484    Succeed
+* [API ] FindNextFileW      @ 131C    Retarget
+* [API ] FindWindowExW      @ 6D4B    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowExW      @ 8338    Fail
+* [API ] FindWindowExW      @ 8C3D    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] GetCursorPos       @ B624    Nothing
+* [API ] GetCursorPos       @ EB05    Retarget    Missing
+* [API ] GetFileAttributesW @ 0FE6    Fail
+* [API ] GetFileAttributesW @ 1083    Fail
+* [API ] GetKeyboardLayout  @ 75EA    Nothing
+* [API ] GetLocalTime       @ 4A9F    Nothing
+* [API ] GetModuleFileNameW @ 49CD    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 8E07    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 9547    Nothing
+* [API ] GetModuleFileNameW @ A0B6    Nothing
+* [API ] GetModuleFileNameW @ A7AD    Nothing
+* [API ] GetSystemInfo      @ B109    Retarget    Missing
+* [API ] GetWindowTextW     @ EF34    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] RegOpenKeyExW      @ 2FEA    Fail
+* [API ] RegOpenKeyExW      @ 3060    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 7C73    Succeed
+* [API ] RegOpenKeyExW      @ A0FF    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ A121    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ A13F    Fail        Not modified
+* [API ] RegOpenKeyExW      @ A15D    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ A17B    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ A199    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 371E    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 3D10    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 7CAD    Nothing
+* [API ] RegQueryValueExW   @ A1D9    Retarget    ProductID
+* [API ] RegQueryValueExW   @ A228    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ EA74    Retarget
+* [API ] TimeQueryAPIs      @ 4A0D    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,64 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.su-806a2e29a459fbc282f4fa0ddd44344e166aca2cb63f840d4d597df5d9c57fb9
+MD5: d757e865fd01226f50337226fb12e312
+Year: 2022
+Family name: SINGLETON:d757e865fd01226f50337226fb12e312
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW            @ F637
+* [API ] RegCreateKeyW        @ F1C5
+* [API ] WinHttpOpen          @ 0145
+* [API ] WinHttpConnect       @ 176B
+* [API ] WinHttpOpenRequest   @ 17AD
+* [API ] WinHttpSendRequest   @ 21C7
+* [API ] WinHttpReadData      @ 1FB5
+* [API ] CreateFileW          @ 638B
+* [API ] CopyFileW            @ 1064
+* [API ] CreateFileW          @ FCE2
+* [API ] CreateThread         @ 4781
+* [API ] CreateFileMappingW   @ F4E9
+* [API ] MapViewOfFile        @ F501
+* [API ] CreateFileW          @ F525
+* [API ] WriteFile            @ F54A
+* [API ] CryptAcquireContextW @ EF1B
+* [API ] CryptGenRandom       @ EF30
+* [API ] CryptReleaseContext  @ EF66
+* [API ] CryptAcquireContextW @ EF7F
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW          @ 63BF
+* [API ] InternetOpenW        @ DD5C
+* [API ] InternetOpenUrlW     @ DB8D
+* [API ] CreateFileW          @ DBB7
+* [API ] InternetReadFile     @ DC09
+* [API ] WriteFile            @ DBF3
+* [API ] CreateFileW          @ 13E4
+* [API ] ShellExecuteExW      @ 1B1D
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID                    @ E14A    Retarget    Missing
+* [API ] CreateFileW              @ 638B    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileW              @ F525    Fail        Not modified
+* [API ] CreateFileW              @ FCE2    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateMutexW             @ 152D    Retarget    ZonesCacheCounterMutex
+* [API ] GetAdaptersInfo          @ FF12    Nothing
+* [API ] GetCursorPos             @ C8DA    Nothing
+* [API ] GetModuleFileNameA       @ 0022    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW       @ 12E1    Nothing
+* [API ] GetModuleFileNameW       @ 8475    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW       @ 9BBE    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] NtQuerySystemInformation @ FE7F    Nothing
+* [API ] TimeDelayAPIs            @ FDB3    Nothing
+* [API ] TimeQueryAPIs            @ E13B    Nothing
+
+[Manual annotations]
+====================

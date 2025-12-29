@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.bxzw-5ac360ca98525579d64d0a8e6278cb0b35bcc9df036d246e4a9fa662771dabb6
+MD5: 6313a14e9db6e2482e8eae7784cee58e
+Year: 2022
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW                 @ 7858
+* [API ] OpenSCManagerA              @ 4594
+* [API ] OpenServiceA                @ 45BD
+* [API ] RegSetValueExA              @ 983E
+* [API ] CopyFileA                   @ 46D7
+* [API ] OpenSCManagerA              @ 47FC
+* [API ] CreateServiceA              @ 484C
+* [API ] StartServiceA               @ 48DC
+* [API ] CreateProcessA              @ 3C81
+* [API ] ResumeThread                @ 3CCB
+
+Fuzzing Findings
+----------------
+* [API ] StartServiceCtrlDispatcherA @ 3FE4
+* [API ] OpenSCManagerA              @ 4018
+* [API ] OpenServiceA                @ 4050
+* [API ] StartServiceA               @ 4079
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CPUID              @ F280    Nothing
+* [API ] CreateFileW        @ 7858    Fail        Not modified
+* [API ] CreateMutexA       @ 3E54    Retarget    vscode
+* [API ] DeviceIoControl    @ 789D    Retarget    Missing
+* [API ] GetAdaptersInfo    @ 4D10    Retarget    Office
+* [API ] GetLocalTime       @ 35C2    Nothing
+* [API ] GetModuleFileNameA @ 3AE4    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 4687    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 55D6    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 87AE    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExA      @ 49D9    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 97EA    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 49FB    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 4743    Retarget
+
+[Manual annotations]
+====================

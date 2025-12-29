@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-dfb278405d6f2c0795936304f4c8d2e572be0d2699477d5b68b4fcff67f9bf42
+MD5: af776fc957e51c8846258b4d8004e1a1
+Year: 2022
+Family name: darkkomet
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread       @ 52C9
+* [API ] ResumeThread       @ B1A5
+* [API ] FindResourceExA    @ 65F0
+* [API ] LoadResource       @ 6604
+* [API ] CreateProcessA     @ 5111
+* [API ] VirtualAllocEx     @ 4DAD
+* [API ] WriteProcessMemory @ 4DD3
+* [API ] VirtualAllocEx     @ 4E1B
+* [API ] WriteProcessMemory @ 4E27
+* [API ] CreateRemoteThread @ 4E73
+* [API ] CreateFileA        @ 9A43
+* [API ] CreateFileA        @ 9CF9
+* [API ] WriteFile          @ 9A8D
+* [API ] ShellExecuteA      @ 64E1
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CreateFileA        @ 9A43    Succeed     Not modified
+* [API ] CreateFileA        @ 9CF9    Succeed     Not modified
+* [API ] CreateMutexA       @ 7B7F    Fail
+* [API ] GetFileAttributesA @ 9B00    Fail
+* [API ] GetModuleFileNameA @ 32C1    Nothing
+* [API ] GetModuleFileNameA @ 6458    Nothing
+* [API ] GetModuleFileNameA @ 6A1F    Nothing
+* [API ] GetModuleFileNameA @ 6C81    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegOpenKeyExA      @ 6C9F    Succeed
+* [API ] RegOpenKeyExA      @ 6CBD    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 6CDB    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ B9F6    Fail
+* [API ] RegQueryValueExA   @ BCAF    Nothing
+* [API ] RegQueryValueExA   @ BDFC    Nothing
+
+[Manual annotations]
+====================

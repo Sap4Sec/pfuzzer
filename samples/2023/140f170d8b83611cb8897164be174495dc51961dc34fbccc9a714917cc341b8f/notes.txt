@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Rhadamanthus.z-140f170d8b83611cb8897164be174495dc51961dc34fbccc9a714917cc341b8f
+MD5: 57eec9f4c439f340671dacfcf681d57e
+Year: 2023
+Family name: rhadamanthus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] GetModuleFileNameW     @ F772    Nothing
+* [API ] GetSystemFirmwareTable @ 5CFF    Retarget    Office
+* [API ] GetSystemFirmwareTable @ 5F21    Retarget    John
+* [API ] RegOpenKeyA            @ 9975    Succeed     Not modified
+* [API ] RegOpenKeyA            @ B754    Succeed     Not modified
+* [API ] RegOpenKeyA            @ BE7D    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyA            @ CBE8    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA       @ 9CCA    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA       @ B98B    Nothing
+* [API ] RegQueryValueExA       @ C060    Retarget    ProductID
+* [API ] RegQueryValueExA       @ C3C1    Retarget    ProductID
+* [API ] RegQueryValueExA       @ C6EC    Retarget    SystemBiosDate
+* [API ] TimeQueryAPIs          @ 368A    Retarget
+
+[Manual annotations]
+====================

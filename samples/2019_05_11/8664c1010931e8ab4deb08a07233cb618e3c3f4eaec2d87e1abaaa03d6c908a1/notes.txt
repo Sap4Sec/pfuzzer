@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 8664c1010931e8ab4deb08a07233cb618e3c3f4eaec2d87e1abaaa03d6c908a1
+MD5: c6d244d95a5acb8961ec02a2e61a2e6a
+Year: 2019_05_11
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ CEE3
+* [API ] WriteFile      @ 2EBE
+* [API ] CreateProcessA @ 62DC
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (39)]
+=======================================
+
+* [API ] CPUID              @ 1A37    Nothing
+* [API ] CreateFileW        @ CEE3    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 6E79    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA       @ 6EA9    Retarget    vscode
+* [API ] GetModuleFileNameA @ 46B4    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 623F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] Process32First     @ 7F40    Nothing
+* [API ] Process32First     @ 8073    Nothing
+* [API ] Process32Next      @ 7F5F    Retarget
+* [API ] Process32Next      @ 7FD9    Retarget
+* [API ] Process32Next      @ 808A    Retarget
+* [API ] Process32Next      @ 815E    Retarget
+* [API ] TimeDelayAPIs      @ 5CB3    Retarget
+* [API ] TimeQueryAPIs      @ 84FD    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: 1dcace84de31159231c8f1d499ae7c1e2aaf2deb38e98a4ea34f890b5244b0d1
+MD5: 76a51d18b69d7a3c6b4727fd9955c8ac
+Year: 2019_05_11
+Family name: winactivator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup       @ 4FA3
+* [API ] FindResourceA    @ AB51
+* [API ] LoadResource     @ AB69
+* [API ] FindResourceA    @ ABE5
+* [API ] CreateFileW      @ AD80
+* [API ] GetAsyncKeyState @ 5A3F
+* [API ] RegCreateKeyExA  @ DDBE
+* [API ] CreateFileW      @ 108A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID                    @ E0DA    Retarget    Missing
+* [API ] CreateFileW              @ 108A    Retarget    C:\Windows\system32\
+* [API ] CreateFileW              @ AD80    Succeed     Not modified
+* [API ] CreateMutexW             @ C123    Succeed
+* [API ] FindFirstFileW           @ D12E    Retarget    C:\Users\Student\*
+* [API ] FindWindowExA            @ 1A92    Fail
+* [API ] GetCursorPos             @ E920    Retarget    Missing
+* [API ] GetFileAttributesW       @ DEDB    Fail
+* [API ] GetFileAttributesW       @ E0D7    Succeed
+* [API ] GetForegroundWindow      @ 9CD9    Retarget    Missing
+* [API ] GetForegroundWindow      @ AE4B    Retarget    Missing
+* [API ] GetModuleFileNameA       @ CB18    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW       @ 2A02    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW       @ 42F3    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW       @ AD63    Nothing
+* [API ] GetProcessImageFileNameW @ 4AA6    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetUserDefaultLCID       @ A757    Retarget    German
+* [API ] Process32FirstW          @ D59A    Nothing
+* [API ] Process32NextW           @ D80A    Retarget
+* [API ] RegQueryValueExA         @ E8F3    Retarget    ProductID
+* [API ] RegQueryValueExW         @ E9F7    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW         @ EAA6    Retarget    ProductID
+* [API ] TimeDelayAPIs            @ 4581    Nothing
+* [API ] TimeQueryAPIs            @ CF51    Nothing
+
+[Manual annotations]
+====================
+Queries WMI LicenseStatus for SoftwareLicensingProduct

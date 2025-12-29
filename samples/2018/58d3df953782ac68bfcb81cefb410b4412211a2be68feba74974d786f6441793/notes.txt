@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 58d3df953782ac68bfcb81cefb410b4412211a2be68feba74974d786f6441793
+MD5: d627c642a9339deb8baf7c71a7781c3f
+Year: 2018
+Family name: blackv
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 9339
+* [API ] CreateFileW  @ B785
+* [API ] NtCreateFile @ 9029
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ B826
+* [API ] NtCreateFile @ CF46
+* [API ] NtCreateFile @ BB29
+* [API ] NtCreateFile @ 1606
+* [API ] NtCreateFile @ 94BF
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 162F    Nothing
+* [API ] CreateFileW        @ 9339    Fail
+* [API ] CreateFileW        @ B785    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 9451    Nothing
+* [API ] NtCreateFile       @ 32EA    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] NtCreateFile       @ 9029    Fail        Not modified
+* [API ] TimeQueryAPIs      @ 1609    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected; detects virtualized environment and exits.

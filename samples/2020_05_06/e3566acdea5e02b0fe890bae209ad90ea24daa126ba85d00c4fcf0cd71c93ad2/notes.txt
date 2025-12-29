@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: e3566acdea5e02b0fe890bae209ad90ea24daa126ba85d00c4fcf0cd71c93ad2
+MD5: 4dfbf4dd2a201501fb53b104dc161838
+Year: 2020_05_06
+Family name: spynet
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup         @ 747C
+* [API ] GetKeyboardState   @ 26D7
+* [API ] MapVirtualKeyA     @ 26FD
+* [API ] FindResourceA      @ 76A8
+* [API ] LoadResource       @ 76C4
+* [API ] RegCreateKeyA      @ 54C3
+* [API ] RegSetValueExA     @ 54EB
+* [API ] CopyFileA          @ 8F61
+* [API ] CreateFileA        @ 5574
+* [API ] CreateProcessA     @ 5EF6
+* [API ] ReadProcessMemory  @ 5F44
+* [API ] VirtualAllocEx     @ 5F62
+* [API ] WriteProcessMemory @ 5F81
+* [API ] WriteProcessMemory @ 5FA1
+* [API ] SetThreadContext   @ 5FC3
+* [API ] ResumeThread       @ 5FCF
+
+Fuzzing Findings
+----------------
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 9076
+* [API ] CopyFileA          @ 90B4
+
+[Mutations applied in the best run (40)]
+=======================================
+
+* [API ] CreateFileA        @ 5574    Fail        Not modified
+* [API ] CreateMutexA       @ 3CB7    Fail
+* [API ] FindFirstFileA     @ 5792    Retarget    C:\Users\Student\*
+* [API ] GetFileAttributesA @ 5AC0    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 1461    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegOpenKeyExA      @ 5041    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 5065    Nothing
+* [API ] RegQueryValueExA   @ 508F    Nothing
+* [API ] TimeDelayAPIs      @ 07B8    Retarget
+
+[Manual annotations]
+====================

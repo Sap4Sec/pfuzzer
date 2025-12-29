@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: d300da18fc09da4d8d83ed890fa41bf029c2ef3699f29fb0ec18e426c57056cd
+MD5: 7bda939d7412e3039da2907c99579f31
+Year: 2019_05_11
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] CreateProcessA     @ B665
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B6CB
+* [API ] ReadProcessMemory  @ 3416
+* [API ] ReadProcessMemory  @ 342D
+* [API ] ReadProcessMemory  @ 345E
+* [API ] ReadProcessMemory  @ 3475
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Fail        Not modified
+* [API ] CreateFileA        @ 586F    Fail        Not modified
+* [API ] CreateFileA        @ 5DBB    Fail        Not modified
+* [API ] CreateMutexA       @ 292F    Fail
+* [API ] CreateMutexA       @ 3583    Retarget    VBoxTray
+* [API ] FindFirstFileA     @ 5D3E    Retarget    C:\Users\Student\*
+* [API ] GetFileAttributesA @ 5A78    Succeed
+* [API ] GetFileAttributesA @ 6670    Fail
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 2C4D    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemTime      @ 125B    Retarget    2000:6:4:30
+* [API ] GetUserNameA       @ 55A8    Nothing
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5409    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 54C1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69FF    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 537A    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 5432    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 54EA    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 6106    Nothing
+* [API ] RegQueryValueExA   @ 6130    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Nothing
+
+[Manual annotations]
+====================

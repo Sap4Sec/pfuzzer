@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 0fe2ddd6800d81f171cf9df3365b857947cb0293830fa6c404040a716a6db099
+MD5: e0e6cc884c1f9d92f5115e73f20a8be7
+Year: 2018
+Family name: SINGLETON:e0e6cc884c1f9d92f5115e73f20a8be7
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 1CA9
+* [API ] CreateFileW  @ B4C3
+* [API ] NtCreateFile @ BEAD
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ D7C8
+* [API ] NtCreateFile @ 1806
+* [API ] NtCreateFile @ 6EF5
+* [API ] NtCreateFile @ DA50
+* [API ] NtCreateFile @ 0D7D
+* [API ] NtCreateFile @ D769
+* [API ] NtCreateFile @ 2BEE
+* [API ] NtCreateFile @ B619
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CPUID         @ CD3F    Retarget    Missing
+* [API ] CreateFileW   @ 1CA9    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileW   @ B4C3    Succeed     Not modified
+* [API ] NtCreateFile  @ BEAD    Succeed     Not modified
+* [API ] TimeQueryAPIs @ DE31    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: unreadable messagebox except for isntaller32.dll (yes with the typoe) and OpenInstaller

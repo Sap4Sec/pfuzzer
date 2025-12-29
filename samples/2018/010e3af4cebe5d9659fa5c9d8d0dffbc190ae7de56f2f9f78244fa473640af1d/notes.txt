@@ -1,0 +1,104 @@
+[Basic information]
+=========================================================================
+SHA-256: 010e3af4cebe5d9659fa5c9d8d0dffbc190ae7de56f2f9f78244fa473640af1d
+MD5: be1cf0fcde2673ef9deac07104601f03
+Year: 2018
+Family name: pykspa
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExA @ 5EEF
+* [API ] RegSetValueExA  @ 5F18
+* [API ] RegCreateKeyExA @ C89B
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA  @ C8C3
+* [API ] RegCreateKeyExA @ C900
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA  @ C94F
+* [API ] RegCreateKeyExA @ C98C
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+* [API ] RegSetValueExA  @ C9F1
+* [API ] RegCreateKeyExA @ CA2E
+* [API ] RegSetValueExA  @ CA7D
+* [API ] RegCreateKeyExA @ CABA
+* [API ] RegSetValueExA  @ CB09
+* [API ] RegCreateKeyExA @ CB46
+* [API ] RegSetValueExA  @ CBA7
+* [API ] RegCreateKeyExA @ CC09
+* [API ] RegSetValueExA  @ CC53
+* [API ] RegCreateKeyExA @ CC90
+* [API ] RegSetValueExA  @ CCED
+* [API ] RegCreateKeyExA @ CD2A
+* [API ] RegSetValueExA  @ CD75
+* [API ] RegCreateKeyExA @ CDE8
+* [API ] RegSetValueExA  @ CE33
+* [API ] RegCreateKeyExA @ CE70
+* [API ] RegSetValueExA  @ CECD
+* [API ] CreateThread    @ DC8C
+* [API ] CreateThread    @ DC98
+* [API ] CreateFileA     @ 4DAA
+* [API ] CopyFileA       @ CFE9
+* [API ] RegCreateKeyExA @ 6196
+* [API ] RegSetValueExA  @ 61C0
+* [API ] CreateFileA     @ 3849
+* [API ] CreateFileA     @ 1877
+* [API ] RegCreateKeyExA @ 6207
+* [API ] RegSetValueExA  @ 6235
+* [API ] RegSetValueExA  @ 6267
+* [API ] RegSetValueExA  @ 6292
+* [API ] RegSetValueExA  @ 62BD
+* [API ] RegSetValueExA  @ 62E8
+* [API ] RegSetValueExA  @ 6313
+* [API ] RegSetValueExA  @ 633E
+* [API ] RegSetValueExA  @ 6369
+* [API ] RegSetValueExA  @ 6394
+* [API ] RegSetValueExA  @ 63BF
+* [API ] RegCreateKeyExA @ 6403
+* [API ] RegSetValueExA  @ 642E
+* [API ] RegCreateKeyExA @ 646B
+* [API ] RegSetValueExA  @ 6496
+* [API ] RegCreateKeyExA @ 64DA
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL
+* [API ] RegSetValueExA  @ 6501
+* [API ] RegCreateKeyExA @ 6545
+* [API ] RegSetValueExA  @ 656C
+* [API ] RegSetValueExA  @ 6597
+* [API ] RegSetValueExA  @ 65C2
+* [API ] RegSetValueExA  @ 65ED
+* [API ] RegSetValueExA  @ 6618
+* [API ] RegSetValueExA  @ 6643
+* [API ] CreateFileA     @ 1B4D
+* [API ] WriteFile       @ 1B67
+* [API ] ShellExecuteA   @ D011
+* [API ] ShellExecuteA   @ D072
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA     @ 1E7E
+
+[Mutations applied in the best run (29)]
+=======================================
+
+* [API ] CreateFileA        @ 1877    Fail        Not modified
+* [API ] CreateFileA        @ 1B4D    Retarget    attrib.exe
+* [API ] CreateFileA        @ 1E7E    Succeed
+* [API ] CreateFileA        @ 3849    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 4DAA    Succeed
+* [API ] CreateMutexA       @ C5AD    Fail
+* [API ] GetComputerNameA   @ C0FA    Nothing
+* [API ] GetComputerNameA   @ C511    Nothing
+* [API ] GetCursorPos       @ C446    Retarget    Missing
+* [API ] GetFileAttributesA @ 3AA1    Succeed
+* [API ] GetModuleFileNameA @ 57BE    Nothing
+* [API ] GetModuleFileNameA @ D7E5    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA      @ 5CA9    Fail
+* [API ] RegQueryValueExA   @ 5CDF    Nothing
+* [API ] TimeDelayAPIs      @ C8D0    Nothing
+* [API ] TimeQueryAPIs      @ D838    Nothing
+
+[Manual annotations]
+====================

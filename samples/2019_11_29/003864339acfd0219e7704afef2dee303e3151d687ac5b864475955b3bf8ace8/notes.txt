@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 003864339acfd0219e7704afef2dee303e3151d687ac5b864475955b3bf8ace8
+MD5: b4635bd1f80b17b90061accfd39ae025
+Year: 2019_11_29
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ B326
+* [API ] CreateThread     @ B340
+* [API ] CreateThread     @ B3D5
+* [API ] CreateThread     @ B3F7
+* [API ] CreateThread     @ B442
+* [API ] WSAStartup       @ A15D
+* [API ] CreateProcessA   @ 93B6
+* [API ] socket           @ A173
+* [API ] bind             @ A1B3
+* [API ] accept           @ A1D7
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA   @ 8AA0
+* [API ] CopyFileA        @ 9346
+* [API ] CopyFileA        @ 9372
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA    @ 95BF
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA      @ 926A
+* [API ] MoveFileExA      @ 927E
+* [API ] InternetOpenUrlA @ 95E5
+* [API ] CreateThread     @ B384
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateMutexA       @ B34F    Fail
+* [API ] GetModuleFileNameA @ 9096    Nothing
+* [API ] Process32First     @ 9854    Nothing
+* [API ] Process32Next      @ 992D    Retarget
+* [API ] RegOpenKeyA        @ 8A7D    Fail
+* [API ] TimeDelayAPIs      @ B3E0    Retarget
+* [API ] TimeQueryAPIs      @ B1D3    Retarget
+
+[Manual annotations]
+====================

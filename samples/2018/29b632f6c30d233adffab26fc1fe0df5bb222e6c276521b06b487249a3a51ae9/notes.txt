@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 29b632f6c30d233adffab26fc1fe0df5bb222e6c276521b06b487249a3a51ae9
+MD5: cc42324fe3b901bb62222bdc6152513d
+Year: 2018
+Family name: SINGLETON:cc42324fe3b901bb62222bdc6152513d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 3DF7
+* [API ] FindResourceA @ 74B8
+* [API ] LoadResource  @ 74D2
+
+Fuzzing Findings
+----------------
+* [API ] GetKeyState   @ 4333
+* [API ] socket        @ 1AD6
+* [API ] connect       @ 163D
+* [API ] send          @ 1A02
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] FindFirstFileA     @ 531B    Retarget    C:\*
+* [API ] GetKeyboardLayout  @ AA6E    Retarget    French
+* [API ] GetModuleFileNameA @ 51AB    Nothing
+* [API ] GetModuleFileNameA @ 53E5    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ BC24    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetWindowTextA     @ CCC4    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] Process32First     @ 6DC7    Nothing
+* [API ] Process32Next      @ 6DE7    Retarget
+* [API ] RegOpenKeyExA      @ 5403    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5421    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 543F    Succeed
+* [API ] RegQueryValueExA   @ 5488    Nothing
+* [API ] RegQueryValueExA   @ 54A6    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 6BA0    Retarget
+
+[Manual annotations]
+====================

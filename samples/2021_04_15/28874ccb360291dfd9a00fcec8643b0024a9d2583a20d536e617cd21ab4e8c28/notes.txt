@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 28874ccb360291dfd9a00fcec8643b0024a9d2583a20d536e617cd21ab4e8c28
+MD5: de199b0caa29301941b064cf8734b289
+Year: 2021_04_15
+Family name: zepfod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA   @ 4585
+* [API ] WriteFile     @ 478B
+* [API ] ShellExecuteA @ 43DF
+
+Fuzzing Findings
+----------------
+* [API ] ShellExecuteA @ 2A8F
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CreateFileA        @ 4585    Succeed
+* [API ] CreateMutexA       @ 5823    Fail
+* [API ] GetComputerNameA   @ 2533    Retarget    testuser
+* [API ] GetComputerNameA   @ 3CFB    Retarget    testuser
+* [API ] GetComputerNameA   @ 56E2    Retarget    John
+* [API ] GetFileAttributesA @ 29B3    Succeed
+* [API ] GetFileAttributesA @ 31B6    Fail
+* [API ] GetFileAttributesA @ 3F39    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 1A45    Nothing
+* [API ] GetModuleFileNameA @ 649A    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] Process32First     @ 4B9F    Nothing
+* [API ] Process32Next      @ 516A    Retarget
+* [API ] TimeDelayAPIs      @ 4484    Nothing
+* [API ] TimeQueryAPIs      @ 45E2    Nothing
+
+[Manual annotations]
+====================

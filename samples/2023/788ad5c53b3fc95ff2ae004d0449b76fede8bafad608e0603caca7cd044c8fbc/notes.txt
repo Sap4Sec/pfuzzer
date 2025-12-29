@@ -1,0 +1,76 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Ransom.Win32.Generic-788ad5c53b3fc95ff2ae004d0449b76fede8bafad608e0603caca7cd044c8fbc
+MD5: d2e194259106bca3b42dc8690d340b59
+Year: 2023
+Family name: ryuk
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA            @ 23BE
+* [API ] CreateFileW          @ 22DC
+* [API ] CopyFileA            @ 26B3
+* [API ] CreateProcessW       @ 1564
+* [API ] CopyFileW            @ E7DF
+* [API ] CopyFileA            @ 26E1
+* [API ] CreateThread         @ 6D85
+* [API ] CryptAcquireContextA @ 6497
+* [API ] CryptGenRandom       @ 6CC6
+* [API ] CryptReleaseContext  @ 6CE5
+* [API ] WriteFile            @ 40DB
+* [API ] WriteFile            @ 3C49
+* [API ] CopyFileW            @ E3A4
+* [API ] CopyFileW            @ E471
+* [API ] CopyFileW            @ 0CE7
+* [API ] CopyFileW            @ 0D03
+* [API ] CopyFileW            @ 0D18
+* [API ] CopyFileW            @ 0D2D
+* [API ] CopyFileW            @ 8D7F
+* [API ] MoveFileExW          @ ABE4
+* [API ] CreateFileW          @ AA6D
+* [API ] WriteFile            @ B1C3
+* [API ] WriteFile            @ B429
+* [API ] WriteFile            @ B441
+* [API ] WriteFile            @ B459
+* [API ] WriteFile            @ B469
+* [API ] CreateFileW          @ C8B0
+* [API ] WriteFile            @ CFCC
+* [API ] WriteFile            @ CFE8
+* [API ] WriteFile            @ D004
+* [API ] WriteFile            @ D018
+* [API ] WriteFile            @ D18F
+* [API ] CreateFileW          @ B987
+* [API ] WriteFile            @ C302
+* [API ] WriteFile            @ C31F
+* [API ] WriteFile            @ C33C
+* [API ] WriteFile            @ C351
+* [API ] WriteFile            @ C379
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CPUID                @ AF8C    Retarget    Missing
+* [API ] CreateFileW          @ 22DC    Succeed     Not modified
+* [API ] CreateFileW          @ AA6D    Succeed     Not modified
+* [API ] CreateFileW          @ B987    Succeed     Not modified
+* [API ] CreateFileW          @ C8B0    Fail        Not modified
+* [API ] CreateMutexW         @ 2609    Fail
+* [API ] FindFirstFileW       @ 8BF9    Nothing
+* [API ] FindNextFileW        @ 923B    Retarget
+* [API ] FindNextFileW        @ A45D    Retarget
+* [API ] GetFileAttributesExW @ 6BA9    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ B1F2    Nothing
+* [API ] Process32FirstW      @ 01E3    Nothing
+* [API ] Process32NextW       @ 025A    Retarget
+* [API ] TimeDelayAPIs        @ 6135    Retarget
+* [API ] TimeQueryAPIs        @ CC90    Retarget
+
+[Manual annotations]
+====================

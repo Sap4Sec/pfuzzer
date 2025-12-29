@@ -1,0 +1,69 @@
+[Basic information]
+=========================================================================
+SHA-256: 341af0cc41e5bb706c4e7962d64ca90154bd7242ec8fd17a49f91b5f7302eb63
+MD5: b830f1e706cf0875b80d1279a4c8af71
+Year: 2019_05_11
+Family name: chinad
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ 4262
+* [API ] CreateFileW     @ FAB1
+* [API ] NtCreateFile    @ 7BCC
+* [API ] WSAStartup      @ F382
+* [API ] FindResourceExW @ 87F1
+* [API ] LoadResource    @ 880B
+* [API ] FindResourceExW @ 8846
+* [API ] LoadResource    @ 886B
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ B910
+* [API ] FindResourceExW @ 0823
+* [API ] LoadResource    @ 083D
+* [API ] FindResourceExW @ 0878
+* [API ] LoadResource    @ 089D
+* [API ] NtCreateFile    @ 8629
+* [API ] FindResourceExW @ 94DE
+* [API ] LoadResource    @ 94F8
+* [API ] FindResourceExW @ 9533
+* [API ] LoadResource    @ 9558
+* [API ] NtCreateFile    @ 89B4
+* [API ] FindResourceExW @ 1869
+* [API ] LoadResource    @ 1883
+* [API ] FindResourceExW @ 18BE
+* [API ] LoadResource    @ 18E3
+* [API ] NtCreateFile    @ 89AB
+* [API ] FindResourceExW @ 08CE
+* [API ] LoadResource    @ 08E8
+* [API ] FindResourceExW @ 0923
+* [API ] LoadResource    @ 0948
+* [API ] NtCreateFile    @ 6D84
+* [API ] FindResourceExW @ DC49
+* [API ] LoadResource    @ DC63
+* [API ] FindResourceExW @ DC9E
+* [API ] LoadResource    @ DCC3
+* [API ] NtCreateFile    @ 7043
+* [API ] FindResourceExW @ 8F27
+* [API ] LoadResource    @ 8F41
+* [API ] FindResourceExW @ 8F7C
+* [API ] LoadResource    @ 8FA1
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID         @ 3076    Nothing
+* [API ] CreateFileW   @ 4262    Succeed     Not modified
+* [API ] CreateFileW   @ FAB1    Succeed     Not modified
+* [API ] NtCreateFile  @ 2640    Retarget    \??\Analysis
+* [API ] NtCreateFile  @ 7BCC    Succeed     Not modified
+* [API ] TimeQueryAPIs @ DF06    Nothing
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan.Win32.Injector.gen-3cc284cecc3a8513d8ba664f88c1164312c049822f9deb009fd0f63dd0c22801
+MD5: 812267e367c58c04d7c4800aa0f64603
+Year: 2023
+Family name: bandok
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread  @ FBA9
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceA @ DF67
+* [API ] LoadResource  @ DFB4
+* [API ] CreateThread  @ E0C1
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] GetKeyboardLayout  @ 698A    Nothing
+* [API ] GetModuleFileNameA @ 5DAF    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 6011    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 7CEE    Nothing
+* [API ] GetModuleFileNameA @ C556    Nothing
+* [API ] RegOpenKeyExA      @ 383A    Fail
+* [API ] RegOpenKeyExA      @ 602F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 604D    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 606B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 39C3    Nothing
+* [API ] RegQueryValueExA   @ 3AAC    Nothing
+* [API ] TimeDelayAPIs      @ CF0F    Retarget
+* [API ] TimeQueryAPIs      @ DDA9    Retarget
+
+[Manual annotations]
+====================
+Other dependencies

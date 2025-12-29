@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 400a4c5e7cab756d223e7a826ebbfb2915c17ead5e1a7a9547001d6c6a08f80a
+MD5: 0674f252e0761e8ec78639300d63a6cd
+Year: 2021_11_03
+Family name: xolxo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Retarget    Backup.txt
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Retarget    Backup.txt
+* [API ] CreateFileA        @ 33ED    Fail        Not modified
+* [API ] CreateMutexA       @ 2A13    Fail
+* [API ] FindFirstFileA     @ 30A1    Succeed
+* [API ] FindFirstFileA     @ 369C    Succeed
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] RegOpenKeyExA      @ 2D07    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 2DE3    Retarget    ProductID
+
+[Manual annotations]
+====================

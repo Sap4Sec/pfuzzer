@@ -1,0 +1,26 @@
+[Basic information]
+=========================================================================
+SHA-256: fe4ecfe638c0b3c94d6bda8a0e2c1c03a50d91cad2483e667de1a1f8942394eb
+MD5: a2e8426d2a3b384d03cb4a2c0c2a5c57
+Year: 2018
+Family name: SINGLETON:a2e8426d2a3b384d03cb4a2c0c2a5c57
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ E275
+* [API ] CreateFileW  @ 391E
+* [API ] NtCreateFile @ B51F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Damaged file, cannot be executed

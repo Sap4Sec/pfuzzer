@@ -1,0 +1,79 @@
+[Basic information]
+=========================================================================
+SHA-256: 7eff76e2ea628bb5c05f33575cce79ec2ac21be9e311f2076d620882ea292475
+MD5: c0ca504c642664d5a973fc980e25573d
+Year: 2019_05_11
+Family name: blackv
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ 57C1
+* [API ] CreateFileW     @ 0578
+* [API ] NtCreateFile    @ A420
+* [API ] WSAStartup      @ 6542
+* [API ] FindResourceExW @ D15E
+* [API ] LoadResource    @ D178
+* [API ] FindResourceExW @ D1B3
+* [API ] LoadResource    @ D1D8
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ 277E
+* [API ] FindResourceExW @ 4597
+* [API ] LoadResource    @ 45B1
+* [API ] FindResourceExW @ 45EC
+* [API ] LoadResource    @ 4611
+* [API ] NtCreateFile    @ 77F2
+* [API ] FindResourceExW @ 761B
+* [API ] LoadResource    @ 7635
+* [API ] FindResourceExW @ 7670
+* [API ] LoadResource    @ 7695
+* [API ] NtCreateFile    @ 1D90
+* [API ] FindResourceExW @ DC07
+* [API ] LoadResource    @ DC21
+* [API ] FindResourceExW @ DC5C
+* [API ] LoadResource    @ DC81
+* [API ] NtCreateFile    @ 69C6
+* [API ] FindResourceExW @ 6771
+* [API ] LoadResource    @ 678B
+* [API ] FindResourceExW @ 67C6
+* [API ] LoadResource    @ 67EB
+* [API ] NtCreateFile    @ BBAA
+* [API ] FindResourceExW @ D984
+* [API ] LoadResource    @ D99E
+* [API ] FindResourceExW @ D9D9
+* [API ] LoadResource    @ D9FE
+* [API ] NtCreateFile    @ 8FE1
+* [API ] FindResourceExW @ 1DBB
+* [API ] LoadResource    @ 1DD5
+* [API ] FindResourceExW @ 1E10
+* [API ] LoadResource    @ 1E35
+* [API ] NtCreateFile    @ 74C3
+* [API ] FindResourceExW @ 226E
+* [API ] LoadResource    @ 2288
+* [API ] FindResourceExW @ 22C3
+* [API ] LoadResource    @ 22E8
+* [API ] NtCreateFile    @ 0967
+* [API ] FindResourceExW @ 87DD
+* [API ] LoadResource    @ 87F7
+* [API ] FindResourceExW @ 8832
+* [API ] LoadResource    @ 8857
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CPUID         @ 3E56    Retarget    Missing
+* [API ] CreateFileW   @ 0578    Succeed     Not modified
+* [API ] CreateFileW   @ 57C1    Retarget    attrib.exe
+* [API ] NtCreateFile  @ A420    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 3DF2    Nothing
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.
+But even by executing from a different folder it shows additional activity but nothing too indicative.

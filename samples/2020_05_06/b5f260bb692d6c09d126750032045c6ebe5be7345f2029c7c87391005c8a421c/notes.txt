@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: b5f260bb692d6c09d126750032045c6ebe5be7345f2029c7c87391005c8a421c
+MD5: e09ceaced24dd2260bb078abac7fd5d6
+Year: 2020_05_06
+Family name: nosrawec
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ D31B
+* [API ] LoadResource  @ D32D
+* [API ] CreateThread  @ 1D88
+* [API ] WSAStartup    @ 0D96
+* [API ] WSAStartup    @ D273
+* [API ] socket        @ 0E00
+* [API ] inet_addr     @ 0E29
+* [API ] connect       @ 0E3B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateMutexA       @ 711F    Fail
+* [API ] GetComputerNameA   @ 12D7    Retarget    Office
+* [API ] GetKeyboardLayout  @ 0A2A    Retarget    German
+* [API ] GetModuleFileNameA @ 1C10    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 6043    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 62D4    Nothing
+* [API ] GetUserNameA       @ 1340    Nothing
+* [API ] RegOpenKeyExA      @ 62F2    Succeed
+* [API ] RegOpenKeyExA      @ 6310    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 632E    Fail        Not modified
+* [API ] TimeDelayAPIs      @ 1AE5    Retarget
+* [API ] TimeQueryAPIs      @ 2F41    Retarget
+
+[Manual annotations]
+====================

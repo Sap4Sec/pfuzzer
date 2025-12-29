@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 12ab450f739614e99d79613889fd06185869bee7f7020335fa9cbc75c68a7c47
+MD5: 9d938e2020445278ce267545bdfbeddb
+Year: 2020_05_06
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ B326
+* [API ] CreateThread     @ B340
+* [API ] CreateThread     @ B3D5
+* [API ] CreateThread     @ B3F7
+* [API ] CreateThread     @ B442
+* [API ] WSAStartup       @ A15D
+* [API ] CreateProcessA   @ 93B6
+* [API ] socket           @ A173
+* [API ] bind             @ A1B3
+* [API ] accept           @ A1D7
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA   @ 8AA0
+* [API ] CopyFileA        @ 9346
+* [API ] CopyFileA        @ 9372
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA    @ 95BF
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA      @ 926A
+* [API ] MoveFileExA      @ 927E
+* [API ] CreateThread     @ B384
+* [API ] InternetOpenUrlA @ 95E5
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateMutexA       @ B34F    Retarget    VBoxTray
+* [API ] GetModuleFileNameA @ 9096    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] Process32First     @ 9854    Nothing
+* [API ] Process32Next      @ 992D    Retarget
+* [API ] RegOpenKeyA        @ 8A7D    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs      @ B3E0    Retarget
+* [API ] TimeQueryAPIs      @ B1D3    Retarget
+
+[Manual annotations]
+====================

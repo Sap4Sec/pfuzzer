@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 537c7d9fa508c60d3ea2975d21755ea7c0569449f26a6f7c72b1cdc32c4a89e3
+MD5: c548118d910adb05397f74cb05d16ede
+Year: 2019_05_11
+Family name: SINGLETON:c548118d910adb05397f74cb05d16ede
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ A086
+* [API ] SetWindowsHookExA    @ B42A
+* [API ] SetWindowsHookExA    @ 858B
+* [API ] CryptAcquireContextA @ 59A4
+* [API ] CryptCreateHash      @ 5A37
+* [API ] CryptHashData        @ 5B13
+* [API ] CryptGetHashParam    @ 5BFC
+* [API ] CryptDestroyHash     @ 5F49
+* [API ] CryptReleaseContext  @ 5F78
+* [API ] CreateThread         @ 554F
+* [API ] ShellExecuteA        @ 1A5C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 07E0    Nothing
+* [API ] CreateFileW        @ A086    Fail        Not modified
+* [API ] DeviceIoControl    @ A023    Retarget    Missing
+* [API ] FindFirstFileA     @ 4876    Fail
+* [API ] GetAdaptersInfo    @ 5160    Retarget    Office
+* [API ] GetCursorPos       @ 0829    Retarget    Missing
+* [API ] GetModuleFileNameA @ 0709    Nothing
+* [API ] GetModuleFileNameA @ 0A7D    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 4F4B    Nothing
+* [API ] GetModuleFileNameA @ 5E63    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 9E0F    Nothing
+* [API ] GetModuleFileNameA @ A3C0    Nothing
+* [API ] RegOpenKeyExA      @ 5388    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 53AA    Nothing
+* [API ] TimeDelayAPIs      @ D197    Retarget
+* [API ] TimeQueryAPIs      @ C5CA    Retarget
+
+[Manual annotations]
+====================

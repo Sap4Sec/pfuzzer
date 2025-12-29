@@ -1,0 +1,75 @@
+[Basic information]
+=========================================================================
+SHA-256: 3977e3b6dd94db9e29808fed212dc4f1c3355bbee03195dd6fd6be2b92353d17
+MD5: 4a588e26df8cdcd8b5ce733de043f055
+Year: 2018
+Family name: oxypumper
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW        @ 8E44
+* [API ] WriteFile          @ E494
+* [API ] RegSetValueExW     @ F33B
+* [API ] RegCreateKeyW      @ F3F9
+* [API ] RegSetValueExW     @ F418
+* [API ] RegSetValueExW     @ F4EF
+* [API ] RegSetValueExW     @ F5C1
+* [API ] WinHttpOpen        @ 5791
+* [API ] WinHttpConnect     @ 58C6
+* [API ] WinHttpOpenRequest @ 590E
+* [API ] WinHttpSendRequest @ 5B5B
+* [API ] WinHttpReadData    @ 62CE
+* [API ] RegCreateKeyW      @ 115C
+* [API ] RegSetValueExW     @ 117B
+* [API ] CreateFileW        @ 1CDE
+* [API ] CreateFileW        @ 0BFA
+* [API ] CreateFileW        @ 1EA2
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyW      @ F31C
+* [API ] RegCreateKeyW      @ F5A2
+* [API ] RegCreateKeyW      @ F4D0
+
+[Mutations applied in the best run (26)]
+=======================================
+
+* [API ] CPUID                @ 11BD    Retarget    Missing
+* [API ] CreateFileW          @ 0BFA    Succeed     Not modified
+* [API ] CreateFileW          @ 1CDE    Fail
+* [API ] CreateFileW          @ 1EA2    Succeed
+* [API ] CreateFileW          @ 8E44    Succeed
+* [API ] GetComputerNameExW   @ 2FC8    Nothing
+* [API ] GetComputerNameExW   @ 316D    Retarget    Office
+* [API ] GetComputerNameExW   @ 31E2    Nothing
+* [API ] GetComputerNameExW   @ 4415    Nothing
+* [API ] GetFileAttributesExW @ EDFB    Fail
+* [API ] GetModuleFileNameW   @ A6B8    Nothing
+* [API ] GetSystemTime        @ 6A71    Nothing
+* [API ] Process32FirstW      @ 983B    Nothing
+* [API ] Process32NextW       @ 98A3    Retarget
+* [API ] RegEnumKeyExW        @ 202E    Nothing
+* [API ] RegEnumKeyExW        @ 974E    Retarget    testuser
+* [API ] RegOpenKeyExW        @ 1F40    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 8950    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ 966C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyW          @ 0FF5    Fail
+* [API ] RegOpenKeyW          @ 113D    Fail
+* [API ] RegOpenKeyW          @ 8709    Fail
+* [API ] RegOpenKeyW          @ F0F0    Fail
+* [API ] RegOpenKeyW          @ F2FB    Fail
+* [API ] RegOpenKeyW          @ F3DE    Succeed     Not modified
+* [API ] RegOpenKeyW          @ F4B5    Succeed     Not modified
+* [API ] RegOpenKeyW          @ F587    Succeed     Not modified
+* [API ] RegQueryValueExW     @ 1014    Retarget    ProductID
+* [API ] RegQueryValueExW     @ F11A    Retarget    ProductID
+* [API ] TimeQueryAPIs        @ F64F    Retarget
+
+[Manual annotations]
+====================
+Queries WMI AntiVirusProduct for displayName

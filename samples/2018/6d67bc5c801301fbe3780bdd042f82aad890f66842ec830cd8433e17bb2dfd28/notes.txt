@@ -1,0 +1,57 @@
+[Basic information]
+=========================================================================
+SHA-256: 6d67bc5c801301fbe3780bdd042f82aad890f66842ec830cd8433e17bb2dfd28
+MD5: c5dfda8cc53f4a7052c4cbae22e76605
+Year: 2018
+Family name: llac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 6324
+* [API ] LoadResource       @ 6340
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 9336
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyA      @ 8233
+* [API ] RegSetValueExA     @ 825B
+* [API ] CreateFileA        @ 8357
+* [API ] WriteFile          @ 8385
+* [API ] VirtualAllocEx     @ 6037
+* [API ] VirtualAllocEx     @ 56D9
+* [API ] WriteProcessMemory @ 56FB
+* [API ] VirtualAllocEx     @ 5743
+* [API ] WriteProcessMemory @ 574F
+* [API ] CreateRemoteThread @ 579B
+* [API ] WriteProcessMemory @ 6079
+* [API ] CreateProcessA     @ DE54
+* [API ] CreateProcessA     @ DBE5
+* [API ] CreateProcessA     @ DC4B
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA          @ 938B
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA        @ 8357    Retarget    attrib.exe
+* [API ] CreateMutexA       @ 543F    Fail
+* [API ] FindFirstFileA     @ 82DA    Nothing
+* [API ] FindWindowA        @ DDF5    Fail
+* [API ] GetFileAttributesA @ 8C0C    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 2B30    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ 6602    Retarget    testuser
+* [API ] GetUserNameA       @ 66A6    Nothing
+* [API ] GetUserNameA       @ 674A    Retarget    Office
+* [API ] GetUserNameA       @ 67EE    Nothing
+* [API ] RegOpenKeyExA      @ 867E    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 86A2    Nothing
+* [API ] RegQueryValueExA   @ 86CC    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ E66A    Retarget
+
+[Manual annotations]
+====================

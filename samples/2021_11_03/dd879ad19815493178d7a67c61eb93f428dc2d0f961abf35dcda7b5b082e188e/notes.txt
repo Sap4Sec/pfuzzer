@@ -1,0 +1,80 @@
+[Basic information]
+=========================================================================
+SHA-256: dd879ad19815493178d7a67c61eb93f428dc2d0f961abf35dcda7b5b082e188e
+MD5: f4e3cffc99f301dfc00130d26b9010fc
+Year: 2021_11_03
+Family name: winactivator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup         @ E277
+* [API ] OpenFileMappingW   @ 31C6
+* [API ] CreateFileMappingW @ 322B
+* [API ] MapViewOfFile      @ 326C
+* [API ] FindResourceW      @ A923
+* [API ] FindResourceW      @ FDA4
+* [API ] LoadResource       @ FDBE
+* [API ] WSAStartup         @ 0C96
+* [API ] FindResourceW      @ E7BA
+* [API ] LoadResource       @ E7C8
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW        @ 697B
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateMutexW           @ ACD1    Succeed
+* [API ] FindFirstFileW         @ AB67    Retarget    C:\Users\Student\*
+* [API ] GetComputerNameW       @ 5EC9    Retarget    testuser
+* [API ] GetFileAttributesW     @ 25C8    Succeed
+* [API ] GetFileAttributesW     @ 25E9    Retarget    C:\Windows\system32\
+* [API ] GetKeyboardLayout      @ 3E32    Nothing
+* [API ] GetModuleFileNameExW   @ 9A08    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW     @ 261F    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW     @ 4773    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW     @ 55D0    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW     @ 9C43    Nothing
+* [API ] GetModuleFileNameW     @ A81A    Nothing
+* [API ] GetModuleFileNameW     @ AABD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemFirmwareTable @ A321    Retarget    John
+* [API ] GetSystemFirmwareTable @ A365    Nothing
+* [API ] GetSystemFirmwareTable @ D521    Retarget    Office
+* [API ] GetSystemFirmwareTable @ D5E0    Nothing
+* [API ] GetSystemFirmwareTable @ D69F    Nothing
+* [API ] GetSystemFirmwareTable @ D6DE    Nothing
+* [API ] GetSystemFirmwareTable @ D75E    Retarget    testuser
+* [API ] GetSystemFirmwareTable @ D81D    Nothing
+* [API ] GetSystemInfo          @ 41D1    Retarget    Missing
+* [API ] GetSystemInfo          @ 6B2F    Nothing
+* [API ] GetSystemInfo          @ B641    Retarget    Missing
+* [API ] GetUserNameW           @ 5FF9    Retarget    John
+* [API ] GetWindowTextW         @ 6BB0    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] NtQueryDirectoryObject @ A4D3    Nothing
+* [API ] Process32FirstW        @ 2117    Nothing
+* [API ] Process32FirstW        @ 99B7    Nothing
+* [API ] Process32NextW         @ 2137    Retarget
+* [API ] Process32NextW         @ 9A2F    Retarget
+* [API ] RegEnumKeyExW          @ 05A9    Nothing
+* [API ] RegOpenKeyExW          @ 0077    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW          @ 01AA    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW          @ 1030    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW          @ 4489    Fail        Not modified
+* [API ] RegOpenKeyExW          @ A863    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW          @ A881    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW          @ A89F    Succeed     Not modified
+* [API ] RegOpenKeyExW          @ A8BD    Succeed     Not modified
+* [API ] RegQueryValueExW       @ 08A2    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW       @ 0F40    Nothing
+* [API ] RegQueryValueExW       @ 6A9F    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs          @ ABA0    Retarget
+* [API ] TimeQueryAPIs          @ 47B1    Retarget
+
+[Manual annotations]
+====================

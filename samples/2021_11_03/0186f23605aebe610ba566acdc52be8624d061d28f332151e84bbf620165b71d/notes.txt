@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 0186f23605aebe610ba566acdc52be8624d061d28f332151e84bbf620165b71d
+MD5: c7aa50aca2dc68a82ef3c820adc3b306
+Year: 2021_11_03
+Family name: gator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ CDD8
+* [API ] RegCreateKeyExA @ B2AF
+* [API ] RegSetValueExA  @ B2C8
+* [API ] CopyFileA       @ 9B9B
+* [API ] WriteFile       @ 1115
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA @ B1B2
+* [API ] RegSetValueExA  @ B1D3
+* [API ] CreateProcessA  @ D7CD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (195)]
+=======================================
+
+* [API ] CreateFileA        @ CDD8    Succeed
+* [API ] FindFirstFileA     @ D445    Retarget    C:\*
+* [API ] GetFileAttributesA @ 1619    Succeed
+* [API ] GetFileAttributesA @ C9BF    Fail
+* [API ] GetLocalTime       @ B813    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA @ A4BB    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ F6A1    Retarget    C:\Windows\explorer.exe
+* [API ] GetSystemTime      @ B81D    Retarget    2000:6:4:30
+* [API ] GetWindowTextA     @ 9CAC    Retarget    Window - Window
+* [API ] GetWindowTextA     @ A815    Retarget    Program Manager - MSCTFIME UI
+* [API ] RegOpenKeyExA      @ AE03    Fail
+* [API ] RegOpenKeyExA      @ AFE6    Succeed
+* [API ] RegQueryValueExA   @ AE31    Nothing
+* [API ] RegQueryValueExA   @ AE65    Nothing
+* [API ] RegQueryValueExA   @ B012    Nothing
+* [API ] TimeQueryAPIs      @ FA96    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 2d153f5e7426754a183c8fb3790ae14147951750d6f99b722814e8e5b487b60b
+MD5: f7ce512b928105fbeecc1c2729a9b07d
+Year: 2020_05_06
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

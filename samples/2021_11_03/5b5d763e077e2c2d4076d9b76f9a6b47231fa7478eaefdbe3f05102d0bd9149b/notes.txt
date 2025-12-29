@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: 5b5d763e077e2c2d4076d9b76f9a6b47231fa7478eaefdbe3f05102d0bd9149b
+MD5: ec05e0db181da3b2c20dc3a6d52e4cb0
+Year: 2021_11_03
+Family name: pidgeon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 9A9F
+* [API ] SetWindowsHookExA @ 3B09
+* [API ] SetWindowsHookExA @ 0C6A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA    @ 4D5C
+* [API ] CreateFileA       @ F56B
+* [API ] WriteFile         @ F602
+* [API ] CreateProcessA    @ 250D
+* [API ] MoveFileExA       @ 1A27
+* [API ] CreateThread      @ 30CA
+* [API ] InternetOpenA     @ AD36
+* [API ] InternetConnectA  @ AF82
+* [API ] HttpOpenRequestA  @ B033
+* [API ] HttpSendRequestA  @ B0A7
+* [API ] CreateFileA       @ 699D
+* [API ] InternetReadFile  @ B1CC
+* [API ] WSAStartup        @ 75F7
+* [API ] socket            @ 76FC
+* [API ] inet_addr         @ 772C
+* [API ] connect           @ 77E8
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 4D0A
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA         @ 699D    Fail
+* [API ] CreateFileA         @ F56B    Fail
+* [API ] CreateMutexA        @ 2E9B    Fail
+* [API ] FindFirstFileA      @ 2203    Retarget    C:\*
+* [API ] FindFirstFileA      @ 3FD8    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA       @ 21E8    Retarget
+* [API ] GetCursorPos        @ 91C4    Nothing
+* [API ] GetDiskFreeSpaceExA @ 3EB2    Nothing
+* [API ] GetModuleFileNameA  @ 2E17    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA  @ 6029    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ 9478    Nothing
+* [API ] GetModuleFileNameA  @ B8E3    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExA       @ 4910    Fail
+* [API ] RegOpenKeyExA       @ 4CF1    Fail
+* [API ] RegQueryValueExA    @ 4940    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ 4A6C    Nothing
+* [API ] TimeDelayAPIs       @ 50D7    Retarget
+* [API ] TimeQueryAPIs       @ 2701    Retarget
+
+[Manual annotations]
+====================

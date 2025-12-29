@@ -1,0 +1,91 @@
+[Basic information]
+=========================================================================
+SHA-256: 1b85029c5e0f07dd79ddf345a55d614c1e1cd263563085353b2134e8bb4b81b3
+MD5: d4f671679d82bdef98a83d4ea8eaff61
+Year: 2018
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ A22E
+* [API ] CreateFileMappingA @ A248
+* [API ] MapViewOfFile      @ A25E
+* [API ] CreateThread       @ A2AC
+* [API ] OpenSCManagerA     @ 58C6
+* [API ] OpenServiceA       @ 58DB
+* [API ] CreateThread       @ 721C
+* [API ] MoveFileExA        @ 7311
+* [API ] WSAStartup         @ ED67
+* [API ] CreateFileA        @ 992C
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA     @ DCD1
+* [API ] RegSetValueExA     @ DC0E
+* [API ] RegCreateKeyA      @ DC2C
+* [API ] RegSetValueExA     @ DC48
+* [API ] RegSetValueExA     @ E893
+* [API ] RegSetValueExA     @ E8EF
+* [API ] RegSetValueExA     @ EA05
+* [API ] RegSetValueExA     @ EA30
+* [API ] RegSetValueExA     @ EA5B
+* [API ] CreateFileMappingA @ EAFF
+* [API ] RegCreateKeyA      @ 1D1C
+* [API ] MapViewOfFile      @ 7CAE
+* [API ] RegSetValueExA     @ 1AAB
+* [API ] RegSetValueExA     @ 1ADA
+* [API ] CreateThread       @ EDAB
+* [API ] CreateThread       @ EDD2
+* [API ] CreateThread       @ EDF9
+* [API ] CreateThread       @ EE20
+* [API ] CreateThread       @ EE47
+* [API ] CreateFileMappingA @ F06D
+* [API ] MapViewOfFile      @ F094
+* [API ] RegSetValueExA     @ FB1A
+* [API ] VirtualAllocEx     @ D0F3
+* [API ] WriteProcessMemory @ D124
+* [API ] CreateRemoteThread @ D152
+* [API ] CreateThread       @ EFA4
+* [API ] CreateThread       @ EFCB
+* [API ] CreateThread       @ EFF2
+* [API ] socket             @ 39F6
+* [API ] bind               @ 3A4A
+* [API ] VirtualAllocEx     @ D184
+* [API ] WriteProcessMemory @ D1EF
+* [API ] CreateRemoteThread @ D21A
+* [API ] CreateThread       @ E624
+* [API ] CreateThread       @ E64B
+* [API ] CreateFileMappingA @ 0118
+* [API ] CreateFileMappingA @ 0132
+* [API ] MapViewOfFile      @ 0148
+* [API ] CreateThread       @ 0196
+* [API ] CreateThread       @ E6B1
+
+Fuzzing Findings
+----------------
+* [API ] RegSetValueExA     @ E9A5
+* [API ] CreateThread       @ 3E7E
+* [API ] socket             @ 300E
+* [API ] InternetOpenA      @ B961
+* [API ] CreateFileA        @ DEDE
+* [API ] WriteFile          @ DF0D
+* [API ] sendto             @ 3078
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA        @ 9B5B
+* [API ] CreateFileMappingA @ 9BFC
+* [API ] MapViewOfFile      @ 9C24
+* [API ] InternetOpenUrlA   @ B993
+* [API ] CreateFileA        @ B9C8
+* [API ] InternetReadFile   @ B9EE
+* [API ] WriteFile          @ BA36
+* [API ] CreateFileA        @ BF17
+* [API ] WriteFile          @ C046
+* [API ] RegCreateKeyA      @ 195B
+
+[Mutations applied in the best run (6)]
+=======================================
+
+[Manual annotations]
+====================

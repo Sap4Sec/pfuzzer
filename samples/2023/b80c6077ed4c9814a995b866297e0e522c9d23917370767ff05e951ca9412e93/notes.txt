@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-b80c6077ed4c9814a995b866297e0e522c9d23917370767ff05e951ca9412e93
+MD5: 0fdfe42750d9a51d9f3007ae5153fac6
+Year: 2023
+Family name: fragtor
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] NtAllocateVirtualMemory @ 16C8
+
+Fuzzing Findings
+----------------
+* [API ] InternetOpenW           @ D6A5
+* [API ] InternetOpenUrlW        @ D7F0
+* [API ] NtAllocateVirtualMemory @ 874D
+* [API ] NtAllocateVirtualMemory @ EB81
+* [API ] NtAllocateVirtualMemory @ EE50
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ 4538    Retarget    Missing
+* [API ] GetModuleFileNameW @ 242D    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 587A    Nothing
+* [API ] TimeQueryAPIs      @ 1622    Nothing
+
+[Manual annotations]
+====================

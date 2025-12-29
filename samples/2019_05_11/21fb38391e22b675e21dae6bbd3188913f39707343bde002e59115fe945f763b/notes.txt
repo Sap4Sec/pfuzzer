@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: 21fb38391e22b675e21dae6bbd3188913f39707343bde002e59115fe945f763b
+MD5: f91facedf999c5c829e86be3af6a2dbf
+Year: 2019_05_11
+Family name: allaple
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyA        @ 24A5
+* [API ] RegSetValueExA       @ 24C7
+* [API ] WSAStartup           @ 7A6A
+* [API ] CreateThread         @ 7BF0
+* [API ] CreateThread         @ 7C09
+* [API ] CreateThread         @ 7C26
+* [API ] CreateThread         @ 7C46
+* [API ] CreateThread         @ 20B6
+* [API ] CryptAcquireContextA @ 33FD
+* [API ] CryptGenRandom       @ 340D
+* [API ] CryptReleaseContext  @ 3417
+* [API ] CreateThread         @ 3238
+* [API ] CreateThread         @ 351F
+* [API ] ResumeThread         @ 3539
+* [API ] socket               @ 362C
+* [API ] connect              @ 369C
+* [API ] socket               @ 3724
+* [API ] connect              @ 3794
+
+Fuzzing Findings
+----------------
+* [API ] ResumeThread         @ 7D00
+* [API ] SuspendThread        @ 7D08
+* [API ] ResumeThread         @ 7CE1
+* [API ] SuspendThread        @ 7CE9
+* [API ] CreateThread         @ 21E7
+* [API ] CreateFileA          @ 7F60
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CreateFileA        @ 7F60    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexA       @ 7B9A    Fail
+* [API ] FindFirstFileA     @ 2145    Nothing
+* [API ] FindNextFileA      @ 220D    Retarget
+* [API ] GetModuleFileNameA @ 7E72    Nothing
+* [API ] GetModuleFileNameA @ 7FD4    Nothing
+* [API ] GetModuleFileNameA @ 807F    Retarget    C:\Windows\system32\
+* [API ] TimeDelayAPIs      @ 7C56    Retarget
+* [API ] TimeQueryAPIs      @ 34A3    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,82 @@
+[Basic information]
+=========================================================================
+SHA-256: 0e0d67c8f4801bef0dd89bdf70eb47eb815b01f2ae9b34215188cf92438453d2
+MD5: 22000f146a3b2f235ac1720fc849c5d0
+Year: 2019_05_11
+Family name: darkkomet
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup         @ 559B
+* [API ] WSAStartup         @ F871
+* [API ] FindResourceA      @ DDFF
+* [API ] LoadResource       @ DE09
+* [API ] CreateFileA        @ DFD8
+* [API ] CreateFileMappingA @ E006
+* [API ] MapViewOfFile      @ E032
+* [API ] RegCreateKeyExA    @ 1637
+* [API ] RegCreateKeyExA    @ 1524
+* [API ] CopyFileA          @ FD57
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA     @ F79B
+* [PERS] Software\Microsoft\Windows
+* [API ] RegSetValueExA     @ 1E5F
+* [API ] ShellExecuteA      @ 3C2A
+* [API ] ShellExecuteA      @ 029D
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread       @ 0322
+* [API ] CreateFileA        @ A1A7
+* [API ] CreateProcessA     @ F34D
+* [API ] VirtualAllocEx     @ EB55
+* [API ] WriteProcessMemory @ EB7B
+* [API ] VirtualAllocEx     @ EBC3
+* [API ] WriteProcessMemory @ EBCF
+* [API ] CreateRemoteThread @ EC1B
+* [API ] CreateThread       @ DB96
+* [API ] SetWindowsHookExA  @ 8F7E
+* [API ] CreateThread       @ 5509
+* [API ] ResumeThread       @ FDCD
+* [API ] socket             @ D8AB
+* [API ] inet_addr          @ D8E6
+* [API ] connect            @ D921
+
+[Mutations applied in the best run (26)]
+=======================================
+
+* [API ] CreateFileA         @ DFD8    Fail        Not modified
+* [API ] CreateMutexA        @ 7993    Fail
+* [API ] FindFirstFileA      @ 6B7E    Succeed
+* [API ] FindWindowA         @ E0A8    Fail
+* [API ] FindWindowExA       @ E0BD    Succeed
+* [API ] FindWindowExA       @ E0D2    Fail
+* [API ] GetFileAttributesA  @ A264    Retarget    C:\Windows\system32\
+* [API ] GetFileAttributesA  @ A288    Retarget    C:\Windows\explorer.exe
+* [API ] GetForegroundWindow @ DFF4    Retarget    Missing
+* [API ] GetKeyboardLayout   @ 8DA2    Nothing
+* [API ] GetLocalTime        @ BC8D    Nothing
+* [API ] GetLocalTime        @ BCB9    Nothing
+* [API ] GetModuleFileNameA  @ 69EB    Nothing
+* [API ] GetModuleFileNameA  @ 6C4D    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA  @ A08E    Nothing
+* [API ] GetModuleFileNameA  @ F238    Retarget    C:\Windows\explorer.exe
+* [API ] GetWindowTextA      @ E01D    Retarget    SecHealthHost - SecHealth Win
+* [API ] RegOpenKeyA         @ F76E    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 1726    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 1F84    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA       @ 6C6B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA       @ 6C89    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 6CA7    Succeed     Not modified
+* [API ] RegQueryValueExA    @ 1C3F    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 1EC0    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 6CF0    Nothing
+* [API ] RegQueryValueExA    @ 6D0E    Retarget    ProductID
+* [API ] TimeDelayAPIs       @ 02A7    Retarget
+
+[Manual annotations]
+====================

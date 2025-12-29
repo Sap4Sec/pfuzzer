@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Spy.Win32.Stealer.ddjo-8f136c424f604be973a76795d1de0dca7281ca25e543e264565d753e2dea404c
+MD5: f62872fe4592273abda6f704fb27b3ec
+Year: 2023
+Family name: reline
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] GetModuleFileNameW     @ DF05    Nothing
+* [API ] GetSystemFirmwareTable @ 4E56    Nothing
+* [API ] GetSystemFirmwareTable @ 5049    Retarget    testuser
+* [API ] RegOpenKeyA            @ 8306    Succeed     Not modified
+* [API ] RegOpenKeyA            @ D8EA    Succeed     Not modified
+* [API ] RegOpenKeyA            @ E04B    Fail
+* [API ] RegOpenKeyA            @ ED89    Fail
+* [API ] RegQueryValueExA       @ 8605    Nothing
+* [API ] RegQueryValueExA       @ DB20    Nothing
+* [API ] RegQueryValueExA       @ E26F    Nothing
+* [API ] RegQueryValueExA       @ E59A    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA       @ E896    Retarget    ProductID
+* [API ] TimeQueryAPIs          @ 3D08    Retarget
+
+[Manual annotations]
+====================

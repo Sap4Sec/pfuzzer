@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 2162e04fd466c7955bf9443f5e76120622d7821b521c8f52fc465fc3911df43e
+MD5: aafbb2a56d32f683979422a018a70d0b
+Year: 2021_11_03
+Family name: swimnag
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW   @ 447E
+* [API ] CreateFileW   @ 3CE5
+* [API ] WriteFile     @ 3E3A
+* [API ] ShellExecuteW @ 4AE2
+* [API ] MoveFileExW   @ 403C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileW   @ 3CE5    Succeed     Not modified
+* [API ] CreateFileW   @ 447E    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetLocalTime  @ 57D9    Retarget    2000:6:4:30
+* [API ] TimeDelayAPIs @ 4B78    Retarget
+
+[Manual annotations]
+====================

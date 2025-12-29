@@ -1,0 +1,61 @@
+[Basic information]
+=========================================================================
+SHA-256: 027e5861828c1cdfe220e3917ecaa7072cab703523a19ca162b7f72ba57705f6
+MD5: 1c2a9e52476498d9610d6df2b617d102
+Year: 2020_05_06
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA    @ 1BEA
+* [API ] MoveFileA      @ 25ED
+* [API ] MoveFileA      @ 261D
+* [API ] CreateFileA    @ 239A
+* [API ] MoveFileA      @ 2F6D
+
+[Mutations applied in the best run (39)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA          @ 1BEA    Succeed     Not modified
+* [API ] CreateFileA          @ 1C1B    Fail
+* [API ] CreateFileA          @ 239A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateMutexA         @ 105A    Succeed
+* [API ] CreateMutexA         @ 1101    Succeed
+* [API ] FindFirstFileA       @ 3004    Retarget    C:\*
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesExA @ 1B43    Succeed
+* [API ] GetModuleFileNameA   @ 11A7    Nothing
+* [API ] GetModuleFileNameA   @ 1E4D    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 2A94    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 2AE1    Fail
+* [API ] RegOpenKeyExA        @ 2D0B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA     @ 2B12    Nothing
+* [API ] TimeDelayAPIs        @ 10C1    Nothing
+* [API ] TimeQueryAPIs        @ 1100    Nothing
+
+[Manual annotations]
+====================

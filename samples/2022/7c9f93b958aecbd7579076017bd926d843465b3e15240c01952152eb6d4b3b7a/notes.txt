@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-FakeAV.Win32.Windef.aaqi-7c9f93b958aecbd7579076017bd926d843465b3e15240c01952152eb6d4b3b7a
+MD5: 60ff3ad315e402f2a8aef07c16969db8
+Year: 2022
+Family name: kolab
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 3072
+* [API ] FindResourceA        @ 31E1
+* [API ] LoadResource         @ 322D
+* [API ] CreateProcessA       @ 58D7
+* [API ] NtUnmapViewOfSection @ 5945
+* [API ] VirtualAllocEx       @ 5990
+* [API ] NtWriteVirtualMemory @ 5A04
+* [API ] NtWriteVirtualMemory @ 5AC6
+* [API ] NtWriteVirtualMemory @ 5BBC
+* [API ] NtSetContextThread   @ 5C6C
+* [API ] NtResumeThread       @ 5CDA
+* [API ] ReadProcessMemory    @ 64AF
+* [API ] ReadProcessMemory    @ 652E
+* [API ] ReadProcessMemory    @ 6604
+* [API ] VirtualAllocEx       @ 673A
+* [API ] WriteProcessMemory   @ 67E1
+* [API ] WriteProcessMemory   @ 686D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateMutexA       @ 237E    Retarget    VBoxTray
+* [API ] GetModuleFileNameA @ 1A38    Nothing
+* [API ] GetModuleFileNameA @ 36A6    Nothing
+* [API ] GetModuleFileNameW @ 66BD    Nothing
+* [API ] RegOpenKeyExA      @ 34E9    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 3F12    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 352D    Nothing
+* [API ] RegQueryValueExA   @ 400A    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 1309    Retarget
+* [API ] TimeQueryAPIs      @ 30DB    Retarget
+
+[Manual annotations]
+====================

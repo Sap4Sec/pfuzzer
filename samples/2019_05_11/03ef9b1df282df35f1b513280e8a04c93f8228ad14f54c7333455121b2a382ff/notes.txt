@@ -1,0 +1,95 @@
+[Basic information]
+=========================================================================
+SHA-256: 03ef9b1df282df35f1b513280e8a04c93f8228ad14f54c7333455121b2a382ff
+MD5: 9815d1548d97f97e7483426105122977
+Year: 2019_05_11
+Family name: buzy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ 886F
+* [API ] FindResourceA    @ B4CC
+* [API ] LoadResource     @ B4E6
+* [API ] GetAsyncKeyState @ B7A3
+* [API ] GetAsyncKeyState @ B85D
+* [API ] GetAsyncKeyState @ B888
+* [API ] GetAsyncKeyState @ B8D0
+* [API ] GetAsyncKeyState @ B9C3
+* [API ] GetAsyncKeyState @ BA2F
+* [API ] GetAsyncKeyState @ BA44
+* [API ] GetAsyncKeyState @ BA59
+* [API ] GetAsyncKeyState @ BA6E
+* [API ] GetAsyncKeyState @ BA83
+* [API ] GetAsyncKeyState @ BA98
+* [API ] GetAsyncKeyState @ BAAD
+* [API ] GetAsyncKeyState @ BABF
+* [API ] GetAsyncKeyState @ BAD4
+* [API ] GetAsyncKeyState @ BAE9
+* [API ] GetAsyncKeyState @ BAFE
+* [API ] GetAsyncKeyState @ BB13
+* [API ] GetAsyncKeyState @ BB28
+* [API ] GetAsyncKeyState @ BB3D
+* [API ] GetAsyncKeyState @ BB52
+* [API ] GetAsyncKeyState @ BB67
+* [API ] GetAsyncKeyState @ BB7C
+* [API ] GetAsyncKeyState @ BB91
+* [API ] GetAsyncKeyState @ BBA6
+* [API ] GetAsyncKeyState @ BBBB
+* [API ] GetAsyncKeyState @ BBD0
+* [API ] GetAsyncKeyState @ BBE8
+* [API ] GetAsyncKeyState @ BBFD
+* [API ] GetAsyncKeyState @ BC15
+* [API ] GetAsyncKeyState @ BC2A
+* [API ] GetAsyncKeyState @ BC3F
+* [API ] GetAsyncKeyState @ BC51
+* [API ] GetAsyncKeyState @ BC63
+* [API ] GetAsyncKeyState @ C136
+* [API ] CopyFileA        @ DF30
+* [API ] CopyFileA        @ E088
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA      @ 3AB4
+* [API ] WriteFile        @ 3709
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA   @ 256B
+* [API ] MoveFileExA      @ D329
+* [API ] InternetOpenA    @ C81D
+* [API ] InternetConnectA @ C84E
+* [API ] WinExec          @ E27F
+* [API ] RegCreateKeyExA  @ 21B3
+* [API ] RegCreateKeyExA  @ 20A0
+* [API ] CreateFileA      @ B06D
+* [API ] WriteFile        @ 98E9
+* [API ] InternetOpenA    @ CFA3
+* [API ] InternetConnectA @ CFBF
+* [API ] FtpPutFileA      @ CFE0
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateMutexA       @ 71E3    Succeed
+* [API ] GetCursorPos       @ DD99    Nothing
+* [API ] GetFileAttributesA @ 995C    Succeed
+* [API ] GetFileAttributesA @ 9980    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetKeyboardLayout  @ A69A    Retarget    UK
+* [API ] GetModuleFileNameA @ 32F5    Nothing
+* [API ] GetModuleFileNameA @ 6347    Nothing
+* [API ] GetModuleFileNameA @ 65A9    Nothing
+* [API ] GetModuleFileNameA @ B986    Nothing
+* [API ] Process32First     @ F48B    Nothing
+* [API ] Process32Next      @ F4AB    Retarget
+* [API ] RegOpenKeyExA      @ 22A2    Fail
+* [API ] RegOpenKeyExA      @ 65C7    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 65E5    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 6603    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 244B    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 25CC    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 1978    Nothing
+
+[Manual annotations]
+====================

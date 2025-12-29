@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 5882423a17e31eb0e48cddcd735816bfc0b4c18c850d28cfa8cb9890eba53a3d
+MD5: 2ef448dcc268afcf4af90364150fa3ea
+Year: 2020_11_19
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 2A7E
+* [API ] CreateFileW  @ C037
+* [API ] NtCreateFile @ D4E2
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 7FB2
+* [API ] NtCreateFile @ 8E83
+* [API ] NtCreateFile @ F0D1
+* [API ] NtCreateFile @ 9352
+* [API ] NtCreateFile @ 10AE
+* [API ] NtCreateFile @ FFDD
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CPUID              @ 144C    Nothing
+* [API ] CreateFileW        @ 2A7E    Fail        Not modified
+* [API ] CreateFileW        @ C037    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 2C28    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] NtCreateFile       @ 9278    Succeed     Not modified
+* [API ] NtCreateFile       @ D4E2    Fail        Not modified
+* [API ] TimeQueryAPIs      @ DEA1    Retarget
+
+[Manual annotations]
+====================

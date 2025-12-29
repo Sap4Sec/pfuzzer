@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: 7c4299a0d48dee3e4d10826e45d641890fa518664f2bba15f213a1c860b70425
+MD5: e1e7c9167a33853fe5927308ca8fb641
+Year: 2020_05_06
+Family name: darkkomet
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ A843
+* [API ] FindResourceA   @ E1B4
+* [API ] LoadResource    @ E1CE
+* [API ] OpenSCManagerA  @ 38FD
+* [API ] FindResourceA   @ 7B25
+* [API ] CreateFileA     @ 993E
+* [API ] WriteFile       @ 998D
+* [API ] ShellExecuteExA @ 3517
+* [API ] FindResourceA   @ 480F
+* [API ] CopyFileA       @ 3880
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA  @ 2346
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceA   @ 4C6C
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 993E    Succeed
+* [API ] CreateMutexA       @ 6FAB    Fail
+* [API ] FindFirstFileA     @ 9A00    Retarget    C:\*
+* [API ] GetFileAttributesA @ 9A68    Fail
+* [API ] GetFileAttributesA @ 9A8C    Fail
+* [API ] GetKeyboardLayout  @ 8012    Retarget    Portuguese-brazilian
+* [API ] GetModuleFileNameA @ 2B91    Nothing
+* [API ] GetModuleFileNameA @ 5FB7    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 61F1    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 91C8    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetWindowTextA     @ A268    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] RegOpenKeyExA      @ 1F77    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 620F    Succeed
+* [API ] RegOpenKeyExA      @ 622D    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 624B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 222B    Retarget    SystemBiosDate
+
+[Manual annotations]
+====================

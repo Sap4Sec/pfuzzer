@@ -1,0 +1,98 @@
+[Basic information]
+=========================================================================
+SHA-256: 35d4d28f21ad33f90596c25b5fc7a3415b8f45f9b032c5e83637c81d615359bf
+MD5: cea06ca7a935029a27970281bc9eba30
+Year: 2018
+Family name: tiggre
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread       @ D4C6
+* [API ] CreateFileW        @ 2504
+* [API ] WSAStartup         @ 9924
+* [API ] CreateFileA        @ 8D35
+* [API ] CreateFileA        @ 9190
+* [API ] RegCreateKeyExA    @ B679
+* [API ] RegSetValueExA     @ EE58
+* [API ] CreateFileMappingA @ F52F
+* [API ] MapViewOfFile      @ F66B
+* [API ] CreateThread       @ 8395
+* [API ] RegCreateKeyExW    @ A629
+* [API ] RegSetValueExA     @ C012
+* [API ] RegSetValueExA     @ B952
+* [API ] RegCreateKeyExA    @ B9FE
+* [API ] RegSetValueExA     @ BA8B
+* [API ] CreateFileA        @ CAD3
+* [API ] CreateFileA        @ 3D16
+* [API ] CreateFileA        @ B43F
+* [API ] CreateFileA        @ E39B
+* [API ] CreateThread       @ 2F5C
+* [API ] CreateThread       @ 3E3F
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ E12E
+* [API ] CreateFileA        @ 743D
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ B2DA    Nothing
+* [API ] CreateFileA        @ 3D16    Retarget    Backup.txt
+* [API ] CreateFileA        @ 8D35    Fail        Not modified
+* [API ] CreateFileA        @ 9190    Retarget    attrib.exe
+* [API ] CreateFileA        @ B43F    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileA        @ CAD3    Fail        Not modified
+* [API ] CreateFileA        @ E39B    Fail        Not modified
+* [API ] CreateFileW        @ 2504    Succeed     Not modified
+* [API ] CreateMutexA       @ 9C1E    Succeed
+* [API ] CreateMutexA       @ A5F2    Succeed
+* [API ] CreateMutexA       @ C1D9    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA       @ D531    Succeed
+* [API ] DeviceIoControl    @ 8D5D    Retarget    Missing
+* [API ] DeviceIoControl    @ 9257    Nothing
+* [API ] FindFirstFileA     @ C8CB    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ CF78    Nothing
+* [API ] FindFirstFileA     @ FD97    Retarget    C:\*
+* [API ] FindNextFileA      @ C9D7    Retarget
+* [API ] FindNextFileA      @ D07A    Retarget
+* [API ] FindWindowA        @ CF00    Succeed
+* [API ] FindWindowA        @ CF1C    Succeed
+* [API ] FindWindowA        @ CF38    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] GetComputerNameExA @ 8B89    Nothing
+* [API ] GetFileAttributesW @ A6B5    Fail
+* [API ] GetLocalTime       @ 3FB0    Nothing
+* [API ] GetLocalTime       @ 4140    Nothing
+* [API ] GetModuleFileNameA @ 218E    Nothing
+* [API ] GetModuleFileNameW @ 3557    Nothing
+* [API ] GetModuleFileNameW @ 9843    Nothing
+* [API ] GetModuleFileNameW @ 98E6    Retarget    C:\Windows\explorer.exe
+* [API ] GetSystemInfo      @ A0C3    Nothing
+* [API ] GetSystemTime      @ 1F46    Nothing
+* [API ] GetWindowTextA     @ FF5A    Nothing
+* [API ] RegEnumKeyA        @ B810    Retarget    Office
+* [API ] RegEnumKeyA        @ B987    Nothing
+* [API ] RegEnumKeyA        @ BAC0    Retarget    testuser
+* [API ] RegOpenKeyExA      @ 8980    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ B64C    Fail
+* [API ] RegOpenKeyExA      @ B793    Fail        Not modified
+* [API ] RegOpenKeyExA      @ B860    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ B9CD    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ BF35    Fail
+* [API ] RegOpenKeyExA      @ D351    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ D3A7    Fail        Not modified
+* [API ] RegOpenKeyExA      @ EEC3    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 89AD    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 89F6    Retarget    ProductID
+* [API ] RegQueryValueExA   @ BF58    Nothing
+* [API ] RegQueryValueExW   @ A4CD    Nothing
+* [API ] TimeDelayAPIs      @ D4DE    Retarget
+* [API ] TimeQueryAPIs      @ 94B0    Retarget
+
+[Manual annotations]
+====================
+Requires command line arguments to proceed (REGISTER, etc)

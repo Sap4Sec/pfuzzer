@@ -1,0 +1,63 @@
+[Basic information]
+=========================================================================
+SHA-256: 5bbd82003f4b433f5b9f00b74311e7ad24487a9c76f2d6bcc30704448f0c5458
+MD5: 2ff8725c6659e8bc169da0651e8703e5
+Year: 2018
+Family name: SINGLETON:2ff8725c6659e8bc169da0651e8703e5
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingW   @ 1C86
+* [API ] CreateFileMappingW @ 1CEB
+* [API ] MapViewOfFile      @ 1D2C
+* [API ] CreateFileW        @ 98A4
+* [API ] SetWindowsHookExW  @ 295D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID                      @ 8323    Nothing
+* [API ] CreateFileW                @ 98A4    Fail        Not modified
+* [API ] CreateMutexW               @ 1249    Retarget    ZonesCacheCounterMutex
+* [API ] FindFirstFileW             @ 9D8C    Nothing
+* [API ] FindFirstFileW             @ DFF4    Fail
+* [API ] FindNextFileW              @ 9DCC    Retarget
+* [API ] GetComputerNameExW         @ F968    Retarget    John
+* [API ] GetKeyboardLayout          @ 02AE    Nothing
+* [API ] GetLocalTime               @ C535    Nothing
+* [API ] GetModuleFileNameW         @ 1C4D    Nothing
+* [API ] GetModuleFileNameW         @ 6FF5    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW         @ A42F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW         @ D08F    Nothing
+* [API ] GetModuleFileNameW         @ DC1E    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW         @ E325    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemInfo              @ D11F    Nothing
+* [API ] GetSystemInfo              @ EDF9    Nothing
+* [API ] NtQuerySystemInformation   @ E412    Retarget    John
+* [API ] NtQuerySystemInformation   @ E456    Nothing
+* [API ] QueryFullProcessImageNameW @ E21F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExW              @ 09B3    Succeed
+* [API ] RegOpenKeyExW              @ D163    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW              @ D296    Succeed     Not modified
+* [API ] RegOpenKeyExW              @ DC67    Succeed
+* [API ] RegOpenKeyExW              @ DC89    Succeed     Not modified
+* [API ] RegOpenKeyExW              @ DCA7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW              @ DCC5    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW              @ DCE3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW              @ DD01    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW              @ E0B8    Succeed     Not modified
+* [API ] RegQueryValueExW           @ D9CE    Retarget    ProductID
+* [API ] RegQueryValueExW           @ DFC8    Nothing
+* [API ] TimeDelayAPIs              @ 1114    Retarget
+* [API ] TimeQueryAPIs              @ 7035    Retarget
+
+[Manual annotations]
+====================
+No malicious activity or specific environmental requirements identified.

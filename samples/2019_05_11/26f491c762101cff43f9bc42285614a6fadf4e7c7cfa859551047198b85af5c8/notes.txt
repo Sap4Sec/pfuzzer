@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 26f491c762101cff43f9bc42285614a6fadf4e7c7cfa859551047198b85af5c8
+MD5: 8288879c242b1db27417cca7de2c5ba9
+Year: 2019_05_11
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ E1F2
+* [API ] WriteFile      @ 3FFC
+* [API ] CreateThread   @ C94F
+* [API ] CreateProcessA @ 7533
+
+Fuzzing Findings
+----------------
+* [API ] WSAStartup     @ 6D4B
+* [API ] socket         @ 6D6C
+* [API ] connect        @ 6DC3
+* [API ] send           @ 6DF7
+* [API ] CreateFileA    @ 72C9
+* [API ] WriteFile      @ 72E2
+* [API ] CreateProcessA @ 832C
+
+[Mutations applied in the best run (61)]
+=======================================
+
+* [API ] CPUID              @ 297F    Retarget    Missing
+* [API ] CreateFileA        @ 72C9    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileW        @ E1F2    Succeed     Not modified
+* [API ] CreateMutexA       @ 8183    Retarget    VBoxTray
+* [API ] CreateMutexA       @ 81B1    Fail
+* [API ] GetCursorPos       @ 79B9    Retarget    Missing
+* [API ] GetModuleFileNameA @ 59D1    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 749D    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ 91C3    Nothing
+* [API ] Process32Next      @ 91D8    Retarget
+* [API ] Process32Next      @ 9298    Retarget
+* [API ] TimeDelayAPIs      @ 79FE    Retarget
+* [API ] TimeQueryAPIs      @ CF09    Retarget
+
+[Manual annotations]
+====================

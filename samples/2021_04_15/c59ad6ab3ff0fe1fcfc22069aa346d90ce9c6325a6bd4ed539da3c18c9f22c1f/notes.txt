@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: c59ad6ab3ff0fe1fcfc22069aa346d90ce9c6325a6bd4ed539da3c18c9f22c1f
+MD5: 56f302ab94184274d3317c35579b2bd1
+Year: 2021_04_15
+Family name: SINGLETON:56f302ab94184274d3317c35579b2bd1
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: The ordinal 1 could not be located in the dynamic link library C:\Windows\SYSTEM32\SQLUNIRL.dll

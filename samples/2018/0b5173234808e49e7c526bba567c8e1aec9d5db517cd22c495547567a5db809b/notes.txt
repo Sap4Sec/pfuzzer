@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 0b5173234808e49e7c526bba567c8e1aec9d5db517cd22c495547567a5db809b
+MD5: b187cc0228383eeacb1a10bee7c9949f
+Year: 2018
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: wzmss.dll, npkcrypt.dll, ikl15.dll

@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 3b6d9879e88bb064e891f09c4522163b34114d11ba07cdca8d8919440b37dde4
+MD5: 6d7bccd6b8cf363c77447f30572b015b
+Year: 2021_04_15
+Family name: lamer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (35)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Succeed     Not modified
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Fail        Not modified
+* [API ] CreateFileA        @ 33ED    Fail        Not modified
+* [API ] CreateMutexA       @ 2A13    Retarget    vscode
+* [API ] FindFirstFileA     @ 30A1    Fail
+* [API ] FindFirstFileA     @ 369C    Fail
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Nothing
+* [API ] RegOpenKeyExA      @ 2D07    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 2DE3    Nothing
+
+[Manual annotations]
+====================

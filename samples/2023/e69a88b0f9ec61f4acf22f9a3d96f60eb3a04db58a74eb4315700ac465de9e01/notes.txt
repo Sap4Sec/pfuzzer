@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Stealerc.hzu-e69a88b0f9ec61f4acf22f9a3d96f60eb3a04db58a74eb4315700ac465de9e01
+MD5: 90dd1720cb5f0a539358d8895d3fd27a
+Year: 2023
+Family name: vidar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] InternetOpenA    @ 5E4B
+* [API ] InternetConnectA @ 5E9F
+* [API ] HttpOpenRequestA @ 5EEF
+* [API ] HttpSendRequestA @ 5F0E
+* [API ] InternetOpenA    @ 40F2
+* [API ] InternetConnectA @ 4297
+* [API ] HttpOpenRequestA @ 42F2
+* [API ] HttpSendRequestA @ 45F2
+* [API ] InternetReadFile @ 4623
+* [API ] InternetOpenA    @ 5405
+* [API ] InternetConnectA @ 55A0
+* [API ] HttpOpenRequestA @ 5605
+* [API ] HttpSendRequestA @ 5A8E
+* [API ] InternetReadFile @ 5AAB
+* [API ] InternetOpenA    @ 4998
+* [API ] InternetConnectA @ 4AD1
+* [API ] HttpOpenRequestA @ 4B35
+* [API ] HttpSendRequestA @ 5107
+* [API ] InternetOpenA    @ 4774
+* [API ] InternetOpenUrlA @ 479B
+* [API ] InternetReadFile @ 47CB
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID                @ 109D    Retarget    Missing
+* [API ] GetComputerNameA     @ E462    Nothing
+* [API ] GetLocalTime         @ E4A7    Nothing
+* [API ] GetModuleFileNameExA @ 008B    Nothing
+* [API ] GetSystemInfo        @ E793    Retarget    Missing
+* [API ] GetSystemTime        @ 4E5F    Nothing
+* [API ] GetSystemTime        @ F74C    Nothing
+* [API ] GetUserNameA         @ E422    Retarget    John
+* [API ] GlobalMemoryStatusEx @ E95B    Retarget    Missing
+* [API ] Process32First       @ EDE1    Nothing
+* [API ] Process32Next        @ EDF6    Retarget
+* [API ] RegEnumKeyExA        @ EB89    Nothing
+* [API ] RegOpenKeyExA        @ E313    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ E391    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ E741    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ EB07    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ EBDE    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ EF6E    Succeed     Not modified
+* [API ] RegQueryValueExA     @ E334    Nothing
+* [API ] RegQueryValueExA     @ E3B0    Nothing
+* [API ] RegQueryValueExA     @ E762    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA     @ EC4F    Nothing
+* [API ] RegQueryValueExA     @ ECFC    Nothing
+* [API ] RegQueryValueExA     @ EF96    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 4E4D    Retarget
+
+[Manual annotations]
+====================
+Queries WMI Win32_OperatingSystem for InstallDate and SlcServicePackLevel

@@ -1,0 +1,59 @@
+[Basic information]
+=========================================================================
+SHA-256: 61c102377771216b8d8d59dda68076b0bd096be9cef3afc770b6e50cd455f7f2
+MD5: 7c86f8cf2347f7f8afcbcabae11b8dbe
+Year: 2021_11_03
+Family name: lmir
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 7D2E
+* [API ] CreateFileA     @ 7D56
+* [API ] WriteFile       @ 7DA5
+* [API ] CreateProcessA  @ A821
+* [API ] WinExec         @ 3D87
+* [API ] CreateFileA     @ 3E92
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 3A5B
+* [API ] CreateProcessA  @ 3AF6
+* [API ] CopyFileA       @ A989
+* [API ] RegCreateKeyExA @ E66A
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\RunServices
+* [API ] RegSetValueExA  @ E6D6
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\Run
+* [API ] WinExec         @ AAB7
+
+[Mutations applied in the best run (42)]
+=======================================
+
+* [API ] CreateFileA        @ 3E92    Succeed     Not modified
+* [API ] CreateFileA        @ 7D2E    Succeed     Not modified
+* [API ] CreateFileA        @ 7D56    Fail
+* [API ] FindFirstFileA     @ 7EA4    Succeed
+* [API ] FindFirstFileA     @ C2AC    Succeed
+* [API ] FindNextFileA      @ 7EE4    Retarget
+* [API ] FindWindowA        @ 3CD8    Fail
+* [API ] FindWindowA        @ A939    Retarget    SecHealthHost - SecHealth Win
+* [API ] GetModuleFileNameA @ 29F9    Nothing
+* [API ] GetModuleFileNameA @ 5917    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 5B51    Nothing
+* [API ] GetModuleFileNameA @ 9A0E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ A952    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First     @ B59B    Nothing
+* [API ] Process32Next      @ B5BB    Retarget
+* [API ] RegOpenKeyExA      @ 5B6F    Succeed
+* [API ] RegOpenKeyExA      @ 5B8D    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5BAB    Fail        Not modified
+* [API ] RegQueryValueExA   @ 5BF4    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 5C12    Nothing
+* [API ] TimeDelayAPIs      @ 3DA9    Retarget
+* [API ] TimeQueryAPIs      @ A853    Retarget
+
+[Manual annotations]
+====================

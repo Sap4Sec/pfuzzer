@@ -1,0 +1,24 @@
+[Basic information]
+=========================================================================
+SHA-256: 018b7da0b0d6ca3711a73a0c49da6d5e0b65281d178be665815e7d82e985fe45
+MD5: 2fb44b974279c6f9b4e091f0953cc4c0
+Year: 2021_11_03
+Family name: startsurf
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread @ F418
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Too many exceptions, dies immediately also under drrun.exe only but BluePill is able to observe relavant behavior

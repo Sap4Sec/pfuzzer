@@ -1,0 +1,66 @@
+[Basic information]
+=========================================================================
+SHA-256: fa74198087365f60b454fe2757e7ebc7a7cffc47f3cb296616518fcb9291f224
+MD5: 83592fb272f27215f5b1d19534da548f
+Year: 2018
+Family name: yiwanzhushou
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup    @ 4EA8
+* [API ] FindResourceA @ EF47
+* [API ] LoadResource  @ EF60
+* [API ] CreateFileA   @ 18D4
+* [API ] CreateFileA   @ 1F74
+* [API ] WSAStartup    @ B214
+* [API ] getaddrinfo   @ B0E4
+* [API ] WSASocketW    @ B474
+* [API ] WSAConnect    @ B5F6
+* [API ] WSASend       @ B755
+* [API ] WSARecv       @ B8EB
+* [API ] CreateFileW   @ 2B07
+* [API ] WriteFile     @ 8761
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CPUID              @ 19F6    Nothing
+* [API ] CreateFileA        @ 18D4    Succeed     Not modified
+* [API ] CreateFileA        @ 1F74    Fail        Not modified
+* [API ] CreateFileW        @ 2B07    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateMutexA       @ BFC4    Fail
+* [API ] DeviceIoControl    @ 191E    Nothing
+* [API ] DeviceIoControl    @ 1FC3    Nothing
+* [API ] DeviceIoControl    @ 395D    Nothing
+* [API ] GetFileAttributesW @ 86E1    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 98E6    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 1498    Nothing
+* [API ] GetModuleFileNameW @ 7967    Nothing
+* [API ] GetModuleFileNameW @ 99F8    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ AA72    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ CFD8    Nothing
+* [API ] RegEnumKeyExA      @ 20C2    Retarget    Office
+* [API ] RegEnumKeyExA      @ 21DF    Nothing
+* [API ] RegOpenKeyExA      @ 2090    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 20EC    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 7711    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 77C1    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 7871    Fail        Not modified
+* [API ] RegQueryValueExA   @ 2124    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 7737    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 7765    Nothing
+* [API ] RegQueryValueExA   @ 77E7    Nothing
+* [API ] RegQueryValueExA   @ 7815    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 7897    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ B633    Retarget
+* [API ] TimeQueryAPIs      @ 4512    Retarget
+
+[Manual annotations]
+====================

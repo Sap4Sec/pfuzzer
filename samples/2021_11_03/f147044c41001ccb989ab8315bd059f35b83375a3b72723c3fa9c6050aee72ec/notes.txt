@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: f147044c41001ccb989ab8315bd059f35b83375a3b72723c3fa9c6050aee72ec
+MD5: 82918dfe62d710f983f6165db303ced2
+Year: 2021_11_03
+Family name: shyape
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ A51A
+* [API ] WriteFile      @ 7B04
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExA @ 2EC7
+* [API ] WinExec        @ 2EEC
+* [API ] ShellExecuteA  @ 30FE
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA        @ A51A    Succeed     Not modified
+* [API ] GetModuleFileNameA @ 2DC6    Nothing
+* [API ] GetModuleFileNameA @ 8BA9    Nothing
+* [API ] RegOpenKeyA        @ 2E95    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeQueryAPIs      @ 2C21    Retarget
+
+[Manual annotations]
+====================

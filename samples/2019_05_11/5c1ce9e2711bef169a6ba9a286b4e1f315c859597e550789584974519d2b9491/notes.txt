@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 5c1ce9e2711bef169a6ba9a286b4e1f315c859597e550789584974519d2b9491
+MD5: dbb0351b0fc666c29ac8a76b4318fe00
+Year: 2019_05_11
+Family name: bifrose
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 6AA9
+* [API ] LoadResource         @ 6AB7
+* [API ] CreateFileA          @ 4BCB
+* [API ] OpenSCManagerA       @ 4873
+* [API ] CreateServiceA       @ 48B6
+* [API ] CreateProcessA       @ 88C6
+* [API ] ReadProcessMemory    @ 8902
+* [API ] NtUnmapViewOfSection @ 8913
+* [API ] VirtualAllocEx       @ 8941
+* [API ] WriteProcessMemory   @ 8958
+* [API ] WriteProcessMemory   @ 8976
+* [API ] SetThreadContext     @ 8990
+* [API ] ResumeThread         @ 899D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CreateFileA        @ 4BCB    Retarget    C:\Windows\explorer.exe
+* [API ] FindFirstFileA     @ 4B0C    Nothing
+* [API ] GetFileAttributesA @ 4B74    Fail
+* [API ] GetModuleFileNameA @ 26E1    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ 528A    Retarget    Office
+* [API ] Process32First     @ 43EF    Nothing
+* [API ] Process32Next      @ 440F    Retarget
+* [API ] RegOpenKeyExA      @ 4574    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 47D3    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 45C1    Nothing
+* [API ] RegQueryValueExA   @ 45E4    Nothing
+
+[Manual annotations]
+====================

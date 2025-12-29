@@ -1,0 +1,92 @@
+[Basic information]
+=========================================================================
+SHA-256: fc1d8fb3c385fd2b8d8b346ec26fcbc623bf1e305d8960f210845995ac687b11
+MD5: e9e0a183c9438a5ce84497932e61ec90
+Year: 2018
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA    @ 4098
+* [API ] SetWindowsHookExA    @ 11FB
+* [API ] CryptAcquireContextA @ 937A
+* [API ] CryptCreateHash      @ 940D
+* [API ] CryptHashData        @ 94E9
+* [API ] CryptGetHashParam    @ 95D2
+* [API ] CryptDestroyHash     @ 991F
+* [API ] CryptReleaseContext  @ 994E
+* [API ] CreateThread         @ 7DD2
+* [API ] CreateRemoteThread   @ 66AD
+* [API ] FindResourceW        @ 64CD
+* [API ] LoadResource         @ 64D7
+* [API ] CopyFileA            @ 39D6
+* [API ] CreateFileA          @ 00EB
+* [API ] VirtualAllocEx       @ 3B0F
+* [API ] OpenFileMappingA     @ BC99
+* [API ] CreateRemoteThread   @ 687C
+* [API ] InternetOpenA        @ B2F5
+* [API ] InternetConnectA     @ B4A6
+* [API ] HttpOpenRequestA     @ B769
+* [API ] HttpSendRequestA     @ BB5A
+* [API ] InternetReadFile     @ BCEF
+* [API ] CryptAcquireContextA @ E990
+* [API ] CryptCreateHash      @ EA21
+* [API ] CryptHashData        @ EAFD
+* [API ] CryptGetHashParam    @ EBE3
+* [API ] CryptDestroyHash     @ EF46
+* [API ] CryptReleaseContext  @ EF75
+* [API ] CreateFileA          @ FAFA
+* [API ] WriteFile            @ FB91
+* [API ] ShellExecuteA        @ 8B7F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID                    @ 6583    Nothing
+* [API ] CreateFileA              @ 00EB    Succeed     Not modified
+* [API ] CreateFileA              @ FAFA    Fail        Not modified
+* [API ] FindFirstFileA           @ F576    Retarget    C:\*
+* [API ] FindWindowA              @ 2496    Succeed
+* [API ] FindWindowA              @ 257E    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowA              @ 2666    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowA              @ 274E    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] FindWindowA              @ 2836    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] FindWindowA              @ 291E    Succeed
+* [API ] FindWindowA              @ 2A06    Succeed
+* [API ] FindWindowA              @ 2AEE    Fail
+* [API ] FindWindowA              @ 2BB7    Succeed
+* [API ] FindWindowA              @ 2C6A    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] FindWindowA              @ 2D1D    Succeed
+* [API ] FindWindowA              @ 2DD0    Retarget    Window - Window
+* [API ] FindWindowA              @ 2E83    Fail
+* [API ] FindWindowA              @ 2F36    Fail
+* [API ] FindWindowA              @ 2FE9    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowA              @ 30BB    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] FindWindowA              @ 3184    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] FindWindowA              @ 3237    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] GetAdaptersInfo          @ 7C62    Retarget    testuser
+* [API ] GetAdaptersInfo          @ 7C7A    Nothing
+* [API ] GetCursorPos             @ 94A9    Nothing
+* [API ] GetModuleFileNameA       @ 0C33    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA       @ 2F42    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA       @ 332A    Nothing
+* [API ] GetModuleFileNameA       @ 72E4    Nothing
+* [API ] GetModuleFileNameA       @ 8225    Nothing
+* [API ] GetModuleFileNameA       @ 96FD    Nothing
+* [API ] GetModuleFileNameA       @ CE39    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetProcessImageFileNameA @ 3620    Nothing
+* [API ] GetWindowTextA           @ 7EA8    Nothing
+* [API ] Process32First           @ 7FD7    Nothing
+* [API ] Process32Next            @ 802E    Retarget
+* [API ] TimeDelayAPIs            @ CCF3    Retarget
+* [API ] TimeQueryAPIs            @ EA11    Retarget
+
+[Manual annotations]
+====================

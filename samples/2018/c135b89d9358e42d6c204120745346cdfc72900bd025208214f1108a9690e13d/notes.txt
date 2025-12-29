@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: c135b89d9358e42d6c204120745346cdfc72900bd025208214f1108a9690e13d
+MD5: 3375ae7092f2c2247bc4e15f022d043e
+Year: 2018
+Family name: fraudster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ E6DC
+* [API ] CreateFileW  @ B23D
+* [API ] NtCreateFile @ D069
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ E3D3
+* [API ] WSAStartup   @ 5A89
+* [API ] NtCreateFile @ 33E3
+* [API ] NtCreateFile @ 68A8
+* [API ] NtCreateFile @ ED94
+* [API ] NtCreateFile @ C0B1
+* [API ] NtCreateFile @ 7332
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID         @ DA92    Retarget    Missing
+* [API ] CreateFileW   @ B23D    Succeed     Not modified
+* [API ] CreateFileW   @ E6DC    Succeed     Not modified
+* [API ] NtCreateFile  @ 497D    Succeed     Not modified
+* [API ] NtCreateFile  @ D069    Fail        Not modified
+* [API ] TimeQueryAPIs @ DAE6    Retarget
+
+[Manual annotations]
+====================
+PoC samples: Pafish/Al-kaser like

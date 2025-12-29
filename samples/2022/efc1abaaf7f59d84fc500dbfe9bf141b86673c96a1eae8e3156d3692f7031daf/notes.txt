@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Chapak.vho-efc1abaaf7f59d84fc500dbfe9bf141b86673c96a1eae8e3156d3692f7031daf
+MD5: 0a2a3bf5463872058756f69f23d78ca0
+Year: 2022
+Family name: SINGLETON:0a2a3bf5463872058756f69f23d78ca0
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Interesting case: evasive sequences in a TLS callback (happen way before the dynamorio entry point)

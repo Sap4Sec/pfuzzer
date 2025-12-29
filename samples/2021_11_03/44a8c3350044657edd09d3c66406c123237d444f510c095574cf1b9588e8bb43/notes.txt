@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: 44a8c3350044657edd09d3c66406c123237d444f510c095574cf1b9588e8bb43
+MD5: e1daacdda68bea79fc0c3feed247f09f
+Year: 2021_11_03
+Family name: lmir
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 7DFE
+* [API ] CreateFileA     @ 7E26
+* [API ] WriteFile       @ 7E75
+* [API ] CreateProcessA  @ C7FC
+* [API ] WinExec         @ 49EF
+* [API ] CreateFileA     @ 4AFA
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 468B
+* [API ] CreateProcessA  @ 4726
+* [API ] CopyFileA       @ C9C2
+* [API ] RegCreateKeyExA @ F146
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA  @ F1B2
+* [API ] WinExec         @ CB02
+
+[Mutations applied in the best run (48)]
+=======================================
+
+* [API ] CreateFileA        @ 4AFA    Fail        Not modified
+* [API ] CreateFileA        @ 7DFE    Succeed     Not modified
+* [API ] CreateFileA        @ 7E26    Succeed     Not modified
+* [API ] FindFirstFileA     @ 5B1F    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ 7F74    Retarget    C:\*
+* [API ] FindFirstFileA     @ DC74    Retarget    C:\Users\Student\*
+* [API ] FindNextFileA      @ 7FB4    Retarget
+* [API ] FindWindowA        @ 4940    Succeed
+* [API ] FindWindowA        @ C914    Fail
+* [API ] GetModuleFileNameA @ 2A39    Nothing
+* [API ] GetModuleFileNameA @ 59AF    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5BE9    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ C92D    Retarget    C:\Windows\system32\
+* [API ] Process32First     @ B66B    Nothing
+* [API ] Process32Next      @ B68B    Retarget
+* [API ] RegOpenKeyExA      @ 5C07    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5C25    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5C43    Fail        Not modified
+* [API ] RegQueryValueExA   @ 5C8C    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 5CAA    Nothing
+* [API ] TimeDelayAPIs      @ 4A11    Nothing
+* [API ] TimeQueryAPIs      @ A923    Retarget
+
+[Manual annotations]
+====================

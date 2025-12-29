@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 187f645bffaa807d3e034f46408255e896a660e2e5275286e744a13cc1624f29
+MD5: b77efc684c59c63ce6496f8115470ec4
+Year: 2019_05_11
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ E062
+* [API ] WriteFile      @ 3E6C
+* [API ] CreateProcessA @ 74B3
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread   @ C7BF
+
+[Mutations applied in the best run (157)]
+=======================================
+
+* [API ] CPUID              @ 27EF    Nothing
+* [API ] CreateFileW        @ E062    Fail
+* [API ] CreateMutexA       @ 8103    Fail
+* [API ] CreateMutexA       @ 8131    Fail
+* [API ] GetCursorPos       @ 7939    Nothing
+* [API ] GetModuleFileNameA @ 5841    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 741D    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] Process32First     @ 9033    Nothing
+* [API ] Process32Next      @ 9048    Retarget
+* [API ] Process32Next      @ 9108    Retarget
+* [API ] TimeDelayAPIs      @ 797E    Nothing
+* [API ] TimeQueryAPIs      @ CD79    Nothing
+
+[Manual annotations]
+====================

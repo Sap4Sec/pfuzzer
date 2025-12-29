@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 008e1377ff6fc2c70dc576f7c1542a2db084c8a0ad8bea60bbf7c6fd2a6c0f60
+MD5: 6738bb576700434a2b256d8e5ce83a2a
+Year: 2021_04_15
+Family name: upatre
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ A00F
+* [API ] OpenServiceW         @ A029
+* [API ] CryptAcquireContextW @ 79EE
+* [API ] CryptGenRandom       @ 7A03
+* [API ] CryptReleaseContext  @ 7A18
+* [API ] CreateFileW          @ C16C
+* [API ] CreateFileW          @ C3E0
+* [API ] WriteFile            @ C3FA
+* [API ] CreateProcessW       @ CCD2
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileW        @ C16C    Succeed     Not modified
+* [API ] CreateFileW        @ C3E0    Succeed     Not modified
+* [API ] GetComputerNameA   @ C9B7    Nothing
+* [API ] GetModuleFileNameW @ 6AE1    Nothing
+* [API ] GetModuleFileNameW @ CBA9    Nothing
+* [API ] GetUserNameA       @ 6019    Retarget    Office
+* [API ] TimeDelayAPIs      @ C933    Nothing
+
+[Manual annotations]
+====================

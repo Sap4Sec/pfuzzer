@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Penguish.gen-bbed1847ad3f8247067a8b4d6c36b149445e526963c153cbf1e03dba455c7d3d
+MD5: 7ffe1bbba11e6467b2a5a71c66515e9a
+Year: 2023
+Family name: penguish
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 22E8
+* [API ] FindResourceW     @ 1ECD
+* [API ] SetWindowsHookExW @ 215B
+* [API ] CreateFileW       @ 02DA
+* [API ] FindResourceW     @ FC46
+* [API ] LoadResource      @ FC4E
+* [API ] SetWindowsHookExW @ 6D82
+* [API ] FindResourceW     @ 7F11
+* [API ] FindResourceW     @ F765
+* [API ] LoadResource      @ F76D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 2D05    Nothing
+* [API ] CreateFileA        @ 22E8    Fail        Not modified
+* [API ] CreateFileW        @ 02DA    Succeed
+* [API ] GetCursorPos       @ 1BB1    Nothing
+* [API ] GetFileAttributesA @ 6E4A    Succeed
+* [API ] GetModuleFileNameW @ 2D0E    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 93F1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 94EB    Nothing
+* [API ] GetModuleFileNameW @ 9A4F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 9B2E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ CD33    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ CE7D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ EA07    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExW      @ 8C94    Fail        Not modified
+
+[Manual annotations]
+====================
+Other dependencies: checks command line (same as HEUR-Trojan.Win32.Penguish.gen-1962e1ad21afde8f394e37cfc6d5982f170392c59a532da734f5d6a5ea927d86)

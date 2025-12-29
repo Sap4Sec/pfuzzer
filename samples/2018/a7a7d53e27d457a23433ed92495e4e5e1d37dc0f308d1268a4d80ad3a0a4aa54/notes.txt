@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: a7a7d53e27d457a23433ed92495e4e5e1d37dc0f308d1268a4d80ad3a0a4aa54
+MD5: e31ecf8ddd2e6307872fd345b561c0b9
+Year: 2018
+Family name: SINGLETON:e31ecf8ddd2e6307872fd345b561c0b9
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 1886
+* [API ] CreateFileW          @ 4223
+* [API ] NtCreateFile         @ 66E4
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile         @ 64CF
+* [API ] NtCreateFile         @ DDA3
+* [API ] CryptAcquireContextA @ 296E
+* [API ] CryptCreateHash      @ 29D7
+* [API ] CryptHashData        @ 2A89
+* [API ] CryptGetHashParam    @ 2B33
+* [API ] CryptDestroyHash     @ 2DA6
+* [API ] CryptReleaseContext  @ 2DC0
+* [API ] CreateThread         @ 25ED
+* [API ] NtCreateFile         @ AE9D
+* [API ] NtCreateFile         @ 1E8E
+* [API ] NtCreateFile         @ EFF8
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID         @ 5DB0    Retarget    Missing
+* [API ] CreateFileW   @ 1886    Succeed     Not modified
+* [API ] CreateFileW   @ 4223    Succeed     Not modified
+* [API ] NtCreateFile  @ 66E4    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs @ 75ED    Retarget
+
+[Manual annotations]
+====================

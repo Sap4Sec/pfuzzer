@@ -1,0 +1,65 @@
+[Basic information]
+=========================================================================
+SHA-256: 1339334fdc798a4dd6de616b23d5e4e91d16ce6e9e219b19f7e4cdaba2395b05
+MD5: 0929dba2d90bab8d0c95907dd3466048
+Year: 2020_11_19
+Family name: allaple
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyA        @ 24A5
+* [API ] RegSetValueExA       @ 24C7
+* [API ] WSAStartup           @ 7A6A
+* [API ] CreateThread         @ 7BF0
+* [API ] CreateThread         @ 7C09
+* [API ] CreateThread         @ 7C26
+* [API ] CreateThread         @ 7C46
+* [API ] CryptAcquireContextA @ 33FD
+* [API ] CreateThread         @ 20B6
+* [API ] CryptGenRandom       @ 340D
+* [API ] CryptReleaseContext  @ 3417
+* [API ] CreateThread         @ 3238
+* [API ] CreateThread         @ 351F
+* [API ] ResumeThread         @ 3539
+* [API ] socket               @ 362C
+* [API ] connect              @ 369C
+* [API ] socket               @ 3724
+* [API ] connect              @ 3794
+* [API ] CreateThread         @ 21E7
+* [API ] CreateFileA          @ 7F60
+* [API ] CreateFileA          @ 2563
+* [API ] WriteFile            @ 258A
+* [API ] CreateFileA          @ 32A3
+* [API ] CryptAcquireContextA @ EBCD
+* [API ] CryptGenRandom       @ EBDD
+* [API ] CryptReleaseContext  @ EBE7
+
+Fuzzing Findings
+----------------
+* [API ] ResumeThread         @ 7D00
+* [API ] SuspendThread        @ 7D08
+* [API ] ResumeThread         @ 7CE1
+* [API ] SuspendThread        @ 7CE9
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 2563    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileA        @ 32A3    Succeed     Not modified
+* [API ] CreateFileA        @ 7F60    Succeed     Not modified
+* [API ] CreateMutexA       @ 7B9A    Fail
+* [API ] FindFirstFileA     @ 2145    Nothing
+* [API ] FindNextFileA      @ 220D    Retarget
+* [API ] GetModuleFileNameA @ 2AC5    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 7E72    Nothing
+* [API ] GetModuleFileNameA @ 7FD4    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 807F    Nothing
+* [API ] TimeDelayAPIs      @ 7C56    Retarget
+* [API ] TimeQueryAPIs      @ 34A3    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 822634e31bf223b1590a95aeefb6f34234930ecb4fa08720a75547ec85e653e0
+MD5: 4699aa8fdb12cf8a338d1972a761cd14
+Year: 2020_11_19
+Family name: vkontaktedj
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] FindFirstFileW     @ 63EC    Retarget    C:\*
+* [API ] GetKeyboardLayout  @ 4CDA    Retarget    German
+* [API ] GetModuleFileNameW @ 2F55    Nothing
+* [API ] GetModuleFileNameW @ 5457    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 5FC6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 6444    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 6718    Retarget    C:\Windows\system32\
+* [API ] GetSystemInfo      @ 6EC5    Retarget    Missing
+* [API ] RegOpenKeyExW      @ 530F    Succeed
+* [API ] RegOpenKeyExW      @ 600F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ 6031    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 604F    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 606D    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 608B    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 60A9    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 9E16    Fail
+* [API ] RegQueryValueExW   @ A50A    Nothing
+* [API ] RegQueryValueExW   @ AAF4    Nothing
+* [API ] TimeDelayAPIs      @ BE11    Retarget
+* [API ] TimeQueryAPIs      @ 1385    Retarget
+
+[Manual annotations]
+====================
+Undetermined evasion

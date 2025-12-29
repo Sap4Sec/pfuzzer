@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: 6e90d4868823da80bc9cca252ac6dd548131b07a81464c5d85b32f356254531d
+MD5: 6af6c9613dd2d5fd8119ab6bf1b03160
+Year: 2021_11_03
+Family name: khalesi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 3BA9
+* [API ] CreateFileA @ 3463
+* [API ] CreateFileA @ 40A7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID                @ 440E    Nothing
+* [API ] CreateFileA          @ 3463    Fail        Not modified
+* [API ] CreateFileA          @ 3BA9    Fail        Not modified
+* [API ] CreateFileA          @ 40A7    Fail        Not modified
+* [API ] DeviceIoControl      @ 3C12    Nothing
+* [API ] FindWindowA          @ 34EB    Fail
+* [API ] FindWindowA          @ 3507    Succeed
+* [API ] GetAdaptersAddresses @ 28DA    Retarget    John
+* [API ] GetAdaptersAddresses @ 293F    Nothing
+* [API ] GetAdaptersAddresses @ 2A22    Retarget    John
+* [API ] GetAdaptersAddresses @ 2A87    Retarget    Office
+* [API ] GetCursorPos         @ 3812    Nothing
+* [API ] GetCursorPos         @ 3833    Nothing
+* [API ] GetDiskFreeSpaceExA  @ 3C7E    Nothing
+* [API ] GetFileAttributesA   @ 2870    Fail
+* [API ] GetModuleFileNameA   @ 396B    Retarget    C:\Windows\system32\
+* [API ] GetSystemInfo        @ 3D25    Nothing
+* [API ] GetUserNameA         @ 3885    Nothing
+* [API ] GlobalMemoryStatusEx @ 3D50    Nothing
+* [API ] IsNativeVhdBoot      @ 3DDA    Nothing
+* [API ] Process32First       @ 3619    Nothing
+* [API ] Process32Next        @ 36D1    Retarget
+* [API ] RegOpenKeyExA        @ 25FF    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 26DC    Succeed
+* [API ] RegQueryValueExA     @ 2754    Nothing
+* [API ] TimeDelayAPIs        @ 4763    Nothing
+* [API ] TimeQueryAPIs        @ 4D3F    Nothing
+* [API ] WNetGetProviderNameA @ 3588    Nothing
+
+[Manual annotations]
+====================
+PoC sample: Pafish/Al-khaser- ike

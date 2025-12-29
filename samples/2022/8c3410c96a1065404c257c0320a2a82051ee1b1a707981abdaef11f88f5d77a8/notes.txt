@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.DcRat.bs-8c3410c96a1065404c257c0320a2a82051ee1b1a707981abdaef11f88f5d77a8
+MD5: a2b06ffef153beb2c875df9275e00b38
+Year: 2022
+Family name: dcrat
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 72A0
+* [API ] CreateFileW  @ 2565
+* [API ] NtCreateFile @ DBF6
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ F549
+* [API ] NtCreateFile @ E5E5
+* [API ] NtCreateFile @ AF3F
+* [API ] NtCreateFile @ 09B1
+* [API ] NtCreateFile @ 2C80
+* [API ] NtCreateFile @ 0405
+* [API ] NtCreateFile @ E7FD
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ 1B95    Nothing
+* [API ] CreateFileW        @ 2565    Succeed     Not modified
+* [API ] CreateFileW        @ 72A0    Fail
+* [API ] GetModuleFileNameW @ 730E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ F027    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] NtCreateFile       @ B59A    Fail        Not modified
+* [API ] NtCreateFile       @ DBF6    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 1AE7    Nothing
+
+[Manual annotations]
+====================
+Safengine Shielden(v2.4.0.0), detects the VM

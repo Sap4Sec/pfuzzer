@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 073bc624de15db647dc342731a1fa39aad42b528f2a68627f20b78187a258bc1
+MD5: db1e0f0f4b9d51efcacfea9937d65f92
+Year: 2021_11_03
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 827D
+* [API ] OpenServiceW         @ 7F86
+* [API ] CryptAcquireContextW @ 060E
+* [API ] CryptGenRandom       @ 0093
+* [API ] CryptReleaseContext  @ 03BF
+* [API ] CreateFileW          @ 0793
+* [API ] CreateFileW          @ 15B4
+* [API ] WriteFile            @ 0F86
+* [API ] CreateProcessW       @ 9D91
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileW        @ 0793    Succeed     Not modified
+* [API ] CreateFileW        @ 15B4    Succeed     Not modified
+* [API ] GetComputerNameA   @ D44B    Nothing
+* [API ] GetModuleFileNameW @ 2DA6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ C14E    Nothing
+* [API ] GetUserNameA       @ A387    Nothing
+* [API ] TimeDelayAPIs      @ C181    Retarget
+
+[Manual annotations]
+====================

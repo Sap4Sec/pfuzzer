@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Darkgate.gen-301158ffb44a9824deeec16bdc7dabdc328b9f3ecde0df048741218285d8bcc8
+MD5: db89d7e859719779dc58a25849963712
+Year: 2023
+Family name: darkgate
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 47D5
+* [API ] CreateFileA    @ 662A
+* [API ] WriteFile      @ 6CF6
+* [API ] RegSetValueExA @ AD51
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread   @ 43AB
+* [API ] CreateProcessA @ A669
+* [API ] socket         @ EDBD
+* [API ] connect        @ A6B6
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateFileA        @ 662A    Fail
+* [API ] CreateFileW        @ 47D5    Succeed     Not modified
+* [API ] FindFirstFileA     @ 87C8    Retarget    C:\*
+* [API ] FindFirstFileA     @ 88D0    Fail
+* [API ] FindNextFileA      @ 6F4F    Retarget
+* [API ] FindNextFileA      @ 885A    Retarget
+* [API ] FindNextFileA      @ 8910    Retarget
+* [API ] GetComputerNameA   @ 68A3    Nothing
+* [API ] GetFileAttributesA @ 6BB8    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesA @ 8830    Retarget    C:\Windows\system32\
+* [API ] GetLocalTime       @ 9ED9    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameA @ 59DB    Nothing
+* [API ] GetModuleFileNameA @ 5C6C    Nothing
+* [API ] GetModuleFileNameA @ 63DF    Nothing
+* [API ] GetSystemInfo      @ EC4D    Nothing
+* [API ] GetUserNameA       @ E74E    Nothing
+* [API ] Process32First     @ 550B    Nothing
+* [API ] Process32Next      @ 552B    Retarget
+* [API ] RegOpenKeyExA      @ 5C8A    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5CA8    Succeed
+* [API ] RegOpenKeyExA      @ 5CC6    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 65DE    Fail
+* [API ] RegQueryValueExA   @ 6C2E    Nothing
+* [API ] TimeDelayAPIs      @ 5A22    Retarget
+* [API ] TimeQueryAPIs      @ 2E75    Retarget
+
+[Manual annotations]
+====================

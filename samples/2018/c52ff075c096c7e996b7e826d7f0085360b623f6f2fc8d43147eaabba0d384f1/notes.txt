@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: c52ff075c096c7e996b7e826d7f0085360b623f6f2fc8d43147eaabba0d384f1
+MD5: 7e639e69f712ffbf6a6a69deb7110357
+Year: 2018
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinExec            @ 11DB
+* [API ] RegSetValueExA     @ 133F
+* [API ] RegSetValueExA     @ 13BA
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA     @ 1551
+* [API ] CreateThread       @ 158E
+* [API ] VirtualAllocEx     @ 16A5
+* [API ] WriteProcessMemory @ 16BF
+* [API ] WriteProcessMemory @ 16DD
+* [API ] CreateRemoteThread @ 16ED
+
+Fuzzing Findings
+----------------
+* [API ] RegSetValueExA     @ 143D
+* [API ] RegSetValueExA     @ 14B8
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+On Windows 8 and later, the sample fails due to a INT 29h instruction with ECX = FAST_FAIL_GUARD_ICALL_CHECK_FAILURE. This is because the fast fail mechanism was introduced starting with Windows 8.
+On Windows 7, the sample executes correctly, as this guard check does not exist in that version.
+Reference: FAST_FAIL in MSVC

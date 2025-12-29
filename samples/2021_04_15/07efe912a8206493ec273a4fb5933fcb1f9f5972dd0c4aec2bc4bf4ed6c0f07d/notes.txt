@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 07efe912a8206493ec273a4fb5933fcb1f9f5972dd0c4aec2bc4bf4ed6c0f07d
+MD5: 43cc0eee6d6a6191b9c5c186ac2a4fb8
+Year: 2021_04_15
+Family name: SINGLETON:43cc0eee6d6a6191b9c5c186ac2a4fb8
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 0DE1
+* [API ] OpenServiceW         @ 0DAB
+* [API ] CryptAcquireContextW @ B02C
+* [API ] CryptGenRandom       @ A826
+* [API ] CryptReleaseContext  @ AF1E
+* [API ] CreateFileW          @ 0B7A
+* [API ] CreateFileW          @ 0E6E
+* [API ] WriteFile            @ 0E91
+* [API ] CreateProcessW       @ 5078
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileW        @ 0B7A    Succeed     Not modified
+* [API ] CreateFileW        @ 0E6E    Retarget    iexplorer.exe
+* [API ] GetComputerNameA   @ 1C1F    Retarget    testuser
+* [API ] GetModuleFileNameW @ 1DF3    Nothing
+* [API ] GetModuleFileNameW @ 4799    Nothing
+* [API ] GetUserNameA       @ 7251    Nothing
+
+[Manual annotations]
+====================

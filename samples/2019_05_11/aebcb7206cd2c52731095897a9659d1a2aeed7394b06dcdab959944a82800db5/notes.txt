@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: aebcb7206cd2c52731095897a9659d1a2aeed7394b06dcdab959944a82800db5
+MD5: 778a889102b5dafc5c0dde3c927b59e9
+Year: 2019_05_11
+Family name: blackv
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 132F
+* [API ] CreateFileW  @ AE12
+* [API ] NtCreateFile @ 78A7
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 7BA7
+* [API ] NtCreateFile @ 27B8
+* [API ] NtCreateFile @ 754C
+* [API ] NtCreateFile @ F097
+* [API ] NtCreateFile @ C448
+* [API ] NtCreateFile @ 6802
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 9EAC    Retarget    Missing
+* [API ] CreateFileW        @ 132F    Fail
+* [API ] CreateFileW        @ AE12    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 13E7    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] NtCreateFile       @ 4041    Succeed     Not modified
+* [API ] NtCreateFile       @ 78A7    Fail        Not modified
+* [API ] TimeQueryAPIs      @ EA95    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: Safengine Shielden(v2.3.5.0) --- Chinese error messagebox: YKT.CS (error #3)

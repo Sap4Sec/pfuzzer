@@ -1,0 +1,65 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Passteal.rz-9a03af49df6fd2f1e0946aa96a98bba18764d516a39b7731fd654e65572e6bd9
+MD5: 486ad001825e7d575e6928338ba1da8f
+Year: 2022
+Family name: redcap
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileW            @ F65F
+* [API ] RegCreateKeyW        @ F1ED
+* [API ] WSAStartup           @ 9B32
+* [API ] WinHttpOpen          @ 01DB
+* [API ] WinHttpConnect       @ 1792
+* [API ] WinHttpOpenRequest   @ 17D4
+* [API ] WinHttpSendRequest   @ 21EE
+* [API ] WinHttpReadData      @ 1FDC
+* [API ] CreateFileW          @ 574B
+* [API ] CopyFileW            @ 10FB
+* [API ] CreateFileW          @ FD79
+* [API ] CreateThread         @ C5D2
+* [API ] CreateFileMappingW   @ F511
+* [API ] MapViewOfFile        @ F529
+* [API ] CreateFileW          @ F54D
+* [API ] WriteFile            @ F572
+* [API ] CryptAcquireContextW @ E1FB
+* [API ] CryptGenRandom       @ E210
+* [API ] CryptReleaseContext  @ E246
+* [API ] CryptAcquireContextW @ E25F
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW          @ 657A
+* [API ] InternetOpenW        @ DD6F
+* [API ] InternetOpenUrlW     @ DBA0
+* [API ] CreateFileW          @ DBCA
+* [API ] InternetReadFile     @ DC1C
+* [API ] WriteFile            @ DC06
+* [API ] CreateFileW          @ 147B
+* [API ] ShellExecuteExW      @ 1BB3
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID                    @ 34F1    Nothing
+* [API ] CreateFileW              @ 574B    Succeed
+* [API ] CreateFileW              @ F54D    Fail        Not modified
+* [API ] CreateFileW              @ FD79    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateMutexW             @ 15C4    Succeed
+* [API ] GetAdaptersInfo          @ FFA9    Retarget    Office
+* [API ] GetCursorPos             @ BC8E    Nothing
+* [API ] GetModuleFileNameA       @ 00B9    Nothing
+* [API ] GetModuleFileNameW       @ 1378    Nothing
+* [API ] GetModuleFileNameW       @ 7835    Nothing
+* [API ] GetModuleFileNameW       @ 9C47    Retarget    C:\Windows\system32\
+* [API ] NtQuerySystemInformation @ FF16    Nothing
+* [API ] TimeDelayAPIs            @ 1AE4    Retarget
+* [API ] TimeQueryAPIs            @ 3546    Retarget
+
+[Manual annotations]
+====================

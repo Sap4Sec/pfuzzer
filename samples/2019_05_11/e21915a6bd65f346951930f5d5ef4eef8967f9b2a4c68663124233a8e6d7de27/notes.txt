@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: e21915a6bd65f346951930f5d5ef4eef8967f9b2a4c68663124233a8e6d7de27
+MD5: ff3e2a1dc50bae5535df8b163648378b
+Year: 2019_05_11
+Family name: sefnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WriteFile                   @ EC68
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceA               @ 75B4
+* [API ] LoadResource                @ 7700
+* [API ] WSAStartup                  @ 1164
+* [API ] CryptAcquireContextA        @ AA21
+* [API ] CryptGenRandom              @ AAF9
+* [API ] StartServiceCtrlDispatcherW @ FC56
+* [API ] CryptReleaseContext         @ AA82
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 634B    Nothing
+* [API ] CreateMutexA       @ 73FD    Fail
+* [API ] CreateMutexW       @ 1F2F    Retarget    vscode
+* [API ] GetModuleFileNameW @ 6A33    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 9566    Nothing
+* [API ] GetModuleFileNameW @ BD37    Nothing
+* [API ] GetSystemInfo      @ 636D    Nothing
+* [API ] GetUserNameExW     @ 6B2D    Nothing
+* [API ] Process32FirstW    @ 1317    Nothing
+* [API ] Process32NextW     @ 13E0    Retarget
+* [API ] Process32NextW     @ 14A4    Retarget
+* [API ] TimeDelayAPIs      @ CE93    Nothing
+* [API ] TimeQueryAPIs      @ 9958    Nothing
+
+[Manual annotations]
+====================

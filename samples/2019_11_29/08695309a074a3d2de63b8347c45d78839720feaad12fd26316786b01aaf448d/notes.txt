@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 08695309a074a3d2de63b8347c45d78839720feaad12fd26316786b01aaf448d
+MD5: c4d4b8e96ba0c1817ce3b13af823e901
+Year: 2019_11_29
+Family name: sivis
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 23A9
+* [API ] CreateFileA     @ 23EF
+* [API ] CreateFileA     @ 2408
+* [API ] WriteFile       @ 22CB
+* [API ] WriteFile       @ 2991
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA  @ 2CE6
+* [API ] ShellExecuteExA @ 2E3D
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 23A9    Succeed
+* [API ] CreateFileA        @ 23EF    Succeed
+* [API ] CreateFileA        @ 2408    Fail        Not modified
+* [API ] FindFirstFileA     @ 30C1    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ 3302    Succeed
+* [API ] FindNextFileA      @ 3371    Retarget
+* [API ] GetModuleFileNameA @ 2A3B    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] TimeQueryAPIs      @ 20E8    Retarget
+
+[Manual annotations]
+====================

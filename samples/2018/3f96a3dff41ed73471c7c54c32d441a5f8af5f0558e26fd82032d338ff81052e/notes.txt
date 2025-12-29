@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 3f96a3dff41ed73471c7c54c32d441a5f8af5f0558e26fd82032d338ff81052e
+MD5: 4e42f65613fbd1e92a9f7e3f2366d150
+Year: 2018
+Family name: filetour
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: KAV2.dll

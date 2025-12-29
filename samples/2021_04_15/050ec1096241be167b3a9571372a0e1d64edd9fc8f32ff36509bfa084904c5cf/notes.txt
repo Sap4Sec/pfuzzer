@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 050ec1096241be167b3a9571372a0e1d64edd9fc8f32ff36509bfa084904c5cf
+MD5: 04089e45a495c27948c0b61e1c6f7db1
+Year: 2021_04_15
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA     @ 7258
+* [API ] CreateFileA   @ 2E30
+* [API ] CreateFileA   @ 290D
+* [API ] WriteFile     @ 2838
+* [API ] ShellExecuteA @ 7405
+* [API ] CreateThread  @ 752C
+* [API ] WSAStartup    @ 530B
+* [API ] socket        @ 5316
+* [API ] WSAStartup    @ 51B1
+* [API ] inet_addr     @ 535A
+* [API ] connect       @ 5371
+* [API ] CopyFileA     @ 5C21
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CreateFileA               @ 290D    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileA               @ 2E30    Succeed
+* [API ] FindFirstFileA            @ 6AFC    Nothing
+* [API ] FindFirstFileA            @ 6C35    Nothing
+* [API ] FindNextFileA             @ 6A71    Retarget
+* [API ] FindNextFileA             @ 6B3C    Retarget
+* [API ] GetModuleFileNameA        @ 2705    Nothing
+* [API ] InternetGetConnectedState @ 7490    Succeed
+* [API ] Process32First            @ 574F    Nothing
+* [API ] Process32Next             @ 576F    Retarget
+* [API ] RegOpenKeyExA             @ 5DBB    Fail        Not modified
+* [API ] RegQueryValueExA          @ 5DE3    Nothing
+* [API ] TimeDelayAPIs             @ 74F9    Retarget
+* [API ] TimeQueryAPIs             @ 2745    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

@@ -1,0 +1,72 @@
+[Basic information]
+=========================================================================
+SHA-256: 4350cc71d1bd533e8cc38a57d85943a7311679e1d0e549dc17cb5e3b9f49962f
+MD5: b3b349b7225328f386fcc77a0e779ad3
+Year: 2018
+Family name: SINGLETON:b3b349b7225328f386fcc77a0e779ad3
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExW @ 0366
+* [API ] RegCreateKeyExA   @ AA37
+* [API ] CreateFileA       @ 20F2
+* [API ] CreateFileW       @ 8956
+* [API ] RegCreateKeyExA   @ ABBB
+* [API ] RegSetValueExA    @ AFDA
+* [API ] WriteFile         @ 69F6
+* [API ] CreateThread      @ 9C29
+
+Fuzzing Findings
+----------------
+* [API ] GetKeyState       @ 5F0B
+* [API ] GetKeyState       @ 5F2D
+* [API ] GetKeyState       @ 5F3C
+* [API ] ShellExecuteW     @ F4E5
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CreateFileA        @ 20F2    Fail        Not modified
+* [API ] CreateFileW        @ 8956    Retarget    C:\Windows\system32\
+* [API ] CreateMutexA       @ 4A3B    Retarget    vscode
+* [API ] FindFirstFileA     @ 60EB    Fail
+* [API ] FindFirstFileW     @ 89E6    Fail
+* [API ] FindWindowA        @ 2328    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetComputerNameA   @ A7CB    Retarget    testuser
+* [API ] GetFileAttributesW @ 8AB6    Succeed
+* [API ] GetKeyboardLayout  @ C646    Retarget    French
+* [API ] GetLocalTime       @ 9319    Retarget    2015:12:6:15
+* [API ] GetLocalTime       @ 9345    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameA @ 390F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 3B49    Nothing
+* [API ] GetModuleFileNameA @ 5F7B    Nothing
+* [API ] GetModuleFileNameA @ 61B5    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ D7FC    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 8E56    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ A7B7    Retarget    John
+* [API ] GetWindowTextA     @ 2369    Nothing
+* [API ] RegOpenKeyA        @ 1FEF    Succeed
+* [API ] RegOpenKeyExA      @ 3B67    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 3B85    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 3BA3    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 61D3    Succeed
+* [API ] RegOpenKeyExA      @ 61F1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 620F    Fail        Not modified
+* [API ] RegOpenKeyExA      @ AB87    Succeed
+* [API ] RegQueryValueExA   @ 2016    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 3BEC    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 3C0A    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6258    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6276    Nothing
+* [API ] RegQueryValueExA   @ AA68    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ AE1B    Retarget    ProductID
+* [API ] RegQueryValueExA   @ B03C    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 02AD    Retarget
+* [API ] TimeQueryAPIs      @ 0959    Retarget
+
+[Manual annotations]
+====================

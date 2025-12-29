@@ -1,0 +1,29 @@
+[Basic information]
+=========================================================================
+SHA-256: db959526630f85d92b98b3fb2f848509ae9b078980f3c449049ed8ccbf624652
+MD5: 032e5a48ebf23580da51122557842abc
+Year: 2018
+Family name: SINGLETON:032e5a48ebf23580da51122557842abc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 10A8
+* [API ] SetWindowsHookExA @ CE86
+* [API ] WSAStartup        @ A796
+* [API ] WSAStartup        @ DCA8
+* [API ] WSAStartup        @ DEF1
+* [API ] WSAStartup        @ E14F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+System shutdown with syscall ZwShutdownSystem @ 0x530FAB

@@ -1,0 +1,67 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Llac.lgnr-15758e91ed9bbead48c23b487dc945343532b898a6bb0639160850df4e8c4817
+MD5: a0cef3e018e2f64f2d33bbcf7968d72c
+Year: 2022
+Family name: llac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8D8
+* [API ] CreateProcessA     @ B665
+* [API ] CreateProcessA     @ B6CB
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (30)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Fail        Not modified
+* [API ] CreateFileA        @ 586F    Fail        Not modified
+* [API ] CreateFileA        @ 5DBB    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 3583    Fail
+* [API ] FindFirstFileA     @ 5D3E    Fail
+* [API ] FindWindowA        @ B879    Succeed
+* [API ] GetFileAttributesA @ 5A78    Fail
+* [API ] GetFileAttributesA @ 6670    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetUserNameA       @ 55A8    Retarget    John
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 5409    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 54C1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 537A    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 5432    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 54EA    Nothing
+* [API ] RegQueryValueExA   @ 6106    Nothing
+* [API ] RegQueryValueExA   @ 6130    Nothing
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Retarget
+
+[Manual annotations]
+====================

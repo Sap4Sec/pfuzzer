@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 03e3126c94eb3e4227a71de75928bc79c91b5bc1ec85c9c029ed705b7bc6009b
+MD5: 2c810cf0ad57227bd1109561cacae720
+Year: 2021_11_03
+Family name: mansabo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Popup from Windows: This app can't run on your pc To find a version for your PC, check with the software publisher.

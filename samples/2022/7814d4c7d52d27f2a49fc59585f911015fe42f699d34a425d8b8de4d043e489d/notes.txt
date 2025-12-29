@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.Danabot.gen-7814d4c7d52d27f2a49fc59585f911015fe42f699d34a425d8b8de4d043e489d
+MD5: e23a65d9a791707aef03e135fd742d8e
+Year: 2022
+Family name: danabot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessW       @ D7D6
+* [API ] VirtualAllocEx       @ 810E
+* [API ] WriteProcessMemory   @ 8152
+* [API ] NtWriteVirtualMemory @ 9EA1
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW          @ 820E
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 7A1B    Nothing
+* [API ] FindFirstFileW     @ D3C8    Retarget    C:\*
+* [API ] GetFileAttributesW @ 1076    Fail
+* [API ] GetFileAttributesW @ 82F2    Retarget    C:\Windows\explorer.exe
+* [API ] GetLocalTime       @ 37DD    Nothing
+* [API ] GetLocalTime       @ 7289    Nothing
+* [API ] GetModuleFileNameW @ 7195    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 71B9    Nothing
+* [API ] GetModuleFileNameW @ C467    Nothing
+* [API ] GetModuleFileNameW @ CFF2    Nothing
+* [API ] GetModuleFileNameW @ D6F9    Retarget    C:\Windows\system32\
+* [API ] GetSystemInfo      @ F011    Retarget    Missing
+* [API ] RegOpenKeyExW      @ D03B    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D05D    Succeed
+* [API ] RegOpenKeyExW      @ D07B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D099    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D0B7    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D0D5    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 72B5    Retarget
+* [API ] TimeQueryAPIs      @ 71D5    Retarget
+
+[Manual annotations]
+====================

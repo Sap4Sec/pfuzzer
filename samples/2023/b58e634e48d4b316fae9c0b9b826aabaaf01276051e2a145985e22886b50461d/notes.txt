@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Spy.Win32.Stealer.debb-b58e634e48d4b316fae9c0b9b826aabaaf01276051e2a145985e22886b50461d
+MD5: a7055f37f4eab727ca0765cb26a0397b
+Year: 2023
+Family name: reline
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (37)]
+=======================================
+
+* [API ] CreateMutexW           @ 1928    Retarget    VBoxTray
+* [API ] CreateMutexW           @ 19C2    Fail
+* [API ] GetModuleFileNameW     @ DEFE    Nothing
+* [API ] GetSystemFirmwareTable @ 5B48    Retarget    Office
+* [API ] GetSystemFirmwareTable @ 5D47    Retarget    John
+* [API ] RegOpenKeyA            @ 05E9    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyA            @ 0CC0    Succeed     Not modified
+* [API ] RegOpenKeyA            @ 19F7    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyA            @ 1E6F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA       @ 07FB    Nothing
+* [API ] RegQueryValueExA       @ 0EB4    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA       @ 11ED    Retarget    ProductID
+* [API ] RegQueryValueExA       @ 1505    Nothing
+* [API ] RegQueryValueExA       @ 2186    Nothing
+* [API ] TimeQueryAPIs          @ 1D5A    Nothing
+
+[Manual annotations]
+====================

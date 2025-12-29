@@ -1,0 +1,104 @@
+[Basic information]
+=========================================================================
+SHA-256: 5faaf67e7abc5d78fe84f05680e9c18abc71049374e1ad1dda871bacdb0909b4
+MD5: cd57b536f0ed6d9f9f05b1213a883b08
+Year: 2018
+Family name: sokuxuan
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExW    @ 02E0
+* [API ] RegSetValueExW     @ 053D
+* [API ] CreateFileW        @ 2773
+* [API ] CreateFileW        @ B6FE
+* [API ] inet_addr          @ CF1C
+* [API ] socket             @ BCA4
+* [API ] connect            @ B18C
+* [API ] send               @ C16B
+* [API ] RegSetValueExW     @ 045E
+* [API ] CreateThread       @ 5CC9
+* [API ] CreateThread       @ A5BC
+* [API ] InternetOpenW      @ 1E01
+* [API ] InternetOpenUrlW   @ 1F15
+* [API ] CreateThread       @ 71BA
+* [API ] FindResourceW      @ 75E1
+* [API ] LoadResource       @ 4C57
+* [API ] FindResourceW      @ 75FF
+* [API ] CreateFileW        @ 71DA
+* [API ] InternetReadFile   @ 22A6
+* [API ] WriteFile          @ BB97
+* [API ] VirtualAllocEx     @ 580C
+* [API ] VirtualAllocEx     @ 5823
+* [API ] VirtualAllocEx     @ 5837
+* [API ] WriteProcessMemory @ 58D8
+* [API ] FindResourceW      @ 2EE7
+* [API ] LoadResource       @ 2EFC
+* [API ] ReadProcessMemory  @ 590B
+* [API ] ReadProcessMemory  @ 596E
+* [API ] CreateThread       @ 7819
+* [API ] CreateFileW        @ 5820
+* [API ] CreateFileMappingA @ 589A
+* [API ] MapViewOfFile      @ 58CD
+* [API ] FindResourceA      @ 7AD2
+* [API ] LoadResource       @ 7AFA
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+* [API ] CreateThread       @ 8CD8
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 1EA1
+* [API ] WriteFile          @ 2170
+* [API ] CreateFileA        @ 13C9
+* [API ] WriteFile          @ 212D
+* [API ] CreateFileA        @ 20C4
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CPUID                     @ 18E2    Retarget    Missing
+* [API ] CreateFileW               @ 2773    Fail        Not modified
+* [API ] CreateFileW               @ 5820    Retarget    Detect It Easy.lnk
+* [API ] CreateFileW               @ 71DA    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileW               @ B6FE    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateMutexW              @ 5852    Fail
+* [API ] FindFirstFileW            @ 3DCD    Succeed
+* [API ] FindFirstFileW            @ 8985    Succeed
+* [API ] FindNextFileW             @ 4106    Retarget
+* [API ] FindNextFileW             @ 8B90    Retarget
+* [API ] FindWindowExW             @ A31C    Retarget    Window - Window
+* [API ] FindWindowExW             @ A33D    Succeed
+* [API ] FindWindowExW             @ A363    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] FindWindowExW             @ A36F    Retarget    SecHealthHost - SecHealth Win
+* [API ] FindWindowW               @ A301    Succeed
+* [API ] FindWindowW               @ A353    Succeed
+* [API ] GetAdaptersAddresses      @ 215E    Retarget    Office
+* [API ] GetAdaptersAddresses      @ 21C0    Retarget    Office
+* [API ] GetFileAttributesExW      @ 2806    Fail
+* [API ] GetFileAttributesExW      @ 2996    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetFileAttributesExW      @ 2A1E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesW        @ 2654    Fail
+* [API ] GetFileAttributesW        @ 28E1    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesW        @ 33A9    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW        @ 36EB    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW        @ 396B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW        @ CB89    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] InternetGetConnectedState @ 1DC6    Succeed
+* [API ] RegOpenKeyExW             @ 0279    Succeed     Not modified
+* [API ] RegOpenKeyExW             @ F94B    Succeed
+* [API ] RegOpenKeyExW             @ FA49    Fail
+* [API ] RegQueryValueExW          @ F98D    Nothing
+* [API ] RegQueryValueExW          @ FBE3    Retarget    ProductID
+* [API ] RegQueryValueExW          @ FCC7    Nothing
+* [API ] RegQueryValueExW          @ FD44    Nothing
+* [API ] TimeDelayAPIs             @ BED3    Nothing
+* [API ] TimeQueryAPIs             @ 59E3    Nothing
+
+[Manual annotations]
+====================
+Queries WMI Win32_DiskDrive for SerialNumber

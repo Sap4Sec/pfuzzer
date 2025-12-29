@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan.Win32.Generic-91bd5168b9b0026bfcc02f4a30c11f76d8663ef3ccf734afcc490098b517fa25
+MD5: b3f5d8a881bf8c1c0431cb6b9747918f
+Year: 2022
+Family name: aenjaris
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CryptAcquireContextW @ 4CA0
+* [API ] OpenSCManagerA       @ 4871
+* [API ] OpenServiceA         @ 48B1
+* [API ] ShellExecuteW        @ 4801
+* [API ] CreateThread         @ C547
+* [API ] CreateThread         @ C565
+* [API ] CreateFileW          @ B962
+* [API ] WriteFile            @ B98C
+* [API ] MoveFileExW          @ AC67
+* [API ] CreateFileW          @ AC8B
+* [API ] CryptGenRandom       @ ACE2
+* [API ] WriteFile            @ B32D
+* [API ] WriteFile            @ B377
+* [API ] WriteFile            @ B125
+
+Fuzzing Findings
+----------------
+* [API ] ControlService       @ 4A0C
+* [API ] CryptReleaseContext  @ C955
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CreateFileW          @ AC8B    Succeed     Not modified
+* [API ] CreateFileW          @ B962    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexA         @ C797    Retarget    ZonesCacheCounterMutex
+* [API ] FindFirstFileW       @ B9C4    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileW       @ BE00    Fail
+* [API ] FindNextFileW        @ BCA8    Retarget
+* [API ] FindNextFileW        @ BE9D    Retarget
+* [API ] GetFileAttributesExW @ AB20    Fail
+* [API ] GetSystemInfo        @ C47B    Retarget    Missing
+* [API ] Process32FirstW      @ 4AB1    Nothing
+* [API ] Process32NextW       @ 4B37    Retarget
+* [API ] TimeDelayAPIs        @ 0C0C    Retarget
+* [API ] TimeQueryAPIs        @ 4858    Retarget
+
+[Manual annotations]
+====================

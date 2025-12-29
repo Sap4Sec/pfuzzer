@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.Remcos.gen-5ccbfc6564f960202e0e34a71d067f4808fc644151323961b0300766f495996b
+MD5: 9af374dc546fd477c8affd3d0294a8ad
+Year: 2023
+Family name: remcos
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA           @ A4DF
+* [API ] FindResourceA           @ D144
+* [API ] LoadResource            @ D15E
+* [API ] NtWriteVirtualMemory    @ EDC4
+* [API ] NtWriteVirtualMemory    @ EEBD
+* [API ] NtAllocateVirtualMemory @ 8C42
+* [API ] NtWriteVirtualMemory    @ 7C1A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] GetFileAttributesA @ 7E48    Fail
+* [API ] GetKeyboardLayout  @ 456E    Nothing
+* [API ] GetModuleFileNameA @ 584F    Nothing
+* [API ] GetModuleFileNameA @ 585A    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5AB1    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 5D2B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5F8D    Nothing
+* [API ] GetModuleFileNameA @ C35C    Nothing
+* [API ] RegOpenKeyExA      @ 3B91    Fail
+* [API ] RegOpenKeyExA      @ 5ACF    Succeed
+* [API ] RegOpenKeyExA      @ 5AED    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5B0B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5FAB    Succeed
+* [API ] RegOpenKeyExA      @ 5FC9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5FE7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 3D0F    Nothing
+* [API ] RegQueryValueExA   @ 3DF8    Nothing
+* [API ] TimeDelayAPIs      @ 79A5    Nothing
+* [API ] TimeQueryAPIs      @ 3015    Nothing
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

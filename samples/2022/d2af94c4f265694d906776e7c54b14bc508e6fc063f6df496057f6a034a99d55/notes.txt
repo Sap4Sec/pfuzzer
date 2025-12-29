@@ -1,0 +1,132 @@
+[Basic information]
+=========================================================================
+SHA-256: Virus.Win32.Agent.co-d2af94c4f265694d906776e7c54b14bc508e6fc063f6df496057f6a034a99d55
+MD5: 218f419c0051b2a96711ab52fd586eb0
+Year: 2022
+Family name: basine
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ EF5E
+* [API ] LoadResource    @ EF8E
+* [API ] FindResourceA   @ F076
+* [API ] LoadResource    @ F0A6
+* [API ] FindResourceA   @ F197
+* [API ] LoadResource    @ F1CD
+* [API ] FindResourceA   @ F2D9
+* [API ] LoadResource    @ F30F
+* [API ] FindResourceA   @ F41B
+* [API ] LoadResource    @ F451
+* [API ] FindResourceA   @ F55D
+* [API ] LoadResource    @ F593
+* [API ] FindResourceA   @ F69F
+* [API ] LoadResource    @ F6D5
+* [API ] FindResourceA   @ F7E1
+* [API ] LoadResource    @ F817
+* [API ] FindResourceA   @ F923
+* [API ] LoadResource    @ F959
+* [API ] FindResourceA   @ FA65
+* [API ] LoadResource    @ FA9B
+* [API ] FindResourceA   @ FBA7
+* [API ] LoadResource    @ FBDD
+* [API ] FindResourceA   @ FCE9
+* [API ] LoadResource    @ FD1F
+* [API ] FindResourceA   @ FE9D
+* [API ] LoadResource    @ FED3
+* [API ] FindResourceA   @ FFDF
+* [API ] LoadResource    @ 0015
+* [API ] FindResourceA   @ 0121
+* [API ] LoadResource    @ 0157
+* [API ] FindResourceA   @ 0263
+* [API ] LoadResource    @ 0299
+* [API ] FindResourceA   @ 03A5
+* [API ] LoadResource    @ 03DB
+* [API ] FindResourceA   @ 04E7
+* [API ] LoadResource    @ 051D
+* [API ] FindResourceA   @ 0629
+* [API ] LoadResource    @ 065F
+* [API ] FindResourceA   @ 076B
+* [API ] LoadResource    @ 07A1
+* [API ] FindResourceA   @ 08AD
+* [API ] LoadResource    @ 08E3
+* [API ] FindResourceA   @ 09EF
+* [API ] LoadResource    @ 0A25
+* [API ] FindResourceA   @ 0B31
+* [API ] LoadResource    @ 0B67
+* [API ] FindResourceA   @ 0C73
+* [API ] LoadResource    @ 0CA9
+* [API ] FindResourceA   @ 0DB5
+* [API ] LoadResource    @ 0DEB
+* [API ] FindResourceA   @ 0EF7
+* [API ] LoadResource    @ 0F2D
+* [API ] FindResourceA   @ 1039
+* [API ] LoadResource    @ 106F
+* [API ] FindResourceA   @ 117B
+* [API ] LoadResource    @ 11B1
+* [API ] FindResourceA   @ 12BD
+* [API ] LoadResource    @ 12F3
+* [API ] FindResourceA   @ 140D
+* [API ] LoadResource    @ 1443
+* [API ] FindResourceA   @ 1828
+* [API ] LoadResource    @ 185E
+* [API ] FindResourceA   @ 1953
+* [API ] LoadResource    @ 1989
+* [API ] CreateFileA     @ 1A60
+* [API ] WriteFile       @ 1A9E
+* [API ] WinExec         @ 1B28
+* [API ] RegCreateKeyExA @ C71E
+* [API ] RegSetValueExA  @ C74B
+* [API ] CreateFileA     @ DAC4
+* [API ] FindResourceA   @ DB8D
+* [API ] LoadResource    @ DB9D
+* [API ] CopyFileA       @ DC73
+* [API ] FindResourceA   @ DCB2
+* [API ] FindResourceA   @ DD7B
+* [API ] CreateFileA     @ DF41
+* [API ] CopyFileA       @ E0D1
+* [API ] LoadResource    @ DCC2
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ A76A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CopyFileA       @ A88C
+* [API ] CreateFileA     @ 3388
+* [API ] CreateFileA     @ AADA
+* [API ] WriteFile       @ AB27
+* [API ] CreateFileA     @ ACEB
+* [API ] WinExec         @ B30B
+* [API ] CopyFileA       @ B39C
+* [API ] FindResourceA   @ B410
+* [API ] LoadResource    @ B446
+* [API ] FindResourceA   @ B5EC
+* [API ] LoadResource    @ B622
+* [API ] CopyFileA       @ B7FD
+* [API ] CreateFileA     @ FD6C
+* [API ] WriteFile       @ FD90
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CreateFileA        @ 1A60    Fail
+* [API ] CreateFileA        @ DAC4    Retarget    attrib.exe
+* [API ] CreateFileA        @ DF41    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 577B    Fail
+* [API ] FindFirstFileA     @ 6A14    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ BE0F    Fail
+* [API ] FindNextFileA      @ 6A54    Retarget
+* [API ] GetModuleFileNameA @ 2C68    Nothing
+* [API ] GetModuleFileNameA @ 4D7F    Nothing
+* [API ] GetModuleFileNameA @ 5010    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] Process32First     @ 9657    Nothing
+* [API ] Process32Next      @ 967D    Retarget
+* [API ] RegOpenKeyExA      @ 502E    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 504C    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 506A    Fail        Not modified
+
+[Manual annotations]
+====================

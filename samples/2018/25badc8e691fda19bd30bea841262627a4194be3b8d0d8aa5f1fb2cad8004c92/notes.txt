@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 25badc8e691fda19bd30bea841262627a4194be3b8d0d8aa5f1fb2cad8004c92
+MD5: 9c6930ab5cfae8cb26fd32ef789fd5bf
+Year: 2018
+Family name: scarab
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateProcessW  @ 11A9
+* [API ] ShellExecuteW   @ 4327
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessW  @ 48EB
+* [API ] CreateThread    @ 4565
+* [API ] RegCreateKeyExA @ 64AE
+* [API ] RegSetValueExA  @ 6517
+* [API ] WinExec         @ 4228
+* [API ] CreateFileW     @ 238A
+* [API ] WriteFile       @ 2211
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateProcessW  @ 55F1
+* [PERS] Software\Microsoft\Windows\CurrentVersion\RunOnce
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] FindFirstFileW     @ 6CDC    Fail
+* [API ] GetModuleFileNameA @ 58AF    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5B11    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 1525    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] RegOpenKeyExA      @ 5B2F    Succeed
+* [API ] RegOpenKeyExA      @ 5B4D    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5B6B    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 65C4    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs      @ 11C0    Retarget
+* [API ] TimeQueryAPIs      @ 3175    Retarget
+
+[Manual annotations]
+====================
+Copies itself as systems.exe, then enumerates shared folders and performs various file operations
+Starts mshta.exe with JavaScript in the command line
+Drops a ransom note (not readable) and encrypts all files on the system

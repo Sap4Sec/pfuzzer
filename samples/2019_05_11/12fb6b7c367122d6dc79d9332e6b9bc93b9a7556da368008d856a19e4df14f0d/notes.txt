@@ -1,0 +1,61 @@
+[Basic information]
+=========================================================================
+SHA-256: 12fb6b7c367122d6dc79d9332e6b9bc93b9a7556da368008d856a19e4df14f0d
+MD5: 87fde33cc949d689a539c9f08f3c492e
+Year: 2019_05_11
+Family name: softcnapp
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ DE8A
+* [API ] WSAStartup       @ 6BF5
+* [API ] CreateThread     @ 8878
+* [API ] FindResourceW    @ D712
+* [API ] LoadResource     @ D729
+* [API ] CreateThread     @ AF81
+* [API ] CreateThread     @ 8904
+* [API ] socket           @ A886
+* [API ] CreateThread     @ F70C
+* [API ] getaddrinfo      @ 5F85
+* [API ] socket           @ 395A
+* [API ] connect          @ 3AF1
+* [API ] send             @ 7370
+* [API ] CreateThread     @ 33B6
+* [API ] CreateFileW      @ 442E
+* [API ] InternetOpenW    @ 49B0
+* [API ] InternetOpenUrlW @ 6391
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW      @ 46DB
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID              @ 310C    Nothing
+* [API ] CreateFileW        @ 442E    Retarget    attrib.exe
+* [API ] CreateFileW        @ DE8A    Succeed
+* [API ] DeviceIoControl    @ DEF9    Retarget    Missing
+* [API ] DeviceIoControl    @ E0A8    Retarget    Missing
+* [API ] GetAdaptersInfo    @ F374    Retarget    John
+* [API ] GetAdaptersInfo    @ F39D    Retarget    testuser
+* [API ] GetFileAttributesW @ 4393    Succeed
+* [API ] GetModuleFileNameW @ 07D3    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 1030    Nothing
+* [API ] GetModuleFileNameW @ 7110    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 92EC    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ A129    Nothing
+* [API ] GetModuleFileNameW @ CFA3    Nothing
+* [API ] Process32FirstW    @ 349B    Nothing
+* [API ] Process32FirstW    @ 42B6    Nothing
+* [API ] Process32NextW     @ 3510    Retarget
+* [API ] Process32NextW     @ 42F9    Retarget
+* [API ] TimeDelayAPIs      @ 78FF    Retarget
+* [API ] TimeQueryAPIs      @ 5D4C    Retarget
+
+[Manual annotations]
+====================

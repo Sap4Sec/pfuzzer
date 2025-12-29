@@ -1,0 +1,73 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.BestaFera.gen-45db4c82c37ba696b660fc631dbb43d7995dbdc1f53ed996c4d6f52ac48f9260
+MD5: d1208b1a89b474cce85109002a83e187
+Year: 2022
+Family name: bestafera
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW    @ 4B1C
+* [API ] LoadResource     @ 4B36
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceW    @ 5C13
+* [API ] GetKeyState      @ 6FAB
+* [API ] GetKeyboardState @ 3BD5
+* [API ] GetKeyState      @ 6FD2
+* [API ] GetKeyState      @ 6FE2
+* [API ] WSAStartup       @ 4175
+* [API ] getaddrinfo      @ B417
+* [API ] socket           @ 4619
+* [API ] connect          @ B466
+* [API ] send             @ 5493
+* [API ] recv             @ 5433
+* [API ] RegCreateKeyExW  @ 3909
+* [API ] CreateFileW      @ 6F04
+* [API ] GetKeyState      @ E4E1
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CPUID              @ 7C93    Nothing
+* [API ] FindFirstFileW     @ D657    Nothing
+* [API ] FindFirstFileW     @ DB28    Fail
+* [API ] FindWindowW        @ 3FD8    Fail
+* [API ] FindWindowW        @ 4044    Succeed
+* [API ] GetCursorPos       @ 4D78    Nothing
+* [API ] GetCursorPos       @ 525F    Retarget    Missing
+* [API ] GetFileAttributesW @ 72A2    Fail
+* [API ] GetFileAttributesW @ 733F    Fail
+* [API ] GetKeyboardLayout  @ 0852    Nothing
+* [API ] GetLocalTime       @ A5D5    Nothing
+* [API ] GetModuleFileNameW @ 2255    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 72C5    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ CBC7    Nothing
+* [API ] GetModuleFileNameW @ D752    Nothing
+* [API ] GetModuleFileNameW @ DE71    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemInfo      @ FAC1    Retarget    Missing
+* [API ] GetWindowTextW     @ 4060    Retarget    SecHealthHost - SecHealth Win
+* [API ] Process32FirstW    @ 0D37    Nothing
+* [API ] Process32NextW     @ 0D57    Retarget
+* [API ] RegOpenKeyExW      @ 0F5B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 3A02    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 3A78    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D79B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D7BD    Succeed
+* [API ] RegOpenKeyExW      @ D7DB    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D7F9    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D817    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D835    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExW   @ 413E    Nothing
+* [API ] RegQueryValueExW   @ 4738    Nothing
+* [API ] RegQueryValueExW   @ D875    Nothing
+* [API ] RegQueryValueExW   @ D8C4    Retarget    SystemBiosDate
+* [API ] TimeQueryAPIs      @ 7321    Retarget
+
+[Manual annotations]
+====================

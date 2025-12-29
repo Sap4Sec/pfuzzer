@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Strab.vt-fc0cb0682ccc37bdd72fab5106d45ebf7fb014b15004d65d627f6e2aed0750b4
+MD5: afd26f223230ad20eb208dbaa0164e43
+Year: 2022
+Family name: strab
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] FindWindowA              @ 130F    Fail
+* [API ] FindWindowA              @ 1505    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowA              @ 172B    Fail
+* [API ] GetModuleFileNameW       @ 6A03    Nothing
+* [API ] NtQuerySystemInformation @ C1E2    Retarget    testuser
+* [API ] Process32First           @ 1929    Nothing
+* [API ] Process32Next            @ 1A56    Retarget
+* [API ] RegOpenKeyA              @ B736    Succeed     Not modified
+* [API ] RegQueryValueExA         @ BAB4    Retarget    ProductID
+* [API ] TimeQueryAPIs            @ 2F30    Retarget
+
+[Manual annotations]
+====================
+Protectors

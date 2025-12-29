@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 2da3a831490ca0340064119eafcd7b427e639bd812a8defdc5514a79d51530db
+MD5: 56ec1ce8060db6970f857188b452ebde
+Year: 2021_11_03
+Family name: xolxo
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (63)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Succeed     Not modified
+* [API ] CreateFileA        @ 32AC    Succeed     Not modified
+* [API ] CreateFileA        @ 3310    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA        @ 33ED    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateMutexA       @ 2A13    Retarget    ZonesCacheCounterMutex
+* [API ] FindFirstFileA     @ 30A1    Succeed
+* [API ] FindFirstFileA     @ 369C    Nothing
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Windows\system32\
+* [API ] RegOpenKeyExA      @ 2D07    Succeed
+* [API ] RegQueryValueExA   @ 2DE3    Retarget    SystemBiosDate
+
+[Manual annotations]
+====================

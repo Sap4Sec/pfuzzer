@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 9c4867b0ce01aa231f2e985d72fdf1d3729a1eac9c90ff6cd2e85a0614a25193
+MD5: 5e078fa4edfc19524a558fc8b770117d
+Year: 2021_11_03
+Family name: SINGLETON:5e078fa4edfc19524a558fc8b770117d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup @ 2089
+* [API ] WSAStartup @ B11F
+
+Fuzzing Findings
+----------------
+* [API ] inet_addr  @ DC30
+* [API ] socket     @ 1669
+* [API ] connect    @ FBED
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID                @ 32BE    Retarget    Missing
+* [API ] GetModuleFileNameA   @ 2B2C    Nothing
+* [API ] GetSystemDefaultLCID @ D062    Nothing
+* [API ] TimeQueryAPIs        @ AC06    Retarget
+
+[Manual annotations]
+====================

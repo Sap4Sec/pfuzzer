@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: 45b7c23ba0eb6aea5d2ef7ec8cc0db0b030b2e2b212717bf221b84e04766c152
+MD5: 8af3c1347be27fa410e4d52e9c82a5b8
+Year: 2021_11_03
+Family name: pidgeon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 9A9F
+* [API ] SetWindowsHookExA @ 3B09
+* [API ] SetWindowsHookExA @ 0C6A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA    @ 4D5C
+* [API ] CreateFileA       @ F56B
+* [API ] WriteFile         @ F602
+* [API ] CreateProcessA    @ 250D
+* [API ] MoveFileExA       @ 1A27
+* [API ] CreateThread      @ 30CA
+* [API ] InternetOpenA     @ AD36
+* [API ] InternetConnectA  @ AF82
+* [API ] HttpOpenRequestA  @ B033
+* [API ] HttpSendRequestA  @ B0A7
+* [API ] InternetReadFile  @ B1CC
+* [API ] WSAStartup        @ 75F7
+* [API ] socket            @ 76FC
+* [API ] inet_addr         @ 772C
+* [API ] connect           @ 77E8
+* [API ] CreateFileA       @ 699D
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 4D0A
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA         @ 699D    Succeed
+* [API ] CreateFileA         @ F56B    Succeed
+* [API ] CreateMutexA        @ 2E9B    Fail
+* [API ] FindFirstFileA      @ 2203    Retarget    C:\*
+* [API ] FindFirstFileA      @ 3FD8    Fail
+* [API ] FindNextFileA       @ 21E8    Retarget
+* [API ] GetCursorPos        @ 91C4    Nothing
+* [API ] GetDiskFreeSpaceExA @ 3EB2    Nothing
+* [API ] GetModuleFileNameA  @ 2E17    Nothing
+* [API ] GetModuleFileNameA  @ 6029    Nothing
+* [API ] GetModuleFileNameA  @ 9478    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA  @ B8E3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA       @ 4910    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 4CF1    Fail
+* [API ] RegQueryValueExA    @ 4940    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 4A6C    Nothing
+* [API ] TimeDelayAPIs       @ 50D7    Nothing
+* [API ] TimeQueryAPIs       @ 2701    Nothing
+
+[Manual annotations]
+====================

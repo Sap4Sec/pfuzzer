@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: e9db663c82f6aae3a64ff53d0a11aa5862fac64becaeeea79c6203bffdbc467c
+MD5: d964e3ad831f792a464c16a5188f12ed
+Year: 2019_11_29
+Family name: ursu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 8D45
+* [API ] CreateFileW  @ 20FF
+* [API ] NtCreateFile @ 9A6E
+* [API ] WSAStartup   @ 6952
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 91D1
+* [API ] NtCreateFile @ 9807
+* [API ] NtCreateFile @ 852F
+* [API ] NtCreateFile @ 32D5
+* [API ] NtCreateFile @ 243D
+* [API ] NtCreateFile @ 43E6
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID         @ 9FAF    Retarget    Missing
+* [API ] CreateFileW   @ 20FF    Succeed     Not modified
+* [API ] CreateFileW   @ 8D45    Succeed     Not modified
+* [API ] NtCreateFile  @ 9A6E    Fail        Not modified
+* [API ] NtCreateFile  @ BFB0    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 9F90    Nothing
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

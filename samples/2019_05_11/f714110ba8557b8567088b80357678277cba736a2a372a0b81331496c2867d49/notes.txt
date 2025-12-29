@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: f714110ba8557b8567088b80357678277cba736a2a372a0b81331496c2867d49
+MD5: 88f0865cd6d6619a1072afe5e8b4c763
+Year: 2019_05_11
+Family name: ipamor
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup     @ 3CDD
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA @ 12D3
+* [PERS] Software\Microsoft\Windows\CurrentVersion\RunServices
+* [API ] RegCreateKeyA  @ 1307
+* [API ] RegSetValueExA @ 131F
+* [API ] CreateFileA    @ 1056
+* [API ] CreateFileA    @ 141D
+* [API ] WriteFile      @ 1476
+* [API ] CreateProcessA @ 3A55
+* [API ] CreateFileA    @ 1FC3
+* [API ] WriteFile      @ 1FDA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

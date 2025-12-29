@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 12cdef3d2e63f6f331604850f273cc3a275454543030c6fc08ef729273cae460
+MD5: bf4478599f37cbfe2852bf385b5fba79
+Year: 2018
+Family name: virlock
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+DynamoRIO bug causes sample crash --- 0 basic blocks seen

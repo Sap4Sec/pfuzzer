@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: dd771c7584f25cec77361093d29a7d5b590cb1235a96514909daed39185c8193
+MD5: ff1c904924edc8b4d32a105f6d1baafa
+Year: 2018
+Family name: icloader
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW   @ B452
+* [API ] LoadResource    @ 98CE
+* [API ] WSAStartup      @ 7E0F
+* [API ] RegCreateKeyExW @ D16F
+* [API ] RegSetValueExW  @ D1D9
+* [API ] RegCreateKeyExW @ D231
+* [API ] RegSetValueExW  @ D295
+* [API ] CreateFileW     @ 2AC3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Requires command line arguments to proceed (0x00147889 mov esi, [esp+98h+envp] takes the command line of the sample, checks for: /checkup, /processwait, /language:)

@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: UDS-Trojan.Win32.Pasta.uip-7b83e21ee97e5655f2601a5358302229d1ea4211a6ab50b1ec62a4c76c9c623f
+MD5: c7f332011880ee0a1661288f16bfddf3
+Year: 2023
+Family name: pasta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW @ C28F
+* [API ] CreateFileW @ 1B9F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID         @ F95C    Nothing
+* [API ] CreateFileW   @ 1B9F    Succeed    Not modified
+* [API ] CreateFileW   @ C28F    Fail
+* [API ] TimeQueryAPIs @ AFB7    Nothing
+
+[Manual annotations]
+====================
+Damaged file, cannot be executed

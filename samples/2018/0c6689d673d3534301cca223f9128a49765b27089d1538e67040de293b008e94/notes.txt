@@ -1,0 +1,72 @@
+[Basic information]
+=========================================================================
+SHA-256: 0c6689d673d3534301cca223f9128a49765b27089d1538e67040de293b008e94
+MD5: da8dc377620d74474af6abdf3803bb3b
+Year: 2018
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 2479
+* [API ] CreateFileA        @ 255C
+* [API ] MoveFileA          @ 2695
+* [API ] CreateFileA        @ 2726
+* [API ] RegCreateKeyExA    @ 1086
+* [PERS] software\microsoft\windows
+* [API ] RegSetValueExA     @ 114B
+* [API ] VirtualAllocEx     @ 1CFD
+* [API ] WriteProcessMemory @ 1D1F
+* [API ] WriteProcessMemory @ 1D88
+* [API ] WriteProcessMemory @ 1DC9
+* [API ] CreateRemoteThread @ 1DEB
+* [API ] CreateThread       @ 5A3A
+* [API ] CreateThread       @ 39A2
+* [API ] CreateThread       @ 59E6
+
+Fuzzing Findings
+----------------
+* [API ] WriteFile          @ 2578
+* [API ] WriteFile          @ 259C
+* [API ] WriteFile          @ 275A
+* [API ] WriteFile          @ 2775
+* [API ] WriteFile          @ 2790
+* [API ] WriteFile          @ 27AB
+* [API ] WriteFile          @ 27C6
+* [PERS] software\microsoft\windows\currentversion\run
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 2479    Fail        Not modified
+* [API ] CreateFileA        @ 255C    Succeed
+* [API ] CreateFileA        @ 2726    Succeed
+* [API ] CreateMutexA       @ 3988    Fail
+* [API ] CreateMutexA       @ 4F99    Retarget    ZonesCacheCounterMutex
+* [API ] FindWindowA        @ 2D47    Fail
+* [API ] GetComputerNameA   @ 44FB    Nothing
+* [API ] GetComputerNameA   @ BC4D    Retarget    John
+* [API ] GetModuleFileNameA @ 2D30    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 38FA    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 396D    Nothing
+* [API ] GetModuleFileNameA @ 4EF5    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 2833    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetUserNameA       @ 43FA    Retarget    John
+* [API ] RegOpenKeyExA      @ 1A4B    Fail
+* [API ] RegOpenKeyExA      @ 3334    Fail
+* [API ] RegOpenKeyExA      @ 3565    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 4D30    Fail
+* [API ] RegOpenKeyExA      @ 4E91    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 1A6C    Nothing
+* [API ] RegQueryValueExA   @ 3355    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 3585    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 4D57    Nothing
+* [API ] RegQueryValueExA   @ 4EB8    Nothing
+* [API ] TimeDelayAPIs      @ 2DF3    Nothing
+* [API ] TimeQueryAPIs      @ 3A20    Nothing
+
+[Manual annotations]
+====================

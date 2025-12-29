@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 25d3425dd81e7b5800638909b7b3ceb08d96ed968a15324b4e0c5aa4e55c6cd6
+MD5: 2e6f18bf1aa7206b7fdbeffa3874c21e
+Year: 2021_11_03
+Family name: SINGLETON:2e6f18bf1aa7206b7fdbeffa3874c21e
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: requires wzaudio.dll

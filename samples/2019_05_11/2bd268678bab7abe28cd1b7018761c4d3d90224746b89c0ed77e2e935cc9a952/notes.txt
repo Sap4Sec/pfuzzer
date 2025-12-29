@@ -1,0 +1,65 @@
+[Basic information]
+=========================================================================
+SHA-256: 2bd268678bab7abe28cd1b7018761c4d3d90224746b89c0ed77e2e935cc9a952
+MD5: 6c1bd440726bd5b0a076ea20594baffb
+Year: 2019_05_11
+Family name: zbot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread        @ 7C48
+* [API ] CreateFileW         @ 104B
+* [API ] CreateThread        @ 121D
+* [API ] ConnectNamedPipe    @ 1225
+* [API ] WriteFile           @ 1078
+* [API ] RegCreateKeyExW     @ C750
+* [PERS] software\microsoft\windows
+* [API ] RegSetValueExW      @ C841
+* [API ] CopyFileW           @ 7ECD
+* [API ] CreateFileW         @ 7EF5
+* [API ] WriteFile           @ 7F7C
+* [API ] InternetOpenA       @ 077F
+* [API ] InternetConnectA    @ 07BB
+* [API ] CreateFileW         @ 7FCE
+* [API ] SetFileTime         @ 7FFE
+* [API ] HttpOpenRequestA    @ 0863
+* [API ] VirtualAllocEx      @ 8E8D
+* [API ] VirtualAllocEx      @ 8F63
+* [API ] WriteProcessMemory  @ 8F7B
+* [API ] VirtualAllocEx      @ 8FBE
+* [API ] WriteProcessMemory  @ 8FDD
+* [API ] RtlCreateUserThread @ 9636
+* [API ] VirtualAllocEx      @ 8EA4
+* [API ] HttpSendRequestA    @ 0878
+* [API ] InternetReadFile    @ 0921
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileW          @ 104B    Fail        Not modified
+* [API ] CreateFileW          @ 7EF5    Succeed     Not modified
+* [API ] CreateFileW          @ 7FCE    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexW         @ 101B    Fail
+* [API ] CreateMutexW         @ 7CD4    Retarget    vscode
+* [API ] GetLocalTime         @ 0EDB    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameExW @ C5E6    Nothing
+* [API ] GetModuleFileNameW   @ 7E40    Nothing
+* [API ] GetUserNameW         @ C191    Nothing
+* [API ] Process32FirstW      @ 7BB0    Nothing
+* [API ] Process32FirstW      @ C599    Nothing
+* [API ] Process32NextW       @ 7BFD    Retarget
+* [API ] Process32NextW       @ C6A0    Retarget
+* [API ] RegQueryValueExW     @ C773    Retarget    ProductID
+* [API ] RegQueryValueExW     @ C7AC    Nothing
+* [API ] TimeDelayAPIs        @ 248D    Retarget
+* [API ] TimeQueryAPIs        @ 0EC8    Retarget
+
+[Manual annotations]
+====================

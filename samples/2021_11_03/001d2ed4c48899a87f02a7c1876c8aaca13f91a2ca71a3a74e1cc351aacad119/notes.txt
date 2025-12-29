@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: 001d2ed4c48899a87f02a7c1876c8aaca13f91a2ca71a3a74e1cc351aacad119
+MD5: 15e88beebe4e33280c7c19a33f4882a4
+Year: 2021_11_03
+Family name: dinwod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 262B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 262B    Succeed
+* [API ] GetModuleFileNameA @ 24EA    Nothing
+* [API ] GetModuleFileNameA @ 258E    Retarget    C:\ProgramData\VMWareUser.exe
+
+[Manual annotations]
+====================
+Evades with PathFileExists and (probably) CreateFileA must be on C:\\<something> to work, but then it dies anyway for the exception, maybe it requires some particular file with specific content in it

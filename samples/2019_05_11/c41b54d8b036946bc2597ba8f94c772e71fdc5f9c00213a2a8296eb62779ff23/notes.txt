@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: c41b54d8b036946bc2597ba8f94c772e71fdc5f9c00213a2a8296eb62779ff23
+MD5: 1b64b0d7b06ccd3bbd29d08381534613
+Year: 2019_05_11
+Family name: SINGLETON:1b64b0d7b06ccd3bbd29d08381534613
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW   @ 91E2
+* [API ] FindResourceW @ CA30
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW   @ 9224
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ CBFC    Retarget    Missing
+* [API ] CreateFileW        @ 91E2    Fail
+* [API ] FindWindowExW      @ 853F    Succeed
+* [API ] GetFileAttributesW @ EE37    Fail
+* [API ] GetLocalTime       @ B60E    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameA @ 441B    Nothing
+* [API ] GetModuleFileNameW @ B5F5    Nothing
+* [API ] GetModuleFileNameW @ EDB4    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ FEF2    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetWindowTextW     @ CBDF    Retarget    Window - Window
+* [API ] GetWindowTextW     @ CC44    Retarget    Program Manager - MSCTFIME UI
+* [API ] TimeQueryAPIs      @ 2B11    Retarget
+
+[Manual annotations]
+====================
+User interaction: probably a ransomware

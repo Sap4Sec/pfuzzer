@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 7bf4ae71e08b0dda11a3da3ad2e6e1d7c75ddaafdf311e2c643ef498b78f5927
+MD5: ae96e22912145a7d4c5ada7911e4061f
+Year: 2018
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA    @ E79E
+* [API ] SetWindowsHookExA    @ B92F
+* [API ] CreateFileA          @ A24B
+* [API ] WriteFile            @ A2E2
+* [API ] ShellExecuteA        @ 395D
+* [API ] OpenSCManagerA       @ 87FA
+* [API ] RegCreateKeyA        @ 483A
+* [API ] RegSetValueExA       @ 48BB
+* [API ] CryptAcquireContextA @ D652
+* [API ] CryptCreateHash      @ D6DE
+* [API ] CryptHashData        @ D7B2
+* [API ] CryptGetHashParam    @ D88F
+* [API ] CryptDestroyHash     @ DBE8
+* [API ] CryptReleaseContext  @ DC0F
+* [API ] socket               @ D0DF
+* [API ] inet_addr            @ D104
+* [API ] connect              @ D124
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

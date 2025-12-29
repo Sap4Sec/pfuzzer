@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 1c8aaf0db310895a76eba04771d573993d76411539f8ec8d2a194820210d53b4
+MD5: e757c0bf537cf6f55f6cc7f58849c37e
+Year: 2020_05_06
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ ED95
+* [API ] WriteFile      @ 4B8C
+* [API ] CreateProcessA @ 82CC
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread   @ D9A5
+* [API ] socket         @ 773C
+* [API ] connect        @ 7793
+* [API ] send           @ 77C7
+* [API ] CreateFileA    @ 7C99
+* [API ] WriteFile      @ 7CB2
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 350F    Retarget    Missing
+* [API ] CreateFileW        @ ED95    Retarget    Backup.txt
+* [API ] CreateMutexA       @ 8BE3    Retarget    ZonesCacheCounterMutex
+* [API ] GetModuleFileNameA @ 7F31    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 8236    Nothing
+* [API ] Process32First     @ 9DE3    Nothing
+* [API ] Process32Next      @ 9DFA    Retarget
+* [API ] Process32Next      @ 9ECE    Retarget
+* [API ] TimeQueryAPIs      @ DF59    Retarget
+
+[Manual annotations]
+====================

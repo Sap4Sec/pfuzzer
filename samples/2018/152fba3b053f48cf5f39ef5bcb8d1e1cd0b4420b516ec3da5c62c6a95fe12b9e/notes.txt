@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 152fba3b053f48cf5f39ef5bcb8d1e1cd0b4420b516ec3da5c62c6a95fe12b9e
+MD5: bea652ba6a2bab3d66b76318ecbbfdf9
+Year: 2018
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ BC0A
+* [API ] LoadResource         @ BCCE
+* [API ] CreateFileW          @ FBB7
+* [API ] CreateProcessA       @ C0D0
+* [API ] ReadProcessMemory    @ C978
+* [API ] NtUnmapViewOfSection @ C9C9
+* [API ] VirtualAllocEx       @ CEFD
+* [API ] WriteProcessMemory   @ CAA4
+* [API ] SetThreadContext     @ CCE5
+* [API ] ResumeThread         @ D196
+
+Fuzzing Findings
+----------------
+* [API ] WriteFile            @ 5D7A
+
+[Mutations applied in the best run (27)]
+=======================================
+
+* [API ] CPUID              @ 4199    Nothing
+* [API ] CreateFileW        @ FBB7    Succeed     Not modified
+* [API ] GetFileAttributesA @ 61B4    Fail
+* [API ] GetFileAttributesA @ 61DA    Fail
+* [API ] GetFileAttributesA @ 61F2    Succeed
+* [API ] GetModuleFileNameA @ 6431    Nothing
+* [API ] GetModuleFileNameA @ BC70    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ C193    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 3C44    Nothing
+* [API ] GetModuleFileNameW @ 5CAD    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ 5CCB    Nothing
+* [API ] GetUserNameA       @ 6371    Nothing
+* [API ] RegOpenKeyExW      @ 10AA    Succeed
+* [API ] RegOpenKeyExW      @ 5F8C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 11BC    Nothing
+* [API ] RegQueryValueExW   @ 11EC    Nothing
+* [API ] RegQueryValueExW   @ 5FC2    Nothing
+* [API ] TimeQueryAPIs      @ 6246    Nothing
+
+[Manual annotations]
+====================
+The sample queries WMI class WIN32_BIOS for Manufacturer and SMBIOSBIOSVersion values, checking for virtualization artifacts such as XEN, VBOX, BOCH, QEMU, and VIRTUALBOX.
+Further investigation into this anti-VM technique is recommended.

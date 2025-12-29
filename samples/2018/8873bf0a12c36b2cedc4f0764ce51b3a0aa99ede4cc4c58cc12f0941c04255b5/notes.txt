@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: 8873bf0a12c36b2cedc4f0764ce51b3a0aa99ede4cc4c58cc12f0941c04255b5
+MD5: c4089f862eaee4abe26ae1a348e6807c
+Year: 2018
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ 4B74
+* [API ] LoadResource         @ 4BE0
+* [API ] CreateProcessA       @ 4D31
+* [API ] ReadProcessMemory    @ 4F37
+* [API ] NtUnmapViewOfSection @ 4F69
+* [API ] VirtualAllocEx       @ 518B
+* [API ] WriteProcessMemory   @ 4FBE
+* [API ] SetThreadContext     @ 50C3
+* [API ] ResumeThread         @ 5290
+* [API ] WriteFile            @ 817E
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ 5527    Retarget    Missing
+* [API ] GetFileAttributesA @ 2554    Succeed
+* [API ] GetFileAttributesA @ 2564    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetFileAttributesA @ 2570    Fail
+* [API ] GetModuleFileNameA @ 2670    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 4BB1    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 4D76    Nothing
+* [API ] GetModuleFileNameW @ 2344    Nothing
+* [API ] GetModuleFileNameW @ 234F    Nothing
+* [API ] GetModuleFileNameW @ E7A6    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ 25FC    Retarget    Office
+* [API ] RegOpenKeyExW      @ 2454    Succeed     Not modified
+* [API ] RegQueryValueExW   @ 2475    Retarget    ProductID
+* [API ] TimeQueryAPIs      @ 2585    Retarget
+
+[Manual annotations]
+====================
+The sample queries WMI class Win32_BIOS for Manufacturer and SMBIOSBIOSVersion values, checking for virtualization artifacts such as XEN, VBOX, BOCH, QEMU, and VIRTUALBOX.
+Further investigation into this anti-VM technique is recommended.

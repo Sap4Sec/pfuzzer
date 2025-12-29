@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agent.gen-84eceeeb5a459e922fb77f426a2a935b661c79f4b3c058d6923e1cdec91bb577
+MD5: 075493bfec5042455c318645779af9c4
+Year: 2022
+Family name: SINGLETON:075493bfec5042455c318645779af9c4
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExW @ 1515
+* [API ] FindResourceW   @ 5C9B
+* [API ] FindResourceW   @ 4678
+* [API ] LoadResource    @ 4692
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID              @ 7C5F    Nothing
+* [API ] CreateMutexW       @ 5873    Retarget    VBoxTray
+* [API ] FindFirstFileW     @ DAC0    Retarget    C:\*
+* [API ] GetCursorPos       @ 2579    Retarget    Missing
+* [API ] GetCursorPos       @ 8EA8    Retarget    Missing
+* [API ] GetKeyboardLayout  @ 4982    Nothing
+* [API ] GetModuleFileNameW @ 6385    Nothing
+* [API ] GetModuleFileNameW @ CB5F    Nothing
+* [API ] GetModuleFileNameW @ D6EA    Nothing
+* [API ] GetModuleFileNameW @ DE09    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemInfo      @ FA5D    Nothing
+* [API ] GetUserDefaultLCID @ F48E    Nothing
+* [API ] GetWindowTextW     @ FE68    Nothing
+* [API ] RegOpenKeyExW      @ 160E    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ 2434    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ 508B    Succeed
+* [API ] RegOpenKeyExW      @ D733    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D755    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D773    Fail        Not modified
+* [API ] RegOpenKeyExW      @ D791    Succeed
+* [API ] RegOpenKeyExW      @ D7AF    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D7CD    Fail        Not modified
+* [API ] RegQueryValueExW   @ 1D4A    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 2344    Nothing
+* [API ] TimeDelayAPIs      @ 1209    Retarget
+* [API ] TimeQueryAPIs      @ 7359    Retarget
+
+[Manual annotations]
+====================
+User interaction: opens a GUI requiring text input

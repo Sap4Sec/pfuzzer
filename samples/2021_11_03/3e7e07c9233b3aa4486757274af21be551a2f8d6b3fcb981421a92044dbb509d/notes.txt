@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 3e7e07c9233b3aa4486757274af21be551a2f8d6b3fcb981421a92044dbb509d
+MD5: c057541b832807fd5750c2f788bd59b8
+Year: 2021_11_03
+Family name: lmir
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 7D2E
+* [API ] CopyFileA       @ 3A5B
+* [API ] CreateFileA     @ 7D56
+* [API ] WriteFile       @ 7DA5
+* [API ] CreateProcessA  @ 3AF6
+* [API ] CopyFileA       @ A989
+* [API ] RegCreateKeyExA @ E66A
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\RunServices
+* [API ] RegSetValueExA  @ E6D6
+* [PERS] SoftWare\Microsoft\Windows\CurrentVersion\Run
+* [API ] WinExec         @ AAB7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CreateFileA        @ 7D2E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileA        @ 7D56    Retarget    attrib.exe
+* [API ] FindFirstFileA     @ 5A87    Succeed
+* [API ] FindFirstFileA     @ 7EA4    Nothing
+* [API ] FindFirstFileA     @ C2AC    Nothing
+* [API ] FindWindowA        @ A939    Fail
+* [API ] GetModuleFileNameA @ 29F9    Nothing
+* [API ] GetModuleFileNameA @ 5917    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 5B51    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 9A0E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ A952    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] Process32First     @ B59B    Nothing
+* [API ] Process32Next      @ B5BB    Retarget
+* [API ] RegOpenKeyExA      @ 5B6F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5B8D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5BAB    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 5BF4    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 5C12    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ ABCF    Retarget
+* [API ] TimeQueryAPIs      @ A853    Retarget
+
+[Manual annotations]
+====================

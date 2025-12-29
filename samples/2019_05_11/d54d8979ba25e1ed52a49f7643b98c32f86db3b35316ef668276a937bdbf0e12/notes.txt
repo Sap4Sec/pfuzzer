@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: d54d8979ba25e1ed52a49f7643b98c32f86db3b35316ef668276a937bdbf0e12
+MD5: 4851c77e672d52c7e9cdac3231e6b913
+Year: 2019_05_11
+Family name: SINGLETON:4851c77e672d52c7e9cdac3231e6b913
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 4592
+* [API ] CreateFileW          @ 56F9
+* [API ] NtCreateFile         @ 60C2
+* [API ] WSAStartup           @ 0926
+* [API ] WSAStartup           @ 4132
+* [API ] CryptAcquireContextA @ 4B54
+* [API ] CryptCreateHash      @ 4BE7
+* [API ] CryptHashData        @ 4CC3
+* [API ] CryptGetHashParam    @ 4DAC
+* [API ] CryptDestroyHash     @ 50F9
+* [API ] CryptReleaseContext  @ 5128
+* [API ] CreateThread         @ 46FC
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile         @ 25B9
+* [API ] NtCreateFile         @ FB28
+* [API ] NtCreateFile         @ 5421
+* [API ] NtCreateFile         @ 6F5F
+* [API ] NtCreateFile         @ 5748
+* [API ] NtCreateFile         @ 1403
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 45DE    Retarget    Missing
+* [API ] CreateFileW        @ 4592    Retarget    Backup.txt
+* [API ] CreateFileW        @ 56F9    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 4612    Nothing
+* [API ] NtCreateFile       @ 60C2    Succeed     Not modified
+* [API ] NtCreateFile       @ AFAE    Retarget    \??\Analysis
+* [API ] TimeQueryAPIs      @ 456C    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

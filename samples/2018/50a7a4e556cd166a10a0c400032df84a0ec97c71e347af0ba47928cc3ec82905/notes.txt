@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 50a7a4e556cd166a10a0c400032df84a0ec97c71e347af0ba47928cc3ec82905
+MD5: e964de2f5887627959b5a72b10c43e59
+Year: 2018
+Family name: downloadassistant
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 4A8E
+* [API ] FindResourceW        @ F9F6
+* [API ] LoadResource         @ FA2E
+
+Fuzzing Findings
+----------------
+* [API ] InternetOpenW        @ 487D
+* [API ] CryptAcquireContextW @ 0C86
+* [API ] CryptGenRandom       @ 0CB0
+* [API ] CryptReleaseContext  @ 0CC1
+* [API ] CreateThread         @ CB21
+* [API ] FindResourceW        @ DC8F
+* [API ] LoadResource         @ DCC8
+* [API ] WriteFile            @ 4F38
+* [API ] WriteFile            @ 516A
+* [API ] CreateProcessW       @ 28B3
+* [API ] CopyFileW            @ 8980
+* [API ] CreateProcessW       @ D273
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CreateFileW              @ 4A8E    Succeed     Not modified
+* [API ] CreateMutexA             @ 0A5F    Retarget    vscode
+* [API ] CreateMutexA             @ 0AB5    Succeed
+* [API ] CreateMutexA             @ 2096    Fail
+* [API ] CreateMutexA             @ 3AC0    Fail
+* [API ] CreateMutexA             @ 3D0D    Retarget    vscode
+* [API ] GetModuleFileNameA       @ BC56    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW       @ E235    Retarget    C:\Windows\explorer.exe
+* [API ] GetProcessImageFileNameA @ 66BB    Retarget    C:\Windows\explorer.exe
+* [API ] TimeQueryAPIs            @ BDFF    Retarget
+
+[Manual annotations]
+====================

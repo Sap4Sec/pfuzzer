@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: f820b283321c92b2e4719f299f7f82f50b8171ba305dc04f75687e4754e1f816
+MD5: 7c62ca9f6d7037bb68437e86398f4c4e
+Year: 2019_05_11
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ F392
+* [API ] CreateFileW      @ 4E5D
+* [API ] NtCreateFile     @ FD1F
+* [API ] GetAsyncKeyState @ 479E
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile     @ 2FC8
+* [API ] NtCreateFile     @ 482E
+* [API ] NtCreateFile     @ 77A4
+* [API ] NtCreateFile     @ A2F5
+* [API ] NtCreateFile     @ 0D0F
+* [API ] NtCreateFile     @ 9675
+* [API ] NtCreateFile     @ 257E
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ D64A    Retarget    Missing
+* [API ] CreateFileW        @ 4E5D    Succeed     Not modified
+* [API ] CreateFileW        @ F392    Fail
+* [API ] GetModuleFileNameW @ F4D4    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] NtCreateFile       @ 01E1    Retarget    \??\Analysis
+* [API ] NtCreateFile       @ FD1F    Fail        Not modified
+* [API ] Process32First     @ 1E7A    Nothing
+* [API ] Process32Next      @ 2338    Retarget
+* [API ] TimeDelayAPIs      @ 464F    Nothing
+* [API ] TimeQueryAPIs      @ D7B2    Nothing
+
+[Manual annotations]
+====================

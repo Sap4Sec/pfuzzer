@@ -1,0 +1,50 @@
+[Basic information]
+=========================================================================
+SHA-256: 2076e94adc02116bf802fb0ef9d40e40b6fedb62bfdbec3b022d5e16fda3d1df
+MD5: 44e12d701ade7c4c04201d96543a1e43
+Year: 2018
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA        @ F471
+* [API ] CreateThread     @ FBF4
+* [API ] CreateThread     @ FC0E
+* [API ] CopyFileA        @ EC69
+* [API ] CopyFileA        @ EC95
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExA   @ E57D
+* [API ] InternetOpenA    @ EECC
+* [API ] CreateProcessA   @ ECF3
+* [API ] InternetOpenUrlA @ EEF2
+* [API ] InternetReadFile @ EF20
+* [API ] WSAStartup       @ EFEA
+* [API ] socket           @ EFF5
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread     @ FBA0
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateMutexA       @ FB68    Fail
+* [API ] GetModuleFileNameA @ EB99    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ F3ED    Nothing
+* [API ] Process32First     @ F15E    Nothing
+* [API ] Process32Next      @ F237    Retarget
+* [API ] RegOpenKeyA        @ E55A    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ E5AD    Succeed     Not modified
+* [API ] RegQueryValueExA   @ E5E2    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ FAFC    Retarget
+* [API ] TimeQueryAPIs      @ FADA    Retarget
+
+[Manual annotations]
+====================
+The sample performs evasion in sub_43C195 and sub_43C110 using vpcxt and other evasion techniques (see https://elearning.di.unipi.it/pluginfile.php/25436/mod_resource/content/1/5-0%20Vulnerabilities%20and%20Attacks.pdf and https://unprotect.it/technique/vpcext/) which are not supported in our environment.
+I patched these out to continue the analysis.

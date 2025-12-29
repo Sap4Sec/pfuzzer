@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Socks.b-1d9af0b1efd5a742f3cc4e98768b44d3eb130d58186b0a397de748a7db40c4bd
+MD5: 52347511314d81931cc77729d9485e00
+Year: 2022
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ 05CE
+* [API ] CreateThread       @ 05F6
+* [API ] CreateProcessA     @ FD77
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA     @ F4A4
+* [API ] CopyFileA          @ FCED
+* [API ] CopyFileA          @ FD19
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA      @ FF50
+* [API ] InternetOpenUrlA   @ FF76
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] GetModuleFileNameA @ FAB7    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyA        @ F481    Fail
+* [API ] TimeDelayAPIs      @ 05B9    Retarget
+* [API ] TimeQueryAPIs      @ 0597    Retarget
+
+[Manual annotations]
+====================

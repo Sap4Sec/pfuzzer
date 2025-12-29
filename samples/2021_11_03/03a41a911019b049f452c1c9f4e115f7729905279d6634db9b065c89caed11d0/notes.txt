@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: 03a41a911019b049f452c1c9f4e115f7729905279d6634db9b065c89caed11d0
+MD5: 2f8448e5db74ac988cfb3999af3ee2c0
+Year: 2021_11_03
+Family name: pidgeon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 9A9F
+* [API ] SetWindowsHookExA @ 3B09
+* [API ] SetWindowsHookExA @ 0C6A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA    @ 4D5C
+* [API ] CreateFileA       @ F56B
+* [API ] WriteFile         @ F602
+* [API ] CreateProcessA    @ 250D
+* [API ] MoveFileExA       @ 1A27
+* [API ] CreateThread      @ 30CA
+* [API ] InternetOpenA     @ AD36
+* [API ] InternetConnectA  @ AF82
+* [API ] HttpOpenRequestA  @ B033
+* [API ] HttpSendRequestA  @ B0A7
+* [API ] InternetReadFile  @ B1CC
+* [API ] WSAStartup        @ 75F7
+* [API ] socket            @ 76FC
+* [API ] inet_addr         @ 772C
+* [API ] connect           @ 77E8
+* [API ] CreateFileA       @ 699D
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 4D0A
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CreateFileA         @ 699D    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileA         @ F56B    Succeed
+* [API ] CreateMutexA        @ 2E9B    Fail
+* [API ] FindFirstFileA      @ 2203    Nothing
+* [API ] FindFirstFileA      @ 3FD8    Nothing
+* [API ] FindNextFileA       @ 21E8    Retarget
+* [API ] GetCursorPos        @ 91C4    Retarget    Missing
+* [API ] GetDiskFreeSpaceExA @ 3EB2    Nothing
+* [API ] GetModuleFileNameA  @ 2E17    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA  @ 6029    Nothing
+* [API ] GetModuleFileNameA  @ 9478    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA  @ B8E3    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExA       @ 4910    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 4CF1    Succeed     Not modified
+* [API ] RegQueryValueExA    @ 4940    Nothing
+* [API ] RegQueryValueExA    @ 4A6C    Retarget    ProductID
+* [API ] TimeDelayAPIs       @ 50D7    Retarget
+* [API ] TimeQueryAPIs       @ 2701    Retarget
+
+[Manual annotations]
+====================

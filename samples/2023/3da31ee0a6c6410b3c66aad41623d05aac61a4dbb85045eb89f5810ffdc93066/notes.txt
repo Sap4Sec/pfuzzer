@@ -1,0 +1,31 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Ransom.Win32.Agent.bbil-3da31ee0a6c6410b3c66aad41623d05aac61a4dbb85045eb89f5810ffdc93066
+MD5: c4e82318d5f902c6dda61e2b00c4cac8
+Year: 2023
+Family name: paradise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] NtWriteFile     @ 5FF6
+* [API ] RegCreateKeyExW @ 7792
+* [API ] RegSetValueExW  @ 98E8
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] RegOpenKeyExW    @ 473C    Succeed     Not modified
+* [API ] RegOpenKeyExW    @ 48D8    Fail
+* [API ] RegQueryValueExW @ 0FA4    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs    @ 6005    Retarget
+
+[Manual annotations]
+====================
+User interacttion: opens a GUI requiring text input

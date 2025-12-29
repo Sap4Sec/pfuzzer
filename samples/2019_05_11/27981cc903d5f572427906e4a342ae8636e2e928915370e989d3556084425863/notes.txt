@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 27981cc903d5f572427906e4a342ae8636e2e928915370e989d3556084425863
+MD5: e7a199ef6d7249aa1ba4fc1dac72bbe1
+Year: 2019_05_11
+Family name: sefnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CPUID                @ FB83    Nothing
+* [API ] GetFileAttributesExW @ 3ECB    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW   @ 1766    Nothing
+* [API ] GetModuleFileNameW   @ 5805    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo        @ 2B8D    Retarget    Missing
+* [API ] Process32FirstW      @ 3AD7    Nothing
+* [API ] Process32NextW       @ 3B28    Retarget
+* [API ] RegOpenKeyExW        @ E171    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs        @ 86F9    Retarget
+
+[Manual annotations]
+====================

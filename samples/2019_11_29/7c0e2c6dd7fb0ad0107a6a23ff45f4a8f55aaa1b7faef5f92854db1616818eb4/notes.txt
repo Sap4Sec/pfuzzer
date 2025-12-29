@@ -1,0 +1,72 @@
+[Basic information]
+=========================================================================
+SHA-256: 7c0e2c6dd7fb0ad0107a6a23ff45f4a8f55aaa1b7faef5f92854db1616818eb4
+MD5: 54131b7f4a30423bc2b2cd5e769bc897
+Year: 2019_11_29
+Family name: ibryte
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA     @ 3102
+* [API ] SetWindowsHookExA @ 26A8
+* [API ] CreateFileA       @ EDDA
+* [API ] WriteFile         @ E511
+* [API ] OpenSCManagerA    @ 47B9
+* [API ] LoadResource      @ 309E
+* [API ] SetWindowsHookExA @ A622
+* [API ] InternetOpenA     @ 02BA
+* [API ] InternetConnectA  @ 0B68
+* [API ] HttpOpenRequestA  @ 0CE8
+* [API ] HttpSendRequestA  @ 0817
+* [API ] FindResourceA     @ 4E5F
+* [API ] LoadResource      @ 4E67
+* [API ] FindResourceA     @ 3979
+* [API ] FindResourceA     @ B926
+* [API ] CreateThread      @ 8ACB
+* [API ] ResumeThread      @ 2971
+* [API ] SuspendThread     @ 2996
+* [API ] ResumeThread      @ F2BD
+* [API ] FindResourceA     @ 508D
+* [API ] LoadResource      @ 5095
+* [API ] FindResourceA     @ 4BB1
+* [API ] LoadResource      @ 4BB9
+* [API ] FindResourceA     @ 2F7C
+* [API ] LoadResource      @ 2F86
+* [API ] CreateFileW       @ ECC1
+* [API ] WriteFile         @ E2B1
+* [API ] GetKeyboardState  @ 5274
+* [API ] GetKeyboardState  @ 529B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID              @ B365    Nothing
+* [API ] CreateFileA        @ EDDA    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW        @ ECC1    Succeed     Not modified
+* [API ] FindFirstFileA     @ F2FA    Nothing
+* [API ] FindFirstFileA     @ F5D0    Succeed
+* [API ] FindNextFileA      @ EF4D    Retarget
+* [API ] GetCursorPos       @ 2063    Nothing
+* [API ] GetModuleFileNameA @ 035E    Nothing
+* [API ] GetModuleFileNameA @ 1DDC    Nothing
+* [API ] GetModuleFileNameA @ 6354    Nothing
+* [API ] GetModuleFileNameA @ C45A    Nothing
+* [API ] GetModuleFileNameA @ F6EA    Nothing
+* [API ] GetModuleFileNameA @ F7E3    Nothing
+* [API ] GetModuleFileNameW @ FED9    Nothing
+* [API ] Process32First     @ 4694    Nothing
+* [API ] Process32Next      @ 475C    Retarget
+* [API ] RegOpenKeyExA      @ B838    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ EDB2    Fail        Not modified
+* [API ] TimeDelayAPIs      @ 408C    Retarget
+* [API ] TimeQueryAPIs      @ D7C5    Retarget
+
+[Manual annotations]
+====================

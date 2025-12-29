@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 1b48b5b015aa38d8e910163f37df752c108918def0e500eae83bac1fc18ce4a9
+MD5: dd9ac632a2ef9ab07305162967abac1f
+Year: 2021_11_03
+Family name: dinwod
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA    @ 262B
+* [API ] CreateFileA    @ 291E
+* [API ] WriteFile      @ 2959
+* [API ] CreateProcessA @ 2A37
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CreateFileA        @ 262B    Succeed
+* [API ] CreateFileA        @ 291E    Fail        Not modified
+* [API ] GetModuleFileNameA @ 24EA    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 258E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] TimeQueryAPIs      @ 2165    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,29 @@
+[Basic information]
+=========================================================================
+SHA-256: 303ef69f318596856947e28e1750f220fc3c1932d64d3ec9c64bd0fbc405375f
+MD5: c173eefef0334cd7a28175aa5f241966
+Year: 2021_04_15
+Family name: pioneer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 3F7C
+* [API ] CreateFileA @ 4CBA
+* [API ] WriteFile   @ 4CEA
+* [API ] CreateFileW @ FEBB
+* [API ] WriteFile   @ FEEB
+* [API ] WriteFile   @ 050B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Unable to reach fuzzing stage not even by forcing it. Working under BluePill, probably anti-DBI targeting DynamoRIO.

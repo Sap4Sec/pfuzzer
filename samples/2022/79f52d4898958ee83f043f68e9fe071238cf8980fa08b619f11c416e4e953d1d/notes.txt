@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.DcRat.br-79f52d4898958ee83f043f68e9fe071238cf8980fa08b619f11c416e4e953d1d
+MD5: 1519707cd60421ae82541524a062ecfe
+Year: 2022
+Family name: dcrat
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ E83A
+* [API ] CreateFileW  @ 8C76
+* [API ] NtCreateFile @ 0832
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 9E30
+* [API ] NtCreateFile @ 1910
+* [API ] NtCreateFile @ BA66
+* [API ] NtCreateFile @ B0CF
+* [API ] NtCreateFile @ CEF8
+* [API ] NtCreateFile @ FC58
+* [API ] NtCreateFile @ ADDF
+* [API ] NtCreateFile @ B050
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID         @ 819B    Retarget    Missing
+* [API ] CreateFileW   @ 8C76    Succeed     Not modified
+* [API ] CreateFileW   @ E83A    Succeed     Not modified
+* [API ] NtCreateFile  @ 0832    Fail        Not modified
+* [API ] TimeQueryAPIs @ B230    Nothing
+
+[Manual annotations]
+====================
+Undetermined evasions

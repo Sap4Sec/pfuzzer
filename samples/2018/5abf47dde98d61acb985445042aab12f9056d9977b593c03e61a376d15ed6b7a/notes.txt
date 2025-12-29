@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: 5abf47dde98d61acb985445042aab12f9056d9977b593c03e61a376d15ed6b7a
+MD5: e0186b23c0c14f6d95f3f9e25c7b5037
+Year: 2018
+Family name: SINGLETON:e0186b23c0c14f6d95f3f9e25c7b5037
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 3E7D
+* [API ] SetWindowsHookExA    @ B3C8
+* [API ] FindResourceA        @ 3C30
+* [API ] LoadResource         @ 305F
+* [API ] CreateProcessA       @ 342B
+* [API ] NtUnmapViewOfSection @ 345F
+* [API ] VirtualAllocEx       @ 3479
+* [API ] WriteProcessMemory   @ 3497
+* [API ] WriteProcessMemory   @ 34CF
+* [API ] WriteProcessMemory   @ 3514
+* [API ] SetThreadContext     @ 3539
+* [API ] ResumeThread         @ 355E
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (41)]
+=======================================
+
+* [API ] CPUID              @ 753C    Nothing
+* [API ] GetCursorPos       @ AE55    Retarget    Missing
+* [API ] GetModuleFileNameA @ 2663    Nothing
+* [API ] GetModuleFileNameA @ 95A6    Nothing
+* [API ] GetModuleFileNameA @ F6ED    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ CD00    Nothing
+* [API ] Process32First     @ 14D8    Nothing
+* [API ] Process32Next      @ 1546    Retarget
+* [API ] Process32Next      @ 1587    Retarget
+* [API ] RegOpenKeyExA      @ 1358    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 9B61    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 9B81    Nothing
+* [API ] TimeDelayAPIs      @ 35AD    Retarget
+* [API ] TimeQueryAPIs      @ 1AEB    Retarget
+
+[Manual annotations]
+====================

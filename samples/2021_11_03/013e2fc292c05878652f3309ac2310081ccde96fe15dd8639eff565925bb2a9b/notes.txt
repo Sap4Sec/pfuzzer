@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: 013e2fc292c05878652f3309ac2310081ccde96fe15dd8639eff565925bb2a9b
+MD5: 6a1fcc5f6bde1b143b790d3400a53c13
+Year: 2021_11_03
+Family name: antavmu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 9890
+* [API ] SetWindowsHookExA @ 69F3
+* [API ] CopyFileA         @ 3F93
+* [PERS] software\microsoft\windows\CurrentVersion\Run
+* [API ] RegSetValueExA    @ 43BB
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 433A
+* [API ] CreateFileA       @ 52F5
+* [API ] WriteFile         @ 538C
+* [API ] RegSetValueExA    @ 349A
+* [API ] RegSetValueExA    @ 34D7
+* [API ] RegSetValueExA    @ 34F4
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] FindFirstFileA     @ 65F3    Nothing
+* [API ] FindNextFileA      @ 65D8    Retarget
+* [API ] FindWindowA        @ 3303    Fail
+* [API ] GetCursorPos       @ ED93    Retarget    Missing
+* [API ] GetFileAttributesA @ 3FAD    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 8C4C    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ AC79    Nothing
+* [API ] GetModuleFileNameA @ EFE7    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ FE83    Nothing
+* [API ] Process32First     @ 3333    Nothing
+* [API ] Process32Next      @ 3358    Retarget
+* [API ] RegOpenKeyExA      @ 4321    Fail
+
+[Manual annotations]
+====================

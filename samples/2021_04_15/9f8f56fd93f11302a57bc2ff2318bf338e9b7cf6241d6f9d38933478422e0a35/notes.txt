@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 9f8f56fd93f11302a57bc2ff2318bf338e9b7cf6241d6f9d38933478422e0a35
+MD5: cd543253315b82bfc8b3cccd47e6da43
+Year: 2021_04_15
+Family name: diplugem
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 4F78
+* [API ] CreateFileMappingA @ 4F9C
+* [API ] MapViewOfFile      @ 4FBF
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User
+* [API ] CreateFileA        @ 5260
+* [API ] WriteFile          @ 532F
+* [API ] CreateProcessW     @ 67AF
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA        @ 606B
+* [API ] MoveFileExA        @ 60C8
+
+[Mutations applied in the best run (22)]
+=======================================
+
+* [API ] CPUID                    @ 136B    Retarget    Missing
+* [API ] CreateFileA              @ 4F78    Succeed     Not modified
+* [API ] CreateFileA              @ 5260    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA             @ 9E00    Fail
+* [API ] FindFirstFileA           @ 9EB4    Retarget    C:\Users\Student\*
+* [API ] GetAdaptersInfo          @ AA6D    Retarget    Office
+* [API ] GetFileAttributesA       @ 98D0    Succeed
+* [API ] GetLocalTime             @ 5631    Nothing
+* [API ] GetModuleFileNameA       @ 4EF6    Nothing
+* [API ] GetModuleFileNameA       @ 4F53    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] NtQuerySystemInformation @ 5A45    Retarget    Office
+* [API ] NtQuerySystemInformation @ 5A69    Nothing
+* [API ] RegOpenKeyExA            @ A68D    Succeed     Not modified
+* [API ] RegQueryValueExA         @ A71B    Nothing
+* [API ] TimeDelayAPIs            @ 6265    Retarget
+* [API ] TimeQueryAPIs            @ 7371    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 809a528f128967fe811dc7958c640a9ffa16a7c669aa91130a5bb4eb21012d3d
+MD5: 80488d96d4a73a37b3fe5af154ea19aa
+Year: 2019_05_11
+Family name: pwsime
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 5CAE
+* [API ] WSAStartup           @ 9D06
+* [API ] SetWindowsHookExA    @ 1F4B
+* [API ] SetWindowsHookExA    @ EFD2
+* [API ] CryptAcquireContextA @ 4FA6
+* [API ] CryptCreateHash      @ 5039
+* [API ] CryptHashData        @ 5115
+* [API ] CryptGetHashParam    @ 51FE
+* [API ] CryptDestroyHash     @ 554B
+* [API ] CryptReleaseContext  @ 557A
+* [API ] CreateFileA          @ D8D3
+* [API ] WriteFile            @ D96A
+* [API ] WriteProcessMemory   @ 7738
+* [API ] InternetOpenA        @ F756
+* [API ] InternetConnectA     @ F9A2
+* [API ] HttpOpenRequestA     @ FA53
+* [API ] HttpSendRequestA     @ FAC7
+* [API ] InternetReadFile     @ FBEC
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

@@ -1,0 +1,32 @@
+[Basic information]
+=========================================================================
+SHA-256: 92067462e8e23fe5366b0e5a1a35cee71f1fbf5084f97df82b90176527272811
+MD5: 3604a9d7c3bd054aaf18871db606ac09
+Year: 2018
+Family name: megasearch
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 3C09
+* [API ] CreateFileMappingA @ 3C2E
+* [API ] MapViewOfFile      @ 3C64
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID              @ EB66    Nothing
+* [API ] CreateFileA        @ 3C09    Succeed     Not modified
+* [API ] GetModuleFileNameA @ 2533    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 3BA1    Nothing
+* [API ] TimeQueryAPIs      @ 60AB    Nothing
+
+[Manual annotations]
+====================
+Other dependencies: depends on the size of the current file and other parameters.

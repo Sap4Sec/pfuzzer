@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 8463fad56d370703c95449ae48590956d5274d15dd44e2a3f74354836ff8fbc4
+MD5: 9159e1e55b8d228c878c06841f24ff08
+Year: 2018
+Family name: neshta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

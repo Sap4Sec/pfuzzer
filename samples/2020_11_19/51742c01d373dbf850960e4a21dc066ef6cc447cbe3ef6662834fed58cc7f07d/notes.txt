@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: 51742c01d373dbf850960e4a21dc066ef6cc447cbe3ef6662834fed58cc7f07d
+MD5: e411bfb2988a2d3aa8d7d701a6317929
+Year: 2020_11_19
+Family name: sfone
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread        @ 1BD7
+* [API ] CreateThread        @ 1BEE
+* [API ] CreateThread        @ 1C05
+* [API ] OpenSCManagerA      @ 2451
+* [API ] OpenSCManagerA      @ 2510
+* [API ] OpenServiceA        @ 246F
+* [API ] CreateFileA         @ 1DDB
+* [API ] CreateFileMappingA  @ 1DF2
+* [API ] MapViewOfFile       @ 1E07
+* [API ] CreateFileA         @ 1E29
+* [API ] WriteFile           @ 1E45
+* [API ] WriteFile           @ 1E8F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA      @ 125D
+* [API ] ShellExecuteA       @ 29F8
+
+Fuzzing Findings
+----------------
+* [API ] WNetAddConnection2A @ 1478
+* [API ] WSAStartup          @ 3381
+* [API ] inet_addr           @ 33CA
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 1DDB    Fail
+* [API ] CreateFileA        @ 1E29    Fail        Not modified
+* [API ] CreateMutexA       @ 1C68    Retarget    ZonesCacheCounterMutex
+* [API ] FindFirstFileA     @ 20CB    Succeed
+* [API ] FindNextFileA      @ 21BF    Retarget
+* [API ] GetLocalTime       @ 1BA3    Nothing
+* [API ] GetModuleFileNameA @ 1AE2    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 2084    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 2858    Nothing
+* [API ] GetWindowTextA     @ 271E    Nothing
+* [API ] Process32First     @ 28C1    Nothing
+* [API ] Process32Next      @ 29C6    Retarget
+* [API ] RegOpenKeyExA      @ 123F    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 288A    Retarget
+* [API ] TimeQueryAPIs      @ 5FFB    Retarget
+
+[Manual annotations]
+====================

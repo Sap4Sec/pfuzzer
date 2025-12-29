@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: ae98c521a4ab0b60be0dac447b828f9fd3fea41d1d929a0ef43e976daa661189
+MD5: 6134155b8b6b568dff040deabab9f653
+Year: 2019_05_11
+Family name: blackv
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext  @ 00BF
+* [API ] CreateThread      @ BCB7
+* [API ] SuspendThread     @ 85F7
+* [API ] WSAStartup        @ B747
+* [API ] SetWindowsHookExA @ 5765
+* [API ] SetWindowsHookExA @ 28C5
+* [API ] WSAStartup        @ DB87
+* [API ] WSAStartup        @ 30C4
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID              @ 2255    Retarget    Missing
+* [API ] GetCursorPos       @ ADB8    Nothing
+* [API ] GetModuleFileNameA @ 3D7F    Nothing
+* [API ] GetModuleFileNameA @ 9399    Nothing
+* [API ] GetModuleFileNameA @ B08D    Nothing
+* [API ] GetModuleFileNameA @ E553    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] TimeQueryAPIs      @ 2355    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: unreadable msgbox. May require valid internet connection

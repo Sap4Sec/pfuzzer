@@ -1,0 +1,33 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Azorult.aofe-9d227eb3f4ff27c39d61130fae6458b06a33ee315a6e2a8fd84afe08d49ce553
+MD5: 253732efc73b152f1f2d496413ed232c
+Year: 2022
+Family name: locky
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] NtAllocateVirtualMemory @ 456B
+* [API ] CryptAcquireContextW    @ 48F5
+* [API ] NtCreateSection         @ 2AA3
+* [API ] NtMapViewOfSection      @ 2AD0
+* [API ] CreateProcessW          @ 2C7B
+* [API ] NtReadVirtualMemory     @ 2CC0
+* [API ] NtWriteVirtualMemory    @ 2CEA
+* [API ] NtUnmapViewOfSection    @ 2D05
+* [API ] NtMapViewOfSection      @ 2D1E
+* [API ] NtSetContextThread      @ 2D4F
+* [API ] NtResumeThread          @ 2D5C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

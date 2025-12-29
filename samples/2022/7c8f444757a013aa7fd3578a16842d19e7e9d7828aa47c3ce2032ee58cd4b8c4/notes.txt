@@ -1,0 +1,96 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Wofith.gen-7c8f444757a013aa7fd3578a16842d19e7e9d7828aa47c3ce2032ee58cd4b8c4
+MD5: cc978b9f6e2f667d7f02eb94f868e34c
+Year: 2022
+Family name: wofith
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA         @ 543E
+
+Fuzzing Findings
+----------------
+* [API ] WriteFile           @ 2E37
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA      @ 26D0
+* [API ] RegSetValueExA      @ 276D
+* [API ] WinExec             @ 27CB
+* [API ] WSAStartup          @ 2974
+* [API ] CreateThread        @ 298E
+* [API ] CreateThread        @ 29AA
+* [API ] CreateThread        @ 29CF
+* [API ] CreateThread        @ 29F4
+* [API ] CreateThread        @ 2A1C
+* [API ] CreateThread        @ 2A43
+* [API ] CreateThread        @ 2A5F
+* [API ] CreateThread        @ 2A7B
+* [API ] WinExec             @ 2AD1
+* [API ] inet_addr           @ 030E
+* [API ] FindResourceA       @ 5C84
+* [API ] CopyFileA           @ 1C69
+* [API ] CreateThread        @ 5595
+* [API ] LoadResource        @ 5C95
+* [API ] WinExec             @ 20BC
+* [API ] CreateFileA         @ 5CDF
+* [API ] WriteFile           @ 5D0B
+* [API ] CreateFileA         @ 5BA2
+* [API ] CreateThread        @ 1AFD
+* [API ] CreateThread        @ 942A
+* [API ] send                @ 0E75
+* [API ] WSAStartup          @ 8DDF
+* [API ] WSASocketA          @ 8E8F
+* [API ] bind                @ 8EED
+* [API ] CreateFileA         @ 5B4F
+* [API ] WriteFile           @ 5B70
+* [API ] WinExec             @ 025B
+* [API ] CreateThread        @ FFCD
+* [API ] CreatePipe          @ F1A2
+* [API ] CreateProcessA      @ F29C
+* [API ] socket              @ 0437
+* [API ] connect             @ 044A
+* [API ] send                @ 11B0
+* [API ] WinExec             @ 028F
+* [API ] WinExec             @ E4F0
+* [API ] CreateFileA         @ CA81
+* [API ] CreateFileA         @ 518E
+* [API ] WriteFile           @ 53E2
+* [API ] CreateThread        @ D6D7
+* [API ] socket              @ D079
+* [API ] inet_addr           @ D0E1
+* [API ] connect             @ D0F7
+* [API ] WNetAddConnection2A @ 3AC3
+* [API ] WSAAccept           @ 9248
+* [API ] WNetAddConnection2A @ 3648
+* [API ] CreateFileA         @ 2CE5
+* [API ] WriteFile           @ 2D53
+* [API ] CopyFileA           @ 36E0
+* [API ] CopyFileA           @ 36F6
+* [API ] InternetOpenA       @ DBDC
+* [API ] InternetConnectA    @ D519
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ BECF    Retarget    Missing
+* [API ] CreateFileA        @ 543E    Retarget    iexplorer.exe
+* [API ] GetComputerNameA   @ 570A    Retarget    testuser
+* [API ] GetModuleFileNameW @ 482C    Nothing
+* [API ] GetUserNameA       @ 568A    Retarget    testuser
+* [API ] TimeDelayAPIs      @ FBDB    Retarget
+* [API ] TimeQueryAPIs      @ 364B    Retarget
+
+[Manual annotations]
+====================
+Evasive checks observed include:
+- GetUserName for common user names
+- GetDeviceDriverBaseNameA looking for SbieDrv.sys and Sandboxies.sys
+- GetModuleHandle for VBoxHook.dll
+- CreateFileA on \\.\VBoxMiniRdrDN
+- Module32Next searching for sbieDLL.dll and dir_watch.dll
+- WaitNamedPipeA on \\.\pipe\cuckoo with a 10,000 ms timeout
+- Various anti-debugging techniques

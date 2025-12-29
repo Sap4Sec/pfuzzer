@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: 698641d1cbd7f3e7f84b3d57631669bfe0ddf8afe8c6d8786832f1820a40ff7a
+MD5: 84b832e90457e00dbc7419342e4f6c4b
+Year: 2018
+Family name: popureb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CryptAcquireContextA @ 10F9
+* [API ] CryptCreateHash      @ 1116
+* [API ] CryptHashData        @ 1131
+* [API ] CryptGetHashParam    @ 1156
+* [API ] CryptDestroyHash     @ 1161
+* [API ] CryptReleaseContext  @ 116E
+* [API ] CopyFileA            @ 4043
+* [API ] CreateFileA          @ 1034
+* [API ] CreateFileMappingA   @ 1050
+* [API ] MapViewOfFile        @ 1079
+* [API ] MoveFileA            @ 466A
+* [API ] CreateFileA          @ 3B21
+* [API ] WriteFile            @ 3B3F
+* [API ] CreateProcessAsUserA @ 159D
+
+Fuzzing Findings
+----------------
+* [API ] ShellExecuteA        @ 39A8
+* [API ] ShellExecuteA        @ 39CF
+* [API ] ShellExecuteA        @ 39F9
+
+[Mutations applied in the best run (85)]
+=======================================
+
+* [API ] CreateFileA        @ 1034    Fail
+* [API ] CreateFileA        @ 3B21    Succeed
+* [API ] CreateMutexA       @ 428D    Fail
+* [API ] GetLocalTime       @ 3253    Nothing
+* [API ] GetLocalTime       @ 331D    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameA @ 38E3    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 3F9B    Nothing
+* [API ] GetModuleFileNameA @ 430C    Nothing
+* [API ] GetModuleFileNameA @ 5226    Retarget    C:\Windows\system32\
+* [API ] GetWindowTextA     @ 1CFF    Retarget    SecHealthHost - SecHealth Win
+* [API ] Process32First     @ 1416    Nothing
+* [API ] Process32Next      @ 146F    Retarget
+* [API ] TimeDelayAPIs      @ 2F44    Nothing
+* [API ] TimeQueryAPIs      @ 1699    Retarget
+
+[Manual annotations]
+====================

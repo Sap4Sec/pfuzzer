@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: ed0c7841a84d3d511ecbbc15152ab32dda341ab29bb546f9eb16ea01987b3303
+MD5: 71aa22c3f333b97a90c3e4d3859b63ee
+Year: 2018
+Family name: SINGLETON:71aa22c3f333b97a90c3e4d3859b63ee
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext  @ 6A36
+* [API ] CreateFileW       @ DD89
+* [API ] CreateFileW       @ 5EAC
+* [API ] CreateThread      @ 1E5E
+* [API ] SuspendThread     @ FC9A
+* [API ] ResumeThread      @ BF18
+* [API ] ResumeThread      @ 5452
+* [API ] SetWindowsHookExA @ C633
+* [API ] SetWindowsHookExA @ 9794
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID              @ AC10    Nothing
+* [API ] CreateFileA        @ 3EB5    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileW        @ 5EAC    Retarget    C:\Windows\system32\
+* [API ] CreateFileW        @ DD89    Retarget    C:\Windows\system32\
+* [API ] GetCursorPos       @ 1A33    Nothing
+* [API ] GetModuleFileNameA @ 1C87    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 2B03    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 4F4B    Nothing
+* [API ] GetModuleFileNameA @ B9DC    Nothing
+* [API ] GetModuleFileNameA @ D9F9    Retarget    C:\Windows\explorer.exe
+* [API ] TimeDelayAPIs      @ 855C    Retarget
+* [API ] TimeQueryAPIs      @ AC3A    Retarget
+
+[Manual annotations]
+====================
+User interactiom: GUI with unreadable chars, keylogging in background and SHellExecute if you click on buttons

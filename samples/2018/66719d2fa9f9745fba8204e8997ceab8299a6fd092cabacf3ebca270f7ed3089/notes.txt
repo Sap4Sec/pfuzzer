@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: 66719d2fa9f9745fba8204e8997ceab8299a6fd092cabacf3ebca270f7ed3089
+MD5: 71bbbc73cbcbbba0972787b99874d86d
+Year: 2018
+Family name: diplugem
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 4FF2
+* [API ] CreateFileMappingA @ 5016
+* [API ] MapViewOfFile      @ 5039
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User
+* [API ] CreateFileA        @ 52A7
+* [API ] WriteFile          @ 53A2
+* [API ] CreateProcessW     @ 6972
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA        @ 6254
+* [API ] MoveFileExA        @ 62B1
+
+[Mutations applied in the best run (26)]
+=======================================
+
+* [API ] CPUID                    @ 154B    Nothing
+* [API ] CreateFileA              @ 4FF2    Succeed     Not modified
+* [API ] CreateFileA              @ 52A7    Succeed
+* [API ] CreateMutexA             @ 5734    Fail
+* [API ] CreateMutexA             @ 57F1    Retarget    vscode
+* [API ] CreateMutexA             @ 59A8    Retarget    VBoxTray
+* [API ] CreateMutexA             @ 5BDE    Succeed
+* [API ] CreateMutexA             @ 5C49    Fail
+* [API ] FindFirstFileA           @ A180    Succeed
+* [API ] GetAdaptersInfo          @ ACA1    Nothing
+* [API ] GetFileAttributesA       @ 9C3E    Succeed
+* [API ] GetLocalTime             @ 56B7    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameA       @ 4F67    Nothing
+* [API ] GetModuleFileNameA       @ 51B3    Retarget    C:\Windows\system32\
+* [API ] NtQuerySystemInformation @ 5AB5    Retarget    testuser
+* [API ] NtQuerySystemInformation @ 5AF8    Nothing
+* [API ] RegOpenKeyExA            @ A915    Succeed     Not modified
+* [API ] RegQueryValueExA         @ A95F    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs            @ 6470    Retarget
+* [API ] TimeQueryAPIs            @ 76D9    Retarget
+
+[Manual annotations]
+====================

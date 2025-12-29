@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: d32899762a35a50e73585c038c60fc965dbc78b502785e068f6ffb51cfebd6dd
+MD5: ac769ce2014f34c5afaf02f8f9bb2ace
+Year: 2020_05_06
+Family name: SINGLETON:ac769ce2014f34c5afaf02f8f9bb2ace
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WriteFile   @ 8AF5
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA @ 4504
+* [API ] CreateFileA @ 497F
+
+[Mutations applied in the best run (148)]
+=======================================
+
+* [API ] CPUID                @ A10C    Nothing
+* [API ] CreateFileA          @ 4504    Retarget    Detect It Easy.lnk
+* [API ] CreateFileA          @ 497F    Fail        Not modified
+* [API ] FindWindowA          @ 49C6    Retarget    SecHealthHost - SecHealth Win
+* [API ] FindWindowA          @ 49D1    Fail
+* [API ] GetAdaptersInfo      @ 3B2D    Retarget    Office
+* [API ] GetAdaptersInfo      @ 3B6B    Nothing
+* [API ] GetModuleFileNameW   @ D29B    Nothing
+* [API ] RegEnumKeyA          @ 4679    Nothing
+* [API ] RegEnumKeyA          @ 4712    Retarget    Office
+* [API ] RegOpenKeyExA        @ 2128    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2E09    Fail
+* [API ] RegOpenKeyExA        @ 2F80    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 44D2    Fail
+* [API ] RegOpenKeyExA        @ 4564    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA        @ 45B3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 4698    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 4737    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 4819    Succeed     Not modified
+* [API ] RegQueryValueExA     @ 2055    Retarget    ProductID
+* [API ] RegQueryValueExA     @ 477D    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA     @ 485E    Retarget    ProductID
+* [API ] RegQueryValueExA     @ 4903    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 4F03    Retarget
+* [API ] TimeQueryAPIs        @ 9D6D    Retarget
+* [API ] WNetGetProviderNameA @ 4A05    Retarget    Office
+
+[Manual annotations]
+====================
+PoC samples: Pafish/Al-Khaser like

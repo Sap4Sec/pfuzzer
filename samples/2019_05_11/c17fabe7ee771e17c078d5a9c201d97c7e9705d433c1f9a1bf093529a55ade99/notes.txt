@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: c17fabe7ee771e17c078d5a9c201d97c7e9705d433c1f9a1bf093529a55ade99
+MD5: 5f8e0df3589e20cfc1a5e45133f2c532
+Year: 2019_05_11
+Family name: stabs
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 1A36
+* [API ] LoadResource       @ 1A46
+* [API ] FindResourceA      @ 1ADB
+* [API ] LoadResource       @ 1AFD
+* [API ] FindResourceA      @ 1B17
+* [API ] LoadResource       @ 1B27
+* [API ] CreateProcessA     @ 14FB
+* [API ] ReadProcessMemory  @ 152F
+* [API ] WriteProcessMemory @ 167C
+* [API ] WriteProcessMemory @ 169B
+* [API ] SetThreadContext   @ 16D6
+* [API ] ResumeThread       @ 16DF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateMutexA       @ 1AD5    Retarget    ZonesCacheCounterMutex
+* [API ] GetModuleFileNameA @ 1109    Nothing
+* [API ] GetModuleFileNameA @ 1B49    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetUserNameA       @ 10D1    Nothing
+
+[Manual annotations]
+====================
+On Windows 8 and later, the sample fails due to a INT 29h instruction with ECX = FAST_FAIL_GUARD_ICALL_CHECK_FAILURE. This is because the fast fail mechanism was introduced starting with Windows 8.
+On Windows 7, the sample executes correctly, as this guard check does not exist in that version.
+Reference: FAST_FAIL in MSVC

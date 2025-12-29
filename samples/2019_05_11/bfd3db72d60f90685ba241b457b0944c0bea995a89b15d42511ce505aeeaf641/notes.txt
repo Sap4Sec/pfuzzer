@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: bfd3db72d60f90685ba241b457b0944c0bea995a89b15d42511ce505aeeaf641
+MD5: 7cde50a7a3e76a98b74668f9338f2640
+Year: 2019_05_11
+Family name: alman
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Fails to start; numerous exceptions occur during execution.

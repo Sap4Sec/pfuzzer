@@ -1,0 +1,71 @@
+[Basic information]
+=========================================================================
+SHA-256: c5276b6cb9e193066377557ad695472e6bd7e2123e11dc960b50a546a18acba1
+MD5: 0c8748ef70bc0a4821e990a999293787
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 36E8
+* [API ] CreateFileA     @ 3015
+* [API ] WriteFile       @ 2F40
+* [API ] WinExec         @ EF03
+* [API ] WinExec         @ FEBC
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ FB50
+* [API ] WinExec         @ FBCF
+* [API ] CreateThread    @ BD30
+* [API ] CreateFileW     @ 342E
+* [API ] WriteFile       @ 365C
+* [API ] CreateFileW     @ 9E63
+* [API ] RegCreateKeyExW @ DF41
+* [API ] RegSetValueExW  @ DFB2
+* [API ] WriteFile       @ 3472
+
+[Mutations applied in the best run (52)]
+=======================================
+
+* [API ] CreateFileA        @ 3015    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateFileA        @ 36E8    Succeed     Not modified
+* [API ] CreateFileW        @ 342E    Fail
+* [API ] CreateFileW        @ 9E63    Succeed
+* [API ] CreateMutexW       @ 2E1E    Retarget    VBoxTray
+* [API ] CreateMutexW       @ 3868    Fail
+* [API ] FindFirstFileA     @ 7C18    Fail
+* [API ] FindNextFileW      @ D8E7    Retarget
+* [API ] GetFileAttributesW @ AA02    Succeed
+* [API ] GetFileAttributesW @ AA20    Succeed
+* [API ] GetLocalTime       @ 46CD    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA @ 2DC8    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5D07    Nothing
+* [API ] GetModuleFileNameA @ 5F98    Nothing
+* [API ] GetModuleFileNameA @ EC56    Nothing
+* [API ] GetModuleFileNameW @ 315F    Nothing
+* [API ] GetModuleFileNameW @ 387E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 67E2    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 9F86    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ AD62    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameW       @ 474E    Retarget    John
+* [API ] Process32First     @ 72FF    Nothing
+* [API ] Process32FirstW    @ CFB7    Nothing
+* [API ] Process32Next      @ 731F    Retarget
+* [API ] Process32NextW     @ CFEE    Retarget
+* [API ] RegOpenKeyExA      @ 5FB6    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5FD4    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5FF2    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ DE30    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ E070    Succeed
+* [API ] RegQueryValueExW   @ DEA7    Retarget    ProductID
+* [API ] RegQueryValueExW   @ E0E9    Nothing
+* [API ] TimeDelayAPIs      @ E83A    Retarget
+* [API ] TimeQueryAPIs      @ 2E0D    Retarget
+
+[Manual annotations]
+====================

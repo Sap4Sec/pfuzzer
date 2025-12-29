@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 48c21ee6bd999e4585028744babc114851d55f4d8dc0e42f9cc74532272d7ee9
+MD5: 5fdd258324d37d40c699924da2e4909d
+Year: 2019_05_11
+Family name: installcore
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

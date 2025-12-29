@@ -1,0 +1,63 @@
+[Basic information]
+=========================================================================
+SHA-256: 07694e8f88d8098b37c7398cace5c45d7d4b466cec5f77e79c1ff21e8f47f6d4
+MD5: a375950c13b41542c6793cac0c1aa420
+Year: 2021_11_03
+Family name: berbew
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA          @ 7A3F
+* [API ] CreateFileA        @ 38CB
+* [API ] CreateFileA        @ 41E0
+* [API ] WriteFile          @ 41FB
+* [API ] CreateFileA        @ 4316
+* [API ] WriteFile          @ 4348
+* [API ] RegCreateKeyExA    @ 442B
+* [API ] RegSetValueExA     @ 444D
+* [API ] WinExec            @ 7A68
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 7B50
+* [API ] WriteFile          @ 7B9C
+* [API ] WriteFile          @ 7BB1
+* [API ] WriteFile          @ 7BF4
+* [API ] WriteFile          @ 7C09
+* [API ] NtMapViewOfSection @ 2CAD
+* [API ] CreateThread       @ 262D
+* [API ] CreateThread       @ 7D8E
+* [API ] CreateThread       @ 7DAD
+* [API ] CreateThread       @ 58A2
+* [API ] CreateFileA        @ 704B
+* [API ] CreateThread       @ 628C
+* [API ] RegCreateKeyExA    @ 44F1
+* [API ] RegSetValueExA     @ 450F
+* [PERS] .DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BrowseNewProcess
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CreateFileA         @ 38CB    Retarget    Backup.txt
+* [API ] CreateFileA         @ 41E0    Retarget    iexplorer.exe
+* [API ] CreateFileA         @ 4316    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA         @ 704B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateFileA         @ 7B50    Fail
+* [API ] CreateMutexA        @ 7CD6    Succeed
+* [API ] GetComputerNameA    @ 7B76    Retarget    John
+* [API ] GetForegroundWindow @ 1C8F    Retarget    Missing
+* [API ] GetModuleFileNameA  @ 7936    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA        @ 7BCE    Nothing
+* [API ] GetWindowTextA      @ 1916    Nothing
+* [API ] RegOpenKeyExA       @ 1410    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA       @ 456F    Succeed
+* [API ] RegQueryValueExA    @ 1430    Nothing
+* [API ] TimeDelayAPIs       @ 7DC7    Retarget
+* [API ] TimeQueryAPIs       @ 7916    Retarget
+
+[Manual annotations]
+====================

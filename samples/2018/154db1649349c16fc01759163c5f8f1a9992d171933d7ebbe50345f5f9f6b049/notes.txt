@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 154db1649349c16fc01759163c5f8f1a9992d171933d7ebbe50345f5f9f6b049
+MD5: be040a24ff15701a12cf618c6fd9e7f1
+Year: 2018
+Family name: SINGLETON:be040a24ff15701a12cf618c6fd9e7f1
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ AE83
+* [API ] CreateFileW  @ C281
+* [API ] NtCreateFile @ 4BA4
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 2E78
+* [API ] NtCreateFile @ F3C8
+* [API ] NtCreateFile @ 457E
+* [API ] NtCreateFile @ 2956
+* [API ] NtCreateFile @ 7C06
+* [API ] NtCreateFile @ 72BE
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID         @ 4C7E    Nothing
+* [API ] CreateFileW   @ AE83    Succeed    Not modified
+* [API ] CreateFileW   @ C281    Succeed    Not modified
+* [API ] NtCreateFile  @ 4BA4    Succeed    Not modified
+* [API ] NtCreateFile  @ 7F91    Fail       Not modified
+* [API ] TimeQueryAPIs @ 7E3D    Nothing
+
+[Manual annotations]
+====================
+User interactiom:  Unreadable chars GUI with different buttonsl Safengine v2.3.0.0

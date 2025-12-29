@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Agentb.kudv-98be7c2ccef85c8a9deb887d673d1e6e57a05038317c918f80e0ff652a22fd06
+MD5: cb6079e595ab2a74530022d2af3e6cd9
+Year: 2022
+Family name: wacatac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Numerous exceptions occur, and the sample exits immediately without triggering werfault.exe; likely broken by DynamoRIO.

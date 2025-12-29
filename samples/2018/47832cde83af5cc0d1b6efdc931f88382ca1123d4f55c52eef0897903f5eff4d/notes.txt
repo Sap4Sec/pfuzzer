@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 47832cde83af5cc0d1b6efdc931f88382ca1123d4f55c52eef0897903f5eff4d
+MD5: e99b357e6c799864bcae133160df0efd
+Year: 2018
+Family name: midia
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ E478
+* [API ] LoadResource  @ E492
+* [API ] FindResourceA @ ADD3
+* [API ] CreateFileA   @ 2C4D
+* [API ] WriteFile     @ 2B78
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateFileA        @ 2C4D    Fail
+* [API ] FindFirstFileA     @ 91D0    Retarget    C:\Users\Student\*
+* [API ] GetCursorPos       @ 5469    Nothing
+* [API ] GetCursorPos       @ 8416    Retarget    Missing
+* [API ] GetKeyboardLayout  @ 562A    Nothing
+* [API ] GetModuleFileNameA @ 5A97    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 5CD1    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 67E0    Nothing
+* [API ] GetSystemInfo      @ 6B39    Retarget    Missing
+* [API ] GetWindowTextA     @ 7880    Nothing
+* [API ] RegOpenKeyExA      @ 5CEF    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5D0D    Succeed
+* [API ] RegOpenKeyExA      @ 5D2B    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 2A70    Nothing
+* [API ] TimeQueryAPIs      @ 157C    Nothing
+
+[Manual annotations]
+====================
+User interactiom: Opens a GUI showing buttons to install additional software

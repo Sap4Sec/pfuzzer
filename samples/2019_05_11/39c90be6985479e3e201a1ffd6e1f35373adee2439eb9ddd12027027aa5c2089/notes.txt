@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: 39c90be6985479e3e201a1ffd6e1f35373adee2439eb9ddd12027027aa5c2089
+MD5: e2d48444d6933d0cae447e8423cc28a3
+Year: 2019_05_11
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ F9FE
+* [API ] SetWindowsHookExA    @ A411
+* [API ] SetWindowsHookExA    @ 740B
+* [API ] CryptAcquireContextA @ 4B98
+* [API ] CryptCreateHash      @ 4C2B
+* [API ] CryptHashData        @ 4D07
+* [API ] CryptGetHashParam    @ 4DF0
+* [API ] CryptDestroyHash     @ 513D
+* [API ] CryptReleaseContext  @ 516C
+* [API ] CreateThread         @ 4743
+* [API ] CreateFileA          @ 3EB5
+* [API ] SetWindowsHookExA    @ 94B3
+* [API ] SetWindowsHookExA    @ 41BD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CPUID              @ 630D    Retarget    Missing
+* [API ] CreateFileA        @ 3EB5    Fail
+* [API ] CreateFileW        @ F9FE    Succeed
+* [API ] DeviceIoControl    @ FA47    Nothing
+* [API ] GetAdaptersInfo    @ 8F7B    Retarget    Office
+* [API ] GetAdaptersInfo    @ 904F    Retarget    John
+* [API ] GetCursorPos       @ 36DC    Nothing
+* [API ] GetCursorPos       @ 39D8    Nothing
+* [API ] GetCursorPos       @ FF35    Retarget    Missing
+* [API ] GetModuleFileNameA @ 01B8    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 4F4B    Nothing
+* [API ] GetModuleFileNameA @ 7419    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 878B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ C9A3    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ F9D4    Retarget    C:\Windows\system32\
+* [API ] GetWindowTextA     @ 37E3    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] GetWindowTextA     @ 3AA8    Nothing
+* [API ] GetWindowTextA     @ 78FA    Nothing
+* [API ] RegOpenKeyExA      @ 9367    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ D2A0    Succeed
+* [API ] RegQueryValueExA   @ 9124    Nothing
+* [API ] TimeDelayAPIs      @ DA57    Nothing
+* [API ] TimeQueryAPIs      @ 1646    Nothing
+
+[Manual annotations]
+====================
+User interaction: NoobyProtect(Safengine), Safengine Shielden(2.X)

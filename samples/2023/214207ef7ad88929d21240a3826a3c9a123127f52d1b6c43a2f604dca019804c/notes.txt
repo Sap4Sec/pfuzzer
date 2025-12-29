@@ -1,0 +1,57 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Llac.lgnr-214207ef7ad88929d21240a3826a3c9a123127f52d1b6c43a2f604dca019804c
+MD5: 3c87371bae7477fa98b85ed5aa717040
+Year: 2023
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8D8
+* [API ] CreateProcessA     @ B665
+* [API ] CreateProcessA     @ B6CB
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CreateFileA        @ 5DBB    Succeed
+* [API ] CreateMutexA       @ 3583    Retarget    VBoxTray
+* [API ] FindFirstFileA     @ 5D3E    Succeed
+* [API ] FindWindowA        @ B879    Fail
+* [API ] GetFileAttributesA @ 5A78    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesA @ 6670    Fail
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Windows\system32\
+* [API ] RegOpenKeyExA      @ 60E2    Fail
+* [API ] RegOpenKeyExA      @ 69FF    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 6106    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 6130    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ BF31    Nothing
+
+[Manual annotations]
+====================

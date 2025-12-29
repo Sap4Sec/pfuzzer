@@ -1,0 +1,84 @@
+[Basic information]
+=========================================================================
+SHA-256: bb378c6543cf858c9ac0ea19d88d8f003ca471485500c149ba2d6aba48b0ce82
+MD5: ad0d8a89bc66ce603b69c8266f7bf750
+Year: 2021_11_03
+Family name: berbew
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA          @ D2E3
+* [API ] CreateFileA        @ 4E0B
+* [API ] CreateFileA        @ A4E8
+* [API ] WriteFile          @ A503
+* [API ] CreateFileA        @ 5317
+* [API ] WriteFile          @ 534F
+* [API ] RegCreateKeyExA    @ 540E
+* [API ] RegSetValueExA     @ 543F
+* [API ] WinExec            @ D312
+
+Fuzzing Findings
+----------------
+* [API ] NtMapViewOfSection @ 4152
+* [API ] CreateThread       @ 2AD4
+* [API ] WSAStartup         @ D40F
+* [API ] RegCreateKeyExA    @ 7548
+* [API ] RegSetValueExA     @ 7566
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\AutoComplete
+* [API ] RegSetValueExA     @ 4AC3
+* [API ] CreateThread       @ 9F28
+* [API ] socket             @ 9D55
+* [API ] bind               @ 9D97
+* [API ] accept             @ 9E3E
+* [API ] CreateThread       @ 7B99
+* [API ] socket             @ 7CE4
+* [API ] bind               @ 7D23
+* [API ] accept             @ 7D8E
+* [API ] CreateThread       @ CB97
+* [API ] CreateFileA        @ C8B1
+* [API ] CreateThread       @ 54AA
+* [API ] CreateThread       @ 72F9
+* [API ] socket             @ 5737
+* [API ] bind               @ 576E
+* [API ] socket             @ 71CB
+* [API ] accept             @ 57A7
+* [API ] bind               @ 71F9
+* [API ] accept             @ 7233
+* [API ] CreateThread       @ C282
+* [PERS] .DEFAULT\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\BrowseNewProcess
+* [API ] CreateThread       @ CC0C
+* [API ] CreateFileA        @ 4EB1
+* [API ] WriteFile          @ 4EF5
+* [API ] WriteFile          @ 4F08
+* [API ] CreateThread       @ B843
+* [API ] CreateThread       @ C840
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CreateFileA         @ 4E0B    Fail        Not modified
+* [API ] CreateFileA         @ 4EB1    Fail        Not modified
+* [API ] CreateFileA         @ 5317    Succeed     Not modified
+* [API ] CreateFileA         @ A4E8    Retarget    C:\Windows\system32\
+* [API ] CreateFileA         @ C8B1    Succeed     Not modified
+* [API ] CreateMutexA        @ D3F3    Succeed
+* [API ] GetForegroundWindow @ 2263    Nothing
+* [API ] GetForegroundWindow @ 76C7    Retarget    Missing
+* [API ] GetLocalTime        @ C8F0    Retarget    2010:1:1:2
+* [API ] GetLocalTime        @ CFDC    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameA  @ C890    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ CC5F    Nothing
+* [API ] GetModuleFileNameA  @ D1FA    Retarget    C:\Windows\system32\
+* [API ] GetWindowTextA      @ 2039    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] RegOpenKeyExA       @ 4AAC    Fail
+* [API ] RegOpenKeyExA       @ 75C4    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA    @ 75E0    Nothing
+* [API ] TimeDelayAPIs       @ 7A55    Retarget
+* [API ] TimeQueryAPIs       @ D166    Nothing
+
+[Manual annotations]
+====================

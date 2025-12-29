@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 085d0540f9b20bf085d38d11d5b38a6c91d7269c4c917e7b20f78c579fcf5101
+MD5: 771bd386eb0257a2d0befbe6628092ce
+Year: 2018
+Family name: adject
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW @ 52E7
+* [API ] WriteFile   @ ED15
+* [API ] WinExec     @ 0883
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

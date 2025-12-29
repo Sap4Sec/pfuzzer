@@ -1,0 +1,84 @@
+[Basic information]
+=========================================================================
+SHA-256: 5dc7840a32a5ec8381fc7814900e2655e1c02daeb6f02315855e039df2796ae6
+MD5: 618e1bba7dd217b16c8653a5e54bc131
+Year: 2018
+Family name: SINGLETON:618e1bba7dd217b16c8653a5e54bc131
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegSetValueExA @ 23F5
+* [API ] RegSetValueExA @ 18C3
+* [PERS] .DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+* [PERS] .DEFAULT\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+* [PERS] S-1-5-19\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+* [PERS] S-1-5-19\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+* [PERS] S-1-5-20\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+* [PERS] S-1-5-20\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+* [PERS] S-1-5-21-2936109392-2283665066-63263006-1001\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+* [API ] RegSetValueExA @ 26B7
+* [PERS] S-1-5-21-2936109392-2283665066-63263006-1001_Classes\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+* [PERS] S-1-5-21-2936109392-2283665066-63263006-1001_Classes\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+* [PERS] S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel
+* [PERS] S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons
+* [API ] WinExec        @ 2840
+* [API ] MoveFileA      @ 3802
+* [API ] CreateFileA    @ 92C4
+* [API ] WriteFile      @ D7E5
+* [API ] MoveFileA      @ 3958
+* [API ] WinExec        @ 41D4
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA        @ 92C4    Fail        Not modified
+* [API ] FindFirstFileA     @ 4B18    Fail
+* [API ] FindNextFileA      @ 4D32    Retarget
+* [API ] GetCursorPos       @ C982    Retarget    Missing
+* [API ] GetFileAttributesA @ 1EEB    Fail
+* [API ] GetFileAttributesA @ 2974    Fail
+* [API ] GetFileAttributesA @ 32D7    Succeed
+* [API ] GetFileAttributesA @ 379D    Fail
+* [API ] GetLocalTime       @ 5D4C    Retarget    2022:10:3:24
+* [API ] GetModuleFileNameA @ 3C5C    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ A4EA    Nothing
+* [API ] GetModuleFileNameA @ C7CB    Nothing
+* [API ] GetSystemTime      @ 5D56    Retarget    2022:10:3:24
+* [API ] Process32First     @ 27A3    Nothing
+* [API ] Process32Next      @ 287A    Retarget
+* [API ] RegEnumKeyExA      @ 21EE    Retarget    John
+* [API ] RegEnumKeyExA      @ 252A    Nothing
+* [API ] RegOpenKeyExA      @ 1351    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 1785    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 18EF    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 21B3    Fail
+* [API ] RegOpenKeyExA      @ 2231    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 22BD    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 24D1    Fail
+* [API ] RegOpenKeyExA      @ 258B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 26DF    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 2B6F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 2BDC    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 3654    Fail
+* [API ] RegOpenKeyExA      @ 3A73    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 3AC1    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 138E    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 17D1    Nothing
+* [API ] RegQueryValueExA   @ 2253    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 226B    Nothing
+* [API ] RegQueryValueExA   @ 22E8    Nothing
+* [API ] RegQueryValueExA   @ 25CC    Nothing
+* [API ] RegQueryValueExA   @ 2B99    Nothing
+* [API ] RegQueryValueExA   @ 2C00    Nothing
+* [API ] RegQueryValueExA   @ 367A    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 40FB    Retarget
+
+[Manual annotations]
+====================

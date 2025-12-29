@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Bingoml.ekui-f23fa03aac41be96640689bba751625ab8386707eff75ced9d997e66500beb8b
+MD5: e865c4f13e3b5c2f278ec51b17825647
+Year: 2022
+Family name: bingoml
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (27)]
+=======================================
+
+* [API ] CPUID              @ 73E9    Retarget    Missing
+* [API ] CreateFileA        @ 96C5    Retarget    Backup.txt
+* [API ] GetModuleFileNameW @ 96C5    Nothing
+* [API ] GetSystemInfo      @ 96C5    Nothing
+* [API ] TimeDelayAPIs      @ 98A2    Nothing
+
+[Manual annotations]
+====================
+Exhibits some evasion techniques; BluePill detects relevant behaviors but fails to identify the specific evasion method.
+Runs successfully when executed with drrun.exe alone.

@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-3a9c24a764a95e749a2cfb69fbd46d16faff9532e67dc4f25361f7a918bb82a3
+MD5: 334f52b4ce4bdb774cb0e0c06c73bcb1
+Year: 2022
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 98EF
+* [API ] OpenServiceW         @ 9909
+* [API ] CryptAcquireContextW @ 7CEE
+* [API ] CryptGenRandom       @ 7D03
+* [API ] CryptReleaseContext  @ 7D18
+* [API ] CreateFileW          @ C10C
+* [API ] CreateFileW          @ C383
+* [API ] WriteFile            @ C39D
+* [API ] CreateProcessW       @ CACF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileW        @ C10C    Succeed     Not modified
+* [API ] CreateFileW        @ C383    Retarget    iexplorer.exe
+* [API ] GetComputerNameA   @ C8F8    Nothing
+* [API ] GetModuleFileNameW @ 79B1    Nothing
+* [API ] GetModuleFileNameW @ C952    Nothing
+* [API ] GetUserNameA       @ 6019    Nothing
+
+[Manual annotations]
+====================

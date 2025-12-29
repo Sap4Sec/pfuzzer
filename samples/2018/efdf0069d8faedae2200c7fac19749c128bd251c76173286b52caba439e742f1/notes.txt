@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: efdf0069d8faedae2200c7fac19749c128bd251c76173286b52caba439e742f1
+MD5: c94eb921792e2a2d1534e6fca75e506b
+Year: 2018
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ F2C8
+* [API ] CreateThread     @ F36E
+* [API ] CreateThread     @ F385
+* [API ] CreateThread     @ F39C
+* [API ] CreateProcessA   @ D3DD
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA   @ CAAF
+* [API ] CopyFileA        @ D353
+* [API ] CopyFileA        @ D37F
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA    @ D5B9
+* [API ] InternetOpenUrlA @ D5DF
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread     @ F313
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CreateMutexA         @ F2D7    Fail
+* [API ] GetModuleFileNameA   @ D09F    Nothing
+* [API ] GetModuleFileNameExA @ DA91    Nothing
+* [API ] GetModuleFileNameExA @ DF77    Retarget    C:\Windows\explorer.exe
+* [API ] Process32First       @ DA2C    Nothing
+* [API ] Process32First       @ DF03    Nothing
+* [API ] Process32Next        @ DD4F    Retarget
+* [API ] Process32Next        @ E0FC    Retarget
+* [API ] RegOpenKeyA          @ CA8C    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeDelayAPIs        @ F2AE    Retarget
+* [API ] TimeQueryAPIs        @ F28C    Retarget
+
+[Manual annotations]
+====================
+The sample performs evasion in sub_43C195 and sub_43C110 using vpcxt and other evasion techniques (see https://elearning.di.unipi.it/pluginfile.php/25436/mod_resource/content/1/5-0%20Vulnerabilities%20and%20Attacks.pdf and https://unprotect.it/technique/vpcext/) which are not supported in our environment.
+I patched these out to continue the analysis.

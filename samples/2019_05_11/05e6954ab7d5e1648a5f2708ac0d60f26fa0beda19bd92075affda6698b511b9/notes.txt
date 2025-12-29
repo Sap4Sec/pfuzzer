@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: 05e6954ab7d5e1648a5f2708ac0d60f26fa0beda19bd92075affda6698b511b9
+MD5: d63cc2c93adfa1397294f62dcea88556
+Year: 2019_05_11
+Family name: ramnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 026E
+* [API ] WriteFile       @ 0298
+* [API ] CreateProcessA  @ 02E6
+* [API ] FindResourceA   @ 75AF
+* [API ] FindResourceA   @ ACD8
+* [API ] LoadResource    @ ACF2
+* [API ] CreateFileA     @ 2D81
+* [API ] RegCreateKeyExA @ 2377
+* [API ] CreateFileA     @ A4C3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA        @ 026E    Retarget    C:\Windows\system32\
+* [API ] CreateFileA        @ 2D81    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA        @ A4C3    Retarget    C:\Windows\system32\
+* [API ] CreateMutexA       @ 01CC    Succeed
+* [API ] FindFirstFileA     @ 963C    Nothing
+* [API ] GetCursorPos       @ 8542    Retarget    Missing
+* [API ] GetCursorPos       @ DCA5    Retarget    Missing
+* [API ] GetKeyboardLayout  @ 5822    Nothing
+* [API ] GetModuleFileNameA @ 022F    Nothing
+* [API ] GetModuleFileNameA @ 2B29    Nothing
+* [API ] GetModuleFileNameA @ 628F    Nothing
+* [API ] GetModuleFileNameA @ 64C9    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 69D8    Nothing
+* [API ] GetSystemInfo      @ 50F1    Nothing
+* [API ] GetWindowTextA     @ 79E8    Nothing
+* [API ] RegOpenKeyExA      @ 64E7    Succeed
+* [API ] RegOpenKeyExA      @ 6505    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 6523    Fail        Not modified
+* [API ] RegQueryValueExA   @ 241F    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ E5DF    Retarget
+* [API ] TimeQueryAPIs      @ E263    Retarget
+
+[Manual annotations]
+====================

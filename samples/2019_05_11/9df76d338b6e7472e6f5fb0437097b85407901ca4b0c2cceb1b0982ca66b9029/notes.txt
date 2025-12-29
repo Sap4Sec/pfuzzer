@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 9df76d338b6e7472e6f5fb0437097b85407901ca4b0c2cceb1b0982ca66b9029
+MD5: c48cdcc03a00b45e0d3eeaf562d6e38f
+Year: 2019_05_11
+Family name: occamy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input

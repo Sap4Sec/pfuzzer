@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Stealer.brqh-4420d56e7d9699dc1962cb5504cd177d428aa1e2bfb96a77dfa455947d712cfe
+MD5: 0aecb987fe54d6a7ce3564e896d9474a
+Year: 2023
+Family name: fragtor
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

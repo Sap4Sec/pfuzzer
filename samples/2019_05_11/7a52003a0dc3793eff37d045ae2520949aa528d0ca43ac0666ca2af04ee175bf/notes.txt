@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: 7a52003a0dc3793eff37d045ae2520949aa528d0ca43ac0666ca2af04ee175bf
+MD5: 0bd550e8622101dd271687f63122ae9b
+Year: 2019_05_11
+Family name: rkit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext @ 43B5
+* [API ] CreateFileW      @ 7B85
+* [API ] CreateFileW      @ 6258
+* [API ] CreateFileW      @ 7641
+* [API ] CreateFileW      @ 8040
+* [API ] CreateThread     @ 0BA0
+* [API ] CreateFileW      @ 0A6F
+* [API ] SuspendThread    @ EBC9
+* [API ] CreateFileW      @ 9005
+* [API ] CreateFileW      @ 1202
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ B317    Nothing
+* [API ] CreateFileW        @ 0A6F    Fail        Not modified
+* [API ] CreateFileW        @ 1202    Succeed
+* [API ] CreateFileW        @ 6258    Succeed     Not modified
+* [API ] CreateFileW        @ 7641    Retarget    ZhuDongFangYu.exe
+* [API ] CreateFileW        @ 7B85    Fail
+* [API ] CreateFileW        @ 8040    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileW        @ 9005    Succeed
+* [API ] FindWindowA        @ 9386    Succeed
+* [API ] FindWindowA        @ 9B83    Retarget    Program Manager - MSCTFIME UI
+* [API ] FindWindowA        @ A37F    Fail
+* [API ] FindWindowA        @ A69F    Retarget    Window - Window
+* [API ] GetModuleFileNameW @ 7C56    Nothing
+* [API ] RegOpenKeyExA      @ E9E5    Fail        Not modified
+* [API ] RegQueryValueExA   @ EBAB    Nothing
+* [API ] TimeDelayAPIs      @ 93F2    Retarget
+* [API ] TimeQueryAPIs      @ B22D    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected; detects virtualized environment and exits.

@@ -1,0 +1,49 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Fsysna.pef-a94a270991241875a66c3106a3d76007db59b3109cd9d8a23b4e68d46aa4565f
+MD5: a3fb4342e6afb790818d2ed00fdf3079
+Year: 2022
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext  @ 230A
+* [API ] SetWindowsHookExA @ F8F7
+* [API ] SetWindowsHookExA @ CA58
+* [API ] MoveFileA         @ C32D
+* [API ] CreateFileA       @ B356
+* [API ] WriteFile         @ B3ED
+* [API ] ShellExecuteA     @ 3C2D
+* [API ] CreateThread      @ F306
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA         @ C33F
+* [API ] socket            @ CCBF
+* [API ] inet_addr         @ CCE4
+* [API ] connect           @ CD04
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID              @ 0A5E    Nothing
+* [API ] CreateFileA        @ B356    Succeed
+* [API ] CreateMutexA       @ 7832    Succeed
+* [API ] FindFirstFileA     @ 7EB6    Nothing
+* [API ] FindWindowA        @ 7059    Fail
+* [API ] GetCursorPos       @ 4FBA    Nothing
+* [API ] GetModuleFileNameA @ 526E    Nothing
+* [API ] GetModuleFileNameA @ 5B19    Nothing
+* [API ] GetModuleFileNameA @ 95B3    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ ECD1    Nothing
+* [API ] Process32First     @ E917    Nothing
+* [API ] Process32Next      @ E96E    Retarget
+* [API ] TimeDelayAPIs      @ 7AA3    Nothing
+* [API ] TimeQueryAPIs      @ 0C1A    Nothing
+
+[Manual annotations]
+====================

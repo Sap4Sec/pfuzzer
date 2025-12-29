@@ -1,0 +1,42 @@
+[Basic information]
+=========================================================================
+SHA-256: 182bef0e23b71da1294f161d64565ed88efb32c3c55b8e44bd1bb652acb678cd
+MD5: 8013281d652fab0042d0f715878c1edc
+Year: 2018
+Family name: webalta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 6258
+* [API ] CreateFileW  @ 8CD8
+* [API ] NtCreateFile @ 57AD
+* [API ] WSAStartup   @ D082
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 5CFF
+* [API ] NtCreateFile @ BCD2
+* [API ] NtCreateFile @ 0A71
+* [API ] NtCreateFile @ 49AD
+* [API ] NtCreateFile @ 3F83
+* [API ] NtCreateFile @ BB7D
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ 202E    Nothing
+* [API ] CreateFileW        @ 6258    Retarget    Backup.txt
+* [API ] CreateFileW        @ 8CD8    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 638F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] NtCreateFile       @ 57AD    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] NtCreateFile       @ D1F4    Fail        Not modified
+* [API ] TimeQueryAPIs      @ 1FF7    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

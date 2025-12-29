@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: 665b1b72ff02156034706a2a4548ac10a338bb350d6f09218b9ce0f53c4d87a8
+MD5: 387333188423c022e2ac92fde9a21eca
+Year: 2020_05_06
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5823
+* [API ] CreateFileA        @ 585F
+* [API ] CreateFileA        @ 5DAB
+* [API ] WriteFile          @ 5DD9
+* [API ] CreateProcessA     @ B77D
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+
+[Mutations applied in the best run (68)]
+=======================================
+
+* [API ] CreateFileA        @ 5823    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA        @ 585F    Fail        Not modified
+* [API ] CreateFileA        @ 5DAB    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 3583    Retarget    VBoxTray
+* [API ] GetModuleFileNameA @ 13CD    Nothing
+* [API ] GetUserNameA       @ 5598    Nothing
+* [API ] Process32Next      @ 50D3    Retarget
+* [API ] RegOpenKeyExA      @ 5341    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 53F9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 54B1    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 536A    Nothing
+* [API ] RegQueryValueExA   @ 5422    Nothing
+* [API ] RegQueryValueExA   @ 54DA    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ BF2D    Retarget
+* [API ] TimeQueryAPIs      @ B250    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,59 @@
+[Basic information]
+=========================================================================
+SHA-256: d564c0a65a4d39ad078b1b37ebe18bcd3df026ef43928b0920b29a306b5149ec
+MD5: c1238b95bc13ca5d0959580a3bcfa574
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA      @ 36E8
+* [API ] CreateFileA      @ 3015
+* [API ] WriteFile        @ 2F40
+* [API ] WinExec          @ EF03
+* [API ] WinExec          @ FEBC
+
+Fuzzing Findings
+----------------
+* [API ] InternetOpenA    @ 98E3
+* [API ] ResumeThread     @ A863
+* [API ] CreateFileW      @ 34CD
+* [API ] CreateFileW      @ 35CF
+* [API ] WriteFile        @ 2E67
+* [API ] ConnectNamedPipe @ C6A6
+* [API ] CreateFileW      @ 34E9
+* [API ] CreateProcessA   @ 7682
+
+[Mutations applied in the best run (57)]
+=======================================
+
+* [API ] CPUID              @ 0C2F    Retarget    Missing
+* [API ] CreateFileA        @ 3015    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 36E8    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileW        @ 34CD    Succeed     Not modified
+* [API ] CreateFileW        @ 35CF    Fail        Not modified
+* [API ] FindFirstFileA     @ 7C18    Succeed
+* [API ] FindFirstFileA     @ C962    Fail
+* [API ] FindFirstFileA     @ CA19    Succeed
+* [API ] GetFileAttributesW @ 2C79    Fail
+* [API ] GetModuleFileNameA @ 2DC8    Nothing
+* [API ] GetModuleFileNameA @ 5D07    Nothing
+* [API ] GetModuleFileNameA @ 5D9D    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 5F98    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ EC56    Nothing
+* [API ] GetSystemInfo      @ 92E7    Retarget    Missing
+* [API ] GetSystemTime      @ 334D    Nothing
+* [API ] Process32First     @ 72FF    Nothing
+* [API ] Process32Next      @ 731F    Retarget
+* [API ] RegOpenKeyExA      @ 5FB6    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5FD4    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5FF2    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ E83A    Nothing
+* [API ] TimeQueryAPIs      @ 2E0D    Nothing
+
+[Manual annotations]
+====================

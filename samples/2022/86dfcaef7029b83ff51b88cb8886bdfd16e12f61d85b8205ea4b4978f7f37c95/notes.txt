@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Reconyc.ojca-86dfcaef7029b83ff51b88cb8886bdfd16e12f61d85b8205ea4b4978f7f37c95
+MD5: 4d62100aee4539d77e5ea11063870ea1
+Year: 2022
+Family name: reconyc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA   @ 38CA
+* [API ] WriteFile     @ 38EA
+* [API ] ShellExecuteA @ 3918
+* [API ] CreateThread  @ 39E7
+* [API ] socket        @ 1BAD
+* [API ] connect       @ 1C0F
+* [API ] send          @ 21E7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ 434C    Nothing
+* [API ] CreateFileA        @ 38CA    Retarget    C:\Windows\system32\
+* [API ] CreateMutexA       @ 3873    Fail
+* [API ] GetModuleFileNameW @ 8AB7    Nothing
+* [API ] TimeDelayAPIs      @ 3900    Retarget
+
+[Manual annotations]
+====================

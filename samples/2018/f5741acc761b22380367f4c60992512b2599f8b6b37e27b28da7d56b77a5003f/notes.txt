@@ -1,0 +1,52 @@
+[Basic information]
+=========================================================================
+SHA-256: f5741acc761b22380367f4c60992512b2599f8b6b37e27b28da7d56b77a5003f
+MD5: bcd1780da765f83ffb424505a10b667c
+Year: 2018
+Family name: turkojan
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExW @ DB12
+* [API ] CreateFileA       @ 4C9A
+* [API ] CreateFileA       @ 6642
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA       @ 4FEC
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 4C9A    Succeed
+* [API ] CreateFileA        @ 6642    Fail        Not modified
+* [API ] DeviceIoControl    @ 4D63    Retarget    Missing
+* [API ] FindFirstFileW     @ 754E    Succeed
+* [API ] FindWindowA        @ 68A0    Fail
+* [API ] GetComputerNameA   @ 495F    Nothing
+* [API ] GetKeyboardLayout  @ 8106    Nothing
+* [API ] GetModuleFileNameA @ 2F7B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 31B5    Nothing
+* [API ] GetModuleFileNameA @ 934C    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ C90F    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ CB49    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 79BE    Nothing
+* [API ] GetUserNameA       @ 494B    Retarget    testuser
+* [API ] GetWindowTextA     @ 68E1    Retarget    DDE Server Window - OleDdeWndClass
+* [API ] RegOpenKeyA        @ 653F    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 31D3    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 31F1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 320F    Fail        Not modified
+* [API ] RegOpenKeyExA      @ CB67    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ CB85    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ CBA3    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs      @ 32DD    Retarget
+* [API ] TimeQueryAPIs      @ 9959    Retarget
+
+[Manual annotations]
+====================
+User interactiom: keygen software

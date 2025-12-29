@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 2908a5e54f0005777b2b0b455a23ca3d749e33f7d9db2178f7894184add2c74e
+MD5: 2e2b202624fcde21bf6c32865e427ce4
+Year: 2018
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExW @ 39FE
+* [API ] CreateFileW       @ 61B2
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Protectors: ENIGMA(3.70 build 2018.3.13 20:48:12)

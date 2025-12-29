@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 76ff50ba7985bff5cb38ab864b73d928b9443e2de27395299efce9eeb755f59d
+MD5: 617a46ddca3a3892911fd07aeee67b53
+Year: 2019_05_11
+Family name: ramnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 56CF
+* [API ] WriteFile       @ 56ED
+* [API ] CreateProcessA  @ 5747
+* [API ] CreateFileA     @ 826E
+* [API ] WriteFile       @ 8298
+* [API ] CreateProcessA  @ 82E6
+* [API ] FindResourceExW @ 11B3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA          @ 56CF    Fail        Not modified
+* [API ] CreateFileA          @ 826E    Succeed
+* [API ] CreateMutexA         @ 1E9D    Retarget    vscode
+* [API ] CreateMutexA         @ 81CC    Fail
+* [API ] GetFileAttributesExW @ 6505    Succeed
+* [API ] GetModuleFileNameA   @ 5188    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA   @ 5D25    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA   @ 822F    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW   @ C00B    Retarget    C:\Windows\system32\
+* [API ] GetUserDefaultLCID   @ CEC4    Nothing
+
+[Manual annotations]
+====================

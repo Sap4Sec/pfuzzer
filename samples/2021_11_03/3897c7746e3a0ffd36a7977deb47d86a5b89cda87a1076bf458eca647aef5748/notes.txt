@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: 3897c7746e3a0ffd36a7977deb47d86a5b89cda87a1076bf458eca647aef5748
+MD5: cddd125f0591cfaaedb47ca773f0223a
+Year: 2021_11_03
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA    @ 1BEA
+* [API ] MoveFileA      @ 25ED
+* [API ] CreateFileA    @ 239A
+* [API ] MoveFileA      @ 2F6D
+* [API ] MoveFileA      @ 261D
+
+[Mutations applied in the best run (35)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA          @ 1C1B    Succeed
+* [API ] CreateFileA          @ 239A    Succeed
+* [API ] CreateMutexA         @ 105A    Succeed
+* [API ] CreateMutexA         @ 1101    Fail
+* [API ] FindFirstFileA       @ 3004    Nothing
+* [API ] FindNextFileA        @ 3056    Retarget
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesExA @ 1B43    Fail
+* [API ] GetModuleFileNameA   @ 11A7    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA   @ 1E4D    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Fail
+* [API ] RegOpenKeyExA        @ 2A94    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2AE1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 2D0B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA     @ 2B12    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs        @ 10C1    Retarget
+* [API ] TimeQueryAPIs        @ 1100    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,56 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.cfhr-04ac3bd28388262ae4c1b8e905796d09862da493112cbe7c9b2595c17a10ed55
+MD5: d6f7c683a7a474c59ba9edea432aa106
+Year: 2023
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW   @ 9E39
+* [API ] CreateFileW   @ B4ED
+* [API ] NtCreateFile  @ 2041
+* [API ] CopyFileA     @ 82CB
+* [API ] ShellExecuteA @ 8194
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile  @ 76BA
+* [API ] NtCreateFile  @ 5831
+* [API ] NtCreateFile  @ 1DCC
+* [API ] NtCreateFile  @ 85CE
+* [API ] NtCreateFile  @ 9164
+* [API ] NtCreateFile  @ 474E
+* [API ] NtCreateFile  @ DAC0
+* [API ] NtCreateFile  @ 430A
+* [API ] NtCreateFile  @ C498
+* [API ] NtCreateFile  @ 76E3
+* [API ] NtCreateFile  @ 0D0B
+* [API ] NtCreateFile  @ 57BC
+* [API ] NtCreateFile  @ 42F5
+* [API ] NtCreateFile  @ 19C9
+* [API ] NtCreateFile  @ CF74
+* [API ] NtCreateFile  @ 68A9
+* [API ] NtCreateFile  @ F22C
+* [API ] NtCreateFile  @ B7B8
+* [API ] NtCreateFile  @ CEEA
+* [API ] NtCreateFile  @ 6B6F
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CPUID              @ 6937    Nothing
+* [API ] CreateFileW        @ 9E39    Fail
+* [API ] CreateFileW        @ B4ED    Succeed     Not modified
+* [API ] GetModuleFileNameA @ 8686    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 9F7E    Nothing
+* [API ] NtCreateFile       @ 2041    Succeed     Not modified
+* [API ] NtCreateFile       @ E08C    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 6688    Retarget
+
+[Manual annotations]
+====================

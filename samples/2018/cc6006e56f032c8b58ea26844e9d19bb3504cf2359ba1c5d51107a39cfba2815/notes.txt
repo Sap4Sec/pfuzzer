@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: cc6006e56f032c8b58ea26844e9d19bb3504cf2359ba1c5d51107a39cfba2815
+MD5: b98f6b2e23993a7108d05291ed7b9751
+Year: 2018
+Family name: zumanek
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+DynamoRIO bug causes sample to crash; werfault.exe triggers immediately even when running the sample directly with drrun.exe without DLL injection.

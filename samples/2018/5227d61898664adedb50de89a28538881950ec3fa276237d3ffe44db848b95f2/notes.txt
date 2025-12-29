@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 5227d61898664adedb50de89a28538881950ec3fa276237d3ffe44db848b95f2
+MD5: 0f8f453d18714004c7593c17604ab470
+Year: 2018
+Family name: SINGLETON:0f8f453d18714004c7593c17604ab470
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 415D
+* [API ] CreateFileW  @ 15A3
+* [API ] NtCreateFile @ 6662
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ EFB1
+* [API ] NtCreateFile @ 832E
+* [API ] NtCreateFile @ 7339
+* [API ] NtCreateFile @ 4CFB
+* [API ] NtCreateFile @ B4F2
+* [API ] NtCreateFile @ 8705
+* [API ] NtCreateFile @ 59B5
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID              @ 5B84    Retarget    Missing
+* [API ] CreateFileW        @ 15A3    Succeed     Not modified
+* [API ] CreateFileW        @ 415D    Fail
+* [API ] GetModuleFileNameW @ 423E    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] NtCreateFile       @ 4129    Fail        Not modified
+* [API ] NtCreateFile       @ 6662    Fail        Not modified
+* [API ] TimeQueryAPIs      @ 5B95    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected; detects virtualized environment and exits.

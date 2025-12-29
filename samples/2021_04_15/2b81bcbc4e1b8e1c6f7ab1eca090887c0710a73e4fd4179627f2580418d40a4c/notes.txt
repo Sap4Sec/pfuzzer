@@ -1,0 +1,27 @@
+[Basic information]
+=========================================================================
+SHA-256: 2b81bcbc4e1b8e1c6f7ab1eca090887c0710a73e4fd4179627f2580418d40a4c
+MD5: f0056c9173a99154e2fa5f017cd40961
+Year: 2021_04_15
+Family name: phorpiex
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] Process32First @ 1D09    Nothing
+* [API ] Process32Next  @ 1DCE    Retarget
+* [API ] TimeDelayAPIs  @ 348A    Retarget
+
+[Manual annotations]
+====================
+Interesting case: depending on the filename returned by GetModuleFileName (matching the name and path of a created file), the sample either drops and launches a binary or mimics the behavior of the dropped process.

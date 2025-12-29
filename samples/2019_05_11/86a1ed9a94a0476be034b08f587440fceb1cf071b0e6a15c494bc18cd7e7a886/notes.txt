@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 86a1ed9a94a0476be034b08f587440fceb1cf071b0e6a15c494bc18cd7e7a886
+MD5: 8f2f132a797910420a479d31d94c528d
+Year: 2019_05_11
+Family name: fuerboos
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Protectors: VMProtect(3.2.0-3.5.0)

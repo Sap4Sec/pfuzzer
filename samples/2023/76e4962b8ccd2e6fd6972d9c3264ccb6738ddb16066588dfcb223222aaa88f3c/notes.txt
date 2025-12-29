@@ -1,0 +1,67 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Stealerc.bkz-76e4962b8ccd2e6fd6972d9c3264ccb6738ddb16066588dfcb223222aaa88f3c
+MD5: 8126b593d03a5c9b4f8f0bc25d37ae2e
+Year: 2023
+Family name: stealerc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW      @ 10E6
+* [API ] CreateFileW      @ 831C
+* [API ] CreateThread     @ 7DD9
+* [API ] FindResourceExW  @ A14C
+* [API ] LoadResource     @ A1E1
+* [API ] FindResourceW    @ A319
+* [API ] CreateThread     @ 93B3
+* [API ] InternetOpenW    @ 6CF1
+* [API ] CreateFileW      @ 5DDC
+* [API ] InternetConnectW @ 881B
+* [API ] HttpOpenRequestW @ 7C58
+* [API ] HttpSendRequestW @ 8031
+* [API ] CreateFileW      @ 63DB
+* [API ] InternetReadFile @ 65EF
+* [API ] WriteFile        @ 6732
+* [API ] MoveFileW        @ 6851
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW      @ 4CB1
+* [API ] CreateThread     @ 459C
+* [API ] CreateFileW      @ D23B
+* [API ] WriteFile        @ CCC5
+* [API ] SetFileTime      @ D595
+* [API ] CreateFileW      @ 76C3
+* [API ] CreateThread     @ 93C4
+* [API ] ConnectNamedPipe @ F8C2
+* [API ] CreateThread     @ DDDD
+* [API ] MoveFileW        @ 22B3
+* [API ] CopyFileW        @ 883F
+* [API ] CreateProcessW   @ DEB2
+* [API ] WriteFile        @ FACE
+* [API ] WriteFile        @ CFE1
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID               @ F446    Nothing
+* [API ] CreateFileW         @ 10E6    Succeed     Not modified
+* [API ] CreateFileW         @ 5DDC    Retarget    iexplorer.exe
+* [API ] CreateFileW         @ 63DB    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileW         @ 831C    Fail
+* [API ] FindFirstFileW      @ E563    Fail
+* [API ] GetForegroundWindow @ E2F8    Nothing
+* [API ] GetModuleFileNameW  @ 400A    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW  @ 477E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW  @ D2A3    Nothing
+* [API ] GetUserNameW        @ DB07    Nothing
+* [API ] GetUserNameW        @ DB55    Nothing
+* [API ] TimeDelayAPIs       @ 3FC6    Retarget
+* [API ] TimeQueryAPIs       @ 8C76    Retarget
+
+[Manual annotations]
+====================

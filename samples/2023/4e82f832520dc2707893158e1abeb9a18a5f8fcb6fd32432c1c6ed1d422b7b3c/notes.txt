@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-HackTool.Win32.FlyStudio.gen-4e82f832520dc2707893158e1abeb9a18a5f8fcb6fd32432c1c6ed1d422b7b3c
+MD5: 15f15991fba07eaa67f5f98179b27886
+Year: 2023
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 93D6
+* [API ] CreateFileA       @ 57EE
+* [API ] WriteFile         @ 5829
+* [API ] CreateProcessA    @ 5907
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile      @ 1691
+
+[Mutations applied in the best run (27)]
+=======================================
+
+* [API ] CPUID                    @ 9933    Nothing
+* [API ] CreateFileA              @ 57EE    Retarget    attrib.exe
+* [API ] GetCursorPos             @ EF0E    Retarget    Missing
+* [API ] GetModuleFileNameA       @ 03CF    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA       @ 1349    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA       @ 4EB8    Nothing
+* [API ] GetModuleFileNameExA     @ 343F    Nothing
+* [API ] GetUserDefaultLCID       @ 5DF4    Nothing
+* [API ] NtQuerySystemInformation @ 450C    Retarget    testuser
+* [API ] NtQuerySystemInformation @ 4594    Retarget    testuser
+* [API ] RegOpenKeyA              @ 5243    Succeed     Not modified
+* [API ] RegOpenKeyA              @ 533F    Succeed     Not modified
+* [API ] RegQueryValueExA         @ 5271    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA         @ 5381    Nothing
+* [API ] TimeDelayAPIs            @ 596F    Retarget
+* [API ] TimeQueryAPIs            @ 512E    Retarget
+
+[Manual annotations]
+====================

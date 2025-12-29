@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 96deebd87639399243584d0ca1c8ae66f066907733f38773ccb8923e7e1fb758
+MD5: 509410232908e6db14900ce00568c982
+Year: 2018
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 37DC
+* [API ] CreateFileA @ D978
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Exits instantly, even when run with drrun.exe only.

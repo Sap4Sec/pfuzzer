@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 726b8d024f8eb4f69ac824a9275babb6e33f0ee3e1272b99f50cf5a4303fc5ad
+MD5: 3d8a913a10eb9d738f537301d249d840
+Year: 2021_11_03
+Family name: pajetbin
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Does not work under PF, also, crashes with drrun.exe only (werfault.exe process triggers immediately)

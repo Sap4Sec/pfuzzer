@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: 0dcb984799702616f0814f8600fb926ab0b591e8494804852616109cf00f663c
+MD5: ec1eefaa9b4561d3dd788c7d40009b3f
+Year: 2020_11_19
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ 63F6
+* [API ] OpenServiceW         @ 6CD4
+* [API ] CryptAcquireContextW @ 0046
+* [API ] CryptGenRandom       @ FC4A
+* [API ] CryptReleaseContext  @ FDD9
+* [API ] CreateFileW          @ E551
+* [API ] CreateFileW          @ E845
+* [API ] WriteFile            @ E925
+* [API ] CreateProcessW       @ 95DF
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceW        @ 3519
+* [API ] SetWindowsHookExW    @ 93CF
+* [API ] FindResourceW        @ A417
+* [API ] LoadResource         @ A41F
+* [API ] SetWindowsHookExW    @ 2BC3
+* [API ] FindResourceW        @ 8CA4
+* [API ] FindResourceW        @ 3F03
+* [API ] FindResourceW        @ 44EF
+* [API ] LoadResource         @ 44F9
+* [API ] FindResourceW        @ 9FF2
+* [API ] LoadResource         @ 9FFA
+* [API ] CreateThread         @ AACD
+* [API ] FindResourceW        @ B01A
+* [API ] LoadResource         @ B02C
+* [API ] CreateFileW          @ B06E
+* [API ] WriteFile            @ B0B4
+* [API ] FindResourceW        @ 41D8
+* [API ] LoadResource         @ 41E2
+* [API ] AttachThreadInput    @ 508C
+* [API ] AttachThreadInput    @ 50A7
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileW        @ E551    Fail        Not modified
+* [API ] CreateFileW        @ E845    Succeed     Not modified
+* [API ] GetComputerNameA   @ A0F2    Retarget    Office
+* [API ] GetModuleFileNameW @ 2436    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 9052    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetUserNameA       @ 9FBC    Nothing
+
+[Manual annotations]
+====================

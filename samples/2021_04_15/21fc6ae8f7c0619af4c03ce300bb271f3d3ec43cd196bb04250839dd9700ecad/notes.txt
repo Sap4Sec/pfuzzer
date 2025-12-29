@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: 21fc6ae8f7c0619af4c03ce300bb271f3d3ec43cd196bb04250839dd9700ecad
+MD5: c3bda5a20ea3c7dc65321ff8331c40ff
+Year: 2021_04_15
+Family name: satacom
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyExA    @ 485F
+* [API ] RegSetValueExA     @ 4878
+* [API ] WinHttpOpen        @ 80C6
+* [API ] WinHttpConnect     @ 80FF
+* [API ] WinHttpOpenRequest @ 8123
+* [API ] WinHttpSendRequest @ 8142
+* [API ] WinHttpReadData    @ 8232
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 57D2    Retarget    Missing
+* [API ] GetModuleFileNameW @ DC2E    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] Process32First     @ 45D9    Nothing
+* [API ] Process32Next      @ 4623    Retarget
+
+[Manual annotations]
+====================

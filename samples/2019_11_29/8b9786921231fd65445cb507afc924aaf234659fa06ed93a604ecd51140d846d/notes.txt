@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: 8b9786921231fd65445cb507afc924aaf234659fa06ed93a604ecd51140d846d
+MD5: 7f67809bfa296c79aa5b81639e16fb3c
+Year: 2019_11_29
+Family name: ursu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ 54B0
+* [API ] CreateFileW       @ C84E
+* [API ] NtCreateFile      @ F05E
+* [API ] WSAStartup        @ 8AA2
+* [API ] FindResourceExW   @ 2AFC
+* [API ] LoadResource      @ 2B16
+* [API ] FindResourceExW   @ 2B51
+* [API ] LoadResource      @ 2B76
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile      @ F562
+* [API ] NtCreateFile      @ 977A
+* [API ] FindResourceExW   @ B758
+* [API ] LoadResource      @ B772
+* [API ] FindResourceExW   @ B7AD
+* [API ] LoadResource      @ B7D2
+* [API ] NtCreateFile      @ 3AC6
+* [API ] FindResourceExW   @ 3AD3
+* [API ] LoadResource      @ 3AED
+* [API ] FindResourceExW   @ 3B28
+* [API ] LoadResource      @ 3B4D
+* [API ] VirtualAllocEx    @ 9567
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] NtCreateFile      @ 32EB
+* [API ] FindResourceExW   @ 52F8
+* [API ] LoadResource      @ 5312
+* [API ] FindResourceExW   @ 534D
+* [API ] LoadResource      @ 5372
+* [API ] NtCreateFile      @ C5AB
+* [API ] NtCreateFile      @ 6C71
+* [API ] FindResourceExW   @ 7C9D
+* [API ] LoadResource      @ 7CB7
+* [API ] FindResourceExW   @ 7CF2
+* [API ] LoadResource      @ 7D17
+* [API ] NtCreateFile      @ 1F5F
+* [API ] FindResourceExW   @ BF0E
+* [API ] LoadResource      @ BF28
+* [API ] FindResourceExW   @ BF63
+* [API ] LoadResource      @ BF88
+* [API ] NtCreateFile      @ D425
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID         @ 750D    Nothing
+* [API ] CreateFileW   @ 54B0    Succeed     Not modified
+* [API ] CreateFileW   @ C84E    Succeed     Not modified
+* [API ] NtCreateFile  @ 63B5    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] NtCreateFile  @ F05E    Retarget    \??\Analysis
+* [API ] TimeQueryAPIs @ 7592    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

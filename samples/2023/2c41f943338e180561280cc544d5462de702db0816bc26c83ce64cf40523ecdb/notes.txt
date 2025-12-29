@@ -1,0 +1,76 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.SelfDel.gen-2c41f943338e180561280cc544d5462de702db0816bc26c83ce64cf40523ecdb
+MD5: 900f2e1afb94aacc1c442d9014bea32e
+Year: 2023
+Family name: beebone
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW             @ 4358
+* [API ] NtAllocateVirtualMemory @ 4386
+* [API ] CreateFileW             @ 1D2F
+* [API ] CreateFileMappingW      @ 1D61
+* [API ] MapViewOfFile           @ 1D74
+* [API ] CreateProcessW          @ 4156
+* [API ] NtReadVirtualMemory     @ 41A9
+* [API ] NtAllocateVirtualMemory @ 4208
+* [API ] NtWriteVirtualMemory    @ 422E
+* [API ] NtWriteVirtualMemory    @ 427C
+* [API ] NtWriteVirtualMemory    @ 42AE
+* [API ] NtSetContextThread      @ 42C2
+* [API ] NtResumeThread          @ 42CC
+* [API ] ShellExecuteW           @ 2B1A
+
+Fuzzing Findings
+----------------
+* [API ] WinHttpOpen             @ 30F5
+* [API ] WinHttpConnect          @ 3298
+* [API ] WinHttpOpenRequest      @ 3320
+* [API ] WinHttpSendRequest      @ 34B8
+
+[Mutations applied in the best run (30)]
+=======================================
+
+* [API ] CPUID                             @ F6BA    Nothing
+* [API ] CreateFileW                       @ 1D2F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileW                       @ 4358    Succeed     Not modified
+* [API ] CreateMutexW                      @ 354A    Retarget    VBoxTray
+* [API ] GetAdaptersAddresses              @ 667D    Nothing
+* [API ] GetAdaptersAddresses              @ 66A6    Retarget    testuser
+* [API ] GetComputerNameW                  @ 62FE    Nothing
+* [API ] GetComputerNameW                  @ 6323    Retarget    Office
+* [API ] GetDiskFreeSpaceExW               @ 1264    Retarget    Missing
+* [API ] GetModuleFileNameA                @ 9D5A    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameExW              @ 51DA    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW                @ 2AB8    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW                @ 2D19    Nothing
+* [API ] GetSystemInfo                     @ 1B77    Retarget    Missing
+* [API ] GetUserNameW                      @ 6383    Nothing
+* [API ] GetUserNameW                      @ 63A8    Nothing
+* [API ] GlobalMemoryStatusEx              @ 1C0A    Nothing
+* [API ] GlobalMemoryStatusEx              @ 2737    Nothing
+* [API ] Process32FirstW                   @ 195B    Nothing
+* [API ] Process32FirstW                   @ 28A1    Nothing
+* [API ] Process32FirstW                   @ 4895    Nothing
+* [API ] Process32NextW                    @ 1973    Retarget
+* [API ] Process32NextW                    @ 28B2    Retarget
+* [API ] Process32NextW                    @ 48D0    Retarget
+* [API ] RegOpenKeyExW                     @ 679E    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyW                       @ 68E5    Succeed     Not modified
+* [API ] RegQueryValueExW                  @ 67C0    Retarget    ProductID
+* [API ] RegQueryValueExW                  @ 694F    Nothing
+* [API ] RegQueryValueExW                  @ 69CD    Retarget    ProductID
+* [API ] SetupDiGetDeviceRegistryPropertyW @ 15B8    Nothing
+* [API ] SetupDiGetDeviceRegistryPropertyW @ 15F7    Retarget    Office
+* [API ] SetupDiGetDeviceRegistryPropertyW @ 1768    Nothing
+* [API ] SetupDiGetDeviceRegistryPropertyW @ 17A6    Nothing
+* [API ] TimeDelayAPIs                     @ 683E    Nothing
+* [API ] TimeQueryAPIs                     @ 946D    Nothing
+
+[Manual annotations]
+====================

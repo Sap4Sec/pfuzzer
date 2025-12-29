@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: ce46e8fd19e006eb7dd8c14c64050025d8771fc092097f8b3824ece04c7064ef
+MD5: bcc55f8f42ce72a707f5755cc2a20493
+Year: 2021_11_03
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+[Mutations applied in the best run (41)]
+=======================================
+
+* [API ] CreateFileA          @ 1BC0    Fail
+* [API ] CreateFileA          @ 1BEA    Succeed     Not modified
+* [API ] CreateFileA          @ 1C1B    Retarget    iexplorer.exe
+* [API ] CreateFileA          @ 239A    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateMutexA         @ 105A    Retarget    vscode
+* [API ] CreateMutexA         @ 1101    Fail
+* [API ] FindFirstFileA       @ 3004    Succeed
+* [API ] GetFileAttributesA   @ 3082    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetFileAttributesExA @ 1B43    Succeed
+* [API ] GetModuleFileNameA   @ 11A7    Nothing
+* [API ] GetModuleFileNameA   @ 1E4D    Nothing
+* [API ] GetModuleFileNameA   @ 52B0    Nothing
+* [API ] Process32First       @ 19D4    Nothing
+* [API ] Process32Next        @ 1A27    Retarget
+* [API ] RegOpenKeyExA        @ 2A5A    Succeed     Not modified
+* [API ] RegOpenKeyExA        @ 2A94    Fail
+* [API ] RegOpenKeyExA        @ 2AE1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA        @ 2D0B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA     @ 2B12    Nothing
+* [API ] TimeDelayAPIs        @ 10C1    Retarget
+* [API ] TimeQueryAPIs        @ 1100    Retarget
+
+[Manual annotations]
+====================

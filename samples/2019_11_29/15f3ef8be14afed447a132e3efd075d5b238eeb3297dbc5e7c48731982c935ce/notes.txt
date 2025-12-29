@@ -1,0 +1,66 @@
+[Basic information]
+=========================================================================
+SHA-256: 15f3ef8be14afed447a132e3efd075d5b238eeb3297dbc5e7c48731982c935ce
+MD5: dff2dfb50e6328af33b39e66841078de
+Year: 2019_11_29
+Family name: ulise
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ 4262
+* [API ] CreateFileW     @ FAB1
+* [API ] NtCreateFile    @ 7401
+* [API ] WSAStartup      @ F382
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ B44F
+* [API ] FindResourceExW @ 32C6
+* [API ] LoadResource    @ 32E0
+* [API ] FindResourceExW @ 331B
+* [API ] LoadResource    @ 3340
+* [API ] NtCreateFile    @ 1C98
+* [API ] FindResourceExW @ 7AD0
+* [API ] LoadResource    @ 7AEA
+* [API ] FindResourceExW @ 7B25
+* [API ] LoadResource    @ 7B4A
+* [API ] NtCreateFile    @ 1DF0
+* [API ] FindResourceExW @ DC57
+* [API ] LoadResource    @ DC71
+* [API ] FindResourceExW @ DCAC
+* [API ] LoadResource    @ DCD1
+* [API ] NtCreateFile    @ D299
+* [API ] FindResourceExW @ 811F
+* [API ] LoadResource    @ 8139
+* [API ] FindResourceExW @ 8174
+* [API ] LoadResource    @ 8199
+* [API ] NtCreateFile    @ C8D3
+* [API ] FindResourceExW @ 3768
+* [API ] LoadResource    @ 3782
+* [API ] FindResourceExW @ 37BD
+* [API ] LoadResource    @ 37E2
+* [API ] NtCreateFile    @ D511
+* [API ] FindResourceExW @ 3359
+* [API ] LoadResource    @ 3373
+* [API ] FindResourceExW @ 33AE
+* [API ] LoadResource    @ 33D3
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 3076    Nothing
+* [API ] CreateFileW        @ 4262    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileW        @ FAB1    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 3D66    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] NtCreateFile       @ 0129    Succeed     Not modified
+* [API ] NtCreateFile       @ 7401    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ DF06    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

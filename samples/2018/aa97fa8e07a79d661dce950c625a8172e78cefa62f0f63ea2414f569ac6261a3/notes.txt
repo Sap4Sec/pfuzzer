@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: aa97fa8e07a79d661dce950c625a8172e78cefa62f0f63ea2414f569ac6261a3
+MD5: adcf2620a5e7a181a17f05e81015af6a
+Year: 2018
+Family name: SINGLETON:adcf2620a5e7a181a17f05e81015af6a
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ D591
+* [API ] CreateFileW          @ 761B
+* [API ] NtCreateFile         @ 71BD
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile         @ 56F6
+* [API ] CryptAcquireContextA @ 6692
+* [API ] CryptCreateHash      @ 6725
+* [API ] CryptHashData        @ 6801
+* [API ] CryptGetHashParam    @ 68EA
+* [API ] CryptDestroyHash     @ 6C37
+* [API ] CryptReleaseContext  @ 6C66
+* [API ] OpenFileMappingA     @ BA09
+* [API ] FindResourceExW      @ 3B77
+* [API ] LoadResource         @ 3B91
+* [API ] FindResourceExW      @ 3BCC
+* [API ] LoadResource         @ 3BF1
+* [API ] NtCreateFile         @ D9A6
+* [API ] NtCreateFile         @ CA47
+* [API ] NtCreateFile         @ 3472
+* [API ] FindResourceExW      @ 28F3
+* [API ] LoadResource         @ 290D
+* [API ] FindResourceExW      @ 2948
+* [API ] LoadResource         @ 296D
+* [API ] NtCreateFile         @ E657
+* [API ] NtCreateFile         @ 8A29
+* [API ] NtCreateFile         @ DEBA
+* [API ] NtCreateFile         @ C2D2
+* [API ] NtCreateFile         @ D456
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID         @ 8C39    Retarget    Missing
+* [API ] CreateFileW   @ 761B    Succeed     Not modified
+* [API ] CreateFileW   @ D591    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] NtCreateFile  @ 71BD    Retarget    \??\Analysis
+* [API ] TimeQueryAPIs @ 8E3C    Retarget
+
+[Manual annotations]
+====================

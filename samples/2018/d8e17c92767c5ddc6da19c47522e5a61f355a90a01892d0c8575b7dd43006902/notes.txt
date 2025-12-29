@@ -1,0 +1,35 @@
+[Basic information]
+=========================================================================
+SHA-256: d8e17c92767c5ddc6da19c47522e5a61f355a90a01892d0c8575b7dd43006902
+MD5: 7c512370cfff63203b3ad52bbf80ac53
+Year: 2018
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (23)]
+=======================================
+
+* [API ] CreateFileA        @ 2319    Succeed
+* [API ] CreateFileA        @ 23FC    Succeed
+* [API ] CreateFileA        @ 25C6    Succeed
+* [API ] FindWindowA        @ 2D83    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] GetModuleFileNameA @ 12FB    Nothing
+* [API ] GetModuleFileNameA @ 2AC9    Nothing
+* [API ] GetModuleFileNameA @ 2D5B    Nothing
+* [API ] GetModuleFileNameA @ 3BAD    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 26D3    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA       @ 3ADF    Retarget    John
+* [API ] RegOpenKeyExA      @ 3A66    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 3A8B    Retarget    ProductID
+
+[Manual annotations]
+====================

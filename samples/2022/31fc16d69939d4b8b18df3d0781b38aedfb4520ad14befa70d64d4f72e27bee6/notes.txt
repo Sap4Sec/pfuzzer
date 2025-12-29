@@ -1,0 +1,54 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.cdaf-31fc16d69939d4b8b18df3d0781b38aedfb4520ad14befa70d64d4f72e27bee6
+MD5: 568563501bedc44175d2218a59a43a02
+Year: 2022
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ D241
+* [API ] CreateFileW     @ 6EE9
+* [API ] NtCreateFile    @ 29E4
+* [API ] ShellExecuteA   @ A07A
+* [API ] RegCreateKeyExA @ AA0E
+* [API ] RegSetValueExA  @ AA64
+* [API ] WSAStartup      @ 1949
+* [API ] socket          @ 1A6D
+* [API ] connect         @ 1AB0
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ 307E
+* [API ] NtCreateFile    @ F5AE
+* [API ] NtCreateFile    @ 5526
+* [API ] NtCreateFile    @ 91C5
+* [API ] NtCreateFile    @ A59B
+* [API ] NtCreateFile    @ 28B8
+* [API ] NtCreateFile    @ FC43
+* [API ] NtCreateFile    @ 3F50
+* [API ] NtCreateFile    @ 92FA
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 1309    Nothing
+* [API ] CreateFileW        @ 6EE9    Succeed     Not modified
+* [API ] CreateFileW        @ D241    Succeed     Not modified
+* [API ] CreateMutexA       @ 8C2A    Retarget    vscode
+* [API ] GetLocalTime       @ 82E2    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA @ 9A21    Nothing
+* [API ] NtCreateFile       @ 2194    Retarget    \??\Analysis
+* [API ] NtCreateFile       @ 29E4    Retarget    \??\Analysis
+* [API ] RegOpenKeyExA      @ A736    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ AA25    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ A86E    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ A069    Retarget
+* [API ] TimeQueryAPIs      @ 1395    Retarget
+
+[Manual annotations]
+====================

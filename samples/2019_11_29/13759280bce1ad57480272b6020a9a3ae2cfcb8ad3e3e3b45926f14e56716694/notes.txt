@@ -1,0 +1,47 @@
+[Basic information]
+=========================================================================
+SHA-256: 13759280bce1ad57480272b6020a9a3ae2cfcb8ad3e3e3b45926f14e56716694
+MD5: 095cf92f19da39956ba4f7118a3cb98e
+Year: 2019_11_29
+Family name: pluto
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ F049
+* [API ] FindResourceA   @ 17B4
+* [API ] LoadResource    @ 17CE
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA       @ 2379
+* [API ] CreateFileA     @ 5A10
+* [API ] WriteFile       @ 5669
+* [API ] RegCreateKeyExA @ 10E1
+* [API ] RegSetValueExA  @ 1429
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateMutexA       @ 5E17    Retarget    ZonesCacheCounterMutex
+* [API ] GetKeyboardLayout  @ D13F    Retarget    Japanese
+* [API ] GetModuleFileNameA @ 28AE    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 4EF1    Nothing
+* [API ] GetModuleFileNameA @ 63E8    Nothing
+* [API ] GetModuleFileNameA @ DC75    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemTime      @ 28F7    Nothing
+* [API ] Process32First     @ 04FB    Nothing
+* [API ] Process32Next      @ 051B    Retarget
+* [API ] RegEnumKeyExA      @ 1231    Nothing
+* [API ] RegOpenKeyExA      @ 10AC    Succeed
+* [API ] RegOpenKeyExA      @ 15B5    Succeed
+* [API ] RegOpenKeyExA      @ 4F0F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 4F2D    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ 5E21    Retarget
+* [API ] TimeQueryAPIs      @ FD58    Retarget
+
+[Manual annotations]
+====================

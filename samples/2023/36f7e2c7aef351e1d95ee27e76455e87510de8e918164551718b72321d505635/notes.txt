@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Penguish.gen-36f7e2c7aef351e1d95ee27e76455e87510de8e918164551718b72321d505635
+MD5: 20d2211544a5669c4a88b21b83740ba6
+Year: 2023
+Family name: rugmi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA       @ 22E8
+* [API ] FindResourceW     @ 1ECD
+* [API ] SetWindowsHookExW @ 215B
+* [API ] CreateFileW       @ 02DA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CPUID              @ 2D05    Nothing
+* [API ] CreateFileA        @ 22E8    Succeed
+* [API ] CreateFileW        @ 02DA    Succeed
+* [API ] GetCursorPos       @ 1BB1    Nothing
+* [API ] GetFileAttributesA @ 6E4A    Succeed
+* [API ] GetModuleFileNameW @ 2D0E    Nothing
+* [API ] GetModuleFileNameW @ 93F1    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 94EB    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 9A4F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 9B2E    Nothing
+* [API ] GetModuleFileNameW @ CD33    Nothing
+* [API ] GetModuleFileNameW @ CE7D    Nothing
+* [API ] GetModuleFileNameW @ E834    Nothing
+* [API ] RegOpenKeyExW      @ 8C94    Succeed
+* [API ] RegQueryValueExW   @ 8CB4    Nothing
+
+[Manual annotations]
+====================
+Other dependencies: checks command line & GetEnvironmentStrings

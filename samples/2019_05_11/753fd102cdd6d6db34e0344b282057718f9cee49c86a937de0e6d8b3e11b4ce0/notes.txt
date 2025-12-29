@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 753fd102cdd6d6db34e0344b282057718f9cee49c86a937de0e6d8b3e11b4ce0
+MD5: d8c4f3cee86643987fcacce3de24caf5
+Year: 2019_05_11
+Family name: SINGLETON:d8c4f3cee86643987fcacce3de24caf5
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] GetUserNameA @ 14FB    Retarget    Office
+
+[Manual annotations]
+====================
+Other dependencies: requires particular file

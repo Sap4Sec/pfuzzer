@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Tasker.gen-5281d5d6fa1dcead6e230a35b27f7e867177ad2aa1d3dfaba22b0f4f1a6424be
+MD5: f0d405590c502c905078106dad9fa0e4
+Year: 2022
+Family name: clipbanker
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CopyFileA     @ 1578
+* [API ] ShellExecuteA @ 15C2
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ 2C4B    Nothing
+* [API ] CreateMutexA       @ 130C    Retarget    vscode
+* [API ] GetModuleFileNameA @ 1336    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 7FCB    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] TimeDelayAPIs      @ 1319    Retarget
+
+[Manual annotations]
+====================

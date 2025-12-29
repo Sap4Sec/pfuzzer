@@ -1,0 +1,110 @@
+[Basic information]
+=========================================================================
+SHA-256: a9a5ff8b8ba4b09ce959ef85b523d43c5f34b8142acded5fa8a5444756780880
+MD5: d40f572384ae8c44a1b00eeb5954ef8c
+Year: 2020_05_06
+Family name: dyamar
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ E61E
+* [API ] CreateFileA        @ 9F88
+* [API ] WriteFile          @ 4EF9
+* [API ] CreateFileA        @ 9E8F
+* [API ] WriteFile          @ 9EB2
+* [API ] ReadProcessMemory  @ 05A3
+* [API ] ReadProcessMemory  @ 0603
+* [API ] ReadProcessMemory  @ 0659
+* [API ] ReadProcessMemory  @ 071A
+* [API ] ReadProcessMemory  @ 0752
+* [API ] ReadProcessMemory  @ 078A
+* [API ] ReadProcessMemory  @ 07C8
+* [API ] ReadProcessMemory  @ 0806
+* [API ] ReadProcessMemory  @ 0844
+* [API ] ReadProcessMemory  @ 0882
+* [API ] ReadProcessMemory  @ 08C0
+* [API ] ReadProcessMemory  @ 0901
+* [API ] ReadProcessMemory  @ 0948
+* [API ] ReadProcessMemory  @ 0990
+* [API ] ReadProcessMemory  @ 09DF
+* [API ] ReadProcessMemory  @ 0A65
+* [API ] ReadProcessMemory  @ 0B0A
+* [API ] ReadProcessMemory  @ 0BDC
+* [API ] ReadProcessMemory  @ 0C27
+* [API ] ReadProcessMemory  @ 0D3B
+* [API ] ReadProcessMemory  @ 0DE2
+* [API ] ReadProcessMemory  @ 0F26
+* [API ] MapViewOfFile      @ B133
+* [API ] MapViewOfFileEx    @ B161
+* [API ] CreateFileW        @ AF7F
+* [API ] WSAStartup         @ A1C4
+* [API ] WSASocketW         @ 00A0
+* [API ] inet_addr          @ 0ED5
+* [API ] bind               @ 0FB1
+* [API ] accept             @ 125F
+* [API ] CreateFileMappingW @ 1520
+* [API ] getaddrinfo        @ 3C21
+* [API ] WSAConnect         @ 3DA8
+
+Fuzzing Findings
+----------------
+* [API ] WSASocketW         @ B7F8
+* [API ] CreateFileW        @ BBE7
+* [API ] inet_addr          @ 0351
+* [API ] bind               @ 042D
+* [API ] accept             @ 07AB
+* [API ] CreateFileMappingW @ 0A6C
+* [API ] getaddrinfo        @ 3245
+* [API ] WSAConnect         @ 33CC
+* [API ] WinHttpOpen        @ 4D81
+* [API ] WriteFile          @ 0093
+* [API ] send               @ A0D7
+* [API ] CreateFileA        @ 4C99
+* [API ] CreateFileA        @ 4CEC
+* [API ] WinHttpOpen        @ 4BED
+* [API ] SetFileTime        @ 4D0C
+* [API ] WSASocketW         @ BB80
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID                @ 23A2    Retarget    Missing
+* [API ] CreateFileA          @ 9E8F    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA          @ 9F88    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA          @ E61E    Succeed     Not modified
+* [API ] CreateFileW          @ AF7F    Fail        Not modified
+* [API ] CreateFileW          @ BBE7    Fail
+* [API ] CreateMutexW         @ 09AB    Succeed
+* [API ] GetAdaptersAddresses @ 53AB    Nothing
+* [API ] GetComputerNameW     @ 0228    Retarget    testuser
+* [API ] GetComputerNameW     @ 03C4    Nothing
+* [API ] GetCursorPos         @ 310E    Nothing
+* [API ] GetCursorPos         @ 3AEA    Nothing
+* [API ] GetFileAttributesA   @ 94C1    Succeed
+* [API ] GetFileAttributesA   @ C61D    Fail
+* [API ] GetFileAttributesA   @ D044    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesExW @ AE80    Fail
+* [API ] GetFileAttributesExW @ BAE8    Fail
+* [API ] GetForegroundWindow  @ A3D7    Nothing
+* [API ] GetModuleFileNameA   @ 9D8A    Nothing
+* [API ] GetModuleFileNameW   @ ADCC    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW   @ B4D0    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemDefaultLCID @ A3D7    Nothing
+* [API ] GetWindowTextA       @ 1508    Nothing
+* [API ] GetWindowTextW       @ ADCC    Nothing
+* [API ] GetWindowTextW       @ B4D0    Retarget    SecHealthHost - SecHealth Win
+* [API ] RegOpenKeyExW        @ 48DF    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ 4AD4    Fail        Not modified
+* [API ] RegOpenKeyExW        @ ABD7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW     @ ACDA    Nothing
+* [API ] RegQueryValueExW     @ ADC6    Retarget    ProductID
+* [API ] RegQueryValueExW     @ BF08    Nothing
+* [API ] TimeDelayAPIs        @ 0A96    Retarget
+* [API ] TimeQueryAPIs        @ 9FD9    Retarget
+
+[Manual annotations]
+====================

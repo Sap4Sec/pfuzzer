@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: 2783d32147b3a7c48fe0532138c4ccd9eabc2b2b77438683df20de0c066302ab
+MD5: 0188b896cdb2edc6ecc7f5490a789947
+Year: 2021_04_15
+Family name: drmsoft
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 9D17
+* [API ] FindResourceA @ D674
+* [API ] LoadResource  @ D68E
+* [API ] WSAStartup    @ 64C4
+* [API ] CreateFileA   @ A2DF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA         @ A2DF    Succeed     Not modified
+* [API ] GetCursorPos        @ EB78    Nothing
+* [API ] GetDiskFreeSpaceExA @ A70B    Nothing
+* [API ] GetFileAttributesA  @ A39C    Fail
+* [API ] GetFileAttributesA  @ A3C0    Succeed
+* [API ] GetKeyboardLayout   @ B6DA    Retarget    Portuguese-brazilian
+* [API ] GetModuleFileNameA  @ 3369    Nothing
+* [API ] GetModuleFileNameA  @ 67CF    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA  @ 6A31    Nothing
+* [API ] GetModuleFileNameA  @ C9C6    Nothing
+* [API ] Process32First      @ 11EB    Nothing
+* [API ] Process32Next       @ 120B    Retarget
+* [API ] RegOpenKeyExA       @ 4A22    Fail
+* [API ] RegOpenKeyExA       @ 4D78    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 6A4F    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 6A6D    Succeed
+* [API ] RegOpenKeyExA       @ 6A8B    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ EE98    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA       @ F1FF    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA    @ 4BAB    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 4CC4    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ EF02    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ F252    Nothing
+* [API ] RegQueryValueExA    @ F2B1    Nothing
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input

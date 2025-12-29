@@ -1,0 +1,88 @@
+[Basic information]
+=========================================================================
+SHA-256: cdae1a408cfd2c835f9eeb7981b9e1b8a369ddfaca7252ce7e7a3ac2414e8c13
+MD5: 087bf01ff122b0b51cf83ad135ca6269
+Year: 2018
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyExA @ 5EEF
+* [API ] RegSetValueExA  @ 5F18
+* [API ] RegCreateKeyExA @ C89B
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA  @ C8C3
+* [API ] RegCreateKeyExA @ C900
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA  @ C94F
+* [API ] RegCreateKeyExA @ C98C
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce
+* [API ] RegSetValueExA  @ C9F1
+* [API ] RegCreateKeyExA @ CA2E
+* [API ] RegSetValueExA  @ CA7D
+* [API ] RegCreateKeyExA @ CABA
+* [API ] RegSetValueExA  @ CB09
+* [API ] RegCreateKeyExA @ CB46
+* [API ] RegSetValueExA  @ CBA7
+* [API ] RegCreateKeyExA @ CC09
+* [API ] RegSetValueExA  @ CC53
+* [API ] RegCreateKeyExA @ CC90
+* [API ] RegSetValueExA  @ CCED
+* [API ] RegCreateKeyExA @ CD2A
+* [API ] RegSetValueExA  @ CD75
+* [API ] RegCreateKeyExA @ CDE8
+* [API ] RegSetValueExA  @ CE33
+* [API ] RegCreateKeyExA @ CE70
+* [API ] RegSetValueExA  @ CECD
+* [API ] CreateThread    @ DC8C
+* [API ] CreateThread    @ DC98
+* [API ] CreateFileA     @ 4DAA
+* [API ] CopyFileA       @ CFE9
+* [API ] RegCreateKeyExA @ 6196
+* [API ] RegSetValueExA  @ 61C0
+* [API ] CreateFileA     @ 3849
+* [API ] CreateFileA     @ 1877
+* [API ] RegCreateKeyExA @ 6207
+* [API ] RegSetValueExA  @ 6235
+* [API ] RegSetValueExA  @ 6267
+* [API ] RegSetValueExA  @ 6292
+* [API ] RegSetValueExA  @ 62BD
+* [API ] RegSetValueExA  @ 62E8
+* [API ] RegSetValueExA  @ 6313
+* [API ] RegSetValueExA  @ 633E
+* [API ] RegSetValueExA  @ 6369
+* [API ] RegSetValueExA  @ 6394
+* [API ] RegSetValueExA  @ 63BF
+* [API ] RegCreateKeyExA @ 6403
+* [API ] RegSetValueExA  @ 642E
+* [API ] RegCreateKeyExA @ 646B
+* [API ] RegSetValueExA  @ 6496
+* [API ] RegCreateKeyExA @ 64DA
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL
+* [API ] RegSetValueExA  @ 6501
+* [API ] RegCreateKeyExA @ 6545
+* [API ] RegSetValueExA  @ 656C
+* [API ] RegSetValueExA  @ 6597
+* [API ] RegSetValueExA  @ 65C2
+* [API ] RegSetValueExA  @ 65ED
+* [API ] RegSetValueExA  @ 6618
+* [API ] RegSetValueExA  @ 6643
+* [API ] CreateFileA     @ 1B4D
+* [API ] WriteFile       @ 1B67
+* [API ] ShellExecuteA   @ D011
+* [API ] ShellExecuteA   @ D072
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] TimeQueryAPIs @ 2A56    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,53 @@
+[Basic information]
+=========================================================================
+SHA-256: f42b84af580ec264cb2c7451566772fc8e3581ef7bb9218016b0cfd3c11c5094
+MD5: ab812440ec07f9504af646484784cee9
+Year: 2018
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA     @ 2319
+* [API ] CreateFileA     @ 23FC
+* [API ] MoveFileA       @ 2535
+* [API ] CreateFileA     @ 25C6
+* [API ] CopyFileA       @ 2C2E
+* [API ] RegCreateKeyExA @ 296D
+* [PERS] software\microsoft\windows
+* [API ] RegSetValueExA  @ 2A44
+* [API ] CreateFileA     @ 117D
+* [API ] CreateFileA     @ 103F
+* [API ] WriteFile       @ 10DF
+* [API ] CreateFileA     @ 1C07
+* [API ] CreateFileA     @ 1C64
+* [API ] SetFileTime     @ 1C7E
+* [API ] MoveFileExA     @ 2CBC
+* [API ] CreateProcessA  @ 152F
+* [API ] MoveFileExA     @ 134F
+* [API ] MoveFileExA     @ 137F
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CreateFileA        @ 2319    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateFileA        @ 23FC    Fail        Not modified
+* [API ] CreateFileA        @ 25C6    Succeed
+* [API ] FindWindowA        @ 2D83    Succeed
+* [API ] GetModuleFileNameA @ 12FB    Nothing
+* [API ] GetModuleFileNameA @ 2AC9    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 2D5B    Nothing
+* [API ] GetModuleFileNameA @ 3BAD    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 26D3    Nothing
+* [API ] GetUserNameA       @ 3ADF    Nothing
+* [API ] RegOpenKeyExA      @ 3A66    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 3A8B    Nothing
+
+[Manual annotations]
+====================

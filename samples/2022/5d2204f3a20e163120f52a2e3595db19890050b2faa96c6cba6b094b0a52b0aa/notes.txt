@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Ransom.Win32.Generic-5d2204f3a20e163120f52a2e3595db19890050b2faa96c6cba6b094b0a52b0aa
+MD5: 3f400f30415941348af21d515a2fc6a3
+Year: 2022
+Family name: blackbasta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WriteFile                   @ 0B76
+* [API ] StartServiceCtrlDispatcherW @ C633
+* [API ] OpenSCManagerW              @ C648
+* [API ] CreateProcessW              @ B3F0
+* [API ] CreateFileW                 @ D713
+* [API ] WriteFile                   @ 107B
+* [API ] RegCreateKeyExW             @ 01DA
+* [API ] RegSetValueExW              @ 0205
+* [API ] OpenServiceW                @ C93B
+* [API ] ControlService              @ C99C
+* [API ] DeleteService               @ CB9D
+* [API ] CreateServiceW              @ CC93
+* [API ] RegCreateKeyExW             @ CF40
+* [API ] RegSetValueExW              @ CFB7
+* [API ] ShellExecuteA               @ C818
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Changes the desktop background with a message stating, "Your network has been encrypted by the Black Basta group."
+Also calls LdrShutdownProcess at 0x7774FD45 to shut down the system.

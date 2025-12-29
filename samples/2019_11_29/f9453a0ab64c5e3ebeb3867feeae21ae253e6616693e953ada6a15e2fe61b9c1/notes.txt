@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: f9453a0ab64c5e3ebeb3867feeae21ae253e6616693e953ada6a15e2fe61b9c1
+MD5: f3370bbb4bb8bda7bc19bc18d1c5bfbb
+Year: 2019_11_29
+Family name: onlinegames
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA @ 5503
+* [API ] CopyFileA         @ 37A2
+* [API ] MoveFileExA       @ 2458
+* [API ] MoveFileExA       @ 24A3
+* [API ] MoveFileA         @ 37C0
+* [API ] CreateFileA       @ 34DE
+* [API ] WriteFile         @ 3519
+* [API ] CreateProcessA    @ 35F7
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================

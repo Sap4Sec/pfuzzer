@@ -1,0 +1,85 @@
+[Basic information]
+=========================================================================
+SHA-256: 0b8c9f441b22bb451ea46001086b21f2691763ecb8d261dff993e4cce7bf03e2
+MD5: 0c71d614e4b123c5f967cffbf583fdbf
+Year: 2018
+Family name: xtrat
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread       @ 458B
+* [API ] ResumeThread       @ 1AB9
+* [API ] FindResourceW      @ 7A01
+* [API ] LoadResource       @ 7A1D
+* [API ] CreateThread       @ E7CF
+* [API ] CopyFileW          @ A10B
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyW      @ 8BCF
+* [API ] RegSetValueExW     @ 8BFB
+* [PERS] Software\Microsoft\Windows\CurrentVersion\RunOnce
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] CreateFileW        @ 9317
+* [API ] SetFileTime        @ 93B6
+* [API ] ShellExecuteW      @ E940
+* [API ] CreateFileA        @ 2BED
+* [API ] WriteFile          @ 2B18
+* [API ] ShellExecuteW      @ ACC8
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessW     @ B052
+* [API ] CreateFileW        @ AB07
+* [API ] CreateFileMappingW @ D53F
+* [API ] FindResourceW      @ D48A
+* [API ] LoadResource       @ D4AB
+* [API ] CreateThread       @ F022
+* [API ] CreateThread       @ F039
+* [API ] CopyFileW          @ A4C1
+* [API ] MapViewOfFile      @ D555
+* [API ] VirtualAllocEx     @ AFCE
+* [API ] CreateProcessW     @ AC9F
+* [API ] ReadProcessMemory  @ AD44
+* [API ] VirtualAllocEx     @ AD83
+* [API ] WriteProcessMemory @ AE9A
+* [API ] WriteProcessMemory @ AEBE
+* [API ] SetThreadContext   @ AEDE
+* [API ] ResumeThread       @ AEE8
+* [API ] WriteProcessMemory @ AFE9
+* [API ] CreateRemoteThread @ B00A
+* [API ] CreateFileW        @ 1965
+* [API ] WriteFile          @ F1CC
+* [API ] SetWindowsHookExW  @ 126B
+* [API ] GetClipboardData   @ F0EA
+* [API ] socket             @ 7A79
+* [API ] connect            @ 7599
+* [API ] socket             @ AC18
+* [API ] connect            @ BAE8
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileA        @ 2BED    Succeed     Not modified
+* [API ] CreateFileW        @ 9317    Fail        Not modified
+* [API ] CreateMutexW       @ 6E9F    Fail
+* [API ] FindFirstFileW     @ 8D7E    Succeed
+* [API ] GetFileAttributesW @ 8A86    Fail
+* [API ] GetFileAttributesW @ 92E9    Succeed
+* [API ] GetModuleFileNameA @ 5F0B    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 6145    Nothing
+* [API ] GetModuleFileNameW @ 8830    Nothing
+* [API ] GetWindowTextW     @ DF7D    Retarget    Program Manager - MSCTFIME UI
+* [API ] RegOpenKeyExA      @ 6163    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 6181    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 619F    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 8C9A    Succeed     Not modified
+* [API ] RegQueryValueExW   @ 8CBE    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 8CE8    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ E7AD    Retarget
+* [API ] TimeQueryAPIs      @ 29C1    Retarget
+
+[Manual annotations]
+====================

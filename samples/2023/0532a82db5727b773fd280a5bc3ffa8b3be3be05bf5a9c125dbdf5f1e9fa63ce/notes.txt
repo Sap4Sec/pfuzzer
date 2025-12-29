@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Dropper.Win32.Agent.tevevx-0532a82db5727b773fd280a5bc3ffa8b3be3be05bf5a9c125dbdf5f1e9fa63ce
+MD5: 849b14697f13d701ccaa9d49e51d6326
+Year: 2023
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ A00F
+* [API ] OpenServiceW         @ A029
+* [API ] CryptAcquireContextW @ 79EE
+* [API ] CryptGenRandom       @ 7A03
+* [API ] CryptReleaseContext  @ 7A18
+* [API ] CreateFileW          @ C16C
+* [API ] CreateFileW          @ C3E0
+* [API ] WriteFile            @ C3FA
+* [API ] CreateProcessW       @ CCD2
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CreateFileW        @ C16C    Succeed     Not modified
+* [API ] CreateFileW        @ C3E0    Succeed     Not modified
+* [API ] GetComputerNameA   @ C9B7    Retarget    testuser
+* [API ] GetModuleFileNameW @ 6AE1    Nothing
+* [API ] GetModuleFileNameW @ CB57    Nothing
+* [API ] GetUserNameA       @ 6019    Retarget    John
+* [API ] TimeDelayAPIs      @ C933    Retarget
+
+[Manual annotations]
+====================

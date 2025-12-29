@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 025e935886f94e167c0cfcbdcfdcf7350c8be93e130aadf5ae1b43a1028c52ef
+MD5: e9a935f9a840ec2ad9cc9285ff9a87a2
+Year: 2018
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ CEE3
+* [API ] WriteFile      @ 2EBE
+* [API ] CreateProcessA @ 62DC
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (44)]
+=======================================
+
+* [API ] CPUID              @ 1A37    Nothing
+* [API ] CreateFileW        @ CEE3    Retarget    attrib.exe
+* [API ] CreateMutexA       @ 6E89    Retarget    VBoxTray
+* [API ] CreateMutexA       @ 6EB9    Fail
+* [API ] GetModuleFileNameA @ 46B4    Nothing
+* [API ] GetModuleFileNameA @ 623F    Nothing
+* [API ] Process32First     @ 7F50    Nothing
+* [API ] Process32First     @ 8083    Nothing
+* [API ] Process32Next      @ 7F6F    Retarget
+* [API ] Process32Next      @ 7FE9    Retarget
+* [API ] Process32Next      @ 809A    Retarget
+* [API ] Process32Next      @ 816E    Retarget
+* [API ] TimeDelayAPIs      @ 5CB3    Retarget
+* [API ] TimeQueryAPIs      @ 850D    Retarget
+
+[Manual annotations]
+====================

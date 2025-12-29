@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 06e05a33d33e76a21475b82e92052416a490f7c962c5b6acb6688d4ec188d595
+MD5: 46ea7dc7ae14b051a5fa202082399a50
+Year: 2021_11_03
+Family name: kolabc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinExec         @ 61DD
+* [API ] CopyFileA       @ 49DA
+* [API ] CreateFileA     @ 4A10
+* [API ] CreateFileA     @ 4A47
+* [API ] WriteFile       @ 4A78
+* [API ] WriteFile       @ 4AF1
+* [API ] CreateFileA     @ 4B11
+* [API ] WriteFile       @ 4B42
+* [API ] WriteFile       @ 4BC6
+* [API ] WriteFile       @ 4C08
+* [API ] CopyFileA       @ 4C45
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyExA @ 5AF4
+* [PERS] software\microsoft\windows\currentversion\run
+* [API ] RegSetValueExA  @ 5B0D
+* [API ] WSAStartup      @ 5B4D
+* [API ] socket          @ 58E1
+* [API ] inet_addr       @ 59A0
+* [API ] connect         @ 59C0
+
+[Mutations applied in the best run (16)]
+=======================================
+
+* [API ] CreateFileA        @ 4A10    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateFileA        @ 4A47    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA        @ 4B11    Retarget    iexplorer.exe
+* [API ] FindFirstFileA     @ 48F0    Nothing
+* [API ] FindFirstFileA     @ 4D8D    Succeed
+* [API ] FindNextFileA      @ 4930    Retarget
+* [API ] GetModuleFileNameA @ 2751    Retarget    C:\Windows\system32\
+
+[Manual annotations]
+====================

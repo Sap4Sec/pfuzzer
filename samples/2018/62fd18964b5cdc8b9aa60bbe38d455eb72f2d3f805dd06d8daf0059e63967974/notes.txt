@@ -1,0 +1,57 @@
+[Basic information]
+=========================================================================
+SHA-256: 62fd18964b5cdc8b9aa60bbe38d455eb72f2d3f805dd06d8daf0059e63967974
+MD5: 90167ccee44df6209c9f063bbfe5d064
+Year: 2018
+Family name: expressdownloader
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW        @ 34A6
+* [API ] FindResourceW      @ E88A
+* [API ] LoadResource       @ E89B
+* [API ] CreateFileW        @ 392D
+* [API ] WriteFile          @ E11D
+* [API ] CreateFileW        @ 2A1E
+* [API ] CreateFileMappingW @ 2A44
+* [API ] MapViewOfFile      @ 2A64
+* [API ] CreateThread       @ 837C
+* [API ] socket             @ 82EA
+* [API ] connect            @ 7FE9
+* [API ] send               @ 6B4F
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID               @ A176    Nothing
+* [API ] CreateFileW         @ 2A1E    Succeed     Not modified
+* [API ] CreateFileW         @ 34A6    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileW         @ 392D    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] CreateMutexW        @ 5CB0    Fail
+* [API ] EnumDisplayDevicesW @ 13E1    Nothing
+* [API ] EnumDisplayDevicesW @ 15E7    Nothing
+* [API ] GetAdaptersInfo     @ 5EFC    Retarget    testuser
+* [API ] GetComputerNameW    @ 5FA4    Nothing
+* [API ] GetModuleFileNameA  @ 9F73    Nothing
+* [API ] GetModuleFileNameW  @ 3A77    Nothing
+* [API ] RegOpenKeyExW       @ 2486    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ 76EF    Succeed     Not modified
+* [API ] RegOpenKeyExW       @ 77B9    Succeed     Not modified
+* [API ] RegOpenKeyExW       @ 78FC    Succeed     Not modified
+* [API ] RegOpenKeyExW       @ 7A59    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ 7B88    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ 7E65    Retarget    SOFTWARE\GOOGLE\
+* [API ] TimeDelayAPIs       @ 8324    Retarget
+* [API ] TimeQueryAPIs       @ 01E2    Retarget
+
+[Manual annotations]
+====================
+Queries WMI classes AntiVirusProduct, AntiSpywareProduct, and FirewallProduct for displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe, productState, and timestamp
+Also queries Win32_Process for Name, ProcessId, and CSName

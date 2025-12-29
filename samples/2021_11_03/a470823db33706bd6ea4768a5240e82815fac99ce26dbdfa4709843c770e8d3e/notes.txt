@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: a470823db33706bd6ea4768a5240e82815fac99ce26dbdfa4709843c770e8d3e
+MD5: 72567aa3f2d263b76f4282be25028bd4
+Year: 2021_11_03
+Family name: unruy
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] CreateFileA    @ 1BC0
+* [API ] CreateFileA    @ 1C1B
+* [API ] WriteFile      @ 1CF4
+* [API ] WriteFile      @ 1D72
+* [API ] WriteFile      @ 1D92
+* [API ] WriteFile      @ 1DAE
+* [API ] WriteFile      @ 1DCA
+* [API ] WriteFile      @ 1DE8
+* [API ] CreateProcessA @ 2754
+* [API ] RegSetValueExA @ 2D45
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CreateMutexA       @ 105A    Fail
+* [API ] CreateMutexA       @ 1101    Succeed
+* [API ] GetModuleFileNameA @ 11A7    Nothing
+* [API ] GetModuleFileNameA @ 1E4D    Nothing
+* [API ] GetModuleFileNameA @ 52B0    Nothing
+* [API ] Process32First     @ 19D4    Nothing
+* [API ] Process32Next      @ 1A27    Retarget
+* [API ] TimeDelayAPIs      @ 10C1    Retarget
+* [API ] TimeQueryAPIs      @ 1100    Retarget
+
+[Manual annotations]
+====================

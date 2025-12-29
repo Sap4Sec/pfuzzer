@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 128be18f47b767904ac41ded425254db336b269cd59fddd454f7eebdc6e9bc86
+MD5: 8bb39e8e1db620bb2c9d80cfb957b645
+Year: 2019_11_29
+Family name: sivis
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 23A9
+* [API ] CreateFileA     @ 23EF
+* [API ] CreateFileA     @ 2408
+* [API ] WriteFile       @ 22CB
+* [API ] WriteFile       @ 2991
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA  @ 2CE6
+* [API ] ShellExecuteExA @ 2E3D
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 23A9    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA        @ 23EF    Retarget    Detect It Easy.lnk
+* [API ] CreateFileA        @ 2408    Succeed
+* [API ] FindFirstFileA     @ 30C1    Fail
+* [API ] FindFirstFileA     @ 3302    Nothing
+* [API ] FindNextFileA      @ 3371    Retarget
+* [API ] GetModuleFileNameA @ 2A3B    Nothing
+* [API ] TimeQueryAPIs      @ 20E8    Retarget
+
+[Manual annotations]
+====================

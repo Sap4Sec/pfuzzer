@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 01651fc692c5bddfae44db4edf80198c4b277ccc385712b627a73147fab5e32a
+MD5: da9b79fb3edd0fcf8f3ecc4a0ccf7c85
+Year: 2019_05_11
+Family name: johnnie
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 0FBC
+* [API ] WriteFile      @ 60BE
+* [API ] CreateProcessA @ 8EED
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID              @ 4C37    Retarget    Missing
+* [API ] CreateFileW        @ 0FBC    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateMutexA       @ 992B    Fail
+* [API ] GetModuleFileNameA @ 7D47    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 8E55    Nothing
+* [API ] Process32First     @ B260    Nothing
+* [API ] Process32First     @ B393    Nothing
+* [API ] Process32Next      @ B27F    Retarget
+* [API ] Process32Next      @ B2F9    Retarget
+* [API ] Process32Next      @ B3AA    Retarget
+* [API ] Process32Next      @ B47E    Retarget
+* [API ] TimeDelayAPIs      @ 6C53    Retarget
+* [API ] TimeQueryAPIs      @ B83D    Retarget
+
+[Manual annotations]
+====================

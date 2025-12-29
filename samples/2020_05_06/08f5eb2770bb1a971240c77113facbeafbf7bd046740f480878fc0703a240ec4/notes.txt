@@ -1,0 +1,59 @@
+[Basic information]
+=========================================================================
+SHA-256: 08f5eb2770bb1a971240c77113facbeafbf7bd046740f480878fc0703a240ec4
+MD5: ea346a7fdc50a0fe6e2fdb5e980741c3
+Year: 2020_05_06
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA     @ 22F9
+* [API ] CreateFileA     @ 23DC
+* [API ] MoveFileA       @ 2515
+* [API ] CreateFileA     @ 25A6
+* [API ] CopyFileA       @ 2A6E
+* [API ] RegCreateKeyExA @ 11B6
+* [PERS] software\microsoft\windows
+* [API ] RegSetValueExA  @ 127B
+* [API ] CreateFileA     @ 13ED
+* [API ] CreateFileA     @ 131D
+* [API ] WriteFile       @ 1353
+* [API ] CreateFileA     @ 1EC7
+* [API ] CreateFileA     @ 1F24
+* [API ] SetFileTime     @ 1F3E
+* [API ] MoveFileExA     @ 2AFC
+* [API ] CreateProcessA  @ 1A2F
+* [API ] MoveFileExA     @ 15BF
+* [API ] MoveFileExA     @ 15EF
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CreateFileA        @ 22F9    Fail        Not modified
+* [API ] CreateFileA        @ 23DC    Retarget    Backup.txt
+* [API ] CreateFileA        @ 25A6    Succeed
+* [API ] FindWindowA        @ 1030    Fail
+* [API ] FindWindowA        @ 2BC8    Fail
+* [API ] GetModuleFileNameA @ 156B    Nothing
+* [API ] GetModuleFileNameA @ 2909    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 2BA0    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 3955    Nothing
+* [API ] GetModuleFileNameA @ 3A88    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 26B3    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetUserNameA       @ 3992    Retarget    testuser
+* [API ] Process32First     @ 1077    Nothing
+* [API ] Process32First     @ 1AFB    Nothing
+* [API ] Process32Next      @ 109F    Retarget
+* [API ] Process32Next      @ 1B1E    Retarget
+* [API ] RegOpenKeyExA      @ 38A2    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 38C7    Nothing
+
+[Manual annotations]
+====================

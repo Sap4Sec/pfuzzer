@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.cbup-f73282bb29d6711a116656bf12a55c2e7df5eb9a95376b6d1d087309fc37bb14
+MD5: f38ceb5bccd2de5ccf73d79ec5711d40
+Year: 2022
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW   @ 9455
+* [API ] CreateFileW   @ 8E60
+* [API ] NtCreateFile  @ 677D
+* [API ] CopyFileA     @ 82CB
+* [API ] ShellExecuteA @ 8194
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile  @ C823
+* [API ] NtCreateFile  @ 0B21
+* [API ] NtCreateFile  @ CE54
+* [API ] NtCreateFile  @ 1FE2
+* [API ] NtCreateFile  @ 3F42
+* [API ] NtCreateFile  @ 81B3
+* [API ] NtCreateFile  @ 1022
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID              @ CC2C    Nothing
+* [API ] CreateFileW        @ 8E60    Succeed     Not modified
+* [API ] CreateFileW        @ 9455    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] GetModuleFileNameA @ 8686    Nothing
+* [API ] NtCreateFile       @ 677D    Fail        Not modified
+* [API ] TimeQueryAPIs      @ CBA2    Retarget
+
+[Manual annotations]
+====================

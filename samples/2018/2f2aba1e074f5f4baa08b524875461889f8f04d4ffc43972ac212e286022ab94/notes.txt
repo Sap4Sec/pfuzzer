@@ -1,0 +1,76 @@
+[Basic information]
+=========================================================================
+SHA-256: 2f2aba1e074f5f4baa08b524875461889f8f04d4ffc43972ac212e286022ab94
+MD5: 323c0fd51071400b51eedb1be90a8188
+Year: 2018
+Family name: winactivator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ AB51
+* [API ] LoadResource     @ AB69
+* [API ] FindResourceA    @ ABE5
+* [API ] CreateFileW      @ AD80
+* [API ] GetAsyncKeyState @ 5A3F
+* [API ] RegCreateKeyExA  @ DDBE
+* [API ] CreateFileA      @ D030
+* [API ] GetKeyState      @ 6B0B
+* [API ] GetKeyState      @ 6B1D
+* [API ] GetKeyState      @ 6B2F
+* [API ] GetKeyState      @ 6B41
+* [API ] GetKeyState      @ 6B4A
+* [API ] CreateFileW      @ 108A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID                    @ E0DA    Retarget    Missing
+* [API ] CreateFileA              @ D030    Succeed     Not modified
+* [API ] CreateFileW              @ 108A    Succeed     Not modified
+* [API ] CreateFileW              @ AD80    Succeed     Not modified
+* [API ] CreateMutexW             @ 1142    Fail
+* [API ] FindFirstFileW           @ D12E    Nothing
+* [API ] FindWindowExA            @ 138F    Succeed
+* [API ] FindWindowExA            @ 170A    Succeed
+* [API ] GetCursorPos             @ E920    Nothing
+* [API ] GetFileAttributesW       @ DEDB    Fail
+* [API ] GetFileAttributesW       @ E0D7    Fail
+* [API ] GetForegroundWindow      @ 9CD9    Nothing
+* [API ] GetForegroundWindow      @ AE4B    Nothing
+* [API ] GetModuleFileNameA       @ CB18    Nothing
+* [API ] GetModuleFileNameW       @ 2A02    Nothing
+* [API ] GetModuleFileNameW       @ 42F3    Nothing
+* [API ] GetModuleFileNameW       @ AD63    Nothing
+* [API ] GetProcessImageFileNameW @ E324    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemFirmwareTable   @ 2510    Retarget    testuser
+* [API ] GetSystemFirmwareTable   @ 63C9    Retarget    Office
+* [API ] GetSystemFirmwareTable   @ C2FB    Retarget    testuser
+* [API ] GetSystemFirmwareTable   @ C440    Retarget    testuser
+* [API ] GetSystemFirmwareTable   @ C81A    Nothing
+* [API ] GetSystemFirmwareTable   @ C95F    Nothing
+* [API ] GetUserDefaultLCID       @ A757    Retarget    Chinese-simplified
+* [API ] Process32FirstW          @ 362C    Nothing
+* [API ] Process32NextW           @ 389C    Retarget
+* [API ] RegOpenKeyExW            @ 1B1B    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW            @ 8832    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW            @ F73F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW            @ FF0B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA         @ E8F3    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW         @ 012C    Nothing
+* [API ] RegQueryValueExW         @ 1D36    Nothing
+* [API ] RegQueryValueExW         @ 8B86    Nothing
+* [API ] RegQueryValueExW         @ E9F7    Nothing
+* [API ] RegQueryValueExW         @ EAA6    Nothing
+* [API ] RegQueryValueExW         @ F95E    Retarget    ProductID
+* [API ] TimeQueryAPIs            @ CF51    Nothing
+
+[Manual annotations]
+====================
+Queries WMI Win32_Volume for SystemVolume and Name, and Win32_BaseBoard and Product for hardware info

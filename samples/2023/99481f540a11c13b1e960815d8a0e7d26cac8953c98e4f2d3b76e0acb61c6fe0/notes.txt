@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Banker.Win32.Bandra.ddk-99481f540a11c13b1e960815d8a0e7d26cac8953c98e4f2d3b76e0acb61c6fe0
+MD5: aa1fafc03b0578979f5f0660e8266cab
+Year: 2023
+Family name: bandra
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] GetModuleFileNameW     @ E607    Nothing
+* [API ] GetSystemFirmwareTable @ 3C8B    Retarget    Office
+* [API ] GetSystemFirmwareTable @ 3E9A    Retarget    testuser
+* [API ] RegOpenKeyA            @ 265C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyA            @ E594    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyA            @ ED3A    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyA            @ FA90    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA       @ 298A    Nothing
+* [API ] RegQueryValueExA       @ E7D4    Retarget    ProductID
+* [API ] RegQueryValueExA       @ EF3C    Nothing
+* [API ] RegQueryValueExA       @ F250    Nothing
+* [API ] RegQueryValueExA       @ F56E    Nothing
+* [API ] TimeQueryAPIs          @ 5BDE    Retarget
+
+[Manual annotations]
+====================

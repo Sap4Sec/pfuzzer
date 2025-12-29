@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: 246012b9510167382741216f31e2c6ec3fedcaac7e71c2e590f18c0cb7ecc653
+MD5: 2726e77886a19d510ffbb771a52553b8
+Year: 2021_11_03
+Family name: SINGLETON:2726e77886a19d510ffbb771a52553b8
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CPUID              @ 633E    Nothing
+* [API ] GetCursorPos       @ 151C    Nothing
+* [API ] GetCursorPos       @ 32DE    Retarget    Missing
+* [API ] GetModuleFileNameW @ 988B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] RegOpenKeyExW      @ 1BE7    Succeed
+* [API ] TimeDelayAPIs      @ 1B60    Nothing
+
+[Manual annotations]
+====================
+User interaction: AutoIT tool window --- requires UI to trigger relevant behavior

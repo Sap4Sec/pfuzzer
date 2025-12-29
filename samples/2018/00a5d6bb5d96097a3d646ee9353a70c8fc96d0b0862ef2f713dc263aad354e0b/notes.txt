@@ -1,0 +1,86 @@
+[Basic information]
+=========================================================================
+SHA-256: 00a5d6bb5d96097a3d646ee9353a70c8fc96d0b0862ef2f713dc263aad354e0b
+MD5: e98f260809b8843abccb801f01750056
+Year: 2018
+Family name: malachite
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread   @ 01EE
+* [API ] CreateThread   @ 34B1
+* [API ] WSAStartup     @ 224B
+* [API ] socket         @ 225D
+* [API ] connect        @ 22AD
+* [API ] send           @ 1205
+* [API ] send           @ 121B
+* [API ] send           @ 2308
+* [API ] RegSetValueExA @ 5D0D
+* [API ] WSAStartup     @ DB0B
+* [API ] RegSetValueExA @ C7CA
+* [API ] RegSetValueExA @ C856
+* [API ] RegSetValueExA @ C8F8
+* [API ] RegSetValueExA @ C984
+* [API ] RegSetValueExA @ CA10
+* [API ] RegSetValueExA @ CAAE
+* [API ] RegSetValueExA @ CB5A
+* [API ] RegSetValueExA @ CBF4
+* [API ] RegSetValueExA @ CC7C
+* [API ] RegSetValueExA @ CD3A
+* [API ] RegSetValueExA @ CDD4
+* [API ] CreateThread   @ DB93
+* [API ] CreateThread   @ DB9F
+* [API ] RegSetValueExA @ 60C7
+* [API ] CopyFileA      @ CEF0
+* [API ] RegSetValueExA @ 613C
+* [API ] RegSetValueExA @ 616E
+* [API ] RegSetValueExA @ 6199
+* [API ] RegSetValueExA @ 61C4
+* [API ] RegSetValueExA @ 61EF
+* [API ] RegSetValueExA @ 621A
+* [API ] RegSetValueExA @ 6245
+* [API ] RegSetValueExA @ 6270
+* [API ] RegSetValueExA @ 629B
+* [API ] RegSetValueExA @ 62C6
+* [API ] RegSetValueExA @ 6335
+* [API ] RegSetValueExA @ 639D
+* [API ] ShellExecuteA  @ CF18
+* [API ] RegSetValueExA @ 6408
+* [API ] RegSetValueExA @ 6473
+* [API ] RegSetValueExA @ 649E
+* [API ] RegSetValueExA @ 64C9
+* [API ] RegSetValueExA @ 64F4
+* [API ] RegSetValueExA @ 651F
+* [API ] RegSetValueExA @ 654A
+* [API ] ShellExecuteA  @ CF79
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CreateMutexA       @ 2220    Fail
+* [API ] CreateMutexA       @ 35B4    Fail
+* [API ] CreateMutexA       @ C4B4    Fail
+* [API ] FindFirstFileW     @ 0F23    Fail
+* [API ] FindFirstFileW     @ 0FF5    Retarget    C:\*
+* [API ] FindNextFileW      @ 108D    Retarget
+* [API ] GetComputerNameA   @ C001    Nothing
+* [API ] GetComputerNameA   @ C418    Retarget    Office
+* [API ] GetCursorPos       @ C34D    Retarget    Missing
+* [API ] GetFileAttributesA @ 38AE    Succeed
+* [API ] GetModuleFileNameA @ 556E    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ D6EC    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] TimeDelayAPIs      @ 2665    Nothing
+* [API ] TimeQueryAPIs      @ 1177    Nothing
+
+[Manual annotations]
+====================
+On Windows 8 and later, the sample fails due to a INT 29h instruction with ECX = FAST_FAIL_GUARD_ICALL_CHECK_FAILURE. This is because the fast fail mechanism was introduced starting with Windows 8.
+On Windows 7, the sample executes correctly, as this guard check does not exist in that version.
+Reference: FAST_FAIL in MSVC

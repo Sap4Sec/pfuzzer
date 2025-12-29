@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Agent.xaxdwn-a7cddaab26425d654855f225afae2271c57fb051352a9754c968b57b5fd6579c
+MD5: 27be4d1930a01d4a3ddebaa0d179116b
+Year: 2023
+Family name: sabsik
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID @ ABBF    Retarget    Missing
+
+[Manual annotations]
+====================
+werfault.exe triggers immediately, indicating a crash occurs even when the sample is run via double-click.

@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: 45407002fe73ca5ed30c2a7932fd4577ade2e7e57a28699fbe173827cdc47d65
+MD5: 7bd8a74b0b0b6273a3722c21ecabe2a9
+Year: 2021_04_15
+Family name: lamer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 23A9
+* [API ] CreateFileA     @ 23EF
+* [API ] CreateFileA     @ 2408
+* [API ] WriteFile       @ 22CB
+* [API ] WriteFile       @ 2991
+
+Fuzzing Findings
+----------------
+* [API ] CreateProcessA  @ 2CE6
+* [API ] ShellExecuteExA @ 2E3D
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA        @ 23A9    Fail
+* [API ] CreateFileA        @ 23EF    Succeed
+* [API ] CreateFileA        @ 2408    Succeed
+* [API ] FindFirstFileA     @ 316E    Nothing
+* [API ] FindNextFileA      @ 31DD    Retarget
+* [API ] GetModuleFileNameA @ 2A3B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] TimeQueryAPIs      @ 20E8    Retarget
+
+[Manual annotations]
+====================

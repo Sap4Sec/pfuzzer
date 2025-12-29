@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: 738b835a095cf68bb42d3e7d2d30ceef7ea2de17234b84614c4cd6a1d5762dd2
+MD5: 844346d52b2ea9afe434f579bb02e5d0
+Year: 2019_05_11
+Family name: poison
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread         @ 1A3D
+* [API ] CreateFileA          @ 159F
+* [API ] CreateProcessA       @ 13A6
+* [API ] NtUnmapViewOfSection @ 13BC
+* [API ] VirtualAllocEx       @ 13E3
+* [API ] WriteProcessMemory   @ 140A
+* [API ] WriteProcessMemory   @ 1491
+* [API ] SetThreadContext     @ 14D2
+* [API ] ResumeThread         @ 14DF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA        @ 159F    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 1A19    Retarget    ZonesCacheCounterMutex
+* [API ] GetModuleFileNameA @ 1AA5    Nothing
+* [API ] TimeDelayAPIs      @ 197A    Retarget
+
+[Manual annotations]
+====================

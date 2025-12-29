@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: 17555e90132051b06e5c8932bb77ec0ba5d1e7b34c94f7ae4dc491e1b68b4707
+MD5: 19ccba14151bc235018d7b166c7f9d7a
+Year: 2019_11_29
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup  @ 0982
+* [API ] CreateFileA @ 37DC
+* [API ] CreateFileA @ D978
+* [API ] CreateFileA @ 02CA
+* [API ] WriteFile   @ FEF5
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Game installer

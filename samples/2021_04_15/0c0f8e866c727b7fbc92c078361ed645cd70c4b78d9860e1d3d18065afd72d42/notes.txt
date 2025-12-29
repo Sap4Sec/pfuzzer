@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 0c0f8e866c727b7fbc92c078361ed645cd70c4b78d9860e1d3d18065afd72d42
+MD5: cc835d77bb22ffca1119d2dd692fee44
+Year: 2021_04_15
+Family name: lamer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (103)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileA        @ 32AC    Succeed     Not modified
+* [API ] CreateFileA        @ 3310    Fail        Not modified
+* [API ] CreateFileA        @ 33ED    Retarget    Backup.txt
+* [API ] CreateMutexA       @ 2A13    Fail
+* [API ] FindFirstFileA     @ 30A1    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA     @ 369C    Fail
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Windows\explorer.exe
+* [API ] RegOpenKeyExA      @ 2D07    Succeed
+* [API ] RegQueryValueExA   @ 2DE3    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,55 @@
+[Basic information]
+=========================================================================
+SHA-256: 3ec5eea57c2bfe75b9c1b479a02633dfddbdffd13a61ee268e90eaef5d859a4e
+MD5: cd43baa0ff1c99a17749e54c7906e6c5
+Year: 2021_04_15
+Family name: bestafera
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA     @ 967B
+* [API ] FindResourceA     @ C36C
+* [API ] LoadResource      @ C386
+* [API ] SetWindowsHookExA @ 1E58
+* [API ] CreateFileA       @ 9FFB
+* [API ] CreateFileA       @ F6FA
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateFileA         @ 9FFB    Succeed     Not modified
+* [API ] CreateFileA         @ F6FA    Retarget    C:\Windows\explorer.exe
+* [API ] DeviceIoControl     @ F7BA    Nothing
+* [API ] GetCursorPos        @ 6ED8    Nothing
+* [API ] GetDiskFreeSpaceExA @ A517    Retarget    Missing
+* [API ] GetFileAttributesA  @ A0B8    Fail
+* [API ] GetFileAttributesA  @ A0DC    Fail
+* [API ] GetKeyboardLayout   @ 3A52    Nothing
+* [API ] GetModuleFileNameA  @ 3315    Nothing
+* [API ] GetModuleFileNameA  @ 4D3E    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ 673B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA  @ 699D    Nothing
+* [API ] GetWindowTextW      @ 2B04    Nothing
+* [API ] RegOpenKeyExA       @ 3676    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 69BB    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA       @ 69D9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA       @ 69F7    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ CAAD    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA    @ 37FF    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ 38E8    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ CB17    Nothing
+* [API ] RegQueryValueExA    @ CB76    Retarget    ProductID
+* [API ] RegQueryValueExA    @ CC00    Nothing
+* [API ] TimeDelayAPIs       @ 85B8    Retarget
+* [API ] TimeQueryAPIs       @ DCFC    Retarget
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input

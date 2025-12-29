@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-PSW.Win32.Azorult.aofe-2cb326bf23a15dfa548df0266743efffefe1cb91450b3146e03e72f51c2cf0d9
+MD5: d163e4d75e3e115cce99679d08595c6e
+Year: 2022
+Family name: SINGLETON:d163e4d75e3e115cce99679d08595c6e
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA   @ 21F5
+* [API ] LoadResource    @ 220D
+* [API ] CreateFileA     @ 6486
+* [API ] WriteFile       @ 629B
+* [API ] WriteFile       @ 67C1
+* [API ] CreateFileA     @ 6D4D
+* [API ] CreateFileA     @ 649F
+* [API ] ShellExecuteExA @ 2988
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (9)]
+=======================================
+
+* [API ] CPUID              @ 3020    Nothing
+* [API ] CreateFileA        @ 6486    Fail
+* [API ] CreateFileA        @ 649F    Retarget    C:\Windows\system32\
+* [API ] CreateFileA        @ 6D4D    Fail        Not modified
+* [API ] GetModuleFileNameA @ 3CE0    Nothing
+* [API ] TimeDelayAPIs      @ 2996    Retarget
+
+[Manual annotations]
+====================

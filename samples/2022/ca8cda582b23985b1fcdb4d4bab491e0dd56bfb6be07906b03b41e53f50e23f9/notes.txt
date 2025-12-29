@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.caog-ca8cda582b23985b1fcdb4d4bab491e0dd56bfb6be07906b03b41e53f50e23f9
+MD5: 105f8f65a15883121cf10265021a2bb7
+Year: 2022
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetThreadContext  @ 442E
+* [API ] SetWindowsHookExA @ 2598
+* [API ] SetWindowsHookExA @ F6F9
+* [API ] CreateFileA       @ DFFA
+* [API ] WriteFile         @ E091
+* [API ] CreateProcessA    @ 124D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (15)]
+=======================================
+
+* [API ] CPUID              @ 0D04    Retarget    Missing
+* [API ] CreateFileA        @ DFFA    Fail        Not modified
+* [API ] GetCursorPos       @ 7997    Retarget    Missing
+* [API ] GetModuleFileNameA @ 206F    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 4449    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameA @ 7BEB    Nothing
+* [API ] GetModuleFileNameA @ 80E3    Nothing
+* [API ] TimeQueryAPIs      @ 0C03    Nothing
+
+[Manual annotations]
+====================

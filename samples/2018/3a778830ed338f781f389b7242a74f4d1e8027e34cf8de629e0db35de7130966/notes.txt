@@ -1,0 +1,44 @@
+[Basic information]
+=========================================================================
+SHA-256: 3a778830ed338f781f389b7242a74f4d1e8027e34cf8de629e0db35de7130966
+MD5: 0629151aa62cc2a2872143cc91caf7e1
+Year: 2018
+Family name: fujacks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 36E8
+* [API ] CreateFileA @ 3015
+* [API ] WriteFile   @ 2F40
+* [API ] WinExec     @ EF03
+* [API ] WinExec     @ FEBC
+
+Fuzzing Findings
+----------------
+* [API ] CopyFileA   @ FB50
+* [API ] WinExec     @ FBCF
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA        @ 3015    Retarget    attrib.exe
+* [API ] CreateFileA        @ 36E8    Succeed     Not modified
+* [API ] FindFirstFileA     @ 7C18    Retarget    C:\Users\Student\*
+* [API ] GetModuleFileNameA @ 2DC8    Nothing
+* [API ] GetModuleFileNameA @ 5D07    Nothing
+* [API ] GetModuleFileNameA @ 5F98    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ EC56    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] Process32First     @ 72FF    Nothing
+* [API ] Process32Next      @ 731F    Retarget
+* [API ] RegOpenKeyExA      @ 5FB6    Succeed
+* [API ] RegOpenKeyExA      @ 5FD4    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 5FF2    Succeed     Not modified
+* [API ] TimeDelayAPIs      @ E83A    Retarget
+* [API ] TimeQueryAPIs      @ 2E0D    Retarget
+
+[Manual annotations]
+====================

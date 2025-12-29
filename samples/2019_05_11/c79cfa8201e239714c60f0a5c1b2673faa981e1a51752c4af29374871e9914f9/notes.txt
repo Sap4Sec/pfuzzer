@@ -1,0 +1,86 @@
+[Basic information]
+=========================================================================
+SHA-256: c79cfa8201e239714c60f0a5c1b2673faa981e1a51752c4af29374871e9914f9
+MD5: 01a94391a111959239d1166711c24cae
+Year: 2019_05_11
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread       @ B8E6
+* [API ] CreateFileW        @ 6BFA
+* [API ] WSAStartup         @ C324
+* [API ] CreateFileA        @ B9AB
+* [API ] CreateFileA        @ EFD2
+* [API ] CreateFileMappingA @ DA6F
+* [API ] MapViewOfFile      @ DBAB
+* [API ] RegCreateKeyExA    @ 7D09
+* [API ] RegSetValueExA     @ 86A2
+* [API ] RegSetValueExA     @ 7FE2
+* [API ] RegCreateKeyExA    @ 808E
+* [API ] RegSetValueExA     @ 811B
+* [API ] CreateFileA        @ 9183
+* [API ] CreateFileA        @ C876
+* [API ] CreateFileA        @ A257
+* [API ] WriteFile          @ A288
+* [API ] CreateFileA        @ 3F85
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ F300
+
+[Mutations applied in the best run (5)]
+=======================================
+
+* [API ] CPUID              @ A0CA    Nothing
+* [API ] CreateFileA        @ 3F85    Succeed
+* [API ] CreateFileA        @ 9183    Fail        Not modified
+* [API ] CreateFileA        @ A257    Fail        Not modified
+* [API ] CreateFileA        @ B9AB    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA        @ C876    Succeed
+* [API ] CreateFileA        @ EFD2    Fail        Not modified
+* [API ] CreateFileW        @ 6BFA    Succeed     Not modified
+* [API ] CreateMutexA       @ 358D    Succeed
+* [API ] CreateMutexA       @ 8869    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA       @ 9B01    Fail
+* [API ] DeviceIoControl    @ B9D4    Retarget    Missing
+* [API ] DeviceIoControl    @ F09C    Retarget    Missing
+* [API ] FindFirstFileA     @ 83AB    Fail
+* [API ] FindFirstFileA     @ 8A58    Fail
+* [API ] FindNextFileA      @ 84B7    Retarget
+* [API ] FindNextFileA      @ 8B5A    Retarget
+* [API ] FindWindowA        @ 95C0    Fail
+* [API ] FindWindowA        @ 95DC    Succeed
+* [API ] FindWindowA        @ 95F8    Fail
+* [API ] GetComputerNameExA @ B7D9    Nothing
+* [API ] GetLocalTime       @ F1C0    Retarget    2015:12:6:15
+* [API ] GetLocalTime       @ F350    Retarget    2015:12:6:15
+* [API ] GetModuleFileNameW @ 3043    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ 30EB    Nothing
+* [API ] GetModuleFileNameW @ 6D0A    Nothing
+* [API ] GetSystemInfo      @ CAA3    Retarget    Missing
+* [API ] GetSystemTime      @ C836    Retarget    2015:12:6:15
+* [API ] GetWindowTextA     @ D48A    Nothing
+* [API ] RegEnumKeyA        @ 7EA0    Nothing
+* [API ] RegEnumKeyA        @ 8017    Retarget    testuser
+* [API ] RegEnumKeyA        @ 8150    Retarget    testuser
+* [API ] RegOpenKeyExA      @ 7CDC    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 7E23    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 7EF0    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 805D    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 85C5    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ B49C    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ B5A9    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 85E8    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ B5D4    Nothing
+* [API ] RegQueryValueExA   @ B609    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ B8FE    Retarget
+* [API ] TimeQueryAPIs      @ F03F    Retarget
+
+[Manual annotations]
+====================
+Other dependencies: missing MSVBVM50.DLL

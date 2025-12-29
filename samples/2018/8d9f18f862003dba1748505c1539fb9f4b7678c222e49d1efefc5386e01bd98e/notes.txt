@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: 8d9f18f862003dba1748505c1539fb9f4b7678c222e49d1efefc5386e01bd98e
+MD5: 4c1f65645d0901bc0229bdeb3959d9ea
+Year: 2018
+Family name: installmonster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenFileMappingA   @ 1C6A
+* [API ] CreateFileMappingA @ 1CD5
+* [API ] MapViewOfFile      @ 1D13
+* [API ] GetKeyboardState   @ 5F7B
+* [API ] CreateFileW        @ 6563
+* [API ] CreateFileA        @ A557
+* [API ] RegCreateKeyExA    @ 09C7
+* [API ] socket             @ 2729
+* [API ] connect            @ 2241
+* [API ] send               @ 2611
+* [API ] send               @ 742F
+* [API ] socket             @ 7630
+* [API ] connect            @ 8B23
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

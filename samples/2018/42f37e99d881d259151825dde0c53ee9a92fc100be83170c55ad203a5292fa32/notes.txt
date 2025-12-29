@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 42f37e99d881d259151825dde0c53ee9a92fc100be83170c55ad203a5292fa32
+MD5: 5988d3b7a03bcc53833d47b7846eb0b0
+Year: 2018
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ F2C8
+* [API ] CreateThread     @ F313
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread     @ F36E
+* [API ] CreateThread     @ F385
+* [API ] CreateThread     @ F39C
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExA   @ CAAF
+* [API ] InternetOpenA    @ D5B9
+* [API ] InternetOpenUrlA @ D5DF
+* [API ] InternetOpenA    @ D4A5
+* [API ] InternetOpenUrlA @ D4CF
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateMutexA       @ F2D7    Retarget    vscode
+* [API ] GetModuleFileNameA @ D09F    Nothing
+* [API ] Process32First     @ DF03    Nothing
+* [API ] Process32Next      @ E0FC    Retarget
+* [API ] TimeDelayAPIs      @ F2AE    Retarget
+* [API ] TimeQueryAPIs      @ F28C    Retarget
+
+[Manual annotations]
+====================

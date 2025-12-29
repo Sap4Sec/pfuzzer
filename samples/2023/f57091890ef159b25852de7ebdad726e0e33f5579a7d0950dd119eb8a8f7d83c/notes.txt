@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan-Spy.Win32.Stealer.ddvq-f57091890ef159b25852de7ebdad726e0e33f5579a7d0950dd119eb8a8f7d83c
+MD5: b414b961c18b744dd00be5e31d0608bc
+Year: 2023
+Family name: convagent
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] GetModuleFileNameW     @ DA66    Nothing
+* [API ] GetSystemFirmwareTable @ 713B    Retarget    John
+* [API ] GetSystemFirmwareTable @ 7347    Retarget    John
+* [API ] RegOpenKeyA            @ 4291    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyA            @ 495F    Succeed     Not modified
+* [API ] RegOpenKeyA            @ 5629    Succeed     Not modified
+* [API ] RegOpenKeyA            @ 56DC    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA       @ 4469    Nothing
+* [API ] RegQueryValueExA       @ 4B5E    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA       @ 4EB4    Retarget    ProductID
+* [API ] RegQueryValueExA       @ 519B    Nothing
+* [API ] RegQueryValueExA       @ 590D    Retarget    ProductID
+* [API ] TimeQueryAPIs          @ 28FE    Retarget
+
+[Manual annotations]
+====================

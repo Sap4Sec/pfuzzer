@@ -1,0 +1,45 @@
+[Basic information]
+=========================================================================
+SHA-256: 326a219e1025b450a9edcf33f6ef8a44ab0c5dde9905e0811b17c0f3698117d4
+MD5: cf88dd464139f63e54fe9f616dc36a55
+Year: 2021_11_03
+Family name: lamer
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 1934
+* [API ] CreateFileA @ 32AC
+* [API ] CreateFileA @ 3310
+* [API ] WriteFile   @ 3345
+* [API ] WriteFile   @ 33CB
+* [API ] CreateFileA @ 33ED
+* [API ] WriteFile   @ 3422
+* [API ] WriteFile   @ 34D8
+* [API ] WriteFile   @ 3505
+* [API ] CopyFileA   @ 3544
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CreateFileA        @ 1934    Retarget    Detect It Easy.lnk
+* [API ] CreateFileA        @ 32AC    Fail        Not modified
+* [API ] CreateFileA        @ 3310    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] CreateFileA        @ 33ED    Retarget    iexplorer.exe
+* [API ] CreateMutexA       @ 2A13    Retarget    vscode
+* [API ] FindFirstFileA     @ 30A1    Nothing
+* [API ] FindFirstFileA     @ 369C    Succeed
+* [API ] FindNextFileA      @ 360C    Retarget
+* [API ] FindNextFileA      @ 36DC    Retarget
+* [API ] GetModuleFileNameA @ 13FD    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] RegOpenKeyExA      @ 2D07    Succeed
+* [API ] RegQueryValueExA   @ 2DE3    Nothing
+
+[Manual annotations]
+====================

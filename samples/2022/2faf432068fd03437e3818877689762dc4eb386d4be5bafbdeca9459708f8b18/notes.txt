@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Denes.eah-2faf432068fd03437e3818877689762dc4eb386d4be5bafbdeca9459708f8b18
+MD5: d85991383a297699abe7d3bd3e26978f
+Year: 2022
+Family name: ranumbot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (34)]
+=======================================
+
+* [API ] CPUID                @ EFE9    Retarget    Missing
+* [API ] CreateFileW          @ 1685    Retarget    C:\Windows\explorer.exe
+* [API ] GetAdaptersAddresses @ 1685    Retarget    Office
+* [API ] GetModuleFileNameW   @ 1685    Nothing
+* [API ] GetSystemInfo        @ 1685    Retarget    Missing
+* [API ] GetUserDefaultLCID   @ 1685    Retarget    Russian
+* [API ] Process32FirstW      @ 1685    Nothing
+* [API ] Process32NextW       @ 1685    Retarget
+* [API ] RegOpenKeyExW        @ 1685    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW     @ 1685    Nothing
+* [API ] TimeDelayAPIs        @ 1A12    Retarget
+* [API ] TimeQueryAPIs        @ 070A    Retarget
+
+[Manual annotations]
+====================
+Exhibits some evasion techniques; BluePill detects relevant behaviors but fails to identify the specific evasion method.
+Runs successfully when executed with drrun.exe alone.

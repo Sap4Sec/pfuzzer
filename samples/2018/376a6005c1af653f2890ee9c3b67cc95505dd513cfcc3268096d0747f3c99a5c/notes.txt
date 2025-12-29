@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 376a6005c1af653f2890ee9c3b67cc95505dd513cfcc3268096d0747f3c99a5c
+MD5: 6158c36d4bdedaef5970f8b6f181e7c2
+Year: 2018
+Family name: SINGLETON:6158c36d4bdedaef5970f8b6f181e7c2
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 4448
+* [API ] CreateFileW  @ 77DB
+* [API ] NtCreateFile @ E6FA
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ A291
+* [API ] NtCreateFile @ DA5B
+* [API ] NtCreateFile @ 64F4
+* [API ] NtCreateFile @ 9802
+
+[Mutations applied in the best run (25)]
+=======================================
+
+* [API ] CPUID              @ 293D    Nothing
+* [API ] CreateFileW        @ 4448    Fail
+* [API ] CreateFileW        @ 77DB    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 4504    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] NtCreateFile       @ E1ED    Retarget    \??\Analysis
+* [API ] NtCreateFile       @ E6FA    Succeed     Not modified
+* [API ] TimeQueryAPIs      @ 415B    Retarget
+
+[Manual annotations]
+====================
+User interaction: messagebox appears, when clicked it calls ShellExecute opening "https: // 6.y399. com /?tech1"

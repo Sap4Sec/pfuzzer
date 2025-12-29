@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: dc49c57e8e7481f3ed0f582b42a711cade3e7a8737387bd8e67a368f3b09aaf3
+MD5: b903b1fe76557ef20514381661d5d634
+Year: 2018
+Family name: SINGLETON:b903b1fe76557ef20514381661d5d634
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread  @ 10F1
+* [API ] SuspendThread @ 13E8
+* [API ] CreateThread  @ FB14
+* [API ] SuspendThread @ 2960
+* [API ] CreateFileW   @ 2806
+* [API ] CreateFileW   @ 43D8
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (8)]
+=======================================
+
+* [API ] CPUID              @ 97C7    Retarget    Missing
+* [API ] CreateFileW        @ 2806    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileW        @ 43D8    Retarget    C:\Windows\system32\
+* [API ] CreateMutexW       @ 09D2    Succeed
+* [API ] DeviceIoControl    @ 4A9B    Retarget    Missing
+* [API ] GetModuleFileNameA @ E67E    Nothing
+* [API ] GetModuleFileNameW @ 2E68    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] TimeDelayAPIs      @ 3BF8    Nothing
+* [API ] TimeQueryAPIs      @ ECD9    Nothing
+
+[Manual annotations]
+====================
+Protectors: VProtector

@@ -1,0 +1,62 @@
+[Basic information]
+=========================================================================
+SHA-256: 575a6a75d64107b0aeb5ddc314963164a0c63ce00a94d609f244e9350d516154
+MD5: 712b401f6e935051e5d853b49703a0a4
+Year: 2021_11_03
+Family name: pidgeon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 9A9F
+* [API ] SetWindowsHookExA @ 3B09
+* [API ] SetWindowsHookExA @ 0C6A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA    @ 4D5C
+* [API ] CreateFileA       @ F56B
+* [API ] WriteFile         @ F602
+* [API ] CreateProcessA    @ 250D
+* [API ] MoveFileExA       @ 1A27
+* [API ] CreateThread      @ 30CA
+* [API ] InternetOpenA     @ AD36
+* [API ] InternetConnectA  @ AF82
+* [API ] HttpOpenRequestA  @ B033
+* [API ] HttpSendRequestA  @ B0A7
+* [API ] InternetReadFile  @ B1CC
+* [API ] WSAStartup        @ 75F7
+* [API ] socket            @ 76FC
+* [API ] inet_addr         @ 772C
+* [API ] connect           @ 77E8
+* [API ] CreateFileA       @ 699D
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyA     @ 4D0A
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA         @ 699D    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA         @ F56B    Retarget    C:\Windows\explorer.exe
+* [API ] CreateMutexA        @ 2E9B    Fail
+* [API ] FindFirstFileA      @ 2203    Fail
+* [API ] FindFirstFileA      @ 3FD8    Fail
+* [API ] FindNextFileA       @ 21E8    Retarget
+* [API ] GetCursorPos        @ 91C4    Nothing
+* [API ] GetDiskFreeSpaceExA @ 3EB2    Retarget    Missing
+* [API ] GetModuleFileNameA  @ 2E17    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA  @ 6029    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ 9478    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA  @ B8E3    Nothing
+* [API ] RegOpenKeyExA       @ 4910    Fail
+* [API ] RegOpenKeyExA       @ 4CF1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA    @ 4940    Nothing
+* [API ] RegQueryValueExA    @ 4A6C    Nothing
+* [API ] TimeDelayAPIs       @ 50D7    Retarget
+* [API ] TimeQueryAPIs       @ 2701    Retarget
+
+[Manual annotations]
+====================

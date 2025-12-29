@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 306ed351e4e68948960e048ddf76584c68ee0299123748a6ab07f279bcdd7127
+MD5: 8133a0312d931fc58b2d55469a8e0b0c
+Year: 2019_05_11
+Family name: SINGLETON:8133a0312d931fc58b2d55469a8e0b0c
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: missing SSLEAY32.dll, LIBEAY32.dll

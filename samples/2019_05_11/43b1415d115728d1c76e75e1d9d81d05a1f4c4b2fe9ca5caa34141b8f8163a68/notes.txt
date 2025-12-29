@@ -1,0 +1,28 @@
+[Basic information]
+=========================================================================
+SHA-256: 43b1415d115728d1c76e75e1d9d81d05a1f4c4b2fe9ca5caa34141b8f8163a68
+MD5: 94837471ab798c16e0f3436d4c410f0f
+Year: 2019_05_11
+Family name: swisyn
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CPUID              @ B577    Retarget    Missing
+* [API ] GetModuleFileNameW @ E458    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetSystemInfo      @ A91D    Nothing
+* [API ] Process32FirstW    @ 7D3D    Nothing
+* [API ] Process32NextW     @ 7D8E    Retarget
+
+[Manual annotations]
+====================

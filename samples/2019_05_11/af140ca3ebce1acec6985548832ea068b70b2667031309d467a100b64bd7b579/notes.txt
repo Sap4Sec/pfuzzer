@@ -1,0 +1,65 @@
+[Basic information]
+=========================================================================
+SHA-256: af140ca3ebce1acec6985548832ea068b70b2667031309d467a100b64bd7b579
+MD5: 39c50e351bceb8701458ea706faf8181
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup           @ A2B1
+* [API ] SetWindowsHookExA    @ 4027
+* [API ] SetWindowsHookExA    @ 1188
+* [API ] CryptAcquireContextA @ E12D
+* [API ] CryptCreateHash      @ E1C0
+* [API ] CryptHashData        @ E29C
+* [API ] CryptGetHashParam    @ E385
+* [API ] CryptDestroyHash     @ E6D2
+* [API ] CryptReleaseContext  @ E701
+* [API ] RegCreateKeyA        @ 7F4E
+* [API ] RegSetValueExA       @ 7CEC
+* [API ] RegCreateKeyA        @ 4A9A
+* [API ] RegSetValueExA       @ 4B1B
+* [API ] OpenSCManagerA       @ D62C
+* [API ] CreateFileA          @ FA89
+* [API ] WriteFile            @ FB20
+* [API ] ControlService       @ D62C
+* [API ] RegCreateKeyA        @ 2373
+* [API ] RegSetValueExA       @ 20EA
+* [API ] OpenSCManagerA       @ 636A
+* [API ] ControlService       @ 636A
+* [API ] RegSetValueExA       @ 4AEC
+* [API ] ShellExecuteA        @ 96FD
+* [API ] CreateThread         @ 1353
+
+Fuzzing Findings
+----------------
+* [API ] OpenServiceA         @ D62C
+* [API ] OpenServiceA         @ 636A
+
+[Mutations applied in the best run (10)]
+=======================================
+
+* [API ] CreateFileA        @ FA89    Succeed
+* [API ] FindFirstFileA     @ 1806    Fail
+* [API ] FindFirstFileA     @ 9373    Retarget    C:\*
+* [API ] FindNextFileA      @ 9358    Retarget
+* [API ] GetCursorPos       @ 99D1    Retarget    Missing
+* [API ] GetModuleFileNameA @ 2883    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 2F03    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 9C8A    Nothing
+* [API ] GetModuleFileNameA @ EC89    Nothing
+* [API ] RegOpenKeyExA      @ 46A0    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 4A81    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 46D0    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 4767    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 47FC    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 809E    Retarget
+* [API ] TimeQueryAPIs      @ 19F1    Retarget
+
+[Manual annotations]
+====================

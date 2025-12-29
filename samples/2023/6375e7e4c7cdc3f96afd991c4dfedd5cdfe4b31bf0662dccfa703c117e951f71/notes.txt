@@ -1,0 +1,46 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-6375e7e4c7cdc3f96afd991c4dfedd5cdfe4b31bf0662dccfa703c117e951f71
+MD5: 927426bafb84fe8daff84cff77258e0d
+Year: 2023
+Family name: buzus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileMappingA @ 58E4
+* [API ] MapViewOfFile      @ 5947
+* [API ] CreateProcessW     @ 44B6
+* [API ] ReadProcessMemory  @ 5EFC
+* [API ] WriteProcessMemory @ 5F16
+* [API ] ResumeThread       @ 5F85
+* [API ] SuspendThread      @ 5F9A
+* [API ] ResumeThread       @ 5D73
+* [API ] SuspendThread      @ 5D95
+* [API ] WriteProcessMemory @ 5F33
+* [API ] CreateThread       @ 5DEA
+* [API ] ResumeThread       @ 4791
+* [API ] ReadProcessMemory  @ 48CE
+* [API ] ReadProcessMemory  @ 490E
+* [API ] ReadProcessMemory  @ 4624
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID              @ FA5A    Retarget    Missing
+* [API ] CreateMutexA       @ 30D9    Retarget    VBoxTray
+* [API ] CreateMutexA       @ 474A    Fail
+* [API ] GetModuleFileNameW @ 442A    Nothing
+* [API ] GetModuleFileNameW @ A283    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ A32B    Nothing
+* [API ] TimeDelayAPIs      @ 5F8D    Retarget
+* [API ] TimeQueryAPIs      @ 49CF    Retarget
+
+[Manual annotations]
+====================

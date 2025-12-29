@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 3d2d1d26cf24c2fcf6a54285da8f6807bddf4381d8e5a01b09a0fa7e360a05c4
+MD5: d866f6bc580add6b580e6867b8a26a49
+Year: 2018
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ 5337
+* [API ] LoadResource         @ 53B6
+* [API ] CreateProcessA       @ 3952
+* [API ] ReadProcessMemory    @ 555D
+* [API ] NtUnmapViewOfSection @ 55B5
+* [API ] VirtualAllocEx       @ 32E6
+* [API ] WriteProcessMemory   @ 69C6
+* [API ] WriteProcessMemory   @ 6A2E
+* [API ] WriteProcessMemory   @ 6A55
+* [API ] SetThreadContext     @ 59C6
+* [API ] ResumeThread         @ 57C8
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (44)]
+=======================================
+
+* [API ] CPUID              @ DF1C    Retarget    Missing
+* [API ] GetModuleFileNameA @ 38EB    Nothing
+* [API ] GetModuleFileNameA @ 53A7    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 1B83    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 1B97    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ D994    Nothing
+* [API ] RegOpenKeyExW      @ 5C29    Succeed
+* [API ] RegQueryValueExW   @ 4263    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 428D    Retarget    ProductID
+
+[Manual annotations]
+====================

@@ -1,0 +1,143 @@
+[Basic information]
+=========================================================================
+SHA-256: cecac26ff22ce75b5550084c6ef4194b5508c8b7b971371123dbc5e86da3bd92
+MD5: dd7466ef7a353d58ed5dd8feb1469857
+Year: 2019_05_11
+Family name: wapomi
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 2226
+* [API ] WriteFile          @ 2255
+* [API ] WinExec            @ 2265
+* [API ] CreateFileMappingA @ 122E
+* [API ] CreateFileMappingA @ 1248
+* [API ] MapViewOfFile      @ 125E
+* [API ] CreateThread       @ 12AC
+* [API ] WSAStartup         @ ED67
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced
+* [API ] RegSetValueExA     @ DCD1
+* [API ] RegSetValueExA     @ DC0E
+* [API ] RegCreateKeyA      @ DC2C
+* [API ] RegSetValueExA     @ DC48
+* [API ] SetWindowsHookExA  @ 13DE
+* [API ] RegSetValueExA     @ E893
+* [API ] RegSetValueExA     @ E8EF
+* [API ] RegSetValueExA     @ EA05
+* [API ] RegSetValueExA     @ EA30
+* [API ] RegSetValueExA     @ EA5B
+* [API ] CreateFileMappingA @ EAFF
+* [API ] SetWindowsHookExA  @ E53E
+* [API ] RegCreateKeyA      @ 1D1C
+* [API ] MapViewOfFile      @ 7CAE
+* [API ] RegSetValueExA     @ 1AAB
+* [API ] RegSetValueExA     @ 1ADA
+* [API ] CreateThread       @ EDAB
+* [API ] CreateThread       @ EDD2
+* [API ] CreateThread       @ EDF9
+* [API ] CreateThread       @ EE20
+* [API ] CreateThread       @ EE47
+* [API ] CreateFileMappingA @ F06D
+* [API ] MapViewOfFile      @ F094
+* [API ] RegSetValueExA     @ FB1A
+* [API ] CreateThread       @ EFA4
+* [API ] CreateThread       @ EFCB
+* [API ] CreateThread       @ EFF2
+* [API ] socket             @ 39F6
+* [API ] CreateFileMappingA @ F0E2
+* [API ] MapViewOfFile      @ F123
+* [API ] bind               @ 3A4A
+* [API ] VirtualAllocEx     @ D0F3
+* [API ] WriteProcessMemory @ D124
+* [API ] CreateRemoteThread @ D152
+* [API ] CreateThread       @ E624
+* [API ] CreateThread       @ E64B
+* [API ] CreateThread       @ E6B1
+* [API ] VirtualAllocEx     @ D184
+* [API ] WriteProcessMemory @ D1EF
+* [API ] CreateRemoteThread @ D21A
+* [API ] CreateFileMappingA @ 0118
+* [API ] CreateFileMappingA @ 0132
+* [API ] MapViewOfFile      @ 0148
+* [API ] CreateThread       @ 0196
+* [API ] CreateFileA        @ 286B
+* [API ] SetWindowsHookExA  @ 856B
+* [API ] CreateFileA        @ DEDE
+* [API ] WriteFile          @ DF0D
+* [API ] CreateFileA        @ 9B5B
+* [API ] CreateFileMappingA @ 9BFC
+* [API ] MapViewOfFile      @ 9C24
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+
+Fuzzing Findings
+----------------
+* [API ] RegSetValueExA     @ E9A5
+* [API ] CreateThread       @ 3E7E
+* [API ] RegCreateKeyA      @ F924
+* [API ] socket             @ 300E
+* [API ] InternetOpenA      @ B961
+* [API ] sendto             @ 3078
+* [API ] InternetOpenUrlA   @ B993
+* [API ] CreateFileA        @ B9C8
+* [API ] InternetReadFile   @ B9EE
+* [API ] WriteFile          @ BA36
+* [API ] CreateFileA        @ BF17
+* [API ] WriteFile          @ C046
+* [API ] RegCreateKeyA      @ 195B
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 2226    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] CreateFileA        @ 286B    Fail
+* [API ] CreateFileA        @ 9B5B    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ DEDE    Retarget    ZhuDongFangYu.exe
+* [API ] CreateMutexA       @ 001D    Succeed
+* [API ] CreateMutexA       @ 07F2    Fail
+* [API ] CreateMutexA       @ 1908    Succeed
+* [API ] CreateMutexA       @ D0BE    Succeed
+* [API ] CreateMutexA       @ D4B9    Retarget    vscode
+* [API ] FindFirstFileA     @ 58B4    Retarget    C:\*
+* [API ] FindFirstFileA     @ BBF3    Retarget    C:\*
+* [API ] FindNextFileA      @ 58DB    Retarget
+* [API ] FindNextFileA      @ BC17    Retarget
+* [API ] GetComputerNameA   @ EA86    Nothing
+* [API ] GetCursorPos       @ 6823    Nothing
+* [API ] GetFileAttributesA @ 9B1D    Succeed
+* [API ] GetLocalTime       @ 9B13    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA @ 1220    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 15E9    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 1848    Nothing
+* [API ] GetModuleFileNameA @ 6713    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 6A77    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ B256    Nothing
+* [API ] GetModuleFileNameA @ FDCC    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetUserNameA       @ 1833    Retarget    Office
+* [API ] GetUserNameA       @ 1BF0    Nothing
+* [API ] GetUserNameA       @ F828    Retarget    John
+* [API ] GetWindowTextA     @ 2643    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetWindowTextA     @ 310F    Nothing
+* [API ] GetWindowTextA     @ EA2E    Retarget    Program Manager - MSCTFIME UI
+* [API ] Process32First     @ D325    Nothing
+* [API ] Process32Next      @ D41E    Retarget
+* [API ] RegOpenKeyExA      @ 193E    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 1CFB    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ C679    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ CB7B    Fail        Not modified
+* [API ] RegOpenKeyExA      @ DBF2    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ DCA3    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ E864    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ E8C0    Fail
+* [API ] RegOpenKeyExA      @ E943    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ E9D2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ F8FC    Fail        Not modified
+* [API ] RegQueryValueExA   @ FC0C    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 12C7    Retarget
+* [API ] TimeQueryAPIs      @ 5A2A    Retarget
+
+[Manual annotations]
+====================

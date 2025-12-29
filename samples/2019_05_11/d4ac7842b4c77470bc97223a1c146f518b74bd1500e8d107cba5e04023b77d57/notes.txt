@@ -1,0 +1,72 @@
+[Basic information]
+=========================================================================
+SHA-256: d4ac7842b4c77470bc97223a1c146f518b74bd1500e8d107cba5e04023b77d57
+MD5: 95e17756ed7417e3666703ca9e0461d9
+Year: 2019_05_11
+Family name: SINGLETON:95e17756ed7417e3666703ca9e0461d9
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExW    @ 9B4E
+* [API ] RegCreateKeyExA      @ 4847
+* [API ] CreateFileW          @ EB16
+* [API ] RegCreateKeyExA      @ 0E57
+* [API ] RegSetValueExA       @ 1276
+* [API ] WriteFile            @ 061C
+* [API ] CreateThread         @ 002E
+* [API ] RegCreateKeyExA      @ 33CF
+* [API ] RegSetValueExA       @ 33ED
+* [API ] CreateThread         @ 80CB
+* [API ] ResumeThread         @ CEF9
+* [API ] CreateProcessA       @ B01D
+* [API ] NtUnmapViewOfSection @ B865
+* [API ] VirtualAllocEx       @ B874
+* [API ] WriteProcessMemory   @ C327
+* [API ] WriteProcessMemory   @ C4DC
+* [API ] WriteProcessMemory   @ CE3D
+* [API ] SetThreadContext     @ B865
+* [API ] ResumeThread         @ B860
+
+Fuzzing Findings
+----------------
+* [API ] NtUnmapViewOfSection @ D86D
+* [API ] VirtualAllocEx       @ D87C
+* [API ] SetThreadContext     @ D86D
+* [API ] ResumeThread         @ D868
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateFileW        @ EB16    Fail
+* [API ] FindFirstFileW     @ EBA6    Retarget    C:\Users\Student\*
+* [API ] GetComputerNameA   @ 0C72    Retarget    John
+* [API ] GetFileAttributesW @ EC76    Fail
+* [API ] GetKeyboardLayout  @ 4142    Retarget    Chinese-simplified
+* [API ] GetLocalTime       @ F3AD    Nothing
+* [API ] GetLocalTime       @ F3D9    Nothing
+* [API ] GetModuleFileNameA @ 01B5    Nothing
+* [API ] GetModuleFileNameA @ 5388    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 990F    Nothing
+* [API ] GetModuleFileNameA @ 9B49    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 9BBD    Nothing
+* [API ] GetModuleFileNameA @ FF7B    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ F016    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ 0C5E    Nothing
+* [API ] RegOpenKeyExA      @ 01D3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 01F1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 020F    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 0E23    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 9B67    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 9B85    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 9BA3    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 10B7    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 4878    Nothing
+* [API ] TimeDelayAPIs      @ 6475    Retarget
+* [API ] TimeQueryAPIs      @ 6959    Retarget
+
+[Manual annotations]
+====================

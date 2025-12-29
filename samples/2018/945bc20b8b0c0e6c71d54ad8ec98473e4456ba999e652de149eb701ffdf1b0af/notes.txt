@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: 945bc20b8b0c0e6c71d54ad8ec98473e4456ba999e652de149eb701ffdf1b0af
+MD5: 8c692a7a0743643a02c3693f19bd8e5a
+Year: 2018
+Family name: neshta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup @ 24D3
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CPUID              @ 4C20    Retarget    Missing
+* [API ] GetModuleFileNameA @ 98A5    Nothing
+* [API ] RegOpenKeyExA      @ FC1F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ FC4C    Nothing
+* [API ] TimeQueryAPIs      @ 8F2C    Retarget
+
+[Manual annotations]
+====================
+Requires command line arguments to proceed (calls GetCommandLineW @ 0x014CD9E1 and then an exception ACCESS_VIOLATION occurs)

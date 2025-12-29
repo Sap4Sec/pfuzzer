@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: c9b31a2184a6ad836d6cca536f2be8e280991ed6caed742a8d9a99ce300bf31b
+MD5: 2db886dd184f3a46d2bf73e60d4c09da
+Year: 2018
+Family name: SINGLETON:2db886dd184f3a46d2bf73e60d4c09da
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ 7601
+* [API ] CreateFileW  @ A466
+* [API ] NtCreateFile @ D490
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ D2DF
+* [API ] NtCreateFile @ 3531
+* [API ] NtCreateFile @ EDEF
+* [API ] NtCreateFile @ 01F7
+* [API ] NtCreateFile @ B543
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ DE1A    Nothing
+* [API ] CreateFileW        @ 7601    Fail
+* [API ] CreateFileW        @ A466    Succeed     Not modified
+* [API ] GetModuleFileNameW @ 76A6    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] NtCreateFile       @ CE9B    Fail        Not modified
+* [API ] NtCreateFile       @ D490    Retarget    \??\Analysis
+* [API ] TimeQueryAPIs      @ DE06    Nothing
+
+[Manual annotations]
+====================
+User interactiom:  By clicking on a messagebox with unreadable chars, it spawn a GUI (seems like a game client) showing INetSim default page and performs network operations

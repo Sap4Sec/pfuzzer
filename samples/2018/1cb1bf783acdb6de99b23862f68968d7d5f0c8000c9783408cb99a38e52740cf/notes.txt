@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: 1cb1bf783acdb6de99b23862f68968d7d5f0c8000c9783408cb99a38e52740cf
+MD5: b8ef0296fcbc99e14bb80722bc40b51e
+Year: 2018
+Family name: webalta
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ EEED
+* [API ] CreateFileW       @ 0A93
+* [API ] NtCreateFile      @ 62DA
+* [API ] WSAStartup        @ 9932
+* [API ] FindResourceExW   @ A095
+* [API ] LoadResource      @ A0AF
+* [API ] FindResourceExW   @ A0EA
+* [API ] LoadResource      @ A10F
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile      @ 3A56
+* [API ] FindResourceExW   @ 0949
+* [API ] LoadResource      @ 0963
+* [API ] FindResourceExW   @ 099E
+* [API ] LoadResource      @ 09C3
+* [API ] VirtualAllocEx    @ 7AEB
+* [API ] CreateFileA       @ 3EB5
+* [API ] SetWindowsHookExA @ 94B3
+* [API ] NtCreateFile      @ 6973
+* [API ] FindResourceExW   @ 3876
+* [API ] LoadResource      @ 3890
+* [API ] FindResourceExW   @ 38CB
+* [API ] LoadResource      @ 38F0
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID         @ 8971    Retarget    Missing
+* [API ] CreateFileW   @ 0A93    Succeed     Not modified
+* [API ] CreateFileW   @ EEED    Succeed     Not modified
+* [API ] NtCreateFile  @ 62DA    Retarget    \??\Analysis
+* [API ] TimeQueryAPIs @ 8923    Retarget
+
+[Manual annotations]
+====================
+SAFENGINE-protected process checks if it's running from the Desktop folder; if so, it exits immediately.
+When executed from a different folder, it shows some additional activity, but nothing clearly indicative.

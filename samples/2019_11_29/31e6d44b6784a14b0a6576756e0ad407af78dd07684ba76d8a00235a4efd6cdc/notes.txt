@@ -1,0 +1,112 @@
+[Basic information]
+=========================================================================
+SHA-256: 31e6d44b6784a14b0a6576756e0ad407af78dd07684ba76d8a00235a4efd6cdc
+MD5: a12b3e1d8b930922b2d61c1ebf0b95fc
+Year: 2019_11_29
+Family name: drmsoft
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 9D17
+* [API ] FindResourceA      @ D674
+* [API ] LoadResource       @ D68E
+* [API ] WSAStartup         @ 64C4
+* [API ] CreateFileA        @ A2DF
+* [API ] CreateFileA        @ 2339
+* [API ] CreateFileMappingW @ 35E7
+* [API ] MapViewOfFile      @ 3601
+* [API ] FindResourceW      @ 6712
+* [API ] LoadResource       @ 6722
+* [API ] NtCreateKey        @ 6B0E
+* [API ] CreateThread       @ DD72
+* [API ] CreateFileMappingW @ 7C1A
+* [API ] MapViewOfFile      @ 7CB4
+* [API ] CreateFileMappingW @ 7DA1
+* [API ] MapViewOfFile      @ 7DF0
+* [API ] CreateFileMappingW @ 2526
+* [API ] MapViewOfFile      @ 2581
+* [API ] CreateFileMappingW @ 25DB
+* [API ] MapViewOfFile      @ 2613
+* [API ] CreateThread       @ 26C2
+* [API ] CreateThread       @ 3F6A
+* [API ] CreateFileMappingW @ 84B7
+* [API ] MapViewOfFile      @ 85B7
+* [API ] WriteFile          @ A329
+* [API ] WinExec            @ 23DC
+* [API ] ShellExecuteA      @ 2402
+* [API ] CreateThread       @ 7F96
+* [API ] WinExec            @ 4B52
+* [API ] ShellExecuteA      @ 4BA9
+* [API ] FindResourceW      @ 0F27
+* [API ] LoadResource       @ 0F61
+* [API ] NtMapViewOfSection @ 7BA4
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread       @ 8066
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA         @ 2339    Retarget    attrib.exe
+* [API ] CreateFileA         @ A2DF    Succeed     Not modified
+* [API ] CreateMutexW        @ 490E    Fail
+* [API ] CreateMutexW        @ 7997    Succeed
+* [API ] CreateMutexW        @ 7A28    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexW        @ 7AEE    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexW        @ AB6A    Succeed
+* [API ] GetComputerNameW    @ 67DD    Nothing
+* [API ] GetComputerNameW    @ 6819    Nothing
+* [API ] GetCursorPos        @ EB78    Retarget    Missing
+* [API ] GetDiskFreeSpaceExA @ A70B    Retarget    Missing
+* [API ] GetFileAttributesA  @ A39C    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesA  @ A3C0    Succeed
+* [API ] GetFileAttributesW  @ 01C9    Fail
+* [API ] GetFileAttributesW  @ E7A0    Succeed
+* [API ] GetFileAttributesW  @ F948    Fail
+* [API ] GetFileAttributesW  @ FF59    Fail
+* [API ] GetKeyboardLayout   @ B6DA    Retarget    Portuguese-brazilian
+* [API ] GetModuleFileNameA  @ 3369    Nothing
+* [API ] GetModuleFileNameA  @ 67CF    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA  @ 6A31    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA  @ C9C6    Nothing
+* [API ] GetModuleFileNameW  @ 0B35    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW  @ 17C2    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW  @ BC79    Nothing
+* [API ] GetModuleFileNameW  @ BE57    Nothing
+* [API ] GetSystemInfo       @ 63DC    Nothing
+* [API ] GetSystemInfo       @ 656B    Retarget    Missing
+* [API ] GetSystemInfo       @ 6A88    Nothing
+* [API ] GetSystemInfo       @ 7B7F    Retarget    Missing
+* [API ] GetSystemTime       @ 4F20    Nothing
+* [API ] GetSystemTime       @ 5386    Nothing
+* [API ] GetSystemTime       @ F49F    Nothing
+* [API ] GetTickCount        @ 22B1    Nothing
+* [API ] GetTickCount        @ 22F1    Nothing
+* [API ] GetWindowTextA      @ 2BAE    Nothing
+* [API ] Process32First      @ 11EB    Nothing
+* [API ] Process32Next       @ 120B    Retarget
+* [API ] RegOpenKeyExA       @ 4A22    Fail
+* [API ] RegOpenKeyExA       @ 4D78    Fail        Not modified
+* [API ] RegOpenKeyExA       @ 6A4F    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA       @ 6A6D    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 6A8B    Fail        Not modified
+* [API ] RegOpenKeyExA       @ EE98    Fail
+* [API ] RegOpenKeyExA       @ F1FF    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ 7D88    Succeed     Not modified
+* [API ] RegOpenKeyW         @ 68C2    Fail
+* [API ] RegOpenKeyW         @ 6A19    Fail
+* [API ] RegQueryValueExA    @ 4BAB    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ 4CC4    Retarget    ProductID
+* [API ] RegQueryValueExA    @ EF02    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ F252    Retarget    ProductID
+* [API ] RegQueryValueExA    @ F2B1    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs       @ 7BBE    Retarget
+* [API ] TimeQueryAPIs       @ 5F5B    Retarget
+
+[Manual annotations]
+====================

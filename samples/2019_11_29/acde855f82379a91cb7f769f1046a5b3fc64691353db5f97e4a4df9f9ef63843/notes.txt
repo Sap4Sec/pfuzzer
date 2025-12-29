@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: acde855f82379a91cb7f769f1046a5b3fc64691353db5f97e4a4df9f9ef63843
+MD5: 0bc480966d185d12457d65f5b5559fb0
+Year: 2019_11_29
+Family name: expressdownloader
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup         @ 54B1
+* [API ] CreateFileW        @ A376
+* [API ] FindResourceW      @ 16A3
+* [API ] LoadResource       @ 16B4
+* [API ] CreateFileW        @ CFDD
+* [API ] WriteFile          @ 6F88
+* [API ] WSAStartup         @ 9DAD
+* [API ] CreateFileW        @ 863F
+* [API ] CreateFileMappingW @ 8665
+* [API ] MapViewOfFile      @ 8680
+* [API ] CreateThread       @ 137D
+* [API ] getaddrinfo        @ 0D12
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID               @ 3EC5    Retarget    Missing
+* [API ] CreateFileW         @ 863F    Fail
+* [API ] CreateFileW         @ A376    Succeed     Not modified
+* [API ] CreateFileW         @ CFDD    Fail        Not modified
+* [API ] CreateMutexW        @ 5234    Retarget    vscode
+* [API ] EnumDisplayDevicesW @ F5FE    Nothing
+* [API ] EnumDisplayDevicesW @ F9D4    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] GetAdaptersInfo     @ D61C    Retarget    Office
+* [API ] GetAdaptersInfo     @ D63A    Retarget    John
+* [API ] GetComputerNameW    @ D732    Retarget    John
+* [API ] GetModuleFileNameA  @ 2D5D    Nothing
+* [API ] GetModuleFileNameW  @ 981E    Nothing
+* [API ] RegOpenKeyExW       @ 4FB9    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ DBA9    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW       @ DD88    Succeed     Not modified
+* [API ] RegOpenKeyExW       @ DF25    Fail        Not modified
+* [API ] RegOpenKeyExW       @ EAC4    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ EB4F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW       @ ECBF    Fail        Not modified
+* [API ] TimeDelayAPIs       @ E67D    Retarget
+* [API ] TimeQueryAPIs       @ 6515    Retarget
+
+[Manual annotations]
+====================
+Queries WMI classes AntiVirusProduct, AntiSpywareProduct, and FirewallProduct for displayName, instanceGuid, pathToSignedProductExe, pathToSignedReportingExe, productState, and timestamp
+Also queries Win32_Process for Name, ProcessId, and CSName

@@ -1,0 +1,37 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.clag-d2a3162a538ecf208de5fcc49815c338eb1c71083209e650134dc8b6bd0a6181
+MD5: 448e7ff011d11f29737e7b5d07e87043
+Year: 2023
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (20)]
+=======================================
+
+* [API ] CPUID              @ BB59    Nothing
+* [API ] CreateFileA        @ DE75    Retarget    iexplorer.exe
+* [API ] CreateFileW        @ DE75    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateMutexA       @ 380D    Fail
+* [API ] GetComputerNameExW @ DE75    Retarget    Office
+* [API ] GetLocalTime       @ 365C    Nothing
+* [API ] GetModuleFileNameA @ F7D3    Nothing
+* [API ] GetModuleFileNameW @ DE75    Nothing
+* [API ] GetSystemInfo      @ DE75    Retarget    Missing
+* [API ] RegOpenKeyExA      @ 7469    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 7748    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ 74B9    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ DE75    Retarget
+* [API ] TimeQueryAPIs      @ F930    Retarget
+
+[Manual annotations]
+====================

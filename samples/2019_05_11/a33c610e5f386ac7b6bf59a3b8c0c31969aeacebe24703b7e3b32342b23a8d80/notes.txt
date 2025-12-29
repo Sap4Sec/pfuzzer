@@ -1,0 +1,36 @@
+[Basic information]
+=========================================================================
+SHA-256: a33c610e5f386ac7b6bf59a3b8c0c31969aeacebe24703b7e3b32342b23a8d80
+MD5: 0de4049857e678bbc7a6b916d8ba497d
+Year: 2019_05_11
+Family name: SINGLETON:0de4049857e678bbc7a6b916d8ba497d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ 18AA
+* [API ] ConnectNamedPipe @ 1681
+* [API ] CreateFileA      @ 1745
+* [API ] WriteFile        @ 16AC
+* [API ] CreateThread     @ 15FD
+* [API ] InternetOpenA    @ 00B0
+* [API ] InternetConnectA @ 00CC
+* [API ] HttpOpenRequestA @ 00E4
+* [API ] HttpSendRequestA @ 00F8
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CreateFileA   @ 1745    Succeed
+* [API ] TimeDelayAPIs @ 17C8    Retarget
+* [API ] TimeQueryAPIs @ 63C4    Retarget
+
+[Manual annotations]
+====================
+VMPotect (2.0.3-2.13) - Seems not evasive with classic VMP anti-vm evasions

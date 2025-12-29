@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: 587dccf1a48870bc606df2dd3da2183f6c2037d604a1762fb6196ff983fd32e2
+MD5: 1cfc29b57b1220f939f9298aeef086fb
+Year: 2021_04_15
+Family name: ursu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA @ 8D1F
+* [API ] FindResourceA @ B97C
+* [API ] LoadResource  @ B996
+* [API ] CreateFileA   @ 9EBB
+* [API ] CreateFileA   @ 4A5A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA         @ 4A5A    Retarget    attrib.exe
+* [API ] CreateFileA         @ 9EBB    Succeed     Not modified
+* [API ] DeviceIoControl     @ 4B1A    Nothing
+* [API ] GetCursorPos        @ 6E70    Retarget    Missing
+* [API ] GetDiskFreeSpaceExA @ A2DF    Retarget    Missing
+* [API ] GetFileAttributesA  @ 9F78    Fail
+* [API ] GetFileAttributesA  @ 9F9C    Fail
+* [API ] GetKeyboardLayout   @ 39EA    Nothing
+* [API ] GetModuleFileNameA  @ 3375    Nothing
+* [API ] GetModuleFileNameA  @ 4CD6    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA  @ 6687    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA  @ 68E9    Nothing
+* [API ] RegOpenKeyExA       @ 2D8E    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 456D    Fail
+* [API ] RegOpenKeyExA       @ 6907    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA       @ 6925    Succeed     Not modified
+* [API ] RegOpenKeyExA       @ 6943    Fail        Not modified
+* [API ] RegQueryValueExA    @ 2F17    Nothing
+* [API ] RegQueryValueExA    @ 3030    Nothing
+* [API ] RegQueryValueExA    @ 45D7    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA    @ 4636    Retarget    ProductID
+* [API ] RegQueryValueExA    @ 46C0    Retarget    SystemBiosDate
+
+[Manual annotations]
+====================
+User interaction: Opens a GUI requiring text input

@@ -1,0 +1,76 @@
+[Basic information]
+=========================================================================
+SHA-256: e59e569da2b621188d38108712d9264327dddef30dcaf6866ca34d3f394a13dd
+MD5: d76bcd196402f975e5ac7be84bef4b56
+Year: 2018
+Family name: hupigon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExW @ 0B4E
+* [API ] RegCreateKeyExA   @ B847
+* [API ] CreateFileW       @ 5B16
+* [API ] RegCreateKeyExA   @ 7E57
+* [API ] RegSetValueExA    @ 8276
+* [API ] WriteFile         @ A4BC
+* [API ] CreateThread      @ C9F4
+* [API ] RegCreateKeyExA   @ A937
+* [API ] RegSetValueExA    @ A955
+* [API ] CreateThread      @ F0CB
+* [API ] ResumeThread      @ 3EF9
+* [API ] FindResourceExA   @ 6121
+* [API ] LoadResource      @ 5F1A
+* [API ] CreateFileA       @ 326D
+* [API ] WriteFile         @ 81E9
+* [API ] ShellExecuteExA   @ BECE
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceExA   @ E1F8
+* [API ] ShellExecuteExA   @ 39AE
+* [API ] FindResourceExA   @ 1F04
+* [API ] FindResourceExA   @ A2C1
+* [API ] FindResourceExA   @ 2B4E
+* [API ] ShellExecuteExA   @ 82ED
+* [API ] FindResourceExA   @ 9DDF
+* [API ] ShellExecuteExA   @ F58A
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CreateFileA        @ 326D    Succeed
+* [API ] CreateFileW        @ 5B16    Retarget    ZhuDongFangYu.exe
+* [API ] FindFirstFileW     @ 5BA6    Succeed
+* [API ] GetComputerNameA   @ 9C51    Retarget    testuser
+* [API ] GetFileAttributesW @ 5C76    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetKeyboardLayout  @ B142    Retarget    German
+* [API ] GetLocalTime       @ 63AD    Nothing
+* [API ] GetLocalTime       @ 63D9    Nothing
+* [API ] GetModuleFileNameA @ 090F    Nothing
+* [API ] GetModuleFileNameA @ 0B49    Nothing
+* [API ] GetModuleFileNameA @ 6F7B    Nothing
+* [API ] GetModuleFileNameA @ 71B5    Nothing
+* [API ] GetModuleFileNameA @ C388    Nothing
+* [API ] GetModuleFileNameA @ CB1B    Nothing
+* [API ] GetModuleFileNameW @ 6016    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetUserNameA       @ 9C3D    Retarget    Office
+* [API ] RegOpenKeyExA      @ 0B67    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 0B85    Succeed
+* [API ] RegOpenKeyExA      @ 0BA3    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5267    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 5285    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 52A3    Succeed
+* [API ] RegOpenKeyExA      @ 71D3    Succeed
+* [API ] RegOpenKeyExA      @ 71F1    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 720F    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 7E23    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA   @ B878    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ D475    Nothing
+* [API ] TimeQueryAPIs      @ D959    Nothing
+
+[Manual annotations]
+====================

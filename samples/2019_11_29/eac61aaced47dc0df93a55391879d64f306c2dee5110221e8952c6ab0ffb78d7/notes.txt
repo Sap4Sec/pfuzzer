@@ -1,0 +1,73 @@
+[Basic information]
+=========================================================================
+SHA-256: eac61aaced47dc0df93a55391879d64f306c2dee5110221e8952c6ab0ffb78d7
+MD5: 80b0c33e43dcf14818e88cb802d03cd2
+Year: 2019_11_29
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] ShellExecuteA      @ 5B0A
+* [API ] VirtualAllocEx     @ AED9
+* [API ] WriteProcessMemory @ AEF8
+* [API ] VirtualAllocEx     @ AF5E
+* [API ] WriteProcessMemory @ AF79
+* [API ] CreateRemoteThread @ AF9A
+* [API ] CopyFileA          @ 6DEF
+* [API ] CreateProcessA     @ B781
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+
+[Mutations applied in the best run (98)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Retarget    Backup.txt
+* [API ] CreateFileA        @ 586F    Fail        Not modified
+* [API ] CreateFileA        @ 5DBB    Fail
+* [API ] CreateMutexA       @ 3583    Fail
+* [API ] FindFirstFileA     @ 5D3E    Succeed
+* [API ] FindWindowA        @ AFF2    Succeed
+* [API ] GetFileAttributesA @ 5A78    Succeed
+* [API ] GetFileAttributesA @ 6670    Succeed
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA       @ 55A8    Nothing
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Fail
+* [API ] RegOpenKeyExA      @ 5409    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 54C1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69FF    Fail
+* [API ] RegQueryValueExA   @ 537A    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 5432    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 54EA    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6106    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 6130    Nothing
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+
+[Manual annotations]
+====================

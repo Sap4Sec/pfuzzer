@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 3fc85ce2f65a0482daa43a3b586732d40be2ab1cebb8783a22a6a9b7e20d0587
+MD5: ac2930a3cfabc95d0f55070d56f9cea8
+Year: 2019_11_29
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ 0828
+* [API ] CreateThread     @ 084A
+* [API ] CreateProcessA   @ FD91
+* [API ] CopyFileA        @ FD07
+* [API ] CopyFileA        @ FD33
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] RegSetValueExA   @ F4AA
+* [API ] InternetOpenA    @ FF6A
+* [API ] InternetOpenUrlA @ FF90
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread     @ 07D7
+
+[Mutations applied in the best run (7)]
+=======================================
+
+* [API ] CreateMutexA       @ 07A2    Fail
+* [API ] GetModuleFileNameA @ FB28    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] Process32First     @ 01FC    Nothing
+* [API ] Process32Next      @ 02D5    Retarget
+* [API ] RegOpenKeyA        @ F487    Succeed
+* [API ] TimeDelayAPIs      @ 0833    Nothing
+* [API ] TimeQueryAPIs      @ 06FF    Nothing
+
+[Manual annotations]
+====================

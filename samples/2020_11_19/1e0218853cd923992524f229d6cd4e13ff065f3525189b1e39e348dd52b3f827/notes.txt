@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 1e0218853cd923992524f229d6cd4e13ff065f3525189b1e39e348dd52b3f827
+MD5: 04fea371c73460f298dd45b32abaca5d
+Year: 2020_11_19
+Family name: SINGLETON:04fea371c73460f298dd45b32abaca5d
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Undetermined evasion; cannot get rid of access_violation

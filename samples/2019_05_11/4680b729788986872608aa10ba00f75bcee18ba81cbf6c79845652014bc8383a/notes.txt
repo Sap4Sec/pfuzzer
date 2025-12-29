@@ -1,0 +1,70 @@
+[Basic information]
+=========================================================================
+SHA-256: 4680b729788986872608aa10ba00f75bcee18ba81cbf6c79845652014bc8383a
+MD5: b3bec4e85188cf5c1602236542f3f103
+Year: 2019_05_11
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8D8
+* [API ] CreateProcessA     @ B665
+* [API ] CreateProcessA     @ B6CB
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Fail        Not modified
+* [API ] CreateFileA        @ 586F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] CreateFileA        @ 5DBB    Retarget    attrib.exe
+* [API ] CreateMutexA       @ 3583    Retarget    vscode
+* [API ] FindFirstFileA     @ 5D3E    Succeed
+* [API ] FindWindowA        @ B879    Retarget    SecHealthHost - SecHealth Win
+* [API ] GetFileAttributesA @ 5A78    Retarget    C:\Windows\explorer.exe
+* [API ] GetFileAttributesA @ 6670    Fail
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetUserNameA       @ 55A8    Retarget    testuser
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5409    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 54C1    Fail
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69FF    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 537A    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 5432    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 54EA    Nothing
+* [API ] RegQueryValueExA   @ 6106    Nothing
+* [API ] RegQueryValueExA   @ 6130    Nothing
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 1d815aae13054c9d530dcff6288dfb65c9b521416f3dc8080e40738925f59517
+MD5: 0f665f005b0cd4da2a9bf3145112d19b
+Year: 2019_05_11
+Family name: SINGLETON:0f665f005b0cd4da2a9bf3145112d19b
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ B91D
+* [API ] CreateFileW  @ 6C0E
+* [API ] NtCreateFile @ D46A
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ 4CE8
+* [API ] NtCreateFile @ B11E
+* [API ] NtCreateFile @ AF05
+* [API ] NtCreateFile @ 88B5
+* [API ] NtCreateFile @ AC7E
+* [API ] NtCreateFile @ 3881
+
+[Mutations applied in the best run (19)]
+=======================================
+
+* [API ] CPUID              @ E0CB    Nothing
+* [API ] CreateFileW        @ 6C0E    Succeed     Not modified
+* [API ] CreateFileW        @ B91D    Fail
+* [API ] GetModuleFileNameW @ B9BD    Nothing
+* [API ] NtCreateFile       @ C52C    Fail        Not modified
+* [API ] NtCreateFile       @ D46A    Retarget    \??\C:\Windows\WindowsUpdate.txt
+* [API ] TimeQueryAPIs      @ D03D    Retarget
+
+[Manual annotations]
+====================
+Error in extracting files, please retry redownloading the aplication again (with typos)

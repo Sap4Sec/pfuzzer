@@ -1,0 +1,67 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agent.gen-b9a26b323af2a49e3986516ed041123a612e8fba23b0ce364d14ff6d7f260fe8
+MD5: d0223f17a4cb77f0d65c8b55e066d6f5
+Year: 2022
+Family name: dropperx
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] RegCreateKeyExW   @ 62E1
+* [API ] FindResourceW     @ 8A80
+* [API ] LoadResource      @ 8A9A
+* [API ] SetWindowsHookExW @ 17CD
+* [API ] FindResourceW     @ 9D37
+* [API ] CreateThread      @ A2E3
+* [API ] ResumeThread      @ 79ED
+* [API ] MapVirtualKeyW    @ A39E
+* [API ] GetKeyNameTextW   @ A3B7
+* [API ] GetKeyboardState  @ 66D7
+* [API ] GetKeyState       @ C722
+* [API ] GetKeyState       @ C732
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID              @ 8073    Nothing
+* [API ] FindFirstFileW     @ E370    Succeed
+* [API ] GetCursorPos       @ A4A8    Nothing
+* [API ] GetFileAttributesW @ 870A    Fail
+* [API ] GetKeyboardLayout  @ 5F82    Retarget    Portuguese-brazilian
+* [API ] GetLocalTime       @ BF7D    Nothing
+* [API ] GetLocalTime       @ BFA9    Nothing
+* [API ] GetModuleFileNameW @ 7579    Nothing
+* [API ] GetModuleFileNameW @ 7985    Nothing
+* [API ] GetModuleFileNameW @ BD27    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ D40F    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ DF9A    Nothing
+* [API ] GetModuleFileNameW @ E6B9    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemInfo      @ 0341    Nothing
+* [API ] GetSystemInfo      @ 11D7    Retarget    Missing
+* [API ] GetSystemInfo      @ D559    Retarget    Missing
+* [API ] GetUserDefaultLCID @ D81E    Retarget    Portuguese-brazilian
+* [API ] GetWindowTextW     @ 8344    Nothing
+* [API ] RegOpenKeyExW      @ 63DA    Fail
+* [API ] RegOpenKeyExW      @ 7200    Succeed
+* [API ] RegOpenKeyExW      @ A4B6    Fail
+* [API ] RegOpenKeyExW      @ DFE3    Succeed
+* [API ] RegOpenKeyExW      @ E005    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ E023    Fail        Not modified
+* [API ] RegOpenKeyExW      @ E041    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ E05F    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ E07D    Succeed     Not modified
+* [API ] RegQueryValueExW   @ 6B16    Nothing
+* [API ] RegQueryValueExW   @ 7110    Nothing
+* [API ] RegQueryValueExW   @ A564    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ 795E    Retarget
+* [API ] TimeQueryAPIs      @ 75D5    Retarget
+
+[Manual annotations]
+====================

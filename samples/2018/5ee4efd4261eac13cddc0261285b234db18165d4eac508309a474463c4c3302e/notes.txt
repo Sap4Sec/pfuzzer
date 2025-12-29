@@ -1,0 +1,30 @@
+[Basic information]
+=========================================================================
+SHA-256: 5ee4efd4261eac13cddc0261285b234db18165d4eac508309a474463c4c3302e
+MD5: c8b7c021a9a3e68c29a1f8765d8e2c2e
+Year: 2018
+Family name: sality
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW @ 088C
+* [API ] CreateFileW @ 89B8
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID         @ 40F3    Retarget    Missing
+* [API ] CreateFileW   @ 088C    Fail
+* [API ] CreateFileW   @ 89B8    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 86B8    Retarget
+
+[Manual annotations]
+====================
+Damaged file, cannot be executed

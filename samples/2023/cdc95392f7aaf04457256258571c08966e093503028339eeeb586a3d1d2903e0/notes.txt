@@ -1,0 +1,67 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.XRed.aff-cdc95392f7aaf04457256258571c08966e093503028339eeeb586a3d1d2903e0
+MD5: 721740f1413193e8cbc2bc5072beada7
+Year: 2023
+Family name: xred
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW     @ 6637
+* [API ] CreateFileW     @ 1339
+* [API ] NtCreateFile    @ 7BB6
+* [API ] FindResourceExW @ AA1C
+* [API ] LoadResource    @ AA36
+* [API ] FindResourceExW @ AA71
+* [API ] LoadResource    @ AA96
+* [API ] OpenSCManagerA  @ 38FD
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile    @ 38EA
+* [API ] FindResourceExW @ 378F
+* [API ] LoadResource    @ 37A9
+* [API ] FindResourceExW @ 37E4
+* [API ] LoadResource    @ 3809
+* [API ] ShellExecuteExA @ 3517
+* [API ] NtCreateFile    @ BA32
+* [API ] FindResourceExW @ 384B
+* [API ] LoadResource    @ 3865
+* [API ] FindResourceExW @ 38A0
+* [API ] LoadResource    @ 38C5
+* [API ] NtCreateFile    @ 20A0
+* [API ] FindResourceExW @ C0EB
+* [API ] LoadResource    @ C105
+* [API ] FindResourceExW @ C140
+* [API ] LoadResource    @ C165
+* [API ] NtCreateFile    @ F709
+* [API ] FindResourceExW @ 359E
+* [API ] LoadResource    @ 35B8
+* [API ] FindResourceExW @ 35F3
+* [API ] LoadResource    @ 3618
+* [API ] NtCreateFile    @ E8CE
+* [API ] FindResourceExW @ D6B8
+* [API ] LoadResource    @ D6D2
+* [API ] FindResourceExW @ D70D
+* [API ] LoadResource    @ D732
+* [API ] NtCreateFile    @ 4312
+* [API ] FindResourceExW @ 436C
+* [API ] LoadResource    @ 4386
+* [API ] FindResourceExW @ 43C1
+* [API ] LoadResource    @ 43E6
+
+[Mutations applied in the best run (21)]
+=======================================
+
+* [API ] CPUID         @ 571B    Nothing
+* [API ] CreateFileW   @ 1339    Succeed     Not modified
+* [API ] CreateFileW   @ 6637    Fail
+* [API ] NtCreateFile  @ 7BB6    Fail        Not modified
+* [API ] TimeQueryAPIs @ 5064    Retarget
+
+[Manual annotations]
+====================

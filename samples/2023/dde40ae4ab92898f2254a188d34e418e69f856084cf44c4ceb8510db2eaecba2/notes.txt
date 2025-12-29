@@ -1,0 +1,77 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Ransom.Win32.Spacecolon.gen-dde40ae4ab92898f2254a188d34e418e69f856084cf44c4ceb8510db2eaecba2
+MD5: ea34de22fd3ea5cc61ee8b3d78b6b007
+Year: 2023
+Family name: spacecolon
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW    @ 35CF
+* [API ] LoadResource     @ 35E3
+* [API ] WSAStartup       @ ADBC
+* [API ] FindResourceW    @ 9E5F
+* [API ] LoadResource     @ 9E73
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] FindResourceW    @ 2433
+* [API ] FindResourceW    @ 130C
+* [API ] LoadResource     @ 1326
+* [API ] CreateThread     @ 9D5F
+* [API ] ResumeThread     @ E9F9
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileW      @ 5384
+* [API ] GetKeyState      @ 455B
+* [API ] GetKeyboardState @ 2489
+* [API ] GetKeyState      @ 4582
+* [API ] GetKeyState      @ 4592
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CPUID                @ 7BBB    Retarget    Missing
+* [API ] FindFirstFileW       @ 428E    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileW       @ 43BC    Fail
+* [API ] FindFirstFileW       @ D520    Fail
+* [API ] FindNextFileW        @ 4484    Retarget
+* [API ] GetComputerNameW     @ 0591    Nothing
+* [API ] GetCursorPos         @ 1FE4    Retarget    Missing
+* [API ] GetFileAttributesW   @ 554A    Fail
+* [API ] GetKeyboardLayout    @ DABE    Retarget    Russian
+* [API ] GetModuleFileNameW   @ 7225    Nothing
+* [API ] GetModuleFileNameW   @ 9E2B    Nothing
+* [API ] GetModuleFileNameW   @ C5BF    Nothing
+* [API ] GetModuleFileNameW   @ D14A    Nothing
+* [API ] GetModuleFileNameW   @ D869    Nothing
+* [API ] GetModuleFileNameW   @ F4C1    Nothing
+* [API ] GetSystemInfo        @ AA3B    Nothing
+* [API ] GetSystemInfo        @ F5BD    Nothing
+* [API ] GetUserDefaultLCID   @ 2C37    Retarget    Italian
+* [API ] GetUserNameW         @ 05C5    Nothing
+* [API ] GlobalMemoryStatusEx @ D800    Retarget    Missing
+* [API ] RegEnumKeyExW        @ 5575    Retarget    John
+* [API ] RegOpenKeyExW        @ 4FFF    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ 5132    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ 51A8    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ 5219    Succeed
+* [API ] RegOpenKeyExW        @ 5F58    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ D193    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ D1B5    Fail        Not modified
+* [API ] RegOpenKeyExW        @ D1D3    Fail        Not modified
+* [API ] RegOpenKeyExW        @ D1F1    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ D20F    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ D22D    Succeed     Not modified
+* [API ] RegQueryValueExW     @ 586E    Nothing
+* [API ] RegQueryValueExW     @ 5E68    Nothing
+* [API ] RegQueryValueExW     @ C12F    Retarget    ProductID
+* [API ] RegQueryValueExW     @ C1F5    Nothing
+* [API ] TimeDelayAPIs        @ F5B4    Retarget
+* [API ] TimeQueryAPIs        @ 7281    Retarget
+
+[Manual annotations]
+====================

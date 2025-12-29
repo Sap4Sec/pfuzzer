@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: 7d2fcae787a6adb6c930b91c53a56c994065789307463561b014ae909a8eca25
+MD5: 0c1890b885954eb9c5e0b042ffd8578d
+Year: 2019_05_11
+Family name: jacard
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 80A3
+* [API ] CreateFileA @ 80DF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+System shutdown with LdrShutdownProcess

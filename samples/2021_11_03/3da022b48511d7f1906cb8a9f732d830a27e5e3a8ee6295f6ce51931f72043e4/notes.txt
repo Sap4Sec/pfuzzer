@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 3da022b48511d7f1906cb8a9f732d830a27e5e3a8ee6295f6ce51931f72043e4
+MD5: ce11cda98b317727491a83036b3b93a6
+Year: 2021_11_03
+Family name: pajetbin
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Works under drrun.exe only but it crashes with PF and also other solutions are unable to find relevant behavior

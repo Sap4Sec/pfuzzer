@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 35f6acb7e9a9ca10e51a90dcf0c4f3269043d60a4f697f9756cd774347f2ff6d
+MD5: e955ef70149899f3fdd83db7785155ed
+Year: 2018
+Family name: auslogics
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ C212
+* [API ] FindResourceW  @ ED13
+* [API ] LoadResource   @ ED38
+* [API ] WriteFile      @ C338
+* [API ] CreateProcessW @ EAB5
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileW        @ C212    Succeed
+* [API ] GetFileAttributesW @ B5E2    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ 5B6B    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 5E09    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW @ B852    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemInfo      @ 6461    Retarget    Missing
+* [API ] GetSystemInfo      @ EC48    Retarget    Missing
+* [API ] RegOpenKeyExW      @ 5E29    Succeed
+* [API ] RegOpenKeyExW      @ 5E47    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ 5E65    Fail        Not modified
+* [API ] RegOpenKeyExW      @ 5E83    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] TimeQueryAPIs      @ 30C5    Retarget
+
+[Manual annotations]
+====================

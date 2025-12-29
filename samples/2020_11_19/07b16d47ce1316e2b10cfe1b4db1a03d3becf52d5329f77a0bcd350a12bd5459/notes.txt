@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 07b16d47ce1316e2b10cfe1b4db1a03d3becf52d5329f77a0bcd350a12bd5459
+MD5: 31349c12687d946a3dca3780c90d81d3
+Year: 2020_11_19
+Family name: gator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ CDD8
+* [API ] RegCreateKeyExA @ B2AF
+* [API ] RegSetValueExA  @ B2C8
+* [API ] CopyFileA       @ 9B9B
+* [API ] WriteFile       @ 1115
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA @ B1B2
+* [API ] RegSetValueExA  @ B1D3
+* [API ] CreateProcessA  @ D7CD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (117)]
+=======================================
+
+* [API ] CreateFileA        @ CDD8    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] FindFirstFileA     @ D445    Retarget    C:\Users\Student\*
+* [API ] GetFileAttributesA @ 1619    Fail
+* [API ] GetFileAttributesA @ C9BF    Fail
+* [API ] GetLocalTime       @ B813    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA @ A4BB    Nothing
+* [API ] GetModuleFileNameA @ F6A1    Nothing
+* [API ] GetSystemTime      @ B81D    Retarget    2000:6:4:30
+* [API ] GetWindowTextA     @ 9CAC    Nothing
+* [API ] GetWindowTextA     @ A815    Nothing
+* [API ] RegOpenKeyExA      @ AE03    Succeed
+* [API ] RegOpenKeyExA      @ AFE6    Succeed
+* [API ] RegQueryValueExA   @ AE31    Nothing
+* [API ] RegQueryValueExA   @ AE65    Nothing
+* [API ] RegQueryValueExA   @ B012    Nothing
+* [API ] TimeQueryAPIs      @ FA96    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 2996f383acd643cb98fbbf792be568a2adf7e16051c198e530fbba27a741395e
+MD5: d6ccfd1d476d7ceadcd5685f5a6673a2
+Year: 2019_05_11
+Family name: flux
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA        @ 11C9
+* [API ] LoadResource         @ 11E4
+* [API ] CreateFileA          @ 18AC
+* [API ] CreateFileA          @ 1925
+* [API ] WriteFile            @ 1940
+* [API ] CreateProcessA       @ 1CDD
+* [API ] NtUnmapViewOfSection @ 1CF4
+* [API ] VirtualAllocEx       @ 1D1B
+* [API ] WriteProcessMemory   @ 1D43
+* [API ] WriteProcessMemory   @ 1DCE
+* [API ] SetThreadContext     @ 1E13
+* [API ] ResumeThread         @ 1E20
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CPUID                    @ 7C27    Nothing
+* [API ] CreateFileA              @ 18AC    Fail        Not modified
+* [API ] CreateFileA              @ 1925    Fail        Not modified
+* [API ] CreateMutexA             @ 133D    Retarget    vscode
+* [API ] GetModuleFileNameA       @ 1890    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA       @ 1AFF    Nothing
+* [API ] GetModuleFileNameA       @ 5C64    Nothing
+* [API ] NtQuerySystemInformation @ 1E9B    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Agent.pef-01fe83ce636c7153cdc612d277d7856bf4aa0091946017ad6030991d7aff3f3c
+MD5: b917a1646d84166dbf41c4bb350c3c20
+Year: 2022
+Family name: gator
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ CDD8
+* [API ] RegCreateKeyExA @ B2AF
+* [API ] RegSetValueExA  @ B2C8
+* [API ] CopyFileA       @ 9B9B
+* [API ] WriteFile       @ 1115
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA @ B1B2
+* [API ] RegSetValueExA  @ B1D3
+* [API ] CreateProcessA  @ D7CD
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (79)]
+=======================================
+
+* [API ] CreateFileA        @ CDD8    Succeed     Not modified
+* [API ] FindFirstFileA     @ D445    Succeed
+* [API ] GetFileAttributesA @ 1619    Fail
+* [API ] GetFileAttributesA @ C9BF    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetLocalTime       @ B813    Nothing
+* [API ] GetModuleFileNameA @ A4BB    Nothing
+* [API ] GetModuleFileNameA @ F6A1    Nothing
+* [API ] GetSystemTime      @ B81D    Nothing
+* [API ] GetWindowTextA     @ 9CAC    Nothing
+* [API ] GetWindowTextA     @ A815    Retarget    SecHealthHost - SecHealth Win
+* [API ] RegOpenKeyExA      @ AE03    Fail
+* [API ] RegOpenKeyExA      @ AFE6    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ AE31    Nothing
+* [API ] RegQueryValueExA   @ AE65    Retarget    ProductID
+* [API ] RegQueryValueExA   @ B012    Retarget    SystemBiosDate
+* [API ] TimeQueryAPIs      @ FA96    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,65 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Backdoor.Win32.NanoBot.gen-849f756ee5076252ba750b24e90539bf4051e481bf7c4048faf7647c4ae8fb49
+MD5: 5649593ddf6c4bfe2f8b661c4d572986
+Year: 2022
+Family name: nanocore
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] SetWindowsHookExA   @ 51DB
+* [API ] SetWindowsHookExA   @ 21D2
+* [API ] CreateFileA         @ 3EB5
+* [API ] SetWindowsHookExA   @ 94B3
+* [API ] CreateThread        @ 75E2
+* [API ] NtReadVirtualMemory @ 65AB
+* [API ] CreateFileA         @ 0AD3
+* [API ] CreateFileA         @ D371
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA         @ D1C1
+* [API ] NtReadVirtualMemory @ 67B8
+* [API ] inet_addr           @ 2513
+* [API ] connect             @ 2551
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CPUID                    @ F249    Retarget    Missing
+* [API ] CreateFileA              @ 0AD3    Fail        Not modified
+* [API ] CreateFileA              @ 3EB5    Succeed
+* [API ] CreateFileA              @ D1C1    Succeed
+* [API ] CreateFileA              @ D371    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] DeviceIoControl          @ D19D    Retarget    Missing
+* [API ] DeviceIoControl          @ D23C    Retarget    Missing
+* [API ] DeviceIoControl          @ D3A9    Retarget    Missing
+* [API ] FindFirstFileA           @ 1B96    Retarget    C:\Users\Student\*
+* [API ] FindFirstFileA           @ 3310    Nothing
+* [API ] FindFirstFileA           @ 9A13    Nothing
+* [API ] FindNextFileA            @ 99F8    Retarget
+* [API ] FindWindowExA            @ 2F44    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] GetCursorPos             @ B01E    Retarget    Missing
+* [API ] GetModuleFileNameA       @ 31A5    Nothing
+* [API ] GetModuleFileNameA       @ 3203    Nothing
+* [API ] GetModuleFileNameA       @ 4F4B    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA       @ B301    Nothing
+* [API ] GetModuleFileNameA       @ ED59    Nothing
+* [API ] GetProcessImageFileNameW @ 73AF    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemInfo            @ 12AF    Retarget    Missing
+* [API ] GetWindowTextA           @ BC9F    Nothing
+* [API ] Process32First           @ 71F5    Nothing
+* [API ] Process32First           @ DC4C    Nothing
+* [API ] Process32Next            @ 8F92    Retarget
+* [API ] Process32Next            @ E0F2    Retarget
+* [API ] RegOpenKeyExA            @ 2F50    Succeed
+* [API ] RegQueryValueExA         @ 2F80    Nothing
+* [API ] TimeDelayAPIs            @ 6A7D    Retarget
+* [API ] TimeQueryAPIs            @ 1646    Retarget
+
+[Manual annotations]
+====================

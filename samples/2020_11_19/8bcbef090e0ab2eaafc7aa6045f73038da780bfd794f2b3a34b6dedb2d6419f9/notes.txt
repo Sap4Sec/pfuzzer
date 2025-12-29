@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 8bcbef090e0ab2eaafc7aa6045f73038da780bfd794f2b3a34b6dedb2d6419f9
+MD5: 12082e7845852d5e6092adb7d9b2c563
+Year: 2020_11_19
+Family name: shiz
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (28)]
+=======================================
+
+* [API ] CreateFileA        @ 22F9    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] CreateFileA        @ 23DC    Succeed
+* [API ] CreateFileA        @ 25A6    Succeed
+* [API ] FindWindowA        @ 1030    Retarget    VBoxRrWnd - VBoxRrWnd
+* [API ] FindWindowA        @ 2BC8    Retarget    Window - Window
+* [API ] GetModuleFileNameA @ 156B    Nothing
+* [API ] GetModuleFileNameA @ 2909    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 2BA0    Nothing
+* [API ] GetModuleFileNameA @ 3955    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 3A88    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ 26B3    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetUserNameA       @ 3992    Nothing
+* [API ] Process32First     @ 1077    Nothing
+* [API ] Process32First     @ 1AFB    Nothing
+* [API ] Process32Next      @ 109F    Retarget
+* [API ] Process32Next      @ 1B1E    Retarget
+* [API ] RegOpenKeyExA      @ 38A2    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 38C7    Retarget    ProductID
+
+[Manual annotations]
+====================

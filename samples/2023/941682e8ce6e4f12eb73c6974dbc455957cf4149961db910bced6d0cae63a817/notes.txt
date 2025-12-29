@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-941682e8ce6e4f12eb73c6974dbc455957cf4149961db910bced6d0cae63a817
+MD5: f1b8cb1c7baec0e7b6cf92ca82abb73e
+Year: 2023
+Family name: fragtor
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW       @ 8349
+* [API ] SetWindowsHookExA @ 6D8B
+* [API ] SetWindowsHookExA @ 3EEC
+* [API ] SetWindowsHookExA @ 9460
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread      @ 60D3
+* [API ] GetKeyState       @ 47C2
+* [API ] GetKeyState       @ 47D5
+* [API ] GetKeyState       @ 47E8
+* [API ] GetKeyState       @ 58A3
+* [API ] GetKeyState       @ 58B8
+* [API ] GetKeyState       @ 58CD
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ F2D4    Retarget    Missing
+* [API ] CreateFileW        @ 8349    Succeed
+* [API ] DeviceIoControl    @ 8392    Retarget    Missing
+* [API ] GetAdaptersInfo    @ 1DAB    Nothing
+* [API ] GetCursorPos       @ C45F    Retarget    Missing
+* [API ] GetLocalTime       @ 3CE3    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA @ 1349    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 56EF    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameA @ 6BB3    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 89C0    Nothing
+* [API ] GetModuleFileNameA @ C6B3    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetSystemTime      @ 3CED    Retarget    2000:6:4:30
+* [API ] Process32First     @ FEB7    Nothing
+* [API ] Process32Next      @ FF0E    Retarget
+* [API ] RegOpenKeyExA      @ 20F1    Fail
+* [API ] RegQueryValueExA   @ 2113    Nothing
+* [API ] TimeDelayAPIs      @ 56D3    Retarget
+
+[Manual annotations]
+====================

@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 1011d2d71a07b052fc534be696525cd8a02ad3ef30d4cd60f17743121dd93287
+MD5: 18a44f28670980f2cf65530985337edb
+Year: 2021_11_03
+Family name: SINGLETON:18a44f28670980f2cf65530985337edb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Calls GetCommandLine @ 0x30001A2E at the beginning (commands may be /verb and /genverb) and if not provided it terminates

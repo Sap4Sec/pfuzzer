@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 404ba4dbb66aecf3d4fac5eb4c68ea25650c96487aecaa262973bd21c4eba4b3
+MD5: 35992423f4a26c6d716d0c8057b4c1ac
+Year: 2019_05_11
+Family name: virut
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Fails to start; numerous exceptions occur during execution.

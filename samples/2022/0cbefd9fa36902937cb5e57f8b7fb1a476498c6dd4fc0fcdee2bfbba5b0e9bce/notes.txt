@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Bublik.elhu-0cbefd9fa36902937cb5e57f8b7fb1a476498c6dd4fc0fcdee2bfbba5b0e9bce
+MD5: da3009796d1a53a7b51f58c737e3c14a
+Year: 2022
+Family name: llac
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 6324
+* [API ] LoadResource       @ 6340
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 7DCF
+* [API ] CreateFileA        @ 7E0B
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 9336
+* [API ] RegCreateKeyA      @ 8233
+* [API ] RegSetValueExA     @ 825B
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 8EAE
+* [API ] RegSetValueExA     @ 8F02
+* [API ] CreateFileA        @ 8357
+* [API ] WriteFile          @ 8385
+* [API ] VirtualAllocEx     @ 6037
+* [API ] VirtualAllocEx     @ 56D9
+* [API ] WriteProcessMemory @ 56FB
+* [API ] VirtualAllocEx     @ 5743
+* [API ] WriteProcessMemory @ 574F
+* [API ] CreateRemoteThread @ 579B
+* [API ] WriteProcessMemory @ 6079
+* [API ] CreateProcessA     @ DE54
+* [API ] CreateProcessA     @ DBE5
+* [API ] CreateProcessA     @ DC4B
+* [API ] CopyFileA          @ 938B
+
+[Mutations applied in the best run (30)]
+=======================================
+
+* [API ] CreateFileA        @ 7DCF    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 7E0B    Retarget    Backup.txt
+* [API ] CreateFileA        @ 8357    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexA       @ 543F    Fail
+* [API ] FindFirstFileA     @ 82DA    Nothing
+* [API ] FindWindowA        @ DDF5    Retarget    Program Manager - MSCTFIME UI
+* [API ] GetFileAttributesA @ 8014    Fail
+* [API ] GetFileAttributesA @ 8C0C    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 2B30    Nothing
+* [API ] GetUserNameA       @ 6602    Retarget    John
+* [API ] GetUserNameA       @ 66A6    Retarget    testuser
+* [API ] GetUserNameA       @ 674A    Retarget    John
+* [API ] GetUserNameA       @ 67EE    Retarget    Office
+* [API ] GetUserNameA       @ 7B44    Retarget    John
+* [API ] Process32Next      @ 767F    Retarget
+* [API ] RegOpenKeyExA      @ 78ED    Fail
+* [API ] RegOpenKeyExA      @ 79A5    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 7A5D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 867E    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 8F9B    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 7916    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 79CE    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 7A86    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 86A2    Nothing
+* [API ] RegQueryValueExA   @ 86CC    Retarget    ProductID
+* [API ] TimeDelayAPIs      @ E66A    Retarget
+* [API ] TimeQueryAPIs      @ D7CA    Retarget
+
+[Manual annotations]
+====================

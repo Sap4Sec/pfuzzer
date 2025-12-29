@@ -1,0 +1,74 @@
+[Basic information]
+=========================================================================
+SHA-256: 112b75cb92cf7f6ff49ea71ce5c336ba85511b787ff081f34bde8e9a976ef50f
+MD5: 665f67cbcf557c5ba1532710df10f3f2
+Year: 2021_04_15
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ D322
+* [API ] OpenServiceW         @ D0B9
+* [API ] CryptAcquireContextW @ 0A4D
+* [API ] CryptGenRandom       @ 1AEA
+* [API ] CryptReleaseContext  @ 0BD0
+* [API ] CreateFileW          @ A82A
+* [API ] CreateFileW          @ B25D
+* [API ] WriteFile            @ AF26
+* [API ] CreateProcessW       @ CB38
+
+Fuzzing Findings
+----------------
+* [API ] FindResourceW        @ 31E9
+* [API ] SetWindowsHookExW    @ 4853
+* [API ] FindResourceW        @ 58A3
+* [API ] LoadResource         @ 58AB
+* [API ] SetWindowsHookExW    @ E03E
+* [API ] FindResourceW        @ 4185
+* [API ] FindResourceW        @ F37E
+* [API ] FindResourceW        @ 41BF
+* [API ] LoadResource         @ 41C9
+* [API ] FindResourceW        @ 547E
+* [API ] LoadResource         @ 5486
+* [API ] CreateThread         @ 609D
+* [API ] FindResourceW        @ ACAA
+* [API ] LoadResource         @ ACBC
+* [API ] CreateFileW          @ ACFE
+* [API ] WriteFile            @ AD44
+* [API ] FindResourceW        @ 20C8
+* [API ] LoadResource         @ 20D2
+* [API ] AttachThreadInput    @ 4D5C
+* [API ] AttachThreadInput    @ 4D77
+
+[Mutations applied in the best run (81)]
+=======================================
+
+* [API ] CPUID               @ 7A2F    Nothing
+* [API ] CreateFileW         @ A82A    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileW         @ ACFE    Succeed
+* [API ] CreateFileW         @ B25D    Fail        Not modified
+* [API ] GetComputerNameA    @ 0934    Retarget    John
+* [API ] GetCursorPos        @ 4A39    Nothing
+* [API ] GetForegroundWindow @ 4D2F    Retarget    Missing
+* [API ] GetModuleFileNameW  @ 2004    Nothing
+* [API ] GetModuleFileNameW  @ 618F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW  @ 6530    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW  @ 7047    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW  @ 830D    Nothing
+* [API ] GetModuleFileNameW  @ B0DA    Nothing
+* [API ] GetModuleFileNameW  @ E47D    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW  @ FCEC    Nothing
+* [API ] GetUserNameA        @ 46BE    Nothing
+* [API ] RegOpenKeyExW       @ 26E6    Succeed
+* [API ] RegOpenKeyExW       @ AB7B    Succeed     Not modified
+* [API ] RegQueryValueExW    @ AB9B    Retarget    ProductID
+* [API ] RegQueryValueExW    @ ABD9    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs       @ 0ECF    Nothing
+* [API ] TimeQueryAPIs       @ E7FB    Nothing
+
+[Manual annotations]
+====================

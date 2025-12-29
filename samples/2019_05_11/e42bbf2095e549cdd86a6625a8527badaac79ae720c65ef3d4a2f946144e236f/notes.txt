@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: e42bbf2095e549cdd86a6625a8527badaac79ae720c65ef3d4a2f946144e236f
+MD5: f97d5085c432ed8cc1eec66350281218
+Year: 2019_05_11
+Family name: flystudio
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WSAStartup        @ 41CE
+* [API ] SetWindowsHookExA @ 8C9A
+* [API ] SetWindowsHookExA @ 5B1F
+* [API ] InternetOpenA     @ D74C
+* [API ] WinHttpOpen       @ 49E5
+* [API ] SetWindowsHookExA @ 41A0
+* [API ] WSAStartup        @ 5334
+* [API ] CreateFileA       @ 43DB
+* [API ] WriteFile         @ 4472
+* [API ] InternetConnectA  @ 3AF7
+* [API ] HttpOpenRequestA  @ 3B73
+* [API ] HttpSendRequestA  @ 3D58
+* [API ] InternetReadFile  @ 3E4B
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (3)]
+=======================================
+
+* [API ] CreateFileA        @ 43DB    Succeed
+* [API ] FindFirstFileA     @ A116    Nothing
+* [API ] FindFirstFileA     @ E488    Retarget    C:\Users\Student\*
+* [API ] GetCursorPos       @ F8D7    Nothing
+* [API ] GetLocalTime       @ 6113    Nothing
+* [API ] GetModuleFileNameA @ 7BA9    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 8D17    Nothing
+* [API ] GetModuleFileNameA @ B873    Nothing
+* [API ] GetModuleFileNameA @ FC1E    Nothing
+* [API ] GetSystemTime      @ 611D    Nothing
+* [API ] TimeDelayAPIs      @ 21C3    Retarget
+* [API ] TimeQueryAPIs      @ FB36    Retarget
+
+[Manual annotations]
+====================

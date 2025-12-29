@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: 4dcb4517aa28b64e241cab3575336d341243179c57f566abb0fc0ffdcad66297
+MD5: 5eff42172b4d7e7bbf0b51f695d22117
+Year: 2019_05_11
+Family name: blackv
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW  @ DC7A
+* [API ] CreateFileW  @ BEA5
+* [API ] NtCreateFile @ C5A0
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile @ BCA3
+* [API ] NtCreateFile @ B64F
+* [API ] NtCreateFile @ 2B8C
+* [API ] NtCreateFile @ 6B45
+* [API ] NtCreateFile @ A4CB
+* [API ] NtCreateFile @ C302
+* [API ] NtCreateFile @ 212E
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ B2C1    Nothing
+* [API ] CreateFileW        @ BEA5    Succeed     Not modified
+* [API ] CreateFileW        @ DC7A    Fail
+* [API ] GetModuleFileNameW @ DDA8    Nothing
+* [API ] NtCreateFile       @ 7BF0    Retarget    \??\Analysis
+* [API ] NtCreateFile       @ C5A0    Fail        Not modified
+* [API ] TimeQueryAPIs      @ B289    Retarget
+
+[Manual annotations]
+====================
+Unkown environmental needs

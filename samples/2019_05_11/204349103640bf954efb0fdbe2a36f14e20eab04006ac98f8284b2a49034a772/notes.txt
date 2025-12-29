@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 204349103640bf954efb0fdbe2a36f14e20eab04006ac98f8284b2a49034a772
+MD5: e4c49aa01863effe061b2137aa008ce2
+Year: 2019_05_11
+Family name: reconyc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Error in extracting files, please retry redownloading the aplication again (with typos)

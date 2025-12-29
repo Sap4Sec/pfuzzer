@@ -1,0 +1,86 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan-Banker.Win32.Danabot.gen-324ab39c8b37305834c9bd03cc798a9ac8d271d67d31bfd4d86550afd6f6611e
+MD5: 05b6a81150f411eb9f007d039f3801fd
+Year: 2023
+Family name: danabot
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW          @ 87DB
+* [API ] WriteFile            @ 96D3
+* [API ] WriteProcessMemory   @ 8212
+* [API ] CryptHashData        @ ECBA
+* [API ] CryptGetHashParam    @ ECD4
+* [API ] CryptGetHashParam    @ ED12
+* [API ] CryptDestroyHash     @ ED52
+* [API ] CryptReleaseContext  @ ED72
+* [API ] CreateThread         @ 9E67
+* [API ] ResumeThread         @ 53D5
+* [API ] CryptAcquireContextA @ C16C
+* [API ] CryptCreateHash      @ C1A6
+* [API ] CryptHashData        @ C1F1
+* [API ] CryptDeriveKey       @ C21F
+* [API ] CryptDecrypt         @ C273
+* [API ] CryptDestroyKey      @ C501
+* [API ] CryptDestroyHash     @ C51F
+* [API ] CryptReleaseContext  @ C53F
+* [API ] CreateProcessW       @ D5BE
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (12)]
+=======================================
+
+* [API ] CPUID              @ 7B17    Retarget    Missing
+* [API ] CreateFileW        @ 87DB    Fail
+* [API ] FindFirstFileW     @ AA6F    Fail
+* [API ] FindFirstFileW     @ D750    Retarget    C:\Users\Student\*
+* [API ] FindNextFileW      @ A12C    Retarget
+* [API ] GetFileAttributesW @ 3152    Fail
+* [API ] GetFileAttributesW @ 527A    Fail
+* [API ] GetFileAttributesW @ C583    Succeed
+* [API ] GetKeyboardLayout  @ FE3A    Nothing
+* [API ] GetLocalTime       @ 138E    Retarget    2017:8:5:19
+* [API ] GetLocalTime       @ 6031    Retarget    2017:8:5:19
+* [API ] GetModuleFileNameW @ 183D    Nothing
+* [API ] GetModuleFileNameW @ 4736    Retarget    C:\Windows\system32\
+* [API ] GetModuleFileNameW @ 7219    Nothing
+* [API ] GetModuleFileNameW @ C7EF    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameW @ D307    Nothing
+* [API ] GetModuleFileNameW @ D37A    Nothing
+* [API ] GetModuleFileNameW @ DA81    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameW @ DE92    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW @ E599    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetSystemInfo      @ 01ED    Nothing
+* [API ] GetSystemInfo      @ 06C8    Nothing
+* [API ] GetSystemInfo      @ 48D5    Retarget    Missing
+* [API ] GetSystemInfo      @ F471    Nothing
+* [API ] RegOpenKeyExW      @ 1AD6    Fail
+* [API ] RegOpenKeyExW      @ C0FB    Fail
+* [API ] RegOpenKeyExW      @ D3C3    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ D3E5    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ D403    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D421    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D43F    Succeed     Not modified
+* [API ] RegOpenKeyExW      @ D45D    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW      @ DEDB    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DEFD    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DF1B    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DF39    Fail        Not modified
+* [API ] RegOpenKeyExW      @ DF57    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW      @ DF75    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExW   @ 000E    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 220E    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW   @ 2808    Nothing
+* [API ] TimeDelayAPIs      @ 20F7    Nothing
+* [API ] TimeQueryAPIs      @ 7259    Nothing
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.

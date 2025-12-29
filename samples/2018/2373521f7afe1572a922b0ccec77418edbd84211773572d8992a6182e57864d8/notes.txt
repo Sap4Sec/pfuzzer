@@ -1,0 +1,75 @@
+[Basic information]
+=========================================================================
+SHA-256: 2373521f7afe1572a922b0ccec77418edbd84211773572d8992a6182e57864d8
+MD5: 7cfc9b61ec7bc612abbd37146182edcc
+Year: 2018
+Family name: oxypumper
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW        @ BD44
+* [API ] WriteFile          @ 1396
+* [API ] RegSetValueExW     @ 103C
+* [API ] RegCreateKeyW      @ 10E3
+* [API ] RegSetValueExW     @ 10FE
+* [API ] RegSetValueExW     @ 11C0
+* [API ] RegSetValueExW     @ 127B
+* [API ] WinHttpOpen        @ 6229
+* [API ] WinHttpConnect     @ 63A3
+* [API ] WinHttpOpenRequest @ 63EB
+* [API ] WinHttpSendRequest @ 66D3
+* [API ] WinHttpReadData    @ 705E
+* [API ] RegCreateKeyW      @ 34A8
+* [API ] RegSetValueExW     @ 34C7
+* [API ] CreateFileW        @ 400E
+* [API ] CreateFileW        @ 2E8A
+* [API ] CreateFileW        @ 430A
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyW      @ 11A5
+* [API ] RegCreateKeyW      @ 1260
+* [API ] RegCreateKeyW      @ 101B
+
+[Mutations applied in the best run (34)]
+=======================================
+
+* [API ] CPUID                @ 39ED    Nothing
+* [API ] CreateFileW          @ 2E8A    Succeed     Not modified
+* [API ] CreateFileW          @ 400E    Succeed     Not modified
+* [API ] CreateFileW          @ 430A    Succeed
+* [API ] CreateFileW          @ BD44    Retarget    C:\Users\student\Desktop\server.exe
+* [API ] GetComputerNameExW   @ 2FC8    Retarget    Office
+* [API ] GetComputerNameExW   @ 316D    Nothing
+* [API ] GetComputerNameExW   @ 31E2    Retarget    testuser
+* [API ] GetComputerNameExW   @ 4415    Nothing
+* [API ] GetFileAttributesExW @ 176E    Fail
+* [API ] GetModuleFileNameW   @ D5D7    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetSystemTime        @ 7872    Retarget    2015:12:6:15
+* [API ] Process32FirstW      @ AF4B    Nothing
+* [API ] Process32NextW       @ AFB3    Retarget
+* [API ] RegEnumKeyExW        @ 449E    Nothing
+* [API ] RegEnumKeyExW        @ AE22    Nothing
+* [API ] RegOpenKeyExW        @ 43B4    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ 9CB0    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ AD3C    Fail
+* [API ] RegOpenKeyW          @ 0DB4    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyW          @ 0FFA    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyW          @ 10C8    Fail
+* [API ] RegOpenKeyW          @ 118A    Succeed     Not modified
+* [API ] RegOpenKeyW          @ 1245    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyW          @ 32B6    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyW          @ 3489    Succeed     Not modified
+* [API ] RegOpenKeyW          @ 9A29    Fail
+* [API ] RegQueryValueExW     @ 0DDE    Nothing
+* [API ] RegQueryValueExW     @ 32D5    Nothing
+* [API ] TimeQueryAPIs        @ 2551    Nothing
+
+[Manual annotations]
+====================
+Queries WMI AntiVirusProduct for displayName

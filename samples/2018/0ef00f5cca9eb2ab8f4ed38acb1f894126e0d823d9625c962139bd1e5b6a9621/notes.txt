@@ -1,0 +1,58 @@
+[Basic information]
+=========================================================================
+SHA-256: 0ef00f5cca9eb2ab8f4ed38acb1f894126e0d823d9625c962139bd1e5b6a9621
+MD5: 68546ac106a69e9c375c9992083147ce
+Year: 2018
+Family name: SINGLETON:68546ac106a69e9c375c9992083147ce
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ AB51
+* [API ] LoadResource     @ AB69
+* [API ] FindResourceA    @ ABE5
+* [API ] CreateFileW      @ AD80
+* [API ] RegCreateKeyExA  @ DDBE
+* [API ] CreateFileW      @ 108A
+* [API ] GetAsyncKeyState @ 5A3F
+* [API ] GetKeyState      @ F72E
+* [API ] GetKeyState      @ F737
+* [API ] GetKeyState      @ F740
+* [API ] GetKeyState      @ F749
+* [API ] GetKeyState      @ 6B0B
+* [API ] GetKeyState      @ 6B1D
+* [API ] GetKeyState      @ 6B2F
+* [API ] GetKeyState      @ 6B41
+* [API ] GetKeyState      @ 6B4A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID               @ E0DA    Nothing
+* [API ] CreateFileW         @ 108A    Fail        Not modified
+* [API ] CreateFileW         @ AD80    Succeed     Not modified
+* [API ] CreateMutexW        @ 1203    Fail
+* [API ] FindFirstFileW      @ D12E    Nothing
+* [API ] GetCursorPos        @ E920    Retarget    Missing
+* [API ] GetFileAttributesW  @ DEDB    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetFileAttributesW  @ E0D7    Fail
+* [API ] GetForegroundWindow @ 8C88    Retarget    Missing
+* [API ] GetForegroundWindow @ 9CD9    Nothing
+* [API ] GetForegroundWindow @ AE4B    Nothing
+* [API ] GetModuleFileNameA  @ CB18    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameW  @ 2A02    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW  @ AD63    Nothing
+* [API ] GetUserDefaultLCID  @ A757    Nothing
+* [API ] RegQueryValueExA    @ E8F3    Retarget    SystemBiosDate
+* [API ] RegQueryValueExW    @ E9F7    Nothing
+* [API ] RegQueryValueExW    @ EAA6    Retarget    SystemBiosDate
+* [API ] TimeQueryAPIs       @ CF51    Nothing
+
+[Manual annotations]
+====================

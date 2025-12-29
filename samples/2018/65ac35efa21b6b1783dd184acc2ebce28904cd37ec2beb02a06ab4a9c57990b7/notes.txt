@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: 65ac35efa21b6b1783dd184acc2ebce28904cd37ec2beb02a06ab4a9c57990b7
+MD5: a347fbad15fccfaac1150b43359c98dd
+Year: 2018
+Family name: socks
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateThread     @ F2C8
+* [API ] CreateThread     @ F36E
+* [API ] CreateThread     @ F385
+* [API ] CreateThread     @ F39C
+* [API ] CreateProcessA   @ D3DD
+* [PERS] SOFTWARE\Microsoft\Windows
+* [API ] RegSetValueExA   @ CAAF
+* [API ] CopyFileA        @ D353
+* [API ] CopyFileA        @ D37F
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run\
+* [API ] InternetOpenA    @ D5B9
+* [API ] InternetOpenUrlA @ D5DF
+
+Fuzzing Findings
+----------------
+* [API ] CreateThread     @ F313
+* [API ] InternetReadFile @ D60D
+* [API ] InternetOpenA    @ D4A5
+* [API ] InternetOpenUrlA @ D4CF
+* [API ] InternetReadFile @ D520
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateMutexA         @ F2D7    Fail
+* [API ] GetModuleFileNameA   @ D09F    Retarget    C:\Windows\360Safe\deepscan\ZhuDongFangYu.exe
+* [API ] GetModuleFileNameExA @ DA91    Nothing
+* [API ] GetModuleFileNameExA @ DF77    Nothing
+* [API ] Process32First       @ DA2C    Nothing
+* [API ] Process32First       @ DF03    Nothing
+* [API ] Process32Next        @ DD4F    Retarget
+* [API ] Process32Next        @ E0FC    Retarget
+* [API ] RegOpenKeyA          @ CA8C    Succeed     Not modified
+* [API ] TimeDelayAPIs        @ F2AE    Nothing
+* [API ] TimeQueryAPIs        @ F28C    Nothing
+
+[Manual annotations]
+====================

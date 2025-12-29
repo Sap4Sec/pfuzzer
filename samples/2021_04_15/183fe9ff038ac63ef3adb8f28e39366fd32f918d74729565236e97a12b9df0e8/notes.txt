@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: 183fe9ff038ac63ef3adb8f28e39366fd32f918d74729565236e97a12b9df0e8
+MD5: 5bc82fa40fcb5e22b097a061557b4931
+Year: 2021_04_15
+Family name: orbus
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ A19F
+* [API ] OpenServiceW         @ A1B9
+* [API ] CryptAcquireContextW @ 7B7E
+* [API ] CryptGenRandom       @ 7B93
+* [API ] CryptReleaseContext  @ 7BA8
+* [API ] CreateFileW          @ C31C
+* [API ] CreateFileW          @ C593
+* [API ] WriteFile            @ C5AD
+* [API ] CreateProcessW       @ CE79
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (13)]
+=======================================
+
+* [API ] CreateFileW        @ C31C    Succeed     Not modified
+* [API ] CreateFileW        @ C593    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetComputerNameA   @ CB5A    Retarget    Office
+* [API ] GetModuleFileNameW @ 6C61    Nothing
+* [API ] GetModuleFileNameW @ CD50    Nothing
+* [API ] GetUserNameA       @ 6019    Retarget    Office
+
+[Manual annotations]
+====================

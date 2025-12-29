@@ -1,0 +1,95 @@
+[Basic information]
+=========================================================================
+SHA-256: 50dc5bc16ee119e57fdee2abbc287767adee727ae39400b4b717996fc5457cc5
+MD5: 1348cad0ce857e1e208d3516a8b834f3
+Year: 2019_05_11
+Family name: immultipass
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA          @ 23B3
+* [API ] CreateFileA          @ A800
+* [API ] WriteFile            @ A821
+* [API ] WriteFile            @ A835
+* [API ] WriteFile            @ A849
+* [API ] WriteFile            @ A85D
+* [API ] WriteFile            @ A871
+* [API ] WriteFile            @ A885
+* [API ] WriteFile            @ A899
+* [API ] WriteFile            @ A8B5
+* [API ] CreateProcessA       @ 365A
+* [API ] ReadProcessMemory    @ 36B3
+* [API ] NtUnmapViewOfSection @ 36C8
+* [API ] VirtualAllocEx       @ 3704
+* [API ] WriteProcessMemory   @ 372D
+* [API ] WriteProcessMemory   @ 3776
+* [API ] WriteProcessMemory   @ 37C1
+* [API ] SetThreadContext     @ 37E4
+* [API ] ResumeThread         @ 3816
+* [API ] CopyFileA            @ 00A6
+* [API ] CopyFileA            @ 00C4
+* [API ] CopyFileA            @ 00E2
+* [API ] CopyFileA            @ 0100
+* [API ] CreateFileW          @ 5C73
+* [API ] WriteFile            @ CF9E
+* [API ] WSAStartup           @ 5F6E
+* [API ] inet_addr            @ 26CF
+* [API ] socket               @ 26FC
+* [API ] connect              @ 2711
+* [API ] recv                 @ 1F6E
+* [API ] send                 @ 1E93
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (18)]
+=======================================
+
+* [API ] CPUID              @ 7012    Nothing
+* [API ] CreateFileA        @ 23B3    Succeed
+* [API ] CreateFileA        @ A800    Retarget    Detect It Easy.lnk
+* [API ] CreateFileW        @ 5C73    Fail
+* [API ] CreateMutexA       @ 0A9C    Retarget    vscode
+* [API ] GetComputerNameA   @ 0195    Nothing
+* [API ] GetComputerNameA   @ 258A    Retarget    Office
+* [API ] GetLocalTime       @ 28AC    Nothing
+* [API ] GetModuleFileNameA @ 0895    Nothing
+* [API ] GetModuleFileNameA @ 0B95    Nothing
+* [API ] GetModuleFileNameA @ 0D2C    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 7741    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ A834    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ B97D    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ FFDC    Nothing
+* [API ] GetUserNameA       @ 0773    Nothing
+* [API ] RegEnumKeyExA      @ 1B69    Nothing
+* [API ] RegOpenKeyA        @ C10B    Fail        Not modified
+* [API ] RegOpenKeyA        @ C630    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 11A6    Fail
+* [API ] RegOpenKeyExA      @ 197D    Succeed
+* [API ] RegOpenKeyExA      @ 1BCD    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ 1BF8    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExA      @ 1C24    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 1D12    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ C0CE    Succeed
+* [API ] RegOpenKeyExA      @ C521    Fail        Not modified
+* [API ] RegOpenKeyExA      @ C5F3    Succeed
+* [API ] RegOpenKeyExA      @ DAEB    Succeed
+* [API ] RegOpenKeyExA      @ E38E    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExA      @ F7F9    Fail        Not modified
+* [API ] RegQueryValueExA   @ 11C1    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 1994    Nothing
+* [API ] RegQueryValueExA   @ 1D29    Nothing
+* [API ] RegQueryValueExA   @ C129    Nothing
+* [API ] RegQueryValueExA   @ C64E    Retarget    ProductID
+* [API ] RegQueryValueExA   @ DB11    Retarget    SystemBiosDate
+* [API ] TimeDelayAPIs      @ 0092    Nothing
+* [API ] TimeQueryAPIs      @ 7C25    Nothing
+
+[Manual annotations]
+====================
+Additional activity observed involving a RegOpenKey call --- initially seemed irrelevant, but the new configuration may indicate potential log file creation paths.
+Also noted: the sample attempts evasion using GetUserName at 0x440773, but this check did not trigger in our analysis environment.

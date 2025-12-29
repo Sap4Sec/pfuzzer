@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 02472e9c47138069fc10ceaeb0afdbdb8fc6a8b3860f84614384a2ff9bdde4f3
+MD5: 4cb866ebba937b37104ef83c38fcf08a
+Year: 2018
+Family name: agentb
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ 1FEC
+* [API ] WriteFile      @ 649E
+* [API ] CreateProcessA @ 8EED
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (116)]
+=======================================
+
+* [API ] CPUID              @ 5017    Nothing
+* [API ] CreateFileW        @ 1FEC    Retarget    Detect It Easy.lnk
+* [API ] CreateMutexA       @ 98F6    Succeed
+* [API ] CreateMutexA       @ 9926    Retarget    vscode
+* [API ] GetModuleFileNameA @ 8DFE    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 8E55    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] Process32First     @ B4A0    Nothing
+* [API ] Process32First     @ B5D3    Nothing
+* [API ] Process32Next      @ B4BF    Retarget
+* [API ] Process32Next      @ B539    Retarget
+* [API ] Process32Next      @ B5EA    Retarget
+* [API ] Process32Next      @ B6BE    Retarget
+* [API ] TimeDelayAPIs      @ 6C53    Nothing
+* [API ] TimeQueryAPIs      @ BA7D    Nothing
+
+[Manual annotations]
+====================

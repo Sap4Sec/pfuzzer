@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: 6751cde736ae4c0d3328d532c2a3d60c0ab3c97e31130866efbdeb7cc16a855b
+MD5: 4801bfda2999c06344a817cd94e0c015
+Year: 2018
+Family name: ramnit
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: d3dx9_43.dll, fmod_event_net.dl, fmod_event.dll, fmodex.dlll --- probably a game

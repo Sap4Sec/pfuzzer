@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: Backdoor.Win32.Farfli.cejj-bb10d1876255ac5c7beb971b9c3f748976eef78067690392f36e698939331ac1
+MD5: 53460de37325b4979177f832ae51f9de
+Year: 2022
+Family name: farfli
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW   @ C1F3
+* [API ] CreateFileW   @ 64E8
+* [API ] NtCreateFile  @ E17B
+* [API ] ShellExecuteA @ 1C6A
+
+Fuzzing Findings
+----------------
+* [API ] NtCreateFile  @ A46C
+* [API ] NtCreateFile  @ 2511
+* [API ] NtCreateFile  @ 0063
+* [API ] NtCreateFile  @ 3E09
+* [API ] NtCreateFile  @ CEE4
+* [API ] NtCreateFile  @ 5F52
+
+[Mutations applied in the best run (14)]
+=======================================
+
+* [API ] CPUID         @ A1A0    Retarget    Missing
+* [API ] CreateFileW   @ 64E8    Succeed     Not modified
+* [API ] CreateFileW   @ C1F3    Retarget    Detect It Easy.lnk
+* [API ] NtCreateFile  @ E17B    Succeed     Not modified
+* [API ] TimeQueryAPIs @ 72F4    Nothing
+
+[Manual annotations]
+====================

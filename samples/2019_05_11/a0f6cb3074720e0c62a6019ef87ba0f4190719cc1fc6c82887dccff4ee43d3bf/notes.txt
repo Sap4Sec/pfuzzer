@@ -1,0 +1,41 @@
+[Basic information]
+=========================================================================
+SHA-256: a0f6cb3074720e0c62a6019ef87ba0f4190719cc1fc6c82887dccff4ee43d3bf
+MD5: 673a74c3928281f62be780e19cbf8360
+Year: 2019_05_11
+Family name: SINGLETON:673a74c3928281f62be780e19cbf8360
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA @ 24FA
+* [API ] WriteFile   @ 259D
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (11)]
+=======================================
+
+* [API ] CreateFileA        @ 24FA    Succeed     Not modified
+* [API ] CreateFileA        @ 570F    Succeed     Not modified
+* [API ] FindFirstFileA     @ 23AF    Fail
+* [API ] FindFirstFileA     @ 570F    Nothing
+* [API ] FindNextFileA      @ 570F    Retarget
+* [API ] GetComputerNameA   @ 570F    Nothing
+* [API ] GetLocalTime       @ 570F    Retarget    2010:1:1:2
+* [API ] GetModuleFileNameA @ 101E    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 570F    Retarget    C:\Windows\explorer.exe
+* [API ] GetUserNameA       @ 570F    Retarget    Office
+* [API ] Process32First     @ 570F    Nothing
+* [API ] Process32Next      @ 570F    Retarget
+* [API ] RegOpenKeyExA      @ 570F    Fail        Not modified
+* [API ] RegQueryValueExA   @ 570F    Nothing
+* [API ] TimeDelayAPIs      @ 570F    Retarget
+
+[Manual annotations]
+====================
+Malicious activity occurs in the recap section at the end of the baseline. It calls APIs from the same address repeatedly, and during trace creation, these addresses are suppressed after being seen twice.

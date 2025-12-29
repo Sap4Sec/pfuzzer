@@ -1,0 +1,69 @@
+[Basic information]
+=========================================================================
+SHA-256: 60c82a9266b27982fd63af56b3b92033bdc9c900461e78c6fad05ae538fab448
+MD5: b23363f5652dfa9a01f562993adca951
+Year: 2019_05_11
+Family name: rebhip
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA      @ 4478
+* [API ] LoadResource       @ 4494
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA        @ 5833
+* [API ] CreateFileA        @ 586F
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell
+* [API ] CopyFileA          @ 6D9A
+* [API ] RegCreateKeyA      @ 5C97
+* [API ] RegSetValueExA     @ 5CBF
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegCreateKeyExA    @ 6912
+* [API ] RegSetValueExA     @ 6966
+* [API ] CreateFileA        @ 5DBB
+* [API ] WriteFile          @ 5DE9
+* [API ] VirtualAllocEx     @ 418B
+* [API ] VirtualAllocEx     @ 382D
+* [API ] WriteProcessMemory @ 384F
+* [API ] VirtualAllocEx     @ 3897
+* [API ] WriteProcessMemory @ 38A3
+* [API ] CreateRemoteThread @ 38EF
+* [API ] WriteProcessMemory @ 41CD
+* [API ] CreateProcessA     @ B8D8
+* [API ] CreateProcessA     @ B467
+* [API ] CopyFileA          @ 6DEF
+
+[Mutations applied in the best run (37)]
+=======================================
+
+* [API ] CreateFileA        @ 5833    Retarget    Backup.txt
+* [API ] CreateFileA        @ 586F    Retarget    C:\Windows\explorer.exe
+* [API ] CreateFileA        @ 5DBB    Retarget    Backup.txt
+* [API ] CreateMutexA       @ 3583    Retarget    vscode
+* [API ] FindFirstFileA     @ 5D3E    Succeed
+* [API ] FindWindowA        @ B879    Succeed
+* [API ] GetFileAttributesA @ 5A78    Succeed
+* [API ] GetFileAttributesA @ 6670    Fail
+* [API ] GetModuleFileNameA @ 13CD    Retarget    C:\Windows\system32\
+* [API ] GetUserNameA       @ 55A8    Retarget    John
+* [API ] Process32Next      @ 50E3    Retarget
+* [API ] RegOpenKeyExA      @ 5351    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 5409    Fail
+* [API ] RegOpenKeyExA      @ 54C1    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 60E2    Succeed     Not modified
+* [API ] RegOpenKeyExA      @ 69FF    Succeed     Not modified
+* [API ] RegQueryValueExA   @ 537A    Nothing
+* [API ] RegQueryValueExA   @ 5432    Retarget    ProductID
+* [API ] RegQueryValueExA   @ 54EA    Nothing
+* [API ] RegQueryValueExA   @ 6106    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 6130    Nothing
+* [API ] TimeDelayAPIs      @ BF31    Retarget
+* [API ] TimeQueryAPIs      @ B24A    Retarget
+
+[Manual annotations]
+====================

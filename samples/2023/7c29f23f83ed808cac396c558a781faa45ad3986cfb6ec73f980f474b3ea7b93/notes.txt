@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: HEUR-Trojan.Win32.Generic-7c29f23f83ed808cac396c558a781faa45ad3986cfb6ec73f980f474b3ea7b93
+MD5: 53f1a63bcf7a8ad3f092419ac1d359d1
+Year: 2023
+Family name: antavmu
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA     @ 33CC
+* [API ] WriteFile       @ 3169
+* [API ] RegCreateKeyExA @ 6C33
+* [PERS] Software\Microsoft\Windows\CurrentVersion\Run
+* [API ] RegSetValueExA  @ 6DF6
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (32)]
+=======================================
+
+* [API ] CreateFileA        @ 33CC    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] FindFirstFileA     @ B418    Succeed
+* [API ] GetModuleFileNameA @ 564F    Retarget    C:\Users\student\Desktop\config.cfg
+* [API ] GetModuleFileNameA @ 58E0    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameA @ 7855    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameA @ 90F2    Nothing
+* [API ] RegOpenKeyExA      @ 58FE    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 591C    Fail        Not modified
+* [API ] RegOpenKeyExA      @ 593A    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExA   @ 5983    Retarget    SystemBiosDate
+* [API ] RegQueryValueExA   @ 59A1    Retarget    ProductID
+
+[Manual annotations]
+====================

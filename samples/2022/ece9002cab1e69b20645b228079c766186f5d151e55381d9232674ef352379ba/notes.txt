@@ -1,0 +1,25 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Mansabo.hjw-ece9002cab1e69b20645b228079c766186f5d151e55381d9232674ef352379ba
+MD5: bf82daaa0ef45f67087102f3df127198
+Year: 2022
+Family name: SINGLETON:bf82daaa0ef45f67087102f3df127198
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+* [API ] CryptAcquireContextA @ E3A9
+* [API ] CreatePipe           @ DD27
+* [API ] CreateProcessA       @ DDCA
+
+[Mutations applied in the best run (3)]
+=======================================
+
+[Manual annotations]
+====================

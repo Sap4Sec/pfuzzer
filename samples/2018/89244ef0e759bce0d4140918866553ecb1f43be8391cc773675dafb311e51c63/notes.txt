@@ -1,0 +1,34 @@
+[Basic information]
+=========================================================================
+SHA-256: 89244ef0e759bce0d4140918866553ecb1f43be8391cc773675dafb311e51c63
+MD5: f501af09ad3ef3947a1905575bd8d781
+Year: 2018
+Family name: filerepsnxclass
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceA    @ 12AB
+* [API ] LoadResource     @ 12BD
+* [API ] CreateFileA      @ 12E9
+* [API ] WriteFile        @ 136A
+
+Fuzzing Findings
+----------------
+* [API ] CreateFileA      @ 1301
+* [API ] OpenFileMappingA @ 16C1
+
+[Mutations applied in the best run (4)]
+=======================================
+
+* [API ] CreateFileA        @ 12E9    Fail
+* [API ] FindWindowA        @ 16AE    Succeed
+* [API ] GetModuleFileNameA @ 10C4    Nothing
+* [API ] GetModuleFileNameA @ 1C1E    Retarget    C:\Users\student\Desktop\config.cfg
+
+[Manual annotations]
+====================
+Requires command line arguments to proceed (-load, -unload, others)

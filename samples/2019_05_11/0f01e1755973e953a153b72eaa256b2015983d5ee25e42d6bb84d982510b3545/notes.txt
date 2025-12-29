@@ -1,0 +1,43 @@
+[Basic information]
+=========================================================================
+SHA-256: 0f01e1755973e953a153b72eaa256b2015983d5ee25e42d6bb84d982510b3545
+MD5: bfbd370ba20d2c6c4aeaf40b5a6b1194
+Year: 2019_05_11
+Family name: softpulse
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] FindResourceW        @ 53EB
+* [API ] LoadResource         @ 5460
+* [API ] CreateProcessA       @ 3998
+* [API ] ReadProcessMemory    @ 561D
+* [API ] NtUnmapViewOfSection @ 5675
+* [API ] VirtualAllocEx       @ 3346
+* [API ] WriteProcessMemory   @ 6A76
+* [API ] WriteProcessMemory   @ 6AE5
+* [API ] WriteProcessMemory   @ 6B1A
+* [API ] SetThreadContext     @ 5A74
+* [API ] ResumeThread         @ 587A
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (181)]
+=======================================
+
+* [API ] CPUID              @ E01C    Retarget    Missing
+* [API ] GetModuleFileNameA @ 3945    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] GetModuleFileNameA @ 5451    Nothing
+* [API ] GetModuleFileNameW @ 1B63    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ 1B77    Nothing
+* [API ] GetModuleFileNameW @ DA94    Nothing
+* [API ] RegOpenKeyExW      @ 5CF7    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegQueryValueExW   @ 42F3    Retarget    ProductID
+* [API ] RegQueryValueExW   @ 4324    Retarget    ProductID
+
+[Manual annotations]
+====================

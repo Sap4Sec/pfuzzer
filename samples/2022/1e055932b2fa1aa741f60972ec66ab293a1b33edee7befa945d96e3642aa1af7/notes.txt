@@ -1,0 +1,38 @@
+[Basic information]
+=========================================================================
+SHA-256: Trojan.Win32.Agent2.mml-1e055932b2fa1aa741f60972ec66ab293a1b33edee7befa945d96e3642aa1af7
+MD5: afdddd015ff8f13f2df7bbc3588557d0
+Year: 2022
+Family name: upatre
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ A19F
+* [API ] OpenServiceW         @ A1B9
+* [API ] CryptAcquireContextW @ 7B7E
+* [API ] CryptGenRandom       @ 7B93
+* [API ] CryptReleaseContext  @ 7BA8
+* [API ] CreateFileW          @ C31C
+* [API ] CreateFileW          @ C593
+* [API ] WriteFile            @ C5AD
+* [API ] CreateProcessW       @ CE79
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (13)]
+=======================================
+
+* [API ] CreateFileW        @ C31C    Succeed     Not modified
+* [API ] CreateFileW        @ C593    Succeed     Not modified
+* [API ] GetComputerNameA   @ CB5A    Nothing
+* [API ] GetModuleFileNameW @ 6C61    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW @ CD50    Nothing
+* [API ] GetUserNameA       @ 6019    Nothing
+
+[Manual annotations]
+====================

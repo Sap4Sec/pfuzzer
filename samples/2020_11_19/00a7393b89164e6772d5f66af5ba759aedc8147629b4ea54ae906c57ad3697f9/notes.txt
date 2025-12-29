@@ -1,0 +1,39 @@
+[Basic information]
+=========================================================================
+SHA-256: 00a7393b89164e6772d5f66af5ba759aedc8147629b4ea54ae906c57ad3697f9
+MD5: 54d0f141d6f93939791c70f260782197
+Year: 2020_11_19
+Family name: salgorea
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] OpenSCManagerW       @ AB7B
+* [API ] OpenServiceW         @ AB94
+* [API ] CryptAcquireContextW @ 52EE
+* [API ] CryptGenRandom       @ 5302
+* [API ] CryptReleaseContext  @ 5317
+* [API ] CreateFileW          @ C7EB
+* [API ] CreateFileW          @ CA83
+* [API ] WriteFile            @ CAA2
+* [API ] CreateProcessW       @ D2EF
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (2)]
+=======================================
+
+* [API ] CPUID              @ A2EB    Retarget    Missing
+* [API ] CreateFileW        @ C7EB    Succeed     Not modified
+* [API ] CreateFileW        @ CA83    Retarget    ZhuDongFangYu.exe
+* [API ] GetComputerNameA   @ CFE8    Retarget    John
+* [API ] GetModuleFileNameW @ 7B29    Nothing
+* [API ] GetModuleFileNameW @ D1B7    Nothing
+* [API ] GetUserNameA       @ 3A47    Retarget    John
+
+[Manual annotations]
+====================

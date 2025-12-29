@@ -1,0 +1,40 @@
+[Basic information]
+=========================================================================
+SHA-256: 10ac4f70f7ea0e2f23ec0e05f5560a331cd636763ed6b2327a13f22e79df6e7f
+MD5: fbe71069d49418dac4265c033af87836
+Year: 2018
+Family name: maener
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileW    @ B383
+* [API ] WriteFile      @ 135E
+* [API ] CreateProcessA @ 4C4C
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (157)]
+=======================================
+
+* [API ] CPUID              @ FED7    Retarget    Missing
+* [API ] CreateFileW        @ B383    Retarget    Backup.txt
+* [API ] CreateMutexA       @ 57E9    Succeed
+* [API ] CreateMutexA       @ 5819    Retarget    vscode
+* [API ] GetModuleFileNameA @ 2B54    Nothing
+* [API ] GetModuleFileNameA @ 4BAF    Nothing
+* [API ] Process32First     @ 6760    Nothing
+* [API ] Process32First     @ 6893    Nothing
+* [API ] Process32Next      @ 677F    Retarget
+* [API ] Process32Next      @ 67F9    Retarget
+* [API ] Process32Next      @ 68AA    Retarget
+* [API ] Process32Next      @ 697E    Retarget
+* [API ] TimeDelayAPIs      @ 4623    Nothing
+* [API ] TimeQueryAPIs      @ 6B5D    Nothing
+
+[Manual annotations]
+====================

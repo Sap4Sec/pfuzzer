@@ -1,0 +1,51 @@
+[Basic information]
+=========================================================================
+SHA-256: 39c8cc7365471b1680110e78a2b851d107799316fe6c2571781998e43216d45a
+MD5: b9ee025d4256dab211ce0b4c0e213dad
+Year: 2018
+Family name: diplugem
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] CreateFileA        @ 4F91
+* [API ] CreateFileMappingA @ 4FB5
+* [API ] MapViewOfFile      @ 4FD8
+* [PERS] SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User
+* [API ] CreateFileA        @ 5258
+* [API ] WriteFile          @ 536E
+* [API ] CreateProcessW     @ 679D
+
+Fuzzing Findings
+----------------
+* [API ] MoveFileExA        @ 6026
+* [API ] MoveFileExA        @ 609C
+
+[Mutations applied in the best run (24)]
+=======================================
+
+* [API ] CPUID                    @ 152B    Retarget    Missing
+* [API ] CreateFileA              @ 4F91    Succeed     Not modified
+* [API ] CreateFileA              @ 5258    Succeed
+* [API ] CreateMutexA             @ 5BB1    Succeed
+* [API ] CreateMutexA             @ 5C5F    Retarget    ZonesCacheCounterMutex
+* [API ] CreateMutexA             @ 9CFE    Retarget    vscode
+* [API ] CreateMutexA             @ AB7A    Succeed
+* [API ] FindFirstFileA           @ A0E6    Retarget    C:\Users\Student\*
+* [API ] GetAdaptersInfo          @ ACB4    Retarget    Office
+* [API ] GetFileAttributesA       @ 9B40    Retarget    C:\Windows\system32\
+* [API ] GetLocalTime             @ 5683    Retarget    2000:6:4:30
+* [API ] GetModuleFileNameA       @ 4F2C    Nothing
+* [API ] GetModuleFileNameA       @ 5113    Retarget    C:\Users\student\AppData\Roaming\Microsoft\Protect\SETUP\
+* [API ] NtQuerySystemInformation @ 59FE    Nothing
+* [API ] NtQuerySystemInformation @ 5A43    Retarget    testuser
+* [API ] RegOpenKeyExA            @ A8CA    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegQueryValueExA         @ A936    Nothing
+* [API ] TimeDelayAPIs            @ 6260    Nothing
+* [API ] TimeQueryAPIs            @ 7588    Nothing
+
+[Manual annotations]
+====================

@@ -1,0 +1,48 @@
+[Basic information]
+=========================================================================
+SHA-256: 198c1c5992f6ed0f653c44c7ca5d4fd1917aba6d021c5545d7e217a7e16911c0
+MD5: eb7ce4a8de3d2c2738360286c1c21851
+Year: 2021_11_03
+Family name: kolabc
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] WinExec         @ 61DD
+* [API ] CopyFileA       @ 49DA
+* [API ] CreateFileA     @ 4A10
+* [API ] CreateFileA     @ 4A47
+* [API ] WriteFile       @ 4A78
+* [API ] WriteFile       @ 4AF1
+* [API ] CreateFileA     @ 4B11
+* [API ] WriteFile       @ 4B42
+* [API ] WriteFile       @ 4BC6
+* [API ] WriteFile       @ 4C08
+* [API ] CopyFileA       @ 4C45
+
+Fuzzing Findings
+----------------
+* [API ] RegCreateKeyExA @ 5AF4
+* [PERS] software\microsoft\windows\currentversion\run
+* [API ] RegSetValueExA  @ 5B0D
+* [API ] WSAStartup      @ 5B4D
+* [API ] socket          @ 58E1
+* [API ] inet_addr       @ 59A0
+* [API ] connect         @ 59C0
+
+[Mutations applied in the best run (13)]
+=======================================
+
+* [API ] CreateFileA        @ 4A10    Retarget    C:\Windows\system32\
+* [API ] CreateFileA        @ 4A47    Succeed
+* [API ] CreateFileA        @ 4B11    Retarget    Backup.txt
+* [API ] FindFirstFileA     @ 48F0    Nothing
+* [API ] FindFirstFileA     @ 4D8D    Nothing
+* [API ] FindNextFileA      @ 4930    Retarget
+* [API ] GetModuleFileNameA @ 2751    Retarget    C:\Users\student\Desktop\config.cfg
+
+[Manual annotations]
+====================

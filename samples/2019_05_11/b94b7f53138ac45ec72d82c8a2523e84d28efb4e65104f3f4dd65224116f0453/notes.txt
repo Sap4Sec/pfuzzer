@@ -1,0 +1,23 @@
+[Basic information]
+=========================================================================
+SHA-256: b94b7f53138ac45ec72d82c8a2523e84d28efb4e65104f3f4dd65224116f0453
+MD5: e182ff20cd04238f985cf30a18516d7e
+Year: 2019_05_11
+Family name: SINGLETON:e182ff20cd04238f985cf30a18516d7e
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (None)]
+=======================================
+
+[Manual annotations]
+====================
+Other dependencies: missing atl71.dll, d3dx9_30.dll, libvorbisfile.dll

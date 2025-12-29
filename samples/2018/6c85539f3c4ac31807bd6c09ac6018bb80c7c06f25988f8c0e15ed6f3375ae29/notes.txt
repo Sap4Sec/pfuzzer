@@ -1,0 +1,60 @@
+[Basic information]
+=========================================================================
+SHA-256: 6c85539f3c4ac31807bd6c09ac6018bb80c7c06f25988f8c0e15ed6f3375ae29
+MD5: 8b2c1fc6ee2b15693c1d9c2c7b97cd99
+Year: 2018
+Family name: installmonster
+=========================================================================
+
+[IoC Analysis Report]
+=====================
+
+Baseline Findings
+-----------------
+* [API ] GetKeyboardState @ 14AB
+* [API ] CreateFileW      @ 16D7
+* [API ] FindResourceW    @ 52E3
+* [API ] FindResourceW    @ 0ED8
+* [API ] LoadResource     @ 0EF2
+* [API ] CreateFileW      @ 5228
+* [API ] ShellExecuteW    @ 0493
+
+Fuzzing Findings
+----------------
+
+[Mutations applied in the best run (6)]
+=======================================
+
+* [API ] CPUID                @ 8B23    Nothing
+* [API ] CreateFileW          @ 16D7    Fail
+* [API ] CreateFileW          @ 5228    Succeed
+* [API ] FindFirstFileW       @ E624    Retarget    C:\*
+* [API ] GetAdaptersAddresses @ 0377    Retarget    testuser
+* [API ] GetKeyboardLayout    @ C0B2    Nothing
+* [API ] GetLocalTime         @ 249F    Nothing
+* [API ] GetModuleFileNameW   @ 6E05    Nothing
+* [API ] GetModuleFileNameW   @ D6BF    Retarget    C:\Windows\explorer.exe
+* [API ] GetModuleFileNameW   @ DC25    Nothing
+* [API ] GetModuleFileNameW   @ E24E    Retarget    C:\ProgramData\VMWareUser.exe
+* [API ] GetModuleFileNameW   @ E955    Nothing
+* [API ] GetSystemInfo        @ 086F    Retarget    Missing
+* [API ] GetSystemInfo        @ F399    Nothing
+* [API ] Process32FirstW      @ FA67    Nothing
+* [API ] Process32NextW       @ FB01    Retarget
+* [API ] RegEnumKeyExW        @ 8E0D    Retarget    Office
+* [API ] RegOpenKeyExW        @ 89CE    Succeed
+* [API ] RegOpenKeyExW        @ C7AB    Succeed
+* [API ] RegOpenKeyExW        @ E297    Fail        Not modified
+* [API ] RegOpenKeyExW        @ E2B9    Fail        Not modified
+* [API ] RegOpenKeyExW        @ E2D7    Succeed
+* [API ] RegOpenKeyExW        @ E2F5    Retarget    HARDWARE\KEY\PFUZZER
+* [API ] RegOpenKeyExW        @ E313    Retarget    SOFTWARE\GOOGLE\
+* [API ] RegOpenKeyExW        @ E331    Fail        Not modified
+* [API ] RegQueryValueExW     @ 9102    Nothing
+* [API ] RegQueryValueExW     @ 96F4    Nothing
+* [API ] TimeDelayAPIs        @ F0E4    Retarget
+* [API ] TimeQueryAPIs        @ 6E45    Retarget
+
+[Manual annotations]
+====================
+Additional activity observed, but it's just a RegOpenKey call — not relevant to the core behavior.
